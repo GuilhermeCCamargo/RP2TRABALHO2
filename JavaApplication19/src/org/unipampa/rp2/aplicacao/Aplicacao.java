@@ -5,10 +5,18 @@
  */
 package org.unipampa.rp2.aplicacao;
 
+import org.unipampa.rp2.frames.Inicial;
 /**
  *
  * @author yuryalencar
  */
 public class Aplicacao {
     
+    
+    public static void main(String[] args) {
+        
+        Inicial abrir = new Inicial();
+        abrir.setVisible(true);
+        
+    }
 }
