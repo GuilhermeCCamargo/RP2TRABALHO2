@@ -9,15 +9,15 @@ package org.unipampa.rp2.frames;
  *
  * @author yuryalencar
  */
-public class Inicial extends javax.swing.JFrame {
+public class SalaComercial extends javax.swing.JFrame {
 
     /**
-     * Creates new form Inicial
+     * Creates new form SalaComercial
      */
-    public Inicial() {
+    public SalaComercial() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setTitle("RP2 - Imobiliária");
+        this.setTitle("Imobiliária - Sala Comercial");
     }
 
     /**
@@ -29,53 +29,21 @@ public class Inicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelMenu = new javax.swing.JLabel();
-        jButtonSalaoComercial = new javax.swing.JButton();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabelMenu.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabelMenu.setText("IMÓVEIS");
-
-        jButtonSalaoComercial.setText("Sala Comercial");
-        jButtonSalaoComercial.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalaoComercialActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabelMenu)
-                .addGap(166, 166, 166))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jButtonSalaoComercial, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(41, Short.MAX_VALUE))
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabelMenu)
-                .addGap(27, 27, 27)
-                .addComponent(jButtonSalaoComercial)
-                .addContainerGap(211, Short.MAX_VALUE))
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonSalaoComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalaoComercialActionPerformed
-        // TODO add your handling code here:
-        SalaComercial abrir = new SalaComercial();
-        abrir.setVisible(true);
-        this.dispose();
-    }//GEN-LAST:event_jButtonSalaoComercialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -94,26 +62,24 @@ public class Inicial extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SalaComercial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SalaComercial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SalaComercial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Inicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(SalaComercial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inicial().setVisible(true);
+                new SalaComercial().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonSalaoComercial;
-    private javax.swing.JLabel jLabelMenu;
     // End of variables declaration//GEN-END:variables
 }
