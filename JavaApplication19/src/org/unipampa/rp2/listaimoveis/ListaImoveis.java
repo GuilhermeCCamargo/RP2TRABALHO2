@@ -5,6 +5,7 @@
  */
 package org.unipampa.rp2.listaimoveis;
 
+import org.unipampa.rp2.tiposimoveis.Imovel;
 import java.util.List;
 
 /**
