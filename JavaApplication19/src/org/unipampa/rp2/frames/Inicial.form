@@ -58,7 +58,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonSalaoComercial">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Sal&#xe3;o Comercial"/>
+        <Property name="text" type="java.lang.String" value="Sala Comercial"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSalaoComercialActionPerformed"/>

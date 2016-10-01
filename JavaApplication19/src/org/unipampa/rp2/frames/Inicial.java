@@ -17,6 +17,7 @@ public class Inicial extends javax.swing.JFrame {
     public Inicial() {
         initComponents();
         this.setLocationRelativeTo(null);
+        this.setTitle("RP2 - IMOBILIÁRIA");
     }
 
     /**
@@ -36,7 +37,7 @@ public class Inicial extends javax.swing.JFrame {
         jLabelMenu.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
         jLabelMenu.setText("IMÓVEIS");
 
-        jButtonSalaoComercial.setText("Salão Comercial");
+        jButtonSalaoComercial.setText("Sala Comercial");
         jButtonSalaoComercial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSalaoComercialActionPerformed(evt);

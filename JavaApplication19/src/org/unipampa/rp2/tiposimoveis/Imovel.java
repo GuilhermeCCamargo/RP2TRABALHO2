@@ -5,7 +5,11 @@
  */
 package org.unipampa.rp2.tiposimoveis;
 
+//<editor-fold defaultstate="collapsed" desc="Importações">
+
 import java.security.InvalidParameterException;
+
+//</editor-fold>
 
 /**
  *
@@ -13,12 +17,18 @@ import java.security.InvalidParameterException;
  */
 public abstract class Imovel {
     
-    protected static int cod = 0;
+    //<editor-fold defaultstate="collapsed" desc="Atributos">
+    
+    private static int codigo = 0;
     protected int numero;
     protected long areaTotal;
     protected double valor;
     protected String logradouro;
     protected String descricao;
+
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Construtor">
     
     /**
      * Construtor que recebe somente os itens mais importantes para a criação
@@ -31,23 +41,27 @@ public abstract class Imovel {
     public Imovel(int numero, double valor, String logradouro) {
         //@TODO: aqui acontece uma verificação para analisar se o número informado é
         //um número inteiro positivo, caso não 
-        if(numero < 0){
-            throw new InvalidParameterException("Número informado deve ser inteiro positivo");
+        if(numero < 0 || valor < 0){
+            throw new InvalidParameterException("Números informados devem ser inteiros positivos");
         }
         // @TODO: coloquei o código estático e com isso sempre que for cadastrado
         //um novo imóvel o código será incrementado.
-        Imovel.cod++; 
+        Imovel.codigo++; 
         
         this.numero = numero;
         this.valor = valor;
         this.logradouro = logradouro;
     }
+
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
     
     /**
-     * @return the cod
+     * @return the codigo
      */
-    public int getCod() {
-        return cod;
+    public int getCodigo() {
+        return codigo;
     }
 
     /**
@@ -119,5 +133,7 @@ public abstract class Imovel {
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
+
+    //</editor-fold>
     
 }
