@@ -20,10 +20,10 @@ public class SalaComercial extends Imovel{
     //<editor-fold defaultstate="collapsed" desc="Atributos">
     
     private int nroBanheiros;
-    private int andar; //
+    private int andar; 
     private int nroSala;
-    private double valorCondominio;//
-    private String nomeEdificio;//
+    private double valorCondominio;
+    private String nomeEdificio;
     
     //</editor-fold>
     
