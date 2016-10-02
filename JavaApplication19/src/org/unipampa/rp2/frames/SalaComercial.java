@@ -5,6 +5,8 @@
  */
 package org.unipampa.rp2.frames;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author yuryalencar
@@ -41,18 +43,20 @@ public class SalaComercial extends javax.swing.JFrame {
         jLabelCodigo = new javax.swing.JLabel();
         jSpinnerBuscaCodigoSalaComercial = new javax.swing.JSpinner();
         jButtonBuscaSalaComercial = new javax.swing.JButton();
+        jButtonEditarSalaComercial = new javax.swing.JButton();
+        jButtonExcluirSalaComercial = new javax.swing.JButton();
         jPanelAdicionar = new javax.swing.JPanel();
         jScrollPaneAdicionar = new javax.swing.JScrollPane();
         jPanelAdicionarHeranca = new javax.swing.JPanel();
         jPanelImovel = new javax.swing.JPanel();
-        jLabelAdicionarNumeroImovel = new javax.swing.JLabel();
-        jFormattedTextFieldAdicionarNumeroImovel = new javax.swing.JFormattedTextField();
-        jLabelAdicionarAreaTotalImovel = new javax.swing.JLabel();
-        jFormattedTextFieldAdicionarAreaTotalImovel = new javax.swing.JFormattedTextField();
-        jLabelAdicionarValorImovel = new javax.swing.JLabel();
-        jTextFieldAdicionarValorImovel = new javax.swing.JTextField();
-        jLabelAdicionarLogradouroImovel = new javax.swing.JLabel();
-        jTextFieldAdicionarLogradouroImovel = new javax.swing.JTextField();
+        jLabelNumeroImovel = new javax.swing.JLabel();
+        jFormattedTextFieldNumeroImovel = new javax.swing.JFormattedTextField();
+        jLabelAreaTotalImovel = new javax.swing.JLabel();
+        jFormattedTextFieldAreaTotalImovel = new javax.swing.JFormattedTextField();
+        jLabelValorImovel = new javax.swing.JLabel();
+        jTextFieldValorImovel = new javax.swing.JTextField();
+        jLabelLogradouroImovel = new javax.swing.JLabel();
+        jTextFieldLogradouroImovel = new javax.swing.JTextField();
         jTextFieldAdicionarDescricaoImovel = new javax.swing.JTextField();
         jLabelAdicionarDescricaoImovel = new javax.swing.JLabel();
         jPanelSalaComercial = new javax.swing.JPanel();
@@ -98,18 +102,29 @@ public class SalaComercial extends javax.swing.JFrame {
             }
         });
 
+        jButtonEditarSalaComercial.setText("Editar");
+        jButtonEditarSalaComercial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarSalaComercialActionPerformed(evt);
+            }
+        });
+
+        jButtonExcluirSalaComercial.setText("Excluir");
+
         javax.swing.GroupLayout jPanelConsultarLayout = new javax.swing.GroupLayout(jPanelConsultar);
         jPanelConsultar.setLayout(jPanelConsultarLayout);
         jPanelConsultarLayout.setHorizontalGroup(
             jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelConsultarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButtonVoltarInicial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonIncluirSalaComercial, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
+                .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonVoltarInicial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonIncluirSalaComercial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                    .addComponent(jButtonEditarSalaComercial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonExcluirSalaComercial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
                 .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneListarSalaComercial, javax.swing.GroupLayout.DEFAULT_SIZE, 372, Short.MAX_VALUE)
+                    .addComponent(jScrollPaneListarSalaComercial, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
                     .addGroup(jPanelConsultarLayout.createSequentialGroup()
                         .addComponent(jLabelCodigo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -132,6 +147,10 @@ public class SalaComercial extends javax.swing.JFrame {
                     .addGroup(jPanelConsultarLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
                         .addComponent(jButtonIncluirSalaComercial)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonEditarSalaComercial)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonExcluirSalaComercial)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonVoltarInicial)
@@ -140,25 +159,25 @@ public class SalaComercial extends javax.swing.JFrame {
 
         jTabbedPaneSalaComercial.addTab("Consultar", jPanelConsultar);
 
-        jLabelAdicionarNumeroImovel.setText("Número:* ");
+        jLabelNumeroImovel.setText("Número:* ");
 
         try {
-            jFormattedTextFieldAdicionarNumeroImovel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("######")));
+            jFormattedTextFieldNumeroImovel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("######")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
-        jLabelAdicionarAreaTotalImovel.setText("Área Total(m²): ");
+        jLabelAreaTotalImovel.setText("Área Total(m²): ");
 
         try {
-            jFormattedTextFieldAdicionarAreaTotalImovel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
+            jFormattedTextFieldAreaTotalImovel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("########")));
         } catch (java.text.ParseException ex) {
             ex.printStackTrace();
         }
 
-        jLabelAdicionarValorImovel.setText("Valor:* ");
+        jLabelValorImovel.setText("Valor:* ");
 
-        jLabelAdicionarLogradouroImovel.setText("Logradouro:* ");
+        jLabelLogradouroImovel.setText("Logradouro:* ");
 
         jLabelAdicionarDescricaoImovel.setText("Descrição: ");
 
@@ -170,25 +189,25 @@ public class SalaComercial extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelImovelLayout.createSequentialGroup()
-                        .addComponent(jLabelAdicionarValorImovel)
+                        .addComponent(jLabelValorImovel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldAdicionarValorImovel))
+                        .addComponent(jTextFieldValorImovel))
                     .addGroup(jPanelImovelLayout.createSequentialGroup()
-                        .addComponent(jLabelAdicionarNumeroImovel)
+                        .addComponent(jLabelNumeroImovel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFormattedTextFieldAdicionarNumeroImovel))
+                        .addComponent(jFormattedTextFieldNumeroImovel))
                     .addGroup(jPanelImovelLayout.createSequentialGroup()
-                        .addComponent(jLabelAdicionarAreaTotalImovel)
+                        .addComponent(jLabelAreaTotalImovel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jFormattedTextFieldAdicionarAreaTotalImovel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jFormattedTextFieldAreaTotalImovel, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelAdicionarDescricaoImovel)
-                    .addComponent(jLabelAdicionarLogradouroImovel))
+                    .addComponent(jLabelLogradouroImovel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jTextFieldAdicionarDescricaoImovel, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
-                    .addComponent(jTextFieldAdicionarLogradouroImovel))
+                    .addComponent(jTextFieldLogradouroImovel))
                 .addGap(2, 2, 2))
         );
         jPanelImovelLayout.setVerticalGroup(
@@ -197,21 +216,21 @@ public class SalaComercial extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelAdicionarNumeroImovel)
-                        .addComponent(jFormattedTextFieldAdicionarNumeroImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabelNumeroImovel)
+                        .addComponent(jFormattedTextFieldNumeroImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabelAdicionarLogradouroImovel)
-                        .addComponent(jTextFieldAdicionarLogradouroImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabelLogradouroImovel)
+                        .addComponent(jTextFieldLogradouroImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jFormattedTextFieldAdicionarAreaTotalImovel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelAdicionarAreaTotalImovel)
+                    .addComponent(jFormattedTextFieldAreaTotalImovel, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelAreaTotalImovel)
                     .addComponent(jTextFieldAdicionarDescricaoImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelAdicionarDescricaoImovel))
                 .addGap(18, 18, 18)
                 .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelAdicionarValorImovel)
-                    .addComponent(jTextFieldAdicionarValorImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelValorImovel)
+                    .addComponent(jTextFieldValorImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21))
         );
 
@@ -299,6 +318,11 @@ public class SalaComercial extends javax.swing.JFrame {
         });
 
         jButtonSalvar.setText("Salvar");
+        jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSalvarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelAdicionarHerancaLayout = new javax.swing.GroupLayout(jPanelAdicionarHeranca);
         jPanelAdicionarHeranca.setLayout(jPanelAdicionarHerancaLayout);
@@ -317,9 +341,9 @@ public class SalaComercial extends javax.swing.JFrame {
             jPanelAdicionarHerancaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelAdicionarHerancaLayout.createSequentialGroup()
                 .addComponent(jPanelImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jPanelSalaComercial, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addGroup(jPanelAdicionarHerancaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonVoltarConsultar)
                     .addComponent(jButtonSalvar))
@@ -390,6 +414,21 @@ public class SalaComercial extends javax.swing.JFrame {
         jTabbedPaneSalaComercial.setSelectedIndex(0);        
     }//GEN-LAST:event_jButtonVoltarConsultarActionPerformed
 
+    private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+        // TODO add your handling code here:
+        if(jTextFieldValorImovel.getText().trim().equals("") || 
+                jFormattedTextFieldNumeroImovel.getText().trim().equals("") ||
+                jTextFieldLogradouroImovel.getText().trim().equals("")){
+            
+            JOptionPane.showMessageDialog(null, "Preencha os campos obrigatórios(*)");
+        
+        }
+    }//GEN-LAST:event_jButtonSalvarActionPerformed
+
+    private void jButtonEditarSalaComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarSalaComercialActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonEditarSalaComercialActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -427,26 +466,28 @@ public class SalaComercial extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscaSalaComercial;
+    private javax.swing.JButton jButtonEditarSalaComercial;
+    private javax.swing.JButton jButtonExcluirSalaComercial;
     private javax.swing.JButton jButtonIncluirSalaComercial;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JButton jButtonVoltarConsultar;
     private javax.swing.JButton jButtonVoltarInicial;
     private javax.swing.JFormattedTextField jFormattedTextFieldAdicionarAndar;
-    private javax.swing.JFormattedTextField jFormattedTextFieldAdicionarAreaTotalImovel;
-    private javax.swing.JFormattedTextField jFormattedTextFieldAdicionarNumeroImovel;
     private javax.swing.JFormattedTextField jFormattedTextFieldAdicionarNumeroSalaSalaComercial;
+    private javax.swing.JFormattedTextField jFormattedTextFieldAreaTotalImovel;
     private javax.swing.JFormattedTextField jFormattedTextFieldNroBanheirosSalaComercial;
+    private javax.swing.JFormattedTextField jFormattedTextFieldNumeroImovel;
     private javax.swing.JLabel jLabelAdicionarAndarSalaComercial;
-    private javax.swing.JLabel jLabelAdicionarAreaTotalImovel;
     private javax.swing.JLabel jLabelAdicionarDescricaoImovel;
-    private javax.swing.JLabel jLabelAdicionarLogradouroImovel;
     private javax.swing.JLabel jLabelAdicionarNomeEdificioSalaComercial;
-    private javax.swing.JLabel jLabelAdicionarNumeroImovel;
-    private javax.swing.JLabel jLabelAdicionarValorImovel;
+    private javax.swing.JLabel jLabelAreaTotalImovel;
     private javax.swing.JLabel jLabelCodigo;
+    private javax.swing.JLabel jLabelLogradouroImovel;
     private javax.swing.JLabel jLabelNroBanheirosSalaComercial;
     private javax.swing.JLabel jLabelNroSalaSalaComercial;
+    private javax.swing.JLabel jLabelNumeroImovel;
     private javax.swing.JLabel jLabelValorCondomioSalaComercial;
+    private javax.swing.JLabel jLabelValorImovel;
     private javax.swing.JList<String> jListSalaComercial;
     private javax.swing.JPanel jPanelAdicionar;
     private javax.swing.JPanel jPanelAdicionarHeranca;
@@ -459,9 +500,9 @@ public class SalaComercial extends javax.swing.JFrame {
     private javax.swing.JTabbedPane jTabbedPaneSalaComercial;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldAdicionarDescricaoImovel;
-    private javax.swing.JTextField jTextFieldAdicionarLogradouroImovel;
     private javax.swing.JTextField jTextFieldAdicionarNomeEdificio;
     private javax.swing.JTextField jTextFieldAdicionarValorCondominioSalaComercial;
-    private javax.swing.JTextField jTextFieldAdicionarValorImovel;
+    private javax.swing.JTextField jTextFieldLogradouroImovel;
+    private javax.swing.JTextField jTextFieldValorImovel;
     // End of variables declaration//GEN-END:variables
 }

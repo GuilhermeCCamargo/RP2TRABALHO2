@@ -58,13 +58,15 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="jButtonVoltarInicial" max="32767" attributes="0"/>
-                          <Component id="jButtonIncluirSalaComercial" pref="77" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jButtonVoltarInicial" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jButtonIncluirSalaComercial" alignment="1" pref="77" max="32767" attributes="0"/>
+                          <Component id="jButtonEditarSalaComercial" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jButtonExcluirSalaComercial" alignment="1" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPaneListarSalaComercial" pref="372" max="32767" attributes="0"/>
+                          <Component id="jScrollPaneListarSalaComercial" pref="362" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jLabelCodigo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -92,6 +94,10 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Component id="jButtonIncluirSalaComercial" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButtonEditarSalaComercial" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButtonExcluirSalaComercial" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
@@ -153,6 +159,19 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscaSalaComercialActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="jButtonEditarSalaComercial">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Editar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditarSalaComercialActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonExcluirSalaComercial">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Excluir"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelAdicionar">
@@ -207,9 +226,9 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jPanelImovel" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jPanelSalaComercial" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="36" max="32767" attributes="0"/>
+                              <EmptySpace pref="24" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="3" attributes="0">
                                   <Component id="jButtonVoltarConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButtonSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -229,30 +248,30 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="jLabelAdicionarValorImovel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelValorImovel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jTextFieldAdicionarValorImovel" max="32767" attributes="0"/>
+                                          <Component id="jTextFieldValorImovel" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelAdicionarNumeroImovel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelNumeroImovel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jFormattedTextFieldAdicionarNumeroImovel" max="32767" attributes="0"/>
+                                          <Component id="jFormattedTextFieldNumeroImovel" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabelAdicionarAreaTotalImovel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelAreaTotalImovel" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="jFormattedTextFieldAdicionarAreaTotalImovel" min="-2" pref="66" max="-2" attributes="0"/>
+                                          <Component id="jFormattedTextFieldAreaTotalImovel" min="-2" pref="66" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabelAdicionarDescricaoImovel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelAdicionarLogradouroImovel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelLogradouroImovel" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="jTextFieldAdicionarDescricaoImovel" pref="124" max="32767" attributes="0"/>
-                                      <Component id="jTextFieldAdicionarLogradouroImovel" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldLogradouroImovel" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                               </Group>
@@ -264,25 +283,25 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabelAdicionarNumeroImovel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jFormattedTextFieldAdicionarNumeroImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelNumeroImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jFormattedTextFieldNumeroImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                                          <Component id="jLabelAdicionarLogradouroImovel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jTextFieldAdicionarLogradouroImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelLogradouroImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jTextFieldLogradouroImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jFormattedTextFieldAdicionarAreaTotalImovel" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
-                                      <Component id="jLabelAdicionarAreaTotalImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jFormattedTextFieldAreaTotalImovel" alignment="3" min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Component id="jLabelAreaTotalImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jTextFieldAdicionarDescricaoImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jLabelAdicionarDescricaoImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabelAdicionarValorImovel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldAdicionarValorImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelValorImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldValorImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               </Group>
@@ -290,43 +309,43 @@
                         </DimensionLayout>
                       </Layout>
                       <SubComponents>
-                        <Component class="javax.swing.JLabel" name="jLabelAdicionarNumeroImovel">
+                        <Component class="javax.swing.JLabel" name="jLabelNumeroImovel">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="N&#xfa;mero:* "/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldAdicionarNumeroImovel">
+                        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldNumeroImovel">
                           <Properties>
                             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                               <Format format="######" subtype="-1" type="5"/>
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabelAdicionarAreaTotalImovel">
+                        <Component class="javax.swing.JLabel" name="jLabelAreaTotalImovel">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="&#xc1;rea Total(m&#xb2;): "/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldAdicionarAreaTotalImovel">
+                        <Component class="javax.swing.JFormattedTextField" name="jFormattedTextFieldAreaTotalImovel">
                           <Properties>
                             <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
                               <Format format="########" subtype="-1" type="5"/>
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabelAdicionarValorImovel">
+                        <Component class="javax.swing.JLabel" name="jLabelValorImovel">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Valor:* "/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarValorImovel">
+                        <Component class="javax.swing.JTextField" name="jTextFieldValorImovel">
                         </Component>
-                        <Component class="javax.swing.JLabel" name="jLabelAdicionarLogradouroImovel">
+                        <Component class="javax.swing.JLabel" name="jLabelLogradouroImovel">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Logradouro:* "/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="jTextFieldAdicionarLogradouroImovel">
+                        <Component class="javax.swing.JTextField" name="jTextFieldLogradouroImovel">
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextFieldAdicionarDescricaoImovel">
                         </Component>
@@ -468,6 +487,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Salvar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSalvarActionPerformed"/>
+                      </Events>
                     </Component>
                   </SubComponents>
                 </Container>
