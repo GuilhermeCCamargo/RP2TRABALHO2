@@ -20,8 +20,9 @@ public abstract class Imovel {
     //<editor-fold defaultstate="collapsed" desc="Atributos">
     
     private static int codigo = 0;
+    protected int cod;
     protected int numero;
-    protected long areaTotal;
+    protected double areaTotal;
     protected double valor;
     protected String logradouro;
     protected String descricao;
@@ -46,6 +47,7 @@ public abstract class Imovel {
         }
         // @TODO: coloquei o código estático e com isso sempre que for cadastrado
         //um novo imóvel o código será incrementado.
+        this.cod = codigo;
         Imovel.codigo++; 
         
         this.numero = numero;
@@ -58,10 +60,10 @@ public abstract class Imovel {
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
     
     /**
-     * @return the codigo
+     * @return the cod
      */
-    public int getCodigo() {
-        return codigo;
+    public int getCod() {
+        return cod;
     }
 
     /**
@@ -81,14 +83,14 @@ public abstract class Imovel {
     /**
      * @return the areaTotal
      */
-    public long getAreaTotal() {
+    public double getAreaTotal() {
         return areaTotal;
     }
 
     /**
      * @param areaTotal the areaTotal to set
      */
-    public void setAreaTotal(long areaTotal) {
+    public void setAreaTotal(double areaTotal) {
         this.areaTotal = areaTotal;
     }
 

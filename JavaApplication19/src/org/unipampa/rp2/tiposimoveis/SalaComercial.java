@@ -64,7 +64,7 @@ public class SalaComercial extends Imovel{
      */
     public SalaComercial(int numero, double valor, String logradouro, 
             int nroBanheiros, int andar, int nroSala, double valorCondominio,
-            String nomeEdificio, long areaTotal, String descricao) {
+            String nomeEdificio, double areaTotal, String descricao) {
     
         this(numero, valor, logradouro);
         
@@ -154,6 +154,15 @@ public class SalaComercial extends Imovel{
      */
     public void setNomeEdificio(String nomeEdificio) {
         this.nomeEdificio = nomeEdificio;
+    }
+
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="toString">
+    
+    @Override
+    public String toString(){
+        return "Código: "+getCod()+" - "+"Nome do edifício: "+this.nomeEdificio;
     }
 
     //</editor-fold>

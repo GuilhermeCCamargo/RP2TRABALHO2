@@ -5,11 +5,15 @@
  */
 package org.unipampa.rp2.frames;
 
+import org.unipampa.rp2.listaimoveis.Lista;
+
 /**
  *
  * @author yuryalencar
  */
 public class Inicial extends javax.swing.JFrame {
+
+    private Lista listaSalaComercial = new Lista();
 
     /**
      * Creates new form Inicial
@@ -29,18 +33,18 @@ public class Inicial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelMenu = new javax.swing.JLabel();
-        jButtonSalaoComercial = new javax.swing.JButton();
+        jLabelImovel = new javax.swing.JLabel();
+        jButtonSalaComercial = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabelMenu.setFont(new java.awt.Font("Dialog", 1, 12)); // NOI18N
-        jLabelMenu.setText("IMÓVEIS");
+        jLabelImovel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabelImovel.setText("Imóveis");
 
-        jButtonSalaoComercial.setText("Sala Comercial");
-        jButtonSalaoComercial.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSalaComercial.setText("Sala Comercial");
+        jButtonSalaComercial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSalaoComercialActionPerformed(evt);
+                jButtonSalaComercialActionPerformed(evt);
             }
         });
 
@@ -49,34 +53,34 @@ public class Inicial extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabelMenu)
-                        .addGap(166, 166, 166))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonSalaoComercial, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(166, 166, 166)
+                        .addComponent(jLabelImovel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addComponent(jButtonSalaComercial, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jLabelMenu)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonSalaoComercial)
-                .addContainerGap(220, Short.MAX_VALUE))
+                .addGap(20, 20, 20)
+                .addComponent(jLabelImovel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonSalaComercial)
+                .addContainerGap(227, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonSalaoComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalaoComercialActionPerformed
+    private void jButtonSalaComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalaComercialActionPerformed
         // TODO add your handling code here:
-        SalaComercial abrir = new SalaComercial();
+        FrameSalaComercial abrir = new FrameSalaComercial(this.listaSalaComercial);
         abrir.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButtonSalaoComercialActionPerformed
+    }//GEN-LAST:event_jButtonSalaComercialActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,7 +118,7 @@ public class Inicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonSalaoComercial;
-    private javax.swing.JLabel jLabelMenu;
+    private javax.swing.JButton jButtonSalaComercial;
+    private javax.swing.JLabel jLabelImovel;
     // End of variables declaration//GEN-END:variables
 }

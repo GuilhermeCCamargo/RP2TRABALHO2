@@ -47,7 +47,7 @@ public class Lista implements ListaImoveis {
     public Imovel consultar(int codigo) {
         
         for (Imovel imovel : lista) {
-            if(codigo == imovel.getCodigo()){
+            if(codigo == imovel.getCod()){
                 return imovel;
             }
         }
