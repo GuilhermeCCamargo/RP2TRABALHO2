@@ -1,0 +1,39 @@
+Equipe de desenvolvimento: 
+
+GuilhermeCCamargo
+GustavoCarvalh0
+Vanderlanmengotti 
+Vitao375
+YuryLima
+
+Classes e Desenvolvedores Responsáveis:
+Sala Comercial => Yury Alencar Lima
+Casa => Vitor Hugo Maciel dos Santos
+Terreno => Vanderlan Mengotti
+Chácara => Gustavo Carvalho
+Apartamento => Guilherme Camargo
+
+Observações:
+
+Cada grupo deve desenvolver um sistema para gerenciamento de uma imobiliária
+invocando apenas a venda dos imóveis. 
+
+Cada desenvolvedor é responsável por modelar, codificar e testar sua classe.
+
+Etapas do Projeto:
+
+08/10/2016 - Primeira Entrega (Dominio)
+	
+		- Observações: A equipe deve entender o problema, propor um modelo de classes para solucioná-lo e estabelecer um ambiente comum de desenvolvimento.
+
+15/10/2016 - Segunda Entrega (Acesso a arquivos)
+
+		- Observações: A equipe deve estudar o acesso a arquivos, estaelecer como será a estratégia adotada pelo grupo para ler e escrever em arquivos e rever o modelo de classes proposto (se necessário).
+
+22/10/2016 - Terceira Entrega (Ordenação e Pesquisa)
+
+		- Observações: A equipe deve organizar a apresentação.
+
+01/11/2016 - Última Entrega (Apresentar a Solução)
+
+		- Observações: A Equipe deve demostrar o funcionamento da versão final integrada do trabalho desenvolvido em 10 minutos. 
