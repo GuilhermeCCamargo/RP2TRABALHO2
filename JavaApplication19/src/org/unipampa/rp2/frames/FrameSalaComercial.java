@@ -555,10 +555,13 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             }
         }
         
-        if(!error)
-            if(!(listaSalaComercial.excluir(Integer.parseInt(aux))))
+        if(!error){
+            if(!(listaSalaComercial.excluir(Integer.parseInt(aux)))){
                 JOptionPane.showMessageDialog(null, "ERRO 02 - Imóvel não encontrado.");
-        
+            } else { 
+                JOptionPane.showMessageDialog(null, "Imóvel deletado com sucesso.");
+            }
+        }
         listar(false, 0);
         
     }//GEN-LAST:event_jButtonExcluirSalaComercialActionPerformed
