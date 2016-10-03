@@ -120,6 +120,11 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         });
 
         jButtonExcluirSalaComercial.setText("Excluir");
+        jButtonExcluirSalaComercial.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirSalaComercialActionPerformed(evt);
+            }
+        });
 
         jTextFieldBuscaCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -534,6 +539,29 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         // TODO add your handling code here:
         soNumeros(evt);
     }//GEN-LAST:event_jTextFieldValorCondominioSalaComercialKeyTyped
+
+    private void jButtonExcluirSalaComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirSalaComercialActionPerformed
+        // TODO add your handling code here:
+        String aux;
+        boolean error = false;
+        
+        aux = JOptionPane.showInputDialog("Insira o código da Sala Comercial que deseja excluir: ");
+        
+        for(int i=0; i<aux.length(); i++){
+            if(!(Character.isDigit(aux.charAt(i)))){
+                JOptionPane.showMessageDialog(null, "ERRO 01 - Informe apenas números inteiros.");
+                error = true;
+                break;
+            }
+        }
+        
+        if(!error)
+            if(!(listaSalaComercial.excluir(Integer.parseInt(aux))))
+                JOptionPane.showMessageDialog(null, "ERRO 02 - Imóvel não encontrado.");
+        
+        listar(false, 0);
+        
+    }//GEN-LAST:event_jButtonExcluirSalaComercialActionPerformed
 
     /**
      * @param args the command line arguments

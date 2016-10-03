@@ -23,7 +23,7 @@ public class Lista implements ListaImoveis {
     private List<Imovel> lista = new ArrayList();
     //</editor-fold>
          
-    //<editor-fold defaultstate="collapsed" desc="Incluir e consultar (Implementados)">
+    //<editor-fold defaultstate="collapsed" desc="Incluir, consultar e excluir (Implementados)">
     
     /**
      * Método para que se possa cadastrar um imóvel
@@ -55,17 +55,23 @@ public class Lista implements ListaImoveis {
         return null;
     }
 
+    @Override
+    public boolean excluir(int codigo) {
+        for (Imovel imovel : lista) {
+            if(imovel.getCod() == codigo){
+                lista.remove(imovel);
+                return true;
+            }
+        }
+        return false;
+    }
+
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Não implementados">
     
     @Override
     public boolean editar(int codigo, Imovel im) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean excluir(int codigo) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
