@@ -14,6 +14,7 @@ import org.unipampa.rp2.listaimoveis.Lista;
 public class Inicial extends javax.swing.JFrame {
 
     private Lista listaSalaComercial = new Lista();
+    private Lista ListaApartamento = new Lista();
 
     /**
      * Creates new form Inicial
@@ -35,6 +36,7 @@ public class Inicial extends javax.swing.JFrame {
 
         jLabelImovel = new javax.swing.JLabel();
         jButtonSalaComercial = new javax.swing.JButton();
+        jButtonApartamento = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,6 +47,13 @@ public class Inicial extends javax.swing.JFrame {
         jButtonSalaComercial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSalaComercialActionPerformed(evt);
+            }
+        });
+
+        jButtonApartamento.setText("Apartamento");
+        jButtonApartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonApartamentoActionPerformed(evt);
             }
         });
 
@@ -59,7 +68,9 @@ public class Inicial extends javax.swing.JFrame {
                         .addComponent(jLabelImovel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
-                        .addComponent(jButtonSalaComercial, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonSalaComercial, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                            .addComponent(jButtonApartamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -69,7 +80,9 @@ public class Inicial extends javax.swing.JFrame {
                 .addComponent(jLabelImovel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonSalaComercial)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonApartamento)
+                .addContainerGap(185, Short.MAX_VALUE))
         );
 
         pack();
@@ -81,6 +94,12 @@ public class Inicial extends javax.swing.JFrame {
         abrir.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonSalaComercialActionPerformed
+
+    private void jButtonApartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApartamentoActionPerformed
+        Apartamento open = new Apartamento(this.ListaApartamento);
+        open.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonApartamentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,6 +137,7 @@ public class Inicial extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonApartamento;
     private javax.swing.JButton jButtonSalaComercial;
     private javax.swing.JLabel jLabelImovel;
     // End of variables declaration//GEN-END:variables

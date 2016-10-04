@@ -5,7 +5,10 @@
  */
 package org.unipampa.rp2.frames;
 
+import java.util.List;
 import javax.swing.UnsupportedLookAndFeelException;
+import org.unipampa.rp2.listaimoveis.Lista;
+import org.unipampa.rp2.tiposimoveis.Imovel;
 
 /**
  *
@@ -13,12 +16,24 @@ import javax.swing.UnsupportedLookAndFeelException;
  */
 public class Apartamento extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Apartamento
-     */
-    public Apartamento() {
+    private Lista ListaApartamento;
+    private List<Imovel> apartamento;
+    
+
+    public Apartamento(Lista ListaApartamento) {
         initComponents();
+         this.setLocationRelativeTo(null);
+         this.setTitle("Imobiliária - Apartamento");
+        
+         this.ListaApartamento = ListaApartamento;
+        
+         jButtonEditarApartamento.setEnabled(false);
+         jTabbedPaneApartamento.setEnabledAt(0, true);
+         jTabbedPaneApartamento.setEnabledAt(1, false);
+        
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,6 +53,8 @@ public class Apartamento extends javax.swing.JFrame {
         jLabelconsultaCodigo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jListlistaApartamento = new javax.swing.JList();
+        jButtonEditarApartamento = new javax.swing.JButton();
+        jButtonExcluirApartamento = new javax.swing.JButton();
         jPanelImovel = new javax.swing.JPanel();
         jLabelLogradouro = new javax.swing.JLabel();
         jTextFieldLogradouro = new javax.swing.JTextField();
@@ -76,6 +93,7 @@ public class Apartamento extends javax.swing.JFrame {
         In.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setName("frameApartamento"); // NOI18N
 
         jButtonBuscaApartamento.setText("Buscar");
 
@@ -90,25 +108,35 @@ public class Apartamento extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jListlistaApartamento);
 
+        jButtonEditarApartamento.setText("Editar");
+
+        jButtonExcluirApartamento.setText("Excluir");
+
         javax.swing.GroupLayout jPanelConsultarLayout = new javax.swing.GroupLayout(jPanelConsultar);
         jPanelConsultar.setLayout(jPanelConsultarLayout);
         jPanelConsultarLayout.setHorizontalGroup(
             jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelConsultarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButtonVoltarConsultar)
-                .addContainerGap(424, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConsultarLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelConsultarLayout.createSequentialGroup()
+                        .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelConsultarLayout.createSequentialGroup()
+                                .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButtonEditarApartamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonExcluirApartamento, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 361, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanelConsultarLayout.createSequentialGroup()
+                                .addComponent(jLabelconsultaCodigo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jSpinnerBuscaCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButtonBuscaApartamento)))
+                        .addGap(32, 32, 32))
                     .addGroup(jPanelConsultarLayout.createSequentialGroup()
-                        .addComponent(jLabelconsultaCodigo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jSpinnerBuscaCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonBuscaApartamento)))
-                .addGap(32, 32, 32))
+                        .addComponent(jButtonVoltarConsultar)
+                        .addContainerGap(424, Short.MAX_VALUE))))
         );
         jPanelConsultarLayout.setVerticalGroup(
             jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,12 +146,22 @@ public class Apartamento extends javax.swing.JFrame {
                     .addComponent(jSpinnerBuscaCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonBuscaApartamento)
                     .addComponent(jLabelconsultaCodigo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 212, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelConsultarLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanelConsultarLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jButtonEditarApartamento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonExcluirApartamento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addComponent(jButtonVoltarConsultar)
                 .addContainerGap())
         );
+
+        jButtonExcluirApartamento.getAccessibleContext().setAccessibleName("Excluir");
 
         jTabbedPaneApartamento.addTab("Consultar", jPanelConsultar);
 
@@ -364,7 +402,7 @@ public class Apartamento extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Apartamento().setVisible(true);
+               
             }
         });
     }
@@ -373,6 +411,8 @@ public class Apartamento extends javax.swing.JFrame {
     private javax.swing.JButton In;
     private javax.swing.JButton jButtonAdicionar;
     private javax.swing.JButton jButtonBuscaApartamento;
+    private javax.swing.JButton jButtonEditarApartamento;
+    private javax.swing.JButton jButtonExcluirApartamento;
     private javax.swing.JButton jButtonVoltarAdicionar;
     private javax.swing.JButton jButtonVoltarConsultar;
     private javax.swing.JLabel jLabel1;
