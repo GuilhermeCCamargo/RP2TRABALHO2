@@ -576,23 +576,28 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         
         aux = JOptionPane.showInputDialog("Insira o código da Sala Comercial que deseja excluir: ");
         
-        for(int i=0; i<aux.length(); i++){
-            if(!(Character.isDigit(aux.charAt(i)))){
-                JOptionPane.showMessageDialog(null, "ERRO 01 - Informe apenas números inteiros.");
-                error = true;
-                break;
+        if(aux != null ){
+            if(!(aux.trim().equals(""))){
+                for(int i=0; i<aux.length(); i++){
+                    if(!(Character.isDigit(aux.charAt(i)))){
+                        JOptionPane.showMessageDialog(null, "ERRO 01 - Informe apenas números inteiros.");
+                        error = true;
+                        break;
+                    }
+                }
+
+                if(!error){
+                    if(!(listaSalaComercial.excluir(Integer.parseInt(aux)))){
+                        JOptionPane.showMessageDialog(null, "ERRO 02 - Imóvel não encontrado.");
+                    } else { 
+                        JOptionPane.showMessageDialog(null, "Imóvel deletado com sucesso.");
+                    }
+                }
+                listar(false, 0);
+            } else {
+                JOptionPane.showMessageDialog(null, "ERRO 04 - Informe um número inteiro para prosseguir.");
             }
         }
-        
-        if(!error){
-            if(!(listaSalaComercial.excluir(Integer.parseInt(aux)))){
-                JOptionPane.showMessageDialog(null, "ERRO 02 - Imóvel não encontrado.");
-            } else { 
-                JOptionPane.showMessageDialog(null, "Imóvel deletado com sucesso.");
-            }
-        }
-        listar(false, 0);
-        
     }//GEN-LAST:event_jButtonExcluirSalaComercialActionPerformed
 
     private void jListSalaComercialValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListSalaComercialValueChanged
