@@ -480,24 +480,36 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(null, "Preencha os campos obrigatórios(*)");
         
-        } else if(Double.parseDouble(jTextFieldNroBanheirosSalaComercial.getText().trim()) > 100 ||
-                Double.parseDouble(jTextFieldAndarSalaComercial.getText().trim()) > 1000 ||
-                Double.parseDouble(jTextFieldNroSalaSalaComercial.getText().trim()) > 1000000 ||
-                Double.parseDouble(jTextFieldNumeroImovel.getText().trim()) > 1000000){
-            
-            JOptionPane.showMessageDialog(null, "Valor(es) inteiro(s) inválido(s)");
-    
         } else {
+            
+            int nroBanheiros=0, andar=0, nroSala=0;
+            double valorCondominio=0, areaTotal=0;
+            
+            if(!(jTextFieldNroBanheirosSalaComercial.getText().trim().equals(""))){
+                nroBanheiros = Integer.parseInt(jTextFieldNroBanheirosSalaComercial.getText().trim());
+            }
+            
+            if(!(jTextFieldAndarSalaComercial.getText().trim().equals(""))){
+                andar = Integer.parseInt(jTextFieldAndarSalaComercial.getText().trim());
+            }
+            
+            if(!(jTextFieldNroSalaSalaComercial.getText().trim().equals(""))){
+                nroSala = Integer.parseInt(jTextFieldNroSalaSalaComercial.getText().trim());
+            }
+            
+            if(!(jTextFieldValorCondominioSalaComercial.getText().trim().equals(""))){
+                valorCondominio = Integer.parseInt(jTextFieldValorCondominioSalaComercial.getText().trim());
+            }
+            
+            if(!(jTextFieldAreaTotalImovel.getText().trim().equals(""))){
+                areaTotal = Integer.parseInt(jTextFieldAreaTotalImovel.getText().trim());
+            }
             
             SalaComercial sala = new SalaComercial(Integer.parseInt(jTextFieldNumeroImovel.getText().trim()),
                     Double.parseDouble(jTextFieldValorImovel.getText().trim()),
                     jTextFieldLogradouroImovel.getText().trim(), 
-                    Integer.parseInt(jTextFieldNroBanheirosSalaComercial.getText().trim()),
-                    Integer.parseInt(jTextFieldAndarSalaComercial.getText().trim()),
-                    Integer.parseInt(jTextFieldNroSalaSalaComercial.getText().trim()),
-                    Double.parseDouble(jTextFieldValorCondominioSalaComercial.getText().trim()),
-                    jTextFieldNomeEdificioSalaComercial.getText().trim(), 
-                    Double.parseDouble(jTextFieldAreaTotalImovel.getText().trim()),
+                    nroBanheiros, andar, nroSala, valorCondominio,
+                    jTextFieldNomeEdificioSalaComercial.getText().trim(), areaTotal,
                     jTextFieldDescricaoImovel.getText().trim());
 
             if(isEdit){
