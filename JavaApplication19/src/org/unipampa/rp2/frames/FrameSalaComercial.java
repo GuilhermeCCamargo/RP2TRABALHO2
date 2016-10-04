@@ -19,6 +19,9 @@ import org.unipampa.rp2.tiposimoveis.SalaComercial;
 public class FrameSalaComercial extends javax.swing.JFrame {
 
     private Lista listaSalaComercial;
+    private List<Imovel> salaComercial;
+    private int codEdit = 0;
+    private boolean isEdit = false;
     /**
      * Creates new form SalaComercial
      */
@@ -29,6 +32,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         
         this.listaSalaComercial = listaSalaComercial;
         
+        jButtonEditarSalaComercial.setEnabled(false);
         jTabbedPaneSalaComercial.setEnabledAt(0, true);
         jTabbedPaneSalaComercial.setEnabledAt(1, false);
         
@@ -87,6 +91,11 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jListSalaComercial.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                jListSalaComercialValueChanged(evt);
+            }
+        });
         jScrollPaneListarSalaComercial.setViewportView(jListSalaComercial);
 
         jButtonVoltarInicial.setText("Voltar");
@@ -435,11 +444,13 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonVoltarInicialActionPerformed
 /**
- * Botão para passar para a aba incluir2
+ * Botão para passar para a aba incluir
  * @param evt - Evento do tipo action performed (Clicando no botão)
  */
     private void jButtonIncluirSalaComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirSalaComercialActionPerformed
         // TODO add your handling code here:
+        this.isEdit = false;
+        limparCampos();
         jTabbedPaneSalaComercial.setEnabledAt(0, false);
         jTabbedPaneSalaComercial.setEnabledAt(1, true);
         jTabbedPaneSalaComercial.setSelectedIndex(1);
@@ -477,6 +488,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Valor(es) inteiro(s) inválido(s)");
     
         } else {
+            
             SalaComercial sala = new SalaComercial(Integer.parseInt(jTextFieldNumeroImovel.getText().trim()),
                     Double.parseDouble(jTextFieldValorImovel.getText().trim()),
                     jTextFieldLogradouroImovel.getText().trim(), 
@@ -487,17 +499,34 @@ public class FrameSalaComercial extends javax.swing.JFrame {
                     jTextFieldNomeEdificioSalaComercial.getText().trim(), 
                     Double.parseDouble(jTextFieldAreaTotalImovel.getText().trim()),
                     jTextFieldDescricaoImovel.getText().trim());
-             
-            listaSalaComercial.incluir(sala);
+
+            if(isEdit){
+                if(listaSalaComercial.editar(codEdit, sala)){
+                    JOptionPane.showMessageDialog(null, "Imóvel editado com sucesso!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "ERRO 03 - Imóvel não encontrado para a edição");
+                }
+            }else {
+                if(listaSalaComercial.incluir(sala) == true){
+                    JOptionPane.showMessageDialog(null, "Imóvel inserido com sucesso!");
+                } else {
+                    JOptionPane.showMessageDialog(null, "ERRO 04 - Imóvel não pode ser adicionado");
+                }
+            }
             limparCampos();
             listar(false, 0);
-            
-            JOptionPane.showMessageDialog(null, "Imóvel inserido com sucesso!");
+
         }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jButtonEditarSalaComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarSalaComercialActionPerformed
         // TODO add your handling code here:
+        isEdit = true;
+        jTabbedPaneSalaComercial.setSelectedIndex(1);
+        jTabbedPaneSalaComercial.setEnabledAt(1 , true);
+        jTabbedPaneSalaComercial.setEnabledAt(0 , false);
+        preencherCampos(jListSalaComercial.getSelectedValue());
+        this.codEdit = getCod(jListSalaComercial.getSelectedValue());
     }//GEN-LAST:event_jButtonEditarSalaComercialActionPerformed
 
     private void jTextFieldBuscaCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscaCodigoKeyTyped
@@ -565,6 +594,15 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         listar(false, 0);
         
     }//GEN-LAST:event_jButtonExcluirSalaComercialActionPerformed
+
+    private void jListSalaComercialValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListSalaComercialValueChanged
+        // TODO add your handling code here:
+        if(jListSalaComercial.isSelectionEmpty()){
+            jButtonEditarSalaComercial.setEnabled(false);
+        } else {
+            jButtonEditarSalaComercial.setEnabled(true);
+        }
+    }//GEN-LAST:event_jListSalaComercialValueChanged
 
     /**
      * @param args the command line arguments
@@ -645,6 +683,25 @@ public class FrameSalaComercial extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     
     /**
+     * Método para retirar o código do toString
+     * da classe sala comercial
+     * @param cod - String que veio do toString da classe
+     * @return - retorna um inteiro com o código
+     */
+    private int getCod(String cod){
+        int end=9;
+        for(int i = 0; i<cod.length(); i++){
+            if(cod.charAt(i) == '-'){
+                end = i-1;
+                break;
+            }
+        }
+        
+        cod = cod.substring(8, end);
+        return Integer.parseInt(cod);
+    }
+    
+    /**
      * Método que aceita a entrada somente de números inteiros dentro do campo de texto
      * @param evt - evento de digitar no campo de texto através do teclado
      */
@@ -657,6 +714,31 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Método para preencher os campos quando for editar uma sala comercial
+     * @param sala - string que está no jList
+     */
+    private void preencherCampos(String sala){
+        this.salaComercial = listaSalaComercial.getLista();
+        
+        for (Imovel imovel : salaComercial) {
+            if(imovel.toString().equals(sala)){
+                SalaComercial newSala = (SalaComercial) imovel;
+                
+                jTextFieldAndarSalaComercial.setText(String.valueOf(newSala.getAndar()));
+                jTextFieldAreaTotalImovel.setText(String.valueOf(newSala.getAreaTotal()));
+                jTextFieldNroBanheirosSalaComercial.setText(String.valueOf(newSala.getNroBanheiros()));
+                jTextFieldNroSalaSalaComercial.setText(String.valueOf(newSala.getNroSala()));
+                jTextFieldNumeroImovel.setText(String.valueOf(newSala.getNumero()));
+                jTextFieldValorCondominioSalaComercial.setText(String.valueOf(newSala.getValorCondominio()));
+                jTextFieldValorImovel.setText(String.valueOf(newSala.getValor()));
+                jTextFieldNomeEdificioSalaComercial.setText(newSala.getNomeEdificio());
+                jTextFieldLogradouroImovel.setText(newSala.getLogradouro());
+                jTextFieldDescricaoImovel.setText(newSala.getDescricao());
+            }
+        }
+    }
+    
     /**
      * Método usado para limpar todos os campos tanto após uma edição quanto após
      * uma edição.
@@ -682,7 +764,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         DefaultListModel listModel = new DefaultListModel();
         
         if(!isPesquisa){
-            List<Imovel> salaComercial = listaSalaComercial.getLista();
+            this.salaComercial = listaSalaComercial.getLista();
         
             for (Imovel sala : salaComercial) {
                 listModel.addElement(sala.toString());
