@@ -498,11 +498,11 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             }
             
             if(!(jTextFieldValorCondominioSalaComercial.getText().trim().equals(""))){
-                valorCondominio = Integer.parseInt(jTextFieldValorCondominioSalaComercial.getText().trim());
+                valorCondominio = Double.parseDouble(jTextFieldValorCondominioSalaComercial.getText().trim());
             }
             
             if(!(jTextFieldAreaTotalImovel.getText().trim().equals(""))){
-                areaTotal = Integer.parseInt(jTextFieldAreaTotalImovel.getText().trim());
+                areaTotal = Double.parseDouble(jTextFieldAreaTotalImovel.getText().trim());
             }
             
             SalaComercial sala = new SalaComercial(Integer.parseInt(jTextFieldNumeroImovel.getText().trim()),
