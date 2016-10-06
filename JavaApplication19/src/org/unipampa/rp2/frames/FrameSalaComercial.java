@@ -646,7 +646,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             jButtonDetalhesSalaComercial.setEnabled(false);
         } else {
             jButtonEditarSalaComercial.setEnabled(true);
-            jButtonDetalhesSalaComercial.setEnabled(false);
+            jButtonDetalhesSalaComercial.setEnabled(true);
         }
     }//GEN-LAST:event_jListSalaComercialValueChanged
 
