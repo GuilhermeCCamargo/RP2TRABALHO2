@@ -59,14 +59,15 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButtonVoltarInicial" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButtonIncluirSalaComercial" alignment="1" pref="77" max="32767" attributes="0"/>
+                          <Component id="jButtonDetalhesSalaComercial" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jButtonExcluirSalaComercial" max="32767" attributes="0"/>
                           <Component id="jButtonEditarSalaComercial" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButtonExcluirSalaComercial" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jButtonIncluirSalaComercial" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jButtonVoltarInicial" alignment="1" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPaneListarSalaComercial" pref="378" max="32767" attributes="0"/>
+                          <Component id="jScrollPaneListarSalaComercial" min="-2" pref="368" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jLabelCodigo" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -90,18 +91,19 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPaneListarSalaComercial" pref="243" max="32767" attributes="0"/>
+                          <Component id="jScrollPaneListarSalaComercial" min="-2" pref="243" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                               <Component id="jButtonIncluirSalaComercial" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButtonEditarSalaComercial" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonExcluirSalaComercial" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButtonEditarSalaComercial" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <Component id="jButtonDetalhesSalaComercial" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace min="18" max="32767" attributes="0"/>
                       <Component id="jButtonVoltarInicial" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -131,14 +133,6 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButtonVoltarInicial">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Voltar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVoltarInicialActionPerformed"/>
-              </Events>
-            </Component>
             <Component class="javax.swing.JButton" name="jButtonIncluirSalaComercial">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Incluir"/>
@@ -179,6 +173,22 @@
             <Component class="javax.swing.JTextField" name="jTextFieldBuscaCodigo">
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuscaCodigoKeyTyped"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonDetalhesSalaComercial">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Detalhes"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDetalhesSalaComercialActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonVoltarInicial">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Voltar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVoltarInicialActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
@@ -331,6 +341,11 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextFieldNomeEdificioSalaComercial">
+                          <Properties>
+                            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="0" type="rgb"/>
+                            </Property>
+                          </Properties>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabelAndarSalaComercial">
                           <Properties>
@@ -343,6 +358,11 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextFieldValorCondominioSalaComercial">
+                          <Properties>
+                            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="0" type="rgb"/>
+                            </Property>
+                          </Properties>
                           <Events>
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldValorCondominioSalaComercialKeyTyped"/>
                           </Events>
@@ -358,16 +378,31 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextFieldAndarSalaComercial">
+                          <Properties>
+                            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="0" type="rgb"/>
+                            </Property>
+                          </Properties>
                           <Events>
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAndarSalaComercialKeyTyped"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextFieldNroSalaSalaComercial">
+                          <Properties>
+                            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="0" type="rgb"/>
+                            </Property>
+                          </Properties>
                           <Events>
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNroSalaSalaComercialKeyTyped"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextFieldNroBanheirosSalaComercial">
+                          <Properties>
+                            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="0" type="rgb"/>
+                            </Property>
+                          </Properties>
                           <Events>
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNroBanheirosSalaComercialKeyTyped"/>
                           </Events>
@@ -460,6 +495,11 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextFieldValorImovel">
+                          <Properties>
+                            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="0" type="rgb"/>
+                            </Property>
+                          </Properties>
                           <Events>
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldValorImovelKeyTyped"/>
                           </Events>
@@ -470,8 +510,18 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextFieldLogradouroImovel">
+                          <Properties>
+                            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="0" type="rgb"/>
+                            </Property>
+                          </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextFieldDescricaoImovel">
+                          <Properties>
+                            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="0" type="rgb"/>
+                            </Property>
+                          </Properties>
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabelDescricaoImovel">
                           <Properties>
@@ -479,11 +529,21 @@
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextFieldNumeroImovel">
+                          <Properties>
+                            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="0" type="rgb"/>
+                            </Property>
+                          </Properties>
                           <Events>
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNumeroImovelKeyTyped"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextFieldAreaTotalImovel">
+                          <Properties>
+                            <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                              <Color blue="0" green="0" red="0" type="rgb"/>
+                            </Property>
+                          </Properties>
                           <Events>
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAreaTotalImovelKeyTyped"/>
                           </Events>
