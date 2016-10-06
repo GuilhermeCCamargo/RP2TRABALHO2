@@ -543,42 +543,42 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
     private void jTextFieldBuscaCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscaCodigoKeyTyped
         // TODO add your handling code here:
-        soNumeros(evt);
+        soNumeros(evt, false);
     }//GEN-LAST:event_jTextFieldBuscaCodigoKeyTyped
 
     private void jTextFieldAreaTotalImovelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAreaTotalImovelKeyTyped
         // TODO add your handling code here:
-        soNumeros(evt);
+        soNumeros(evt, isDouble(jTextFieldAreaTotalImovel));
     }//GEN-LAST:event_jTextFieldAreaTotalImovelKeyTyped
 
     private void jTextFieldNumeroImovelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroImovelKeyTyped
         // TODO add your handling code here:
-        soNumeros(evt);
+        soNumeros(evt, false);
     }//GEN-LAST:event_jTextFieldNumeroImovelKeyTyped
 
     private void jTextFieldValorImovelKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorImovelKeyTyped
         // TODO add your handling code here:
-        soNumeros(evt);
+        soNumeros(evt, isDouble(jTextFieldValorImovel));
     }//GEN-LAST:event_jTextFieldValorImovelKeyTyped
 
     private void jTextFieldNroBanheirosSalaComercialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNroBanheirosSalaComercialKeyTyped
         // TODO add your handling code here:
-        soNumeros(evt);
+        soNumeros(evt, false);
     }//GEN-LAST:event_jTextFieldNroBanheirosSalaComercialKeyTyped
 
     private void jTextFieldNroSalaSalaComercialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNroSalaSalaComercialKeyTyped
         // TODO add your handling code here:
-        soNumeros(evt);
+        soNumeros(evt, false);
     }//GEN-LAST:event_jTextFieldNroSalaSalaComercialKeyTyped
 
     private void jTextFieldAndarSalaComercialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAndarSalaComercialKeyTyped
         // TODO add your handling code here:
-        soNumeros(evt);
+        soNumeros(evt, false);
     }//GEN-LAST:event_jTextFieldAndarSalaComercialKeyTyped
 
     private void jTextFieldValorCondominioSalaComercialKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorCondominioSalaComercialKeyTyped
         // TODO add your handling code here:
-        soNumeros(evt);
+        soNumeros(evt, isDouble(jTextFieldValorCondominioSalaComercial));
     }//GEN-LAST:event_jTextFieldValorCondominioSalaComercialKeyTyped
 
     private void jButtonExcluirSalaComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirSalaComercialActionPerformed
@@ -719,15 +719,43 @@ public class FrameSalaComercial extends javax.swing.JFrame {
     }
     
     /**
+     * Método isDouble que verifica se um '.' já foi
+     * digitado em campos double.
+     * @param campo - o campo para pegar o item digitado
+     * @return - true caso não tenha um ponto, e false caso
+     * o mesmo exista para que não possa mais ser adicionado
+     */
+    private boolean isDouble(javax.swing.JTextField campo){
+        String texto = campo.getText().trim();
+        
+        for(int i = 0; i<texto.length(); i++){
+            if(texto.charAt(i) == '.'){
+                return false;
+            }
+        }
+        
+        return true;
+    }
+    
+    
+    /**
      * Método que aceita a entrada somente de números inteiros dentro do campo de texto
      * @param evt - evento de digitar no campo de texto através do teclado
      */
-    private void soNumeros(java.awt.event.KeyEvent evt){
-        char ch = evt.getKeyChar(); 
-        if(Character.isDigit(ch)){
-        
+    private void soNumeros(java.awt.event.KeyEvent evt, boolean isDouble){
+        char ch = evt.getKeyChar();
+        if(isDouble){
+            if(Character.isDigit(ch) || ch == '.'){
+
+            } else {
+                evt.consume();
+            }
         } else {
-            evt.consume();
+            if(Character.isDigit(ch)){
+
+            } else {
+                evt.consume();
+            }
         }
     }
 
