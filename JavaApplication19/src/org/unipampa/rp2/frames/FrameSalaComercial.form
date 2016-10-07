@@ -434,14 +434,29 @@
                                       </Group>
                                   </Group>
                                   <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabelDescricaoImovel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jLabelLogradouroImovel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jTextFieldDescricaoImovel" max="32767" attributes="0"/>
-                                      <Component id="jTextFieldLogradouroImovel" min="-2" pref="124" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelLogradouroImovel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelDescricaoImovel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jTextFieldDescricaoImovel" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldLogradouroImovel" pref="124" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jLabelCidadeImovel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelBairroImovel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jTextFieldBairroImovel" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldCidadeImovel" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
                                   <EmptySpace pref="22" max="32767" attributes="0"/>
                               </Group>
@@ -468,12 +483,28 @@
                                       <Component id="jLabelDescricaoImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                                       <Component id="jTextFieldAreaTotalImovel" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jLabelValorImovel" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldValorImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabelValorImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldValorImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabelCidadeImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldCidadeImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jTextFieldBairroImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jLabelBairroImovel" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
                                   </Group>
-                                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -506,7 +537,7 @@
                         </Component>
                         <Component class="javax.swing.JLabel" name="jLabelLogradouroImovel">
                           <Properties>
-                            <Property name="text" type="java.lang.String" value="Logradouro:* "/>
+                            <Property name="text" type="java.lang.String" value="Logradouro: "/>
                           </Properties>
                         </Component>
                         <Component class="javax.swing.JTextField" name="jTextFieldLogradouroImovel">
@@ -547,6 +578,20 @@
                           <Events>
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAreaTotalImovelKeyTyped"/>
                           </Events>
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabelCidadeImovel">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Cidade:* "/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="jTextFieldCidadeImovel">
+                        </Component>
+                        <Component class="javax.swing.JLabel" name="jLabelBairroImovel">
+                          <Properties>
+                            <Property name="text" type="java.lang.String" value="Bairro: "/>
+                          </Properties>
+                        </Component>
+                        <Component class="javax.swing.JTextField" name="jTextFieldBairroImovel">
                         </Component>
                       </SubComponents>
                     </Container>

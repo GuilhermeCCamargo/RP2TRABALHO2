@@ -22,6 +22,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
     private List<Imovel> salaComercial;
     private int codEdit = 0;
     private boolean isEdit = false;
+
     /**
      * Creates new form SalaComercial
      */
@@ -29,15 +30,15 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Imobiliária - Sala Comercial");
-        
+
         this.listaSalaComercial = listaSalaComercial;
-        
+
         jButtonEditarSalaComercial.setEnabled(false);
         jButtonDetalhesSalaComercial.setEnabled(false);
-        
+
         jTabbedPaneSalaComercial.setEnabledAt(0, true);
         jTabbedPaneSalaComercial.setEnabledAt(1, false);
-        
+
     }
 
     /**
@@ -87,6 +88,10 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         jLabelDescricaoImovel = new javax.swing.JLabel();
         jTextFieldNumeroImovel = new javax.swing.JTextField();
         jTextFieldAreaTotalImovel = new javax.swing.JTextField();
+        jLabelCidadeImovel = new javax.swing.JLabel();
+        jTextFieldCidadeImovel = new javax.swing.JTextField();
+        jLabelBairroImovel = new javax.swing.JLabel();
+        jTextFieldBairroImovel = new javax.swing.JTextField();
         jButtonVoltarConsultar = new javax.swing.JButton();
         jButtonSalvar = new javax.swing.JButton();
 
@@ -308,7 +313,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             }
         });
 
-        jLabelLogradouroImovel.setText("Logradouro:* ");
+        jLabelLogradouroImovel.setText("Logradouro: ");
 
         jTextFieldLogradouroImovel.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
@@ -330,6 +335,10 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             }
         });
 
+        jLabelCidadeImovel.setText("Cidade:* ");
+
+        jLabelBairroImovel.setText("Bairro: ");
+
         javax.swing.GroupLayout jPanelImovelLayout = new javax.swing.GroupLayout(jPanelImovel);
         jPanelImovel.setLayout(jPanelImovelLayout);
         jPanelImovelLayout.setHorizontalGroup(
@@ -350,13 +359,23 @@ public class FrameSalaComercial extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldAreaTotalImovel, javax.swing.GroupLayout.DEFAULT_SIZE, 66, Short.MAX_VALUE)))
                 .addGap(31, 31, 31)
-                .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelDescricaoImovel)
-                    .addComponent(jLabelLogradouroImovel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldDescricaoImovel)
-                    .addComponent(jTextFieldLogradouroImovel, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelImovelLayout.createSequentialGroup()
+                        .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelLogradouroImovel)
+                            .addComponent(jLabelDescricaoImovel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldDescricaoImovel)
+                            .addComponent(jTextFieldLogradouroImovel, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)))
+                    .addGroup(jPanelImovelLayout.createSequentialGroup()
+                        .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelCidadeImovel)
+                            .addComponent(jLabelBairroImovel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextFieldBairroImovel)
+                            .addComponent(jTextFieldCidadeImovel))))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
         jPanelImovelLayout.setVerticalGroup(
@@ -376,11 +395,22 @@ public class FrameSalaComercial extends javax.swing.JFrame {
                     .addComponent(jTextFieldDescricaoImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelDescricaoImovel)
                     .addComponent(jTextFieldAreaTotalImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelValorImovel)
-                    .addComponent(jTextFieldValorImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21))
+                .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelImovelLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelValorImovel)
+                            .addComponent(jTextFieldValorImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanelImovelLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabelCidadeImovel)
+                            .addComponent(jTextFieldCidadeImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextFieldBairroImovel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabelBairroImovel))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanelAdicionarHerancaLayout = new javax.swing.GroupLayout(jPanelAdicionarHeranca);
@@ -459,69 +489,69 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-/**
- * Botão para passar para a aba incluir
- * @param evt - Evento do tipo action performed (Clicando no botão)
- */
+    /**
+     * Botão para passar para a aba incluir
+     *
+     * @param evt - Evento do tipo action performed (Clicando no botão)
+     */
     private void jButtonVoltarConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarConsultarActionPerformed
         // TODO add your handling code here:
         jTabbedPaneSalaComercial.setEnabledAt(1, false);
         jTabbedPaneSalaComercial.setEnabledAt(0, true);
-        jTabbedPaneSalaComercial.setSelectedIndex(0);        
+        jTabbedPaneSalaComercial.setSelectedIndex(0);
     }//GEN-LAST:event_jButtonVoltarConsultarActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         // TODO add your handling code here:
-        if(jTextFieldValorImovel.getText().trim().equals("") || 
-                jTextFieldNumeroImovel.getText().trim().equals("") ||
-                jTextFieldLogradouroImovel.getText().trim().equals("")){
-            
+        if (jTextFieldValorImovel.getText().trim().equals("")
+                || jTextFieldNumeroImovel.getText().trim().equals("")
+                || jTextFieldCidadeImovel.getText().trim().equals("")) {
+
             JOptionPane.showMessageDialog(null, "Preencha os campos obrigatórios(*)");
-        
+
         } else {
-            
-            int nroBanheiros=0, andar=0, nroSala=0;
-            double valorCondominio=0, areaTotal=0;
-            
-            if(!(jTextFieldNroBanheirosSalaComercial.getText().trim().equals(""))){
+
+            int nroBanheiros = 0, andar = 0, nroSala = 0;
+            double valorCondominio = 0, areaTotal = 0;
+
+            if (!(jTextFieldNroBanheirosSalaComercial.getText().trim().equals(""))) {
                 nroBanheiros = Integer.parseInt(jTextFieldNroBanheirosSalaComercial.getText().trim());
             }
-            
-            if(!(jTextFieldAndarSalaComercial.getText().trim().equals(""))){
+
+            if (!(jTextFieldAndarSalaComercial.getText().trim().equals(""))) {
                 andar = Integer.parseInt(jTextFieldAndarSalaComercial.getText().trim());
             }
-            
-            if(!(jTextFieldNroSalaSalaComercial.getText().trim().equals(""))){
+
+            if (!(jTextFieldNroSalaSalaComercial.getText().trim().equals(""))) {
                 nroSala = Integer.parseInt(jTextFieldNroSalaSalaComercial.getText().trim());
             }
-            
-            if(!(jTextFieldValorCondominioSalaComercial.getText().trim().equals(""))){
+
+            if (!(jTextFieldValorCondominioSalaComercial.getText().trim().equals(""))) {
                 valorCondominio = Double.parseDouble(jTextFieldValorCondominioSalaComercial.getText().trim());
             }
-            
-            if(!(jTextFieldAreaTotalImovel.getText().trim().equals(""))){
+
+            if (!(jTextFieldAreaTotalImovel.getText().trim().equals(""))) {
                 areaTotal = Double.parseDouble(jTextFieldAreaTotalImovel.getText().trim());
             }
-            
+
             SalaComercial sala = new SalaComercial(Integer.parseInt(jTextFieldNumeroImovel.getText().trim()),
                     Double.parseDouble(jTextFieldValorImovel.getText().trim()),
-                    jTextFieldLogradouroImovel.getText().trim(), 
+                    jTextFieldLogradouroImovel.getText().trim(),
                     nroBanheiros, andar, nroSala, valorCondominio,
                     jTextFieldNomeEdificioSalaComercial.getText().trim(), areaTotal,
-                    jTextFieldDescricaoImovel.getText().trim());
+                    jTextFieldDescricaoImovel.getText().trim(), jTextFieldCidadeImovel.getText(),
+                    jTextFieldBairroImovel.getText());
 
-            if(isEdit){
-                if(listaSalaComercial.editar(codEdit, sala)){
+            if (isEdit) {
+                if (listaSalaComercial.editar(codEdit, sala)) {
                     JOptionPane.showMessageDialog(null, "Imóvel editado com sucesso!");
                 } else {
                     JOptionPane.showMessageDialog(null, "ERRO 03 - Imóvel não encontrado para a edição");
                 }
-            }else {
-                if(listaSalaComercial.incluir(sala) == true){
-                    JOptionPane.showMessageDialog(null, "Imóvel inserido com sucesso!");
-                } else {
-                    JOptionPane.showMessageDialog(null, "ERRO 04 - Imóvel não pode ser adicionado");
-                }
+            } else if (listaSalaComercial.incluir(sala) == true) {
+                JOptionPane.showMessageDialog(null, "Imóvel inserido com sucesso!");
+            } else {
+                JOptionPane.showMessageDialog(null, "ERRO 04 - Imóvel não pode ser adicionado");
             }
             limparCampos();
             listar(false, 0);
@@ -585,18 +615,18 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
         aux = JOptionPane.showInputDialog("Insira o código da Sala Comercial que deseja excluir: ");
 
-        if(aux != null ){
-            if(!(aux.trim().equals(""))){
-                for(int i=0; i<aux.length(); i++){
-                    if(!(Character.isDigit(aux.charAt(i)))){
+        if (aux != null) {
+            if (!(aux.trim().equals(""))) {
+                for (int i = 0; i < aux.length(); i++) {
+                    if (!(Character.isDigit(aux.charAt(i)))) {
                         JOptionPane.showMessageDialog(null, "ERRO 01 - Informe apenas números inteiros.");
                         error = true;
                         break;
                     }
                 }
 
-                if(!error){
-                    if(!(listaSalaComercial.excluir(Integer.parseInt(aux)))){
+                if (!error) {
+                    if (!(listaSalaComercial.excluir(Integer.parseInt(aux)))) {
                         JOptionPane.showMessageDialog(null, "ERRO 02 - Imóvel não encontrado.");
                     } else {
                         JOptionPane.showMessageDialog(null, "Imóvel deletado com sucesso.");
@@ -613,8 +643,8 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         // TODO add your handling code here:
         isEdit = true;
         jTabbedPaneSalaComercial.setSelectedIndex(1);
-        jTabbedPaneSalaComercial.setEnabledAt(1 , true);
-        jTabbedPaneSalaComercial.setEnabledAt(0 , false);
+        jTabbedPaneSalaComercial.setEnabledAt(1, true);
+        jTabbedPaneSalaComercial.setEnabledAt(0, false);
         preencherCampos(jListSalaComercial.getSelectedValue());
         this.codEdit = getCod(jListSalaComercial.getSelectedValue());
         ativarCampos();
@@ -622,7 +652,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
     private void jButtonBuscaSalaComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaSalaComercialActionPerformed
         // TODO add your handling code here:
-        if(jTextFieldBuscaCodigo.getText().trim().equals("")){
+        if (jTextFieldBuscaCodigo.getText().trim().equals("")) {
             listar(false, 0);
         } else {
             listar(true, Integer.parseInt(jTextFieldBuscaCodigo.getText().trim()));
@@ -641,7 +671,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
     private void jListSalaComercialValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jListSalaComercialValueChanged
         // TODO add your handling code here:
-        if(jListSalaComercial.isSelectionEmpty()){
+        if (jListSalaComercial.isSelectionEmpty()) {
             jButtonEditarSalaComercial.setEnabled(false);
             jButtonDetalhesSalaComercial.setEnabled(false);
         } else {
@@ -703,6 +733,8 @@ public class FrameSalaComercial extends javax.swing.JFrame {
     private javax.swing.JButton jButtonVoltarInicial;
     private javax.swing.JLabel jLabelAndarSalaComercial;
     private javax.swing.JLabel jLabelAreaTotalImovel;
+    private javax.swing.JLabel jLabelBairroImovel;
+    private javax.swing.JLabel jLabelCidadeImovel;
     private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelDescricaoImovel;
     private javax.swing.JLabel jLabelLogradouroImovel;
@@ -724,7 +756,9 @@ public class FrameSalaComercial extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldAndarSalaComercial;
     private javax.swing.JTextField jTextFieldAreaTotalImovel;
+    private javax.swing.JTextField jTextFieldBairroImovel;
     private javax.swing.JTextField jTextFieldBuscaCodigo;
+    private javax.swing.JTextField jTextFieldCidadeImovel;
     private javax.swing.JTextField jTextFieldDescricaoImovel;
     private javax.swing.JTextField jTextFieldLogradouroImovel;
     private javax.swing.JTextField jTextFieldNomeEdificioSalaComercial;
@@ -734,96 +768,94 @@ public class FrameSalaComercial extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldValorCondominioSalaComercial;
     private javax.swing.JTextField jTextFieldValorImovel;
     // End of variables declaration//GEN-END:variables
-    
+
     /**
-     * Método para retirar o código do toString
-     * da classe sala comercial
+     * Método para retirar o código do toString da classe sala comercial
+     *
      * @param cod - String que veio do toString da classe
      * @return - retorna um inteiro com o código
      */
-    private int getCod(String cod){
-        int end=9;
-        for(int i = 0; i<cod.length(); i++){
-            if(cod.charAt(i) == '-'){
-                end = i-1;
+    private int getCod(String cod) {
+        int end = 0;
+        for (int i = 8; i < cod.length(); i++) {
+            if (cod.charAt(i) == '-') {
+                end = i - 1;
                 break;
             }
         }
-        
+
         cod = cod.substring(8, end);
         return Integer.parseInt(cod);
     }
-    
+
     /**
-     * Método isDouble que verifica se um '.' já foi
-     * digitado em campos double.
+     * Método isDouble que verifica se um '.' já foi digitado em campos double.
+     *
      * @param campo - o campo para pegar o item digitado
-     * @return - true caso não tenha um ponto, e false caso
-     * o mesmo exista para que não possa mais ser adicionado
+     * @return - true caso não tenha um ponto, e false caso o mesmo exista para
+     * que não possa mais ser adicionado
      */
-    private boolean isDouble(javax.swing.JTextField campo){
+    private boolean isDouble(javax.swing.JTextField campo) {
         String texto = campo.getText().trim();
-        
-        for(int i = 0; i<texto.length(); i++){
-            if(texto.charAt(i) == '.'){
+
+        for (int i = 0; i < texto.length(); i++) {
+            if (texto.charAt(i) == '.') {
                 return false;
             }
         }
-        
+
         return true;
     }
-    
-    
+
     /**
-     * Método que aceita a entrada somente de números inteiros dentro do campo de texto
+     * Método que aceita a entrada somente de números inteiros dentro do campo
+     * de texto
+     *
      * @param evt - evento de digitar no campo de texto através do teclado
      */
-    private void soNumeros(java.awt.event.KeyEvent evt, boolean isDouble){
+    private void soNumeros(java.awt.event.KeyEvent evt, boolean isDouble) {
         char ch = evt.getKeyChar();
-        if(isDouble){
-            if(Character.isDigit(ch) || ch == '.'){
+        if (isDouble) {
+            if (Character.isDigit(ch) || ch == '.') {
 
             } else {
                 evt.consume();
             }
+        } else if (Character.isDigit(ch)) {
+
         } else {
-            if(Character.isDigit(ch)){
-
-            } else {
-                evt.consume();
-            }
+            evt.consume();
         }
     }
 
     /**
      * Método para preencher os campos quando for editar uma sala comercial
+     *
      * @param sala - string que está no jList
      */
-    private void preencherCampos(String sala){
-        this.salaComercial = listaSalaComercial.getLista();
-        
-        for (Imovel imovel : salaComercial) {
-            if(imovel.toString().equals(sala)){
-                SalaComercial newSala = (SalaComercial) imovel;
-                
-                jTextFieldAndarSalaComercial.setText(String.valueOf(newSala.getAndar()));
-                jTextFieldAreaTotalImovel.setText(String.valueOf(newSala.getAreaTotal()));
-                jTextFieldNroBanheirosSalaComercial.setText(String.valueOf(newSala.getNroBanheiros()));
-                jTextFieldNroSalaSalaComercial.setText(String.valueOf(newSala.getNroSala()));
-                jTextFieldNumeroImovel.setText(String.valueOf(newSala.getNumero()));
-                jTextFieldValorCondominioSalaComercial.setText(String.valueOf(newSala.getValorCondominio()));
-                jTextFieldValorImovel.setText(String.valueOf(newSala.getValor()));
-                jTextFieldNomeEdificioSalaComercial.setText(newSala.getNomeEdificio());
-                jTextFieldLogradouroImovel.setText(newSala.getLogradouro());
-                jTextFieldDescricaoImovel.setText(newSala.getDescricao());
-            }
-        }
+    private void preencherCampos(String sala) {
+
+        SalaComercial newSala = (SalaComercial) listaSalaComercial.consultar(getCod(sala));
+
+        jTextFieldAndarSalaComercial.setText(String.valueOf(newSala.getAndar()));
+        jTextFieldAreaTotalImovel.setText(String.valueOf(newSala.getAreaTotal()));
+        jTextFieldNroBanheirosSalaComercial.setText(String.valueOf(newSala.getNroBanheiros()));
+        jTextFieldNroSalaSalaComercial.setText(String.valueOf(newSala.getNroSala()));
+        jTextFieldNumeroImovel.setText(String.valueOf(newSala.getNumero()));
+        jTextFieldValorCondominioSalaComercial.setText(String.valueOf(newSala.getValorCondominio()));
+        jTextFieldValorImovel.setText(String.valueOf(newSala.getValor()));
+        jTextFieldNomeEdificioSalaComercial.setText(newSala.getNomeEdificio());
+        jTextFieldLogradouroImovel.setText(newSala.getLogradouro());
+        jTextFieldDescricaoImovel.setText(newSala.getDescricao());
+        jTextFieldBairroImovel.setText(newSala.getBairro());
+        jTextFieldCidadeImovel.setText(newSala.getCidade());
+
     }
-    
+
     /**
      * Método para ativar todos os campos
      */
-    private void ativarCampos(){
+    private void ativarCampos() {
         jTextFieldAndarSalaComercial.setEnabled(true);
         jTextFieldAreaTotalImovel.setEnabled(true);
         jTextFieldNroBanheirosSalaComercial.setEnabled(true);
@@ -833,15 +865,17 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         jTextFieldNomeEdificioSalaComercial.setEnabled(true);
         jTextFieldLogradouroImovel.setEnabled(true);
         jTextFieldDescricaoImovel.setEnabled(true);
+        jTextFieldCidadeImovel.setEnabled(true);
+        jTextFieldBairroImovel.setEnabled(true);
         jTextFieldValorCondominioSalaComercial.setEnabled(true);
-    
+
         jButtonSalvar.setVisible(true);
     }
-    
+
     /**
      * Método para desativar todos os campos
      */
-    private void desativarCampos(){
+    private void desativarCampos() {
         jTextFieldAndarSalaComercial.setEnabled(false);
         jTextFieldAreaTotalImovel.setEnabled(false);
         jTextFieldNroBanheirosSalaComercial.setEnabled(false);
@@ -851,16 +885,18 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         jTextFieldNomeEdificioSalaComercial.setEnabled(false);
         jTextFieldLogradouroImovel.setEnabled(false);
         jTextFieldDescricaoImovel.setEnabled(false);
+        jTextFieldBairroImovel.setEnabled(false);
+        jTextFieldCidadeImovel.setEnabled(false);
         jTextFieldValorCondominioSalaComercial.setEnabled(false);
-    
+
         jButtonSalvar.setVisible(false);
     }
-    
+
     /**
-     * Método usado para limpar todos os campos tanto após uma edição quanto após
-     * uma edição.
+     * Método usado para limpar todos os campos tanto após uma edição quanto
+     * após uma edição.
      */
-    private void limparCampos(){
+    private void limparCampos() {
         jTextFieldAndarSalaComercial.setText("");
         jTextFieldAreaTotalImovel.setText("");
         jTextFieldDescricaoImovel.setText("");
@@ -870,33 +906,36 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         jTextFieldNroSalaSalaComercial.setText("");
         jTextFieldNumeroImovel.setText("");
         jTextFieldValorImovel.setText("");
+        jTextFieldCidadeImovel.setText("");
+        jTextFieldBairroImovel.setText("");
         jTextFieldValorCondominioSalaComercial.setText("");
     }
-    
+
     /**
      * Método para listar todos os dados dentro da jList
      */
-    private void listar(boolean isPesquisa, int cod){
-        
+    private void listar(boolean isPesquisa, int cod) {
+
         DefaultListModel listModel = new DefaultListModel();
-        
-        if(!isPesquisa){
+
+        if (!isPesquisa) {
             this.salaComercial = listaSalaComercial.getLista();
-        
+
             for (Imovel sala : salaComercial) {
                 listModel.addElement(sala.toString());
             }
-            
+
         } else {
             Imovel sala = listaSalaComercial.consultar(cod);
-            
-            if(sala == null)
+
+            if (sala == null) {
                 JOptionPane.showMessageDialog(null, "Imóvel não encontrado!");
-            else
+            } else {
                 listModel.addElement(sala.toString());
+            }
         }
-        
+
         jListSalaComercial.setModel(listModel);
     }
-    
+
 }

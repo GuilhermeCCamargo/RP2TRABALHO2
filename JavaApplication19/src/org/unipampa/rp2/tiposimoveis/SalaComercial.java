@@ -33,15 +33,17 @@ public class SalaComercial extends Imovel{
      * Construtor somente com os dados essenciais para a criação de um imóvel
      * @param numero - Número do imovel to tipo inteiro
      * @param valor - preço do imóvel do tipo double
-     * @param logradouro - endereço do tipo String
+     * @param cidade - endereço do tipo String
      */
-    public SalaComercial(int numero, double valor, String logradouro) {
-        super(numero, valor, logradouro);
+    public SalaComercial(int numero, double valor, String cidade) {
+        super(numero, valor, cidade);
         this.andar = 0;
         this.nroBanheiros = 0;
         this.nroSala = 0;
         this.valorCondominio = 0;
         this.nomeEdificio = "";
+        this.logradouro = "";
+        this.bairro = "";
     }
 
     /**
@@ -61,17 +63,22 @@ public class SalaComercial extends Imovel{
      * InvalidParameterException, só não irá criar o modelo caso os parâmetros numero
      * ou valor sejam inválidos, caso sejam e os outros valores sejam inválidos irá
      * criar um imóvel normal só que com os campos inicializados em branco ou 0.
+     * @param cidade - cidade onde está presente o imóvel
+     * @param bairro - bairro onde fica o imóvel.
      */
     public SalaComercial(int numero, double valor, String logradouro, 
             int nroBanheiros, int andar, int nroSala, double valorCondominio,
-            String nomeEdificio, double areaTotal, String descricao) {
+            String nomeEdificio, double areaTotal, String descricao, String cidade,
+            String bairro) {
     
-        this(numero, valor, logradouro);
+        this(numero, valor, cidade);
         
         if(nroSala<0 || nroBanheiros<0 || areaTotal<0 || valorCondominio<0 || andar<0){
             throw new InvalidParameterException("Os números informados devems ser positivos");
         }
         
+        this.logradouro = logradouro;
+        this.bairro = bairro;
         this.andar = andar;
         this.nroBanheiros = nroBanheiros;
         this.nroSala = nroSala;

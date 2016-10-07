@@ -34,6 +34,7 @@
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jButtonSalaComercial" pref="299" max="32767" attributes="0"/>
                           <Component id="jButtonApartamento" max="32767" attributes="0"/>
+                          <Component id="jButtonCasa" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -50,7 +51,9 @@
               <Component id="jButtonSalaComercial" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jButtonApartamento" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="185" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jButtonCasa" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="143" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -78,6 +81,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonApartamentoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonCasa">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Casa"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCasaActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

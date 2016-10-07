@@ -25,6 +25,8 @@ public abstract class Imovel {
     protected double areaTotal;
     protected double valor;
     protected String logradouro;
+    protected String bairro;
+    protected String cidade;
     protected String descricao;
 
     //</editor-fold>
@@ -37,9 +39,9 @@ public abstract class Imovel {
      * @param numero - número da imóvel, sendo do tipo inteiro positivo - Caso não
      * seja uma exception do tipo InvalidParameterException será lançada.
      * @param valor - preço do imóvel, sendo do tipo double
-     * @param logradouro - logradouro do imóvel, sendo do tipo String
+     * @param cidade - cidade do imóvel, sendo do tipo String
      */
-    public Imovel(int numero, double valor, String logradouro) {
+    public Imovel(int numero, double valor, String cidade) {
         //@TODO: aqui acontece uma verificação para analisar se o número informado é
         //um número inteiro positivo, caso não 
         if(numero < 0 || valor < 0){
@@ -52,12 +54,40 @@ public abstract class Imovel {
         
         this.numero = numero;
         this.valor = valor;
-        this.logradouro = logradouro;
+        this.cidade = cidade;
     }
 
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
+
+    /**
+     * @return the bairro
+     */
+    public String getBairro() {
+        return bairro;
+    }
+
+    /**
+     * @param bairro the bairro to set
+     */
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    /**
+     * @return the cidade
+     */
+    public String getCidade() {
+        return cidade;
+    }
+
+    /**
+     * @param cidade the cidade to set
+     */
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
     
     /**
      * @return the cod
