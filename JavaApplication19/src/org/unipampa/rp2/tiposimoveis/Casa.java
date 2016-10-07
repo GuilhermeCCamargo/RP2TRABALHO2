@@ -25,10 +25,13 @@ public class Casa extends Imovel{
         super(numero, valor, logradouro);
     }
     public Casa(int numero, double valor, String logradouro, Tipo tipo,
-            Double areaConstruida, int nQuartos, int nVagasGaragem, int anoConstrucao) {
+            Double areaConstruida, int nQuartos, int nVagasGaragem, int anoConstrucao,
+            String cidade, String bairro) {
    
-        super(numero, valor, logradouro);
+        super(numero, valor, cidade);
         this.tipo = tipo;
+        this.logradouro = logradouro;
+        this.bairro = bairro;
         this.areaConstruida=areaConstruida;
         this.nQuartos=nQuartos;
         this.nVagasGaragem=nVagasGaragem;

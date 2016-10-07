@@ -8,7 +8,7 @@ package org.unipampa.rp2.frames;
 import org.unipampa.rp2.tiposimoveis.Tipo;
 import java.util.List;
 import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;//Talvez futuramente vou usar
+import javax.swing.JOptionPane;
 import org.unipampa.rp2.listaimoveis.Lista;
 import org.unipampa.rp2.tiposimoveis.Imovel;
 import org.unipampa.rp2.tiposimoveis.Casa;
@@ -17,15 +17,20 @@ public class FrameCasa extends javax.swing.JFrame {
 
     private Lista listaCasa;
     private List<Imovel> casa;
-
+    /**
+     * Construtor que inicia a classe
+     * Desabilita a 2 aba(indice 1)
+     * Inser as opções na comboBox
+     * @param listaCasa 
+     */
     public FrameCasa(Lista listaCasa) {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
         this.setTitle("Imobiliária - Casa");
-        
+
         this.listaCasa = listaCasa;
-        
+
         jTabbedPane4.setEnabledAt(1, false);
         jTabbedPane4.setEnabledAt(0, true);
 
@@ -34,21 +39,33 @@ public class FrameCasa extends javax.swing.JFrame {
         }
 
     }
-    
-    public void preencherCamos(int cod){
-        
+    /**
+     * Retorna true caso consiga preencher os campos com o objeto do codigo
+     * selecionado e false caso contrário
+     * @param cod
+     * @return 
+     */
+    public boolean preencherCampos(int cod) {
+
         Casa c = (Casa) listaCasa.consultar(cod);
-        jTextFieldNumero.setText(String.valueOf(c.getNumero()));
-        jTextFieldBairro.setText(c.getBairro());
-        jTextFieldCidade.setText("");
-        jTextFieldDescricao.setText("");
-        jTextFieldAreaTotal.setText("");
-        jTextFieldValor.setText("");
-        jTextFieldLogradouro.setText("");
-        jTextFieldAC.setText("");
-        jTextFieldNQ.setText("");
-        jTextFieldNVG.setText("");
-        jTextFieldAnoC.setText("");
+        if (c != null) {
+            jTextFieldNumero.setText(String.valueOf(c.getNumero()));
+            jTextFieldBairro.setText(c.getBairro());
+            jTextFieldCidade.setText(c.getCidade());
+            jTextFieldDescricao.setText(c.getDescricao());
+            jTextFieldAreaTotal.setText(String.valueOf(c.getAreaTotal()));
+            jTextFieldValor.setText(String.valueOf(c.getValor()));
+            jTextFieldLogradouro.setText(c.getLogradouro());
+            jTextFieldAC.setText(String.valueOf(c.getAreaConstruida()));
+            jTextFieldNQ.setText(String.valueOf(c.getnQuartos()));
+            jTextFieldNVG.setText(String.valueOf(c.getnVagasGaragem()));
+            jTextFieldAnoC.setText(String.valueOf(c.getAnoConstrucao()));
+            
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(null, "ERRO 03 - Imóvel não encontrado");
+            return false;
+        }
     }
 
     /**
@@ -135,7 +152,12 @@ public class FrameCasa extends javax.swing.JFrame {
             }
         });
 
-        jButtonConsultar.setText("consultar");
+        jButtonConsultar.setText("Consultar");
+        jButtonConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonConsultarActionPerformed(evt);
+            }
+        });
 
         jScrollPane2.setViewportView(jListFrameCasa);
 
@@ -156,7 +178,7 @@ public class FrameCasa extends javax.swing.JFrame {
                         .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(77, 77, 77)
                         .addComponent(jButtonBuscarCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 33, Short.MAX_VALUE))
+                        .addGap(0, 31, Short.MAX_VALUE))
                     .addComponent(jScrollPane2))
                 .addContainerGap())
         );
@@ -186,18 +208,33 @@ public class FrameCasa extends javax.swing.JFrame {
 
         jLabelLogradouro.setText(" Logradouro:");
 
+        jTextFieldLogradouro.setAutoscrolls(false);
+        jTextFieldLogradouro.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
         jLabelNumero.setText("Número:");
         jLabelNumero.setToolTipText("");
 
+        jTextFieldNumero.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
         jLabelBairro.setText(" Bairro:");
+
+        jTextFieldBairro.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         jLabelCidade.setText(" Cidade:");
 
+        jTextFieldCidade.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
         jLabelDescricao.setText("Descrição:");
+
+        jTextFieldDescricao.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         jLabelAreaTotal.setText(" Área Total (m²):");
 
+        jTextFieldAreaTotal.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
         jLabelValor.setText(" Valor (R$):");
+
+        jTextFieldValor.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         jLabelTipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTipo.setText("Tipo:");
@@ -210,6 +247,7 @@ public class FrameCasa extends javax.swing.JFrame {
 
         jLabelAC.setText("Área Construída:");
 
+        jTextFieldAC.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldAC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldACActionPerformed(evt);
@@ -218,6 +256,7 @@ public class FrameCasa extends javax.swing.JFrame {
 
         jLabelNQ.setText("Número de Quartos:");
 
+        jTextFieldNQ.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldNQ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNQActionPerformed(evt);
@@ -228,11 +267,14 @@ public class FrameCasa extends javax.swing.JFrame {
 
         jLabelNVG.setText("Número de Vagas na Garagem:");
 
+        jTextFieldNVG.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldNVG.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNVGActionPerformed(evt);
             }
         });
+
+        jTextFieldAnoC.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         jButtonVoltarAdicionar.setText("Voltar");
         jButtonVoltarAdicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -426,9 +468,9 @@ public class FrameCasa extends javax.swing.JFrame {
     private void jTextFieldNVGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNVGActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNVGActionPerformed
-
+    
     private void jButtonAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdicionarActionPerformed
-        //contém bug
+        
         Casa casa = new Casa(Integer.parseInt(jTextFieldNumero.getText().trim()),
                 Double.parseDouble(jTextFieldValor.getText().trim()),
                 jTextFieldLogradouro.getText().trim(),
@@ -436,11 +478,13 @@ public class FrameCasa extends javax.swing.JFrame {
                 Double.parseDouble(jTextFieldAC.getText().trim()),
                 Integer.parseInt(jTextFieldNQ.getText()),
                 Integer.parseInt(jTextFieldNVG.getText()),
-                Integer.parseInt(jTextFieldAnoC.getText()));
+                Integer.parseInt(jTextFieldAnoC.getText()),
+                jTextFieldCidade.getText(), jTextFieldBairro.getText());
 
         listaCasa.incluir(casa);
-        
+
         limparCampos();
+        JOptionPane.showMessageDialog(null, "Imóvel cadastrado com sucesso!");
 
     }//GEN-LAST:event_jButtonAdicionarActionPerformed
 
@@ -449,6 +493,8 @@ public class FrameCasa extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCodigoActionPerformed
 
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
+        ativarCampos();
+        limparCampos();
         jTabbedPane4.setEnabledAt(0, false);
         jTabbedPane4.setEnabledAt(1, true);
         jTabbedPane4.setSelectedIndex(1);
@@ -480,7 +526,38 @@ public class FrameCasa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNQActionPerformed
 
+    private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
+        // TODO add your handling code here:
+        String aux="";
+        boolean error = false;
+        aux = JOptionPane.showInputDialog("Insira o código do objeto que deseja buscar: ");
+        
+        if(aux == null){
+        } else if (aux.trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "ERRO 01 - Insira um valor");
+        } else {
+            for (int i = 0; i < aux.length(); i++) {
+                if (!(Character.isDigit(aux.charAt(i)))) {
+                    error = true;
+                    break;
+                }
+            }
+
+            if (error) {
+                JOptionPane.showMessageDialog(null, "ERRO 02 - Insira somente número inteiros");
+            } else {
+                if(preencherCampos(Integer.parseInt(aux))){
+                    desativarCampos();
+                    jTabbedPane4.setSelectedIndex(1);
+                    jTabbedPane4.setEnabledAt(1, true);
+                    jTabbedPane4.setEnabledAt(0, false);
+                }
+            }
+        }
+    }//GEN-LAST:event_jButtonConsultarActionPerformed
+
     /**
+     * Main para teste unitário 
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -562,6 +639,11 @@ public class FrameCasa extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
     
+    /**
+     * Recebe o codigo e adiciona a lista a monografia selecionada 
+     * 
+     * @param cod 
+     */
     public void listar(int cod) {
         DefaultListModel listModel = new DefaultListModel();
         this.casa = listaCasa.getLista();//Atribui a lista da classe Lista a variável
@@ -582,7 +664,9 @@ public class FrameCasa extends javax.swing.JFrame {
 
         jListFrameCasa.setModel(listModel);//Mudar a lista
     }
-
+    /**
+     * Apenas limpa todos os campos
+     */
     public void limparCampos() {
         jTextFieldNumero.setText("");
         jTextFieldBairro.setText("");
@@ -597,4 +681,41 @@ public class FrameCasa extends javax.swing.JFrame {
         jTextFieldAnoC.setText("");
 
     }
+    /**
+     * Apenas ativa todos os campos 
+     */
+    public void ativarCampos() {
+        jTextFieldNumero.setEnabled(true);
+        jTextFieldBairro.setEnabled(true);
+        jTextFieldCidade.setEnabled(true);
+        jTextFieldDescricao.setEnabled(true);
+        jTextFieldAreaTotal.setEnabled(true);
+        jTextFieldValor.setEnabled(true);
+        jTextFieldLogradouro.setEnabled(true);
+        jTextFieldAC.setEnabled(true);
+        jTextFieldNQ.setEnabled(true);
+        jTextFieldNVG.setEnabled(true);
+        jTextFieldAnoC.setEnabled(true);
+
+        jButtonAdicionar.setVisible(true);
+    }
+    /**
+     * Apenas destiva todos os campos
+     */
+    public void desativarCampos() {
+        jTextFieldNumero.setEnabled(false);
+        jTextFieldBairro.setEnabled(false);
+        jTextFieldCidade.setEnabled(false);
+        jTextFieldDescricao.setEnabled(false);
+        jTextFieldAreaTotal.setEnabled(false);
+        jTextFieldValor.setEnabled(false);
+        jTextFieldLogradouro.setEnabled(false);
+        jTextFieldAC.setEnabled(false);
+        jTextFieldNQ.setEnabled(false);
+        jTextFieldNVG.setEnabled(false);
+        jTextFieldAnoC.setEnabled(false);
+
+        jButtonAdicionar.setVisible(false);
+    }
+
 }
