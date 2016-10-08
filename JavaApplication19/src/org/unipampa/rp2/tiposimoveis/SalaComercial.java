@@ -169,7 +169,7 @@ public class SalaComercial extends Imovel{
     
     @Override
     public String toString(){
-        return "Código: "+getCod()+" - "+"Nome do edifício: "+this.nomeEdificio;
+        return "Código: "+getCod()+" - "+"Nome da cidade: "+getCidade();
     }
 
     //</editor-fold>

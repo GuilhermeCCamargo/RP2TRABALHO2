@@ -337,7 +337,11 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
         jLabelCidadeImovel.setText("Cidade:* ");
 
+        jTextFieldCidadeImovel.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+
         jLabelBairroImovel.setText("Bairro: ");
+
+        jTextFieldBairroImovel.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jPanelImovelLayout = new javax.swing.GroupLayout(jPanelImovel);
         jPanelImovel.setLayout(jPanelImovelLayout);
