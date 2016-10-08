@@ -178,4 +178,8 @@ public class Apartamento extends Imovel{
         this.valorCondominio = valorCondominio;
     }    
     
+    public String toString(){
+        return "\n"+"Código: "+getCod()+" - "+" Cidade: "+getCidade();
+    }
+    
 }    

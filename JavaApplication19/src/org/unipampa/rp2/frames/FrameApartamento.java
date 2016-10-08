@@ -673,12 +673,18 @@ public class FrameApartamento extends javax.swing.JFrame  {
         DefaultListModel modelList = new DefaultListModel();
         
         List<Imovel> imovel = ListaApartamento.getLista();
-        for (Imovel imovel1 : imovel) {
+        int aux = imovel.size();
+        for(int i = 0; i < aux; i++){
+            modelList.addElement(imovel.toString());
+        }
+        jListListaApartamento.setModel(modelList);
+    }
+      /*  for (Imovel imovel1 : imovel) {
             modelList.addElement(imovel.toString());
         }
         
         jListListaApartamento.setModel(modelList);
-    }
+    }*/
     
     /**
      * Método usado para limpar todos os campos tanto após uma edição quanto
