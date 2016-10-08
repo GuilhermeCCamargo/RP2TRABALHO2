@@ -19,7 +19,7 @@ public class Apartamento extends Imovel{
     private int andar;
     private int nroApartamento;
     private int nroQuartos;
-    private int vgsGaragem; //
+    private int vgsGaragem; 
     private int anoConstrucao;
     private double valorCondominio;
    
@@ -27,36 +27,42 @@ public class Apartamento extends Imovel{
      * Construtor com os dados essenciais para a criação de um imóvel
      * @param numero - Número do imóvel (tipo inteiro)
      * @param valor - Preço do imóvel (tipo double)
-     * @param logradouro - Endereço tipo (String)
+     * @param cidade - cidade onde tem o apartamento (String)
      */
-    public Apartamento(int numero, double valor, String logradouro) {
-        super(numero, valor, logradouro);
+    public Apartamento(int numero, double valor, String cidade) {
+        super(numero, valor, cidade);
         
-        this.nomeEdificio = "null";
-        this.andar = 00;
-        this.nroApartamento = 00;
-        this.nroQuartos = 00;
-        this.vgsGaragem = 00; 
-        this.anoConstrucao = 00;
-        this.valorCondominio = 00;
+        this.nomeEdificio = "";
+        this.logradouro = "";
+        this.bairro = "";
+        this.andar = 0;
+        this.nroApartamento = 0;
+        this.nroQuartos = 0;
+        this.vgsGaragem = 0; 
+        this.anoConstrucao = 0;
+        this.valorCondominio = 0;
         
     }
     /**
      * Construtor para a criação de um imóvel do tipo Apartamento
+     * @param cidade - cidade onde se localiza o apartamento
+     * @param bairro - Bairro onde se localiza o apartamento
      * @param logradouro - Endereço (Tipo String)
      * @param numero - Número do imóvel (Tipo Inteiro)
      * @param nomeEdificio - Nome do edificio onde o apartamento está situado (Tipo String) 
      * @param andar - Andar do apartamento (Tipo Inteiro)
      * @param valor - Preço do imóvel (Tipo Double)
+     * @param nroApartamento - Numero do apartamento do tipo inteiro
      * @param anoConstrucao - Ano de construção do Edifício (Tipo Inteiro)
      * @param nroQuartos - Número de quartos (Tipo Inteiro)
      * @param vgsGaragem - Número de vagas na garagem (Tipo Inteiro)
      * @param valorCondominio - preço do condominio, do tipo double positivo
      */
-    public Apartamento(String logradouro, int numero,  double valor, String nomeEdificio, int andar, 
+    public Apartamento(String cidade, String bairro ,String logradouro, int numero,  
+            double valor, String nomeEdificio, int andar, int nroApartamento, 
             int anoConstrucao, int nroQuartos, int vgsGaragem, double valorCondominio) {
     
-       this(numero, valor, logradouro);
+       this(numero, valor, cidade);
         
         if(numero < 0 || andar < 0 || valor < 0 || anoConstrucao < 0 || nroQuartos < 0 || vgsGaragem < 0 || valorCondominio < 0){
             throw new InvalidParameterException("Forneça números válidos");
@@ -69,6 +75,8 @@ public class Apartamento extends Imovel{
         this.vgsGaragem = vgsGaragem; 
         this.anoConstrucao = anoConstrucao;
         this.valorCondominio = valorCondominio;
+        this.logradouro = logradouro;
+        this.bairro = bairro;
         
     }
    
@@ -169,4 +177,5 @@ public class Apartamento extends Imovel{
     public void setValorCondominio(double valorCondominio) {
         this.valorCondominio = valorCondominio;
     }    
+    
 }    
