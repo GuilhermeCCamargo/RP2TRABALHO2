@@ -6,20 +6,24 @@
 package org.unipampa.rp2.frames;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 import org.unipampa.rp2.listaimoveis.Lista;
+import org.unipampa.rp2.tiposimoveis.Apartamento;
 import org.unipampa.rp2.tiposimoveis.Imovel;
 
 /**
  *
  * @author unipampa
  */
-public class FrameApartamento extends javax.swing.JFrame {
+public class FrameApartamento extends javax.swing.JFrame  {
 
     /**
      * Creates new form FrameApartamento
     */
     private Lista ListaApartamento;
-        private List<Imovel> Apartamento;
+    private List<Imovel> Apartamento;
+    private int codEdit = 0;
+    private boolean isEdit = false;
     
     public FrameApartamento(Lista ListaApartamento) {
         initComponents();
@@ -90,6 +94,7 @@ public class FrameApartamento extends javax.swing.JFrame {
         jTextAreaAddDescricao = new javax.swing.JTextArea();
         jButtonAddVoltar = new javax.swing.JButton();
         jButtonAddAdicionar = new javax.swing.JButton();
+        jLabelCamposObrigatorios = new javax.swing.JLabel();
         jPanelApartamentoExcluir = new javax.swing.JPanel();
         jLabelExcluirCodigoApartamento = new javax.swing.JLabel();
         jTextFieldExcluirCodigoApartamento = new javax.swing.JTextField();
@@ -136,7 +141,7 @@ public class FrameApartamento extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabelConsultarCodigoApartamento.setText("Código do Apartamento:");
+        jLabelConsultarCodigoApartamento.setText("Código:");
 
         jButtonConsultar.setText("Consultar");
 
@@ -169,7 +174,7 @@ public class FrameApartamento extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldConsultarCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jButtonConsultarVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 225, Short.MAX_VALUE))
+                        .addGap(0, 326, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelApartamentoConsultarLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jButtonConsultar)))
@@ -206,7 +211,7 @@ public class FrameApartamento extends javax.swing.JFrame {
 
         jLabelAddValor.setText("Valor (R$):");
 
-        jLabelAddValorCondominio.setText("* Valor do Condomínio (R$):");
+        jLabelAddValorCondominio.setText("Valor do Condomínio (R$):");
 
         jLabelAddEdificio.setText("Edifício:");
 
@@ -233,8 +238,21 @@ public class FrameApartamento extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTextAreaAddDescricao);
 
         jButtonAddVoltar.setLabel("Voltar");
+        jButtonAddVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddVoltarActionPerformed(evt);
+            }
+        });
 
         jButtonAddAdicionar.setLabel("Adicionar");
+        jButtonAddAdicionar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddAdicionarActionPerformed(evt);
+            }
+        });
+
+        jLabelCamposObrigatorios.setForeground(new java.awt.Color(153, 0, 0));
+        jLabelCamposObrigatorios.setText("Os campos com (*) são obrigatórios.");
 
         javax.swing.GroupLayout jPanelApartamentoAdicionarLayout = new javax.swing.GroupLayout(jPanelApartamentoAdicionar);
         jPanelApartamentoAdicionar.setLayout(jPanelApartamentoAdicionarLayout);
@@ -267,7 +285,7 @@ public class FrameApartamento extends javax.swing.JFrame {
                         .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldAddBairro)
                             .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                                 .addComponent(jLabelAddAreaTotal)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jTextFieldAddAreaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -277,9 +295,6 @@ public class FrameApartamento extends javax.swing.JFrame {
                                 .addComponent(jTextFieldAddValor, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabelAddValorCondominio))
-                            .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
-                                .addComponent(jTextFieldAddCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 248, Short.MAX_VALUE))
                             .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
                                 .addComponent(jTextFieldAddEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -304,7 +319,11 @@ public class FrameApartamento extends javax.swing.JFrame {
                     .addComponent(jScrollPane2)
                     .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonAddAdicionar)))
+                        .addComponent(jButtonAddAdicionar))
+                    .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
+                        .addComponent(jTextFieldAddCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelCamposObrigatorios)))
                 .addContainerGap())
         );
         jPanelApartamentoAdicionarLayout.setVerticalGroup(
@@ -313,7 +332,8 @@ public class FrameApartamento extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelAddCodigo)
-                    .addComponent(jTextFieldAddCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldAddCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCamposObrigatorios))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelAddLogradouro)
@@ -368,7 +388,7 @@ public class FrameApartamento extends javax.swing.JFrame {
 
         jTabbedPaneApartamento.addTab("Adicionar", jPanelApartamentoAdicionar);
 
-        jLabelExcluirCodigoApartamento.setText("Código do Apartamento:");
+        jLabelExcluirCodigoApartamento.setText("Código:");
 
         jButtonExcluirBuscar.setText("Buscar");
 
@@ -380,6 +400,11 @@ public class FrameApartamento extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jListExcluirLista);
 
         jButtonExcluirVoltar.setText("Voltar");
+        jButtonExcluirVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirVoltarActionPerformed(evt);
+            }
+        });
 
         jButtonExcluir.setText("Excluir");
 
@@ -395,7 +420,7 @@ public class FrameApartamento extends javax.swing.JFrame {
                         .addComponent(jLabelExcluirCodigoApartamento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldExcluirCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 243, Short.MAX_VALUE)
                         .addComponent(jButtonExcluirBuscar))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelApartamentoExcluirLayout.createSequentialGroup()
                         .addComponent(jButtonExcluirVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -413,16 +438,16 @@ public class FrameApartamento extends javax.swing.JFrame {
                     .addComponent(jButtonExcluirBuscar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addGroup(jPanelApartamentoExcluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonExcluirVoltar)
-                    .addComponent(jButtonExcluir))
-                .addContainerGap())
+                    .addComponent(jButtonExcluir)
+                    .addComponent(jButtonExcluirVoltar))
+                .addGap(21, 21, 21))
         );
 
         jTabbedPaneApartamento.addTab("Excluir", jPanelApartamentoExcluir);
 
-        jLabelEditarCodApart.setText("Código do Apartamento:");
+        jLabelEditarCodApart.setText("Código:");
 
         jButtonEditarBuscar.setText("Buscar");
         jButtonEditarBuscar.setActionCommand("");
@@ -460,6 +485,11 @@ public class FrameApartamento extends javax.swing.JFrame {
         jScrollPane4.setViewportView(jTextAreaEditarDescricao);
 
         jButtonEditarVoltar.setText("Voltar");
+        jButtonEditarVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarVoltarActionPerformed(evt);
+            }
+        });
 
         jButtonEditarSalvar.setText("Salvar");
 
@@ -469,25 +499,24 @@ public class FrameApartamento extends javax.swing.JFrame {
             jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabelEditarNumero)
+                    .addComponent(jLabelEditarLogradouro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelEditarCidade)
+                    .addComponent(jLabelEditarValor)
+                    .addComponent(jLabelEditarEdificio)
+                    .addComponent(jLabelEditarAndar)
+                    .addComponent(jLabelEditarQuartos)
+                    .addComponent(jLabelEditarDescricao)
+                    .addComponent(jButtonEditarVoltar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelEditarCodApart))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
-                        .addComponent(jLabelEditarCodApart)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldEditarCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonEditarBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
-                        .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabelEditarNumero)
-                            .addComponent(jLabelEditarLogradouro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelEditarCidade)
-                            .addComponent(jLabelEditarValor)
-                            .addComponent(jLabelEditarEdificio)
-                            .addComponent(jLabelEditarAndar)
-                            .addComponent(jLabelEditarQuartos)
-                            .addComponent(jLabelEditarDescricao)
-                            .addComponent(jButtonEditarVoltar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jTextFieldEditarLogradouro)
@@ -532,7 +561,7 @@ public class FrameApartamento extends javax.swing.JFrame {
                                 .addComponent(jScrollPane4))
                             .addComponent(jButtonEditarSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelApartamentoEditarLayout.setVerticalGroup(
             jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -599,7 +628,9 @@ public class FrameApartamento extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jTabbedPaneApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -618,6 +649,91 @@ public class FrameApartamento extends javax.swing.JFrame {
     private void jTextFieldAddEdificioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddEdificioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldAddEdificioActionPerformed
+
+    private void jButtonAddVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddVoltarActionPerformed
+        Inicial voltar = new Inicial();
+        voltar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonAddVoltarActionPerformed
+
+    private void jButtonExcluirVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirVoltarActionPerformed
+        Inicial voltar = new Inicial();
+        voltar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonExcluirVoltarActionPerformed
+
+    private void jButtonEditarVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarVoltarActionPerformed
+        Inicial voltar = new Inicial();
+        voltar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonEditarVoltarActionPerformed
+
+    private void jButtonAddAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAdicionarActionPerformed
+        if(jTextFieldAddLogradouro.getText().trim().equals("") || jTextFieldAddApartamentoNum.getText().trim().equals("") || jTextFieldAddCidade.getText().equals("")
+            || jTextFieldAddBairro.getText().trim().equals("") || jTextFieldAddVagasGaragem.getText().trim().equals("") || jTextFieldAddQuartos.getText().trim().equals("") 
+            || jTextFieldAddAndar.getText().trim().equals("") ||jTextFieldAddValor.getText().trim().equals("") || jTextFieldAddAreaTotal.getText().trim().equals("")
+            || jTextAreaAddDescricao.getText().trim().equals("") || jTextFieldAddApartamento.getText().trim().equals("")){
+            
+            JOptionPane.showMessageDialog(null,"Pro favor preencha os campos obrigatórios.");
+            
+        } else {
+                  //Declarando as variaveis que irao armazenar os valores do objeto Apartamento
+                  int AnoConstrucao;
+                  int Andar;
+                  int Apartamento;
+                  int Numero;
+                  int Garagem;
+                  int Quartos;
+                  String Logradouro;
+                  String Edificio;
+                  String Cidade;
+                  String Bairro;
+                  String Descricao;
+                  double Valor;
+                  double ValorCondominio;
+                  double AreaTotal;
+                  
+                  //Inicializando as variaveis
+                  AnoConstrucao = Integer.parseInt(jTextFieldAddAnoConstrucao.getText().trim());
+                  Andar = Integer.parseInt(jTextFieldAddAndar.getText().trim());
+                  Apartamento = Integer.parseInt(jTextFieldAddApartamento.getText().trim());
+                  Numero = Integer.parseInt(jTextFieldAddApartamentoNum.getText().trim());
+                  Garagem = Integer.parseInt(jTextFieldAddVagasGaragem.getText().trim());
+                  Quartos = Integer.parseInt(jTextFieldAddQuartos.getText().trim());
+                  Logradouro = jTextFieldAddLogradouro.getText().trim();
+                  Edificio = jTextFieldAddEdificio.getText().trim();
+                  Cidade = jTextFieldAddCidade.getText().trim();
+                  Bairro = jTextFieldAddBairro.getText().trim();
+                  Descricao = jTextAreaAddDescricao.getText().trim();
+                  Valor = Double.parseDouble(jTextFieldAddValor.getText().trim());
+                  ValorCondominio = Double.parseDouble(jTextFieldAddValorCondominio.getText().trim());
+                  AreaTotal = Double.parseDouble(jTextFieldAddAreaTotal.getText().trim());
+
+                  //Atribuindo todos os valores ao Apartamento referenciado como objeto
+                  Apartamento objeto = new Apartamento( Bairro,  Cidade,  Descricao, Logradouro, Edificio, Andar, Numero,  Apartamento, Garagem, Quartos, AnoConstrucao, AreaTotal, Valor, 
+            ValorCondominio );
+                  //objeto.setAnoConstrucao(AnoConstrucao);
+                  //objeto.setAndar(Andar);
+                  //objeto.setNroApartamento(Apartamento);
+                  //objeto.setNumero(Numero);
+                  //objeto.setVgsGaragem(Garagem);
+                  //objeto.setNroQuartos(Quartos);
+                  //objeto.setLogradouro(Logradouro);
+                  //objeto.setNomeEdificio(Edificio);
+                  //objeto.setCidade(Cidade);
+                  //objeto.setBairro(Bairro);
+                  //objeto.setDescricao(Descricao);
+                  //objeto.setValor(Valor);
+                  //objeto.setValorCondominio(ValorCondominio);
+                  //objeto.setAreaTotal(AreaTotal);
+                  
+                  //Salvando na Lista o objeto apartamento
+                  ListaApartamento.incluir(objeto);
+                  JOptionPane.showMessageDialog(null,"Imóvel salvo com sucesso.");
+                  limparCampos();
+        }
+            
+    }//GEN-LAST:event_jButtonAddAdicionarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -653,6 +769,28 @@ public class FrameApartamento extends javax.swing.JFrame {
             }
         });
     }
+    /**
+     * Método usado para limpar todos os campos tanto após uma edição quanto
+     * após uma edição.
+     */
+    private void limparCampos() {
+        jTextFieldAddAndar.setText("");
+        jTextFieldAddAnoConstrucao.setText("");
+        jTextFieldAddApartamento.setText("");
+        jTextFieldAddApartamentoNum.setText("");
+        jTextFieldAddAreaTotal.setText("");
+        jTextFieldAddBairro.setText("");
+        jTextFieldAddCidade.setText("");
+        jTextFieldAddCodigoApartamento.setText("");
+        jTextFieldAddEdificio.setText("");
+        jTextFieldAddLogradouro.setText("");
+        jTextFieldAddQuartos.setText("");
+        jTextFieldAddVagasGaragem.setText("");
+        jTextFieldAddValor.setText("");
+        jTextFieldAddValorCondominio.setText("");
+        jTextAreaAddDescricao.setText("");
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddAdicionar;
@@ -680,6 +818,7 @@ public class FrameApartamento extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelAddVagasGaragem;
     private javax.swing.JLabel jLabelAddValor;
     private javax.swing.JLabel jLabelAddValorCondominio;
+    private javax.swing.JLabel jLabelCamposObrigatorios;
     private javax.swing.JLabel jLabelConsultarCodigoApartamento;
     private javax.swing.JLabel jLabelEditarAndar;
     private javax.swing.JLabel jLabelEditarAnoConstruca;
