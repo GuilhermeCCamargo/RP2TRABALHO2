@@ -144,11 +144,6 @@ public class FrameApartamento extends javax.swing.JFrame  {
         jLabelConsultarCodigoApartamento.setText("Código:");
 
         jButtonConsultar.setText("Consultar");
-        jButtonConsultar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonConsultarActionPerformed(evt);
-            }
-        });
 
         jButtonConsultarVoltar.setText("Voltar");
         jButtonConsultarVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -157,6 +152,11 @@ public class FrameApartamento extends javax.swing.JFrame  {
             }
         });
 
+        jListListaApartamento.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
         jScrollPane1.setViewportView(jListListaApartamento);
 
         javax.swing.GroupLayout jPanelApartamentoConsultarLayout = new javax.swing.GroupLayout(jPanelApartamentoConsultar);
@@ -710,8 +710,8 @@ public class FrameApartamento extends javax.swing.JFrame  {
                   AreaTotal = Double.parseDouble(jTextFieldAddAreaTotal.getText().trim());
 
                   //Atribuindo todos os valores ao Apartamento referenciado como objeto
-                  Apartamento objeto = new Apartamento(Logradouro,Numero,Valor,Edificio,Andar,
-                  AnoConstrucao,Quartos,Garagem,ValorCondominio);
+                  Apartamento objeto = new Apartamento( Bairro,  Cidade,  Descricao, Logradouro, Edificio, Andar, Numero,  Apartamento, Garagem, Quartos, AnoConstrucao, AreaTotal, Valor, 
+            ValorCondominio );
                   //objeto.setAnoConstrucao(AnoConstrucao);
                   //objeto.setAndar(Andar);
                   //objeto.setNroApartamento(Apartamento);
@@ -734,10 +734,6 @@ public class FrameApartamento extends javax.swing.JFrame  {
         }
             
     }//GEN-LAST:event_jButtonAddAdicionarActionPerformed
-
-    private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonConsultarActionPerformed
 
     /**
      * @param args the command line arguments
