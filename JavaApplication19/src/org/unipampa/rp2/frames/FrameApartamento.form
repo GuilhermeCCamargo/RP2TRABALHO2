@@ -103,6 +103,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldConsultarCodigoApartamento">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldConsultarCodigoApartamentoKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonConsultar">
               <Properties>
@@ -334,6 +337,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAddApartamentoNum">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddApartamentoNumActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAddApartamentoNumKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelAddBairro">
               <Properties>
@@ -355,6 +362,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAddAreaTotal">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAddAreaTotalKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelAddValor">
               <Properties>
@@ -362,6 +372,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAddValor">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAddValorKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelAddValorCondominio">
               <Properties>
@@ -369,6 +382,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAddValorCondominio">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAddValorCondominioKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelAddEdificio">
               <Properties>
@@ -386,6 +402,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAddAnoConstrucao">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAddAnoConstrucaoKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelAddAndar">
               <Properties>
@@ -393,6 +412,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAddAndar">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAddAndarKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelAddApartamento">
               <Properties>
@@ -400,6 +422,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAddApartamento">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAddApartamentoKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelAddQuartos">
               <Properties>
@@ -407,6 +432,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAddQuartos">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAddQuartosKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelAddVagasGaragem">
               <Properties>
@@ -414,6 +442,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAddVagasGaragem">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAddVagasGaragemKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelAddDescricao">
               <Properties>

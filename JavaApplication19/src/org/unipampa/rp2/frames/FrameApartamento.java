@@ -133,6 +133,12 @@ public class FrameApartamento extends javax.swing.JFrame  {
 
         jLabelConsultarCodigoApartamento.setText("Código:");
 
+        jTextFieldConsultarCodigoApartamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldConsultarCodigoApartamentoKeyTyped(evt);
+            }
+        });
+
         jButtonConsultar.setText("Consultar");
         jButtonConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,15 +210,44 @@ public class FrameApartamento extends javax.swing.JFrame  {
 
         jLabelAddNumero.setText("* Número:");
 
+        jTextFieldAddApartamentoNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldAddApartamentoNumActionPerformed(evt);
+            }
+        });
+        jTextFieldAddApartamentoNum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAddApartamentoNumKeyTyped(evt);
+            }
+        });
+
         jLabelAddBairro.setText("* Bairro:");
 
         jLabelAddCidade.setText("* Cidade:");
 
         jLabelAddAreaTotal.setText("* Área Total (m²):");
 
+        jTextFieldAddAreaTotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAddAreaTotalKeyTyped(evt);
+            }
+        });
+
         jLabelAddValor.setText("Valor (R$):");
 
+        jTextFieldAddValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAddValorKeyTyped(evt);
+            }
+        });
+
         jLabelAddValorCondominio.setText("Valor do Condomínio (R$):");
+
+        jTextFieldAddValorCondominio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAddValorCondominioKeyTyped(evt);
+            }
+        });
 
         jLabelAddEdificio.setText("Edifício:");
 
@@ -224,13 +259,43 @@ public class FrameApartamento extends javax.swing.JFrame  {
 
         jLabelAddAnoConstrucao.setText("Ano de Construção:");
 
+        jTextFieldAddAnoConstrucao.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAddAnoConstrucaoKeyTyped(evt);
+            }
+        });
+
         jLabelAddAndar.setText("* Andar:");
+
+        jTextFieldAddAndar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAddAndarKeyTyped(evt);
+            }
+        });
 
         jLabelAddApartamento.setText("Apartamento:");
 
+        jTextFieldAddApartamento.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAddApartamentoKeyTyped(evt);
+            }
+        });
+
         jLabelAddQuartos.setText("* Quartos:");
 
+        jTextFieldAddQuartos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAddQuartosKeyTyped(evt);
+            }
+        });
+
         jLabelAddVagasGaragem.setText("* Vagas na garagem:");
+
+        jTextFieldAddVagasGaragem.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAddVagasGaragemKeyTyped(evt);
+            }
+        });
 
         jLabelAddDescricao.setText("* Descrição:");
 
@@ -650,6 +715,50 @@ public class FrameApartamento extends javax.swing.JFrame  {
         listar();
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
+    private void jTextFieldConsultarCodigoApartamentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldConsultarCodigoApartamentoKeyTyped
+        soNumeros(evt, false);
+    }//GEN-LAST:event_jTextFieldConsultarCodigoApartamentoKeyTyped
+
+    private void jTextFieldAddApartamentoNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddApartamentoNumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldAddApartamentoNumActionPerformed
+
+    private void jTextFieldAddApartamentoNumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAddApartamentoNumKeyTyped
+       soNumeros(evt, false);
+    }//GEN-LAST:event_jTextFieldAddApartamentoNumKeyTyped
+
+    private void jTextFieldAddAnoConstrucaoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAddAnoConstrucaoKeyTyped
+        soNumeros(evt, false);
+    }//GEN-LAST:event_jTextFieldAddAnoConstrucaoKeyTyped
+
+    private void jTextFieldAddAndarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAddAndarKeyTyped
+        soNumeros(evt, false);
+    }//GEN-LAST:event_jTextFieldAddAndarKeyTyped
+
+    private void jTextFieldAddApartamentoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAddApartamentoKeyTyped
+       soNumeros(evt, false);
+    }//GEN-LAST:event_jTextFieldAddApartamentoKeyTyped
+
+    private void jTextFieldAddQuartosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAddQuartosKeyTyped
+        soNumeros(evt, false);
+    }//GEN-LAST:event_jTextFieldAddQuartosKeyTyped
+
+    private void jTextFieldAddVagasGaragemKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAddVagasGaragemKeyTyped
+        soNumeros(evt, false);
+    }//GEN-LAST:event_jTextFieldAddVagasGaragemKeyTyped
+
+    private void jTextFieldAddAreaTotalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAddAreaTotalKeyTyped
+        soNumeros(evt, isDouble(jTextFieldAddAreaTotal));
+    }//GEN-LAST:event_jTextFieldAddAreaTotalKeyTyped
+
+    private void jTextFieldAddValorCondominioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAddValorCondominioKeyTyped
+        soNumeros(evt, isDouble(jTextFieldAddValorCondominio));
+    }//GEN-LAST:event_jTextFieldAddValorCondominioKeyTyped
+
+    private void jTextFieldAddValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAddValorKeyTyped
+        soNumeros(evt, isDouble(jTextFieldAddValor));
+    }//GEN-LAST:event_jTextFieldAddValorKeyTyped
+
 //</editor-fold> // Modificado
 
     /**
@@ -724,7 +833,32 @@ public class FrameApartamento extends javax.swing.JFrame  {
         jTextFieldAddValorCondominio.setText("");
         jTextAreaAddDescricao.setText("");
     }
+    private void soNumeros(java.awt.event.KeyEvent evt, boolean isDouble) {
+        char ch = evt.getKeyChar();
+        if (isDouble) {
+            if (Character.isDigit(ch) || ch == '.') {
+
+            } else {
+                evt.consume();
+            }
+        } else if (Character.isDigit(ch)) {
+
+        } else {
+            evt.consume();
+        }
+    }
     
+    private boolean isDouble(javax.swing.JTextField campo) {
+        String texto = campo.getText().trim();
+
+        for (int i = 0; i < texto.length(); i++) {
+            if (texto.charAt(i) == '.') {
+                return false;
+            }
+        }
+
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddAdicionar;
