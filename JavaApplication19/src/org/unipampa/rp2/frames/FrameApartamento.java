@@ -50,54 +50,95 @@ public class FrameApartamento extends javax.swing.JFrame {
 
         jTabbedPaneApartamento = new javax.swing.JTabbedPane();
         jPanelApartamentoConsultar = new javax.swing.JPanel();
-        jLabelcodApartamento = new javax.swing.JLabel();
-        jTextFieldCodApartamento = new javax.swing.JTextField();
-        jButtonConsultarApartamento = new javax.swing.JButton();
+        jLabelConsultarCodigoApartamento = new javax.swing.JLabel();
+        jTextFieldConsultarCodigoApartamento = new javax.swing.JTextField();
+        jButtonConsultar = new javax.swing.JButton();
         jButtonConsultarVoltar = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jListListaApartamento = new javax.swing.JList<>();
         jPanelApartamentoAdicionar = new javax.swing.JPanel();
-        jLabelCodApartamento = new javax.swing.JLabel();
-        jTextFieldAddCodApartamento = new javax.swing.JTextField();
+        jLabelAddCodigo = new javax.swing.JLabel();
+        jTextFieldAddCodigoApartamento = new javax.swing.JTextField();
         jLabelAddLogradouro = new javax.swing.JLabel();
-        jTextFieldAddApartamentoLogradouro = new javax.swing.JTextField();
-        jLabelAddApartamentoNum = new javax.swing.JLabel();
+        jTextFieldAddLogradouro = new javax.swing.JTextField();
+        jLabelAddNumero = new javax.swing.JLabel();
         jTextFieldAddApartamentoNum = new javax.swing.JTextField();
-        jLabelAddApartamentoBairro = new javax.swing.JLabel();
-        jTextFieldAddApartamentoBairro = new javax.swing.JTextField();
-        jLabelAddApartamentoCidade = new javax.swing.JLabel();
-        jTextFieldAddApartamentoCidade = new javax.swing.JTextField();
-        jLabelAddApartamentoAreaTotal = new javax.swing.JLabel();
-        jTextFieldAddApartamentoAreaTotal = new javax.swing.JTextField();
-        jLabelAddApartamentoValor = new javax.swing.JLabel();
-        jTextFieldAddApartamentoValor = new javax.swing.JTextField();
-        jLabelAddApartamentoValorCond = new javax.swing.JLabel();
-        jTextFieldAddApartamentoValorCond = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jTextFieldAddApartamentoEdificio = new javax.swing.JTextField();
-        jLabelAddApartamentoAnoConstrucao = new javax.swing.JLabel();
-        jTextFieldAddApartamentoAno = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jTextFieldAddApartamentoAndar = new javax.swing.JTextField();
-        jLabelAddApartamentoapart = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        jLabelAddBairro = new javax.swing.JLabel();
+        jTextFieldAddBairro = new javax.swing.JTextField();
+        jLabelAddCidade = new javax.swing.JLabel();
+        jTextFieldAddCidade = new javax.swing.JTextField();
+        jLabelAddAreaTotal = new javax.swing.JLabel();
+        jTextFieldAddAreaTotal = new javax.swing.JTextField();
+        jLabelAddValor = new javax.swing.JLabel();
+        jTextFieldAddValor = new javax.swing.JTextField();
+        jLabelAddValorCondominio = new javax.swing.JLabel();
+        jTextFieldAddValorCondominio = new javax.swing.JTextField();
+        jLabelAddEdificio = new javax.swing.JLabel();
+        jTextFieldAddEdificio = new javax.swing.JTextField();
+        jLabelAddAnoConstrucao = new javax.swing.JLabel();
+        jTextFieldAddAnoConstrucao = new javax.swing.JTextField();
+        jLabelAddAndar = new javax.swing.JLabel();
+        jTextFieldAddAndar = new javax.swing.JTextField();
+        jLabelAddApartamento = new javax.swing.JLabel();
+        jTextFieldAddApartamento = new javax.swing.JTextField();
+        jLabelAddQuartos = new javax.swing.JLabel();
+        jTextFieldAddQuartos = new javax.swing.JTextField();
+        jLabelAddVagasGaragem = new javax.swing.JLabel();
+        jTextFieldAddVagasGaragem = new javax.swing.JTextField();
+        jLabelAddDescricao = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButtonAddApartamentoVoltar = new javax.swing.JButton();
-        jButtonAddApartamentoAdicionar = new javax.swing.JButton();
+        jTextAreaAddDescricao = new javax.swing.JTextArea();
+        jButtonAddVoltar = new javax.swing.JButton();
+        jButtonAddAdicionar = new javax.swing.JButton();
         jPanelApartamentoExcluir = new javax.swing.JPanel();
+        jLabelExcluirCodigoApartamento = new javax.swing.JLabel();
+        jTextFieldExcluirCodigoApartamento = new javax.swing.JTextField();
+        jButtonExcluirBuscar = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jListExcluirLista = new javax.swing.JList<>();
+        jButtonExcluirVoltar = new javax.swing.JButton();
+        jButtonExcluir = new javax.swing.JButton();
         jPanelApartamentoEditar = new javax.swing.JPanel();
+        jLabelEditarCodApart = new javax.swing.JLabel();
+        jTextFieldEditarCodigoApartamento = new javax.swing.JTextField();
+        jButtonEditarBuscar = new javax.swing.JButton();
+        jLabelEditarLogradouro = new javax.swing.JLabel();
+        jTextFieldEditarLogradouro = new javax.swing.JTextField();
+        jLabelEditarNumero = new javax.swing.JLabel();
+        jTextFieldEditarNumero = new javax.swing.JTextField();
+        jLabelEditarBairro = new javax.swing.JLabel();
+        jTextFieldEditarBairro = new javax.swing.JTextField();
+        jLabelEditarCidade = new javax.swing.JLabel();
+        jTextFieldEditarCidade = new javax.swing.JTextField();
+        jLabelEditarAreaTotal = new javax.swing.JLabel();
+        jTextFieldEditarAreaTotal = new javax.swing.JTextField();
+        jLabelEditarValor = new javax.swing.JLabel();
+        jTextFieldEditarValor = new javax.swing.JTextField();
+        jLabelEditarValorCondominio = new javax.swing.JLabel();
+        jTextFieldEditarValorComdominio = new javax.swing.JTextField();
+        jLabelEditarEdificio = new javax.swing.JLabel();
+        jTextFieldEditarEdificio = new javax.swing.JTextField();
+        jTextFieldEditarAnoConstrucao = new javax.swing.JTextField();
+        jLabelEditarAnoConstruca = new javax.swing.JLabel();
+        jLabelEditarAndar = new javax.swing.JLabel();
+        jTextFieldEditarAndar = new javax.swing.JTextField();
+        jLabelEditarApartamento = new javax.swing.JLabel();
+        jTextFieldEditarApartamento = new javax.swing.JTextField();
+        jLabelEditarQuartos = new javax.swing.JLabel();
+        jTextFieldEditarQuartos = new javax.swing.JTextField();
+        jLabelEditarVagasGaragem = new javax.swing.JLabel();
+        jTextFieldEditarVagasGaragem = new javax.swing.JTextField();
+        jLabelEditarDescricao = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTextAreaEditarDescricao = new javax.swing.JTextArea();
+        jButtonEditarVoltar = new javax.swing.JButton();
+        jButtonEditarSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabelcodApartamento.setText("Código do Apartamento:");
+        jLabelConsultarCodigoApartamento.setText("Código do Apartamento:");
 
-        jButtonConsultarApartamento.setText("Consultar");
+        jButtonConsultar.setText("Consultar");
 
         jButtonConsultarVoltar.setText("Voltar");
         jButtonConsultarVoltar.addActionListener(new java.awt.event.ActionListener() {
@@ -124,14 +165,14 @@ public class FrameApartamento extends javax.swing.JFrame {
                     .addGroup(jPanelApartamentoConsultarLayout.createSequentialGroup()
                         .addGroup(jPanelApartamentoConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelApartamentoConsultarLayout.createSequentialGroup()
-                                .addComponent(jLabelcodApartamento)
+                                .addComponent(jLabelConsultarCodigoApartamento)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldCodApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextFieldConsultarCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jButtonConsultarVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 208, Short.MAX_VALUE))
+                        .addGap(0, 225, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelApartamentoConsultarLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonConsultarApartamento)))
+                        .addComponent(jButtonConsultar)))
                 .addContainerGap())
         );
         jPanelApartamentoConsultarLayout.setVerticalGroup(
@@ -139,61 +180,61 @@ public class FrameApartamento extends javax.swing.JFrame {
             .addGroup(jPanelApartamentoConsultarLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(jPanelApartamentoConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelcodApartamento)
-                    .addComponent(jTextFieldCodApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonConsultarApartamento))
+                    .addComponent(jLabelConsultarCodigoApartamento)
+                    .addComponent(jTextFieldConsultarCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonConsultar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                 .addComponent(jButtonConsultarVoltar)
                 .addContainerGap())
         );
 
         jTabbedPaneApartamento.addTab("Consultar", jPanelApartamentoConsultar);
 
-        jLabelCodApartamento.setText("Código:");
+        jLabelAddCodigo.setText("Código:");
 
         jLabelAddLogradouro.setText("* Logradouro:");
 
-        jLabelAddApartamentoNum.setText("* Número:");
+        jLabelAddNumero.setText("* Número:");
 
-        jLabelAddApartamentoBairro.setText("* Bairro:");
+        jLabelAddBairro.setText("* Bairro:");
 
-        jLabelAddApartamentoCidade.setText("* Cidade:");
+        jLabelAddCidade.setText("* Cidade:");
 
-        jLabelAddApartamentoAreaTotal.setText("* Área Total (m²):");
+        jLabelAddAreaTotal.setText("* Área Total (m²):");
 
-        jLabelAddApartamentoValor.setText("Valor (R$):");
+        jLabelAddValor.setText("Valor (R$):");
 
-        jLabelAddApartamentoValorCond.setText("* Valor do Comdomínio (R$):");
+        jLabelAddValorCondominio.setText("* Valor do Condomínio (R$):");
 
-        jLabel1.setText("Edifício:");
+        jLabelAddEdificio.setText("Edifício:");
 
-        jTextFieldAddApartamentoEdificio.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldAddEdificio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldAddApartamentoEdificioActionPerformed(evt);
+                jTextFieldAddEdificioActionPerformed(evt);
             }
         });
 
-        jLabelAddApartamentoAnoConstrucao.setText("Ano de Construção:");
+        jLabelAddAnoConstrucao.setText("Ano de Construção:");
 
-        jLabel2.setText("* Andar:");
+        jLabelAddAndar.setText("* Andar:");
 
-        jLabelAddApartamentoapart.setText("Apartamento:");
+        jLabelAddApartamento.setText("Apartamento:");
 
-        jLabel3.setText("* Quartos:");
+        jLabelAddQuartos.setText("* Quartos:");
 
-        jLabel4.setText("* Vagas na garagem:");
+        jLabelAddVagasGaragem.setText("* Vagas na garagem:");
 
-        jLabel5.setText("Descrição:");
+        jLabelAddDescricao.setText("* Descrição:");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane2.setViewportView(jTextArea1);
+        jTextAreaAddDescricao.setColumns(20);
+        jTextAreaAddDescricao.setRows(5);
+        jScrollPane2.setViewportView(jTextAreaAddDescricao);
 
-        jButtonAddApartamentoVoltar.setLabel("Voltar");
+        jButtonAddVoltar.setLabel("Voltar");
 
-        jButtonAddApartamentoAdicionar.setLabel("Adicionar");
+        jButtonAddAdicionar.setLabel("Adicionar");
 
         javax.swing.GroupLayout jPanelApartamentoAdicionarLayout = new javax.swing.GroupLayout(jPanelApartamentoAdicionar);
         jPanelApartamentoAdicionar.setLayout(jPanelApartamentoAdicionarLayout);
@@ -202,69 +243,68 @@ public class FrameApartamento extends javax.swing.JFrame {
             .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonAddApartamentoVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelAddApartamentoCidade, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelAddApartamentoNum, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonAddVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelAddDescricao, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelAddQuartos, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelAddAndar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelAddCidade, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelAddNumero, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabelAddLogradouro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelCodApartamento, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabelAddApartamentoValor, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jLabelAddCodigo, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelAddValor, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelAddEdificio, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldAddApartamentoLogradouro)
+                    .addComponent(jTextFieldAddLogradouro)
                     .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
                         .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
                                 .addComponent(jTextFieldAddApartamentoNum, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabelAddApartamentoBairro))
-                            .addComponent(jTextFieldAddApartamentoCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabelAddBairro))
+                            .addComponent(jTextFieldAddCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldAddApartamentoBairro)
+                            .addComponent(jTextFieldAddBairro)
                             .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                                .addComponent(jLabelAddApartamentoAreaTotal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                                .addComponent(jLabelAddAreaTotal)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextFieldAddApartamentoAreaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(jTextFieldAddAreaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelApartamentoAdicionarLayout.createSequentialGroup()
                         .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
-                                .addComponent(jTextFieldAddApartamentoValor, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldAddValor, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabelAddApartamentoValorCond))
+                                .addComponent(jLabelAddValorCondominio))
                             .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
-                                .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldAddCodApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
-                                        .addComponent(jTextFieldAddApartamentoEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabelAddApartamentoAnoConstrucao)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
+                                .addComponent(jTextFieldAddCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 248, Short.MAX_VALUE))
+                            .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
+                                .addComponent(jTextFieldAddEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabelAddAnoConstrucao)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldAddApartamentoValorCond, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                            .addComponent(jTextFieldAddApartamentoAno)))
+                            .addComponent(jTextFieldAddValorCondominio, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                            .addComponent(jTextFieldAddAnoConstrucao)))
                     .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
                         .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                            .addComponent(jTextFieldAddApartamentoAndar, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jTextFieldAddQuartos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                            .addComponent(jTextFieldAddAndar, javax.swing.GroupLayout.Alignment.LEADING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabelAddApartamentoapart)
-                            .addComponent(jLabel4))
+                            .addComponent(jLabelAddApartamento)
+                            .addComponent(jLabelAddVagasGaragem))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                            .addComponent(jTextField1))
+                            .addComponent(jTextFieldAddVagasGaragem, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
+                            .addComponent(jTextFieldAddApartamento))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jScrollPane2)
                     .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonAddApartamentoAdicionar)))
+                        .addComponent(jButtonAddAdicionar)))
                 .addContainerGap())
         );
         jPanelApartamentoAdicionarLayout.setVerticalGroup(
@@ -272,84 +312,285 @@ public class FrameApartamento extends javax.swing.JFrame {
             .addGroup(jPanelApartamentoAdicionarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCodApartamento)
-                    .addComponent(jTextFieldAddCodApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelAddCodigo)
+                    .addComponent(jTextFieldAddCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelAddLogradouro)
-                    .addComponent(jTextFieldAddApartamentoLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldAddLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelAddApartamentoNum)
+                    .addComponent(jLabelAddNumero)
                     .addComponent(jTextFieldAddApartamentoNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelAddApartamentoBairro)
-                    .addComponent(jTextFieldAddApartamentoBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelAddBairro)
+                    .addComponent(jTextFieldAddBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelAddApartamentoCidade)
-                    .addComponent(jTextFieldAddApartamentoCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelAddApartamentoAreaTotal)
-                    .addComponent(jTextFieldAddApartamentoAreaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelAddCidade)
+                    .addComponent(jTextFieldAddCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelAddAreaTotal)
+                    .addComponent(jTextFieldAddAreaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelAddApartamentoValor)
-                    .addComponent(jTextFieldAddApartamentoValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelAddApartamentoValorCond)
-                    .addComponent(jTextFieldAddApartamentoValorCond, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelAddValor)
+                    .addComponent(jTextFieldAddValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelAddValorCondominio)
+                    .addComponent(jTextFieldAddValorCondominio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jTextFieldAddApartamentoEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelAddApartamentoAnoConstrucao)
-                    .addComponent(jTextFieldAddApartamentoAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelAddEdificio)
+                    .addComponent(jTextFieldAddEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelAddAnoConstrucao)
+                    .addComponent(jTextFieldAddAnoConstrucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
+                    .addComponent(jLabelAddAndar)
                     .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextFieldAddApartamentoAndar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabelAddApartamentoapart)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jTextFieldAddAndar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabelAddApartamento)
+                        .addComponent(jTextFieldAddApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelAddQuartos)
+                    .addComponent(jTextFieldAddQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelAddVagasGaragem)
+                    .addComponent(jTextFieldAddVagasGaragem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
+                    .addComponent(jLabelAddDescricao)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelApartamentoAdicionarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonAddApartamentoVoltar)
-                    .addComponent(jButtonAddApartamentoAdicionar))
+                    .addComponent(jButtonAddVoltar)
+                    .addComponent(jButtonAddAdicionar))
                 .addContainerGap())
         );
 
         jTabbedPaneApartamento.addTab("Adicionar", jPanelApartamentoAdicionar);
 
+        jLabelExcluirCodigoApartamento.setText("Código do Apartamento:");
+
+        jButtonExcluirBuscar.setText("Buscar");
+
+        jListExcluirLista.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane3.setViewportView(jListExcluirLista);
+
+        jButtonExcluirVoltar.setText("Voltar");
+
+        jButtonExcluir.setText("Excluir");
+
         javax.swing.GroupLayout jPanelApartamentoExcluirLayout = new javax.swing.GroupLayout(jPanelApartamentoExcluir);
         jPanelApartamentoExcluir.setLayout(jPanelApartamentoExcluirLayout);
         jPanelApartamentoExcluirLayout.setHorizontalGroup(
             jPanelApartamentoExcluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelApartamentoExcluirLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelApartamentoExcluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane3)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelApartamentoExcluirLayout.createSequentialGroup()
+                        .addComponent(jLabelExcluirCodigoApartamento)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldExcluirCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
+                        .addComponent(jButtonExcluirBuscar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelApartamentoExcluirLayout.createSequentialGroup()
+                        .addComponent(jButtonExcluirVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanelApartamentoExcluirLayout.setVerticalGroup(
             jPanelApartamentoExcluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 333, Short.MAX_VALUE)
+            .addGroup(jPanelApartamentoExcluirLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelApartamentoExcluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelExcluirCodigoApartamento)
+                    .addComponent(jTextFieldExcluirCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonExcluirBuscar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 73, Short.MAX_VALUE)
+                .addGroup(jPanelApartamentoExcluirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonExcluirVoltar)
+                    .addComponent(jButtonExcluir))
+                .addContainerGap())
         );
 
         jTabbedPaneApartamento.addTab("Excluir", jPanelApartamentoExcluir);
+
+        jLabelEditarCodApart.setText("Código do Apartamento:");
+
+        jButtonEditarBuscar.setText("Buscar");
+        jButtonEditarBuscar.setActionCommand("");
+
+        jLabelEditarLogradouro.setText("* Logradouro:");
+
+        jLabelEditarNumero.setText("* Número:");
+
+        jLabelEditarBairro.setText("* Bairro:");
+
+        jLabelEditarCidade.setText("* Cidade:");
+
+        jLabelEditarAreaTotal.setText("* Área Total (m²):");
+
+        jLabelEditarValor.setText("* Valor (R$):");
+
+        jLabelEditarValorCondominio.setText("* Valor Condomínio (R$):");
+
+        jLabelEditarEdificio.setText("Edifício:");
+
+        jLabelEditarAnoConstruca.setText("Ano de Construção:");
+
+        jLabelEditarAndar.setText("* Andar:");
+
+        jLabelEditarApartamento.setText("* Apartamento:");
+
+        jLabelEditarQuartos.setText("* Quartos:");
+
+        jLabelEditarVagasGaragem.setText("* Vagas na Garagem:");
+
+        jLabelEditarDescricao.setText("* Descrição:");
+
+        jTextAreaEditarDescricao.setColumns(20);
+        jTextAreaEditarDescricao.setRows(5);
+        jScrollPane4.setViewportView(jTextAreaEditarDescricao);
+
+        jButtonEditarVoltar.setText("Voltar");
+
+        jButtonEditarSalvar.setText("Salvar");
 
         javax.swing.GroupLayout jPanelApartamentoEditarLayout = new javax.swing.GroupLayout(jPanelApartamentoEditar);
         jPanelApartamentoEditar.setLayout(jPanelApartamentoEditarLayout);
         jPanelApartamentoEditarLayout.setHorizontalGroup(
             jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 517, Short.MAX_VALUE)
+            .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
+                        .addComponent(jLabelEditarCodApart)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldEditarCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonEditarBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
+                        .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabelEditarNumero)
+                            .addComponent(jLabelEditarLogradouro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabelEditarCidade)
+                            .addComponent(jLabelEditarValor)
+                            .addComponent(jLabelEditarEdificio)
+                            .addComponent(jLabelEditarAndar)
+                            .addComponent(jLabelEditarQuartos)
+                            .addComponent(jLabelEditarDescricao)
+                            .addComponent(jButtonEditarVoltar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextFieldEditarLogradouro)
+                                .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
+                                    .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jTextFieldEditarCidade, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
+                                            .addComponent(jTextFieldEditarNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                            .addComponent(jLabelEditarBairro)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jTextFieldEditarBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
+                                    .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
+                                            .addGap(125, 125, 125)
+                                            .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabelEditarAreaTotal)
+                                                .addComponent(jLabelEditarValorCondominio)
+                                                .addComponent(jLabelEditarAnoConstruca)))
+                                        .addComponent(jTextFieldEditarValor, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldEditarEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextFieldEditarAreaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldEditarValorComdominio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldEditarAnoConstrucao, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
+                                    .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelApartamentoEditarLayout.createSequentialGroup()
+                                            .addComponent(jTextFieldEditarQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabelEditarVagasGaragem))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelApartamentoEditarLayout.createSequentialGroup()
+                                            .addComponent(jTextFieldEditarAndar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(56, 56, 56)
+                                            .addComponent(jLabelEditarApartamento)))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextFieldEditarApartamento, javax.swing.GroupLayout.DEFAULT_SIZE, 69, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldEditarVagasGaragem)))
+                                .addComponent(jScrollPane4))
+                            .addComponent(jButtonEditarSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         jPanelApartamentoEditarLayout.setVerticalGroup(
             jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 333, Short.MAX_VALUE)
+            .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelEditarCodApart)
+                    .addComponent(jTextFieldEditarCodigoApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonEditarBuscar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelEditarLogradouro)
+                    .addComponent(jTextFieldEditarLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelEditarNumero)
+                    .addComponent(jTextFieldEditarNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelEditarBairro)
+                    .addComponent(jTextFieldEditarBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelEditarCidade)
+                    .addComponent(jTextFieldEditarCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelEditarAreaTotal)
+                    .addComponent(jTextFieldEditarAreaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelEditarValor)
+                    .addComponent(jTextFieldEditarValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelEditarValorCondominio)
+                    .addComponent(jTextFieldEditarValorComdominio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelEditarEdificio)
+                    .addComponent(jTextFieldEditarEdificio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldEditarAnoConstrucao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelEditarAnoConstruca))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelEditarAndar)
+                    .addComponent(jTextFieldEditarAndar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelEditarApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldEditarApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelEditarQuartos)
+                    .addComponent(jTextFieldEditarQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelEditarVagasGaragem)
+                    .addComponent(jTextFieldEditarVagasGaragem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelEditarDescricao)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonEditarSalvar)
+                    .addComponent(jButtonEditarVoltar))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jTabbedPaneApartamento.addTab("Editar", jPanelApartamentoEditar);
@@ -358,11 +599,11 @@ public class FrameApartamento extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneApartamento)
+            .addComponent(jTabbedPaneApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPaneApartamento)
+            .addComponent(jTabbedPaneApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -374,9 +615,9 @@ public class FrameApartamento extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_jButtonConsultarVoltarActionPerformed
 
-    private void jTextFieldAddApartamentoEdificioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddApartamentoEdificioActionPerformed
+    private void jTextFieldAddEdificioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAddEdificioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldAddApartamentoEdificioActionPerformed
+    }//GEN-LAST:event_jTextFieldAddEdificioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,26 +655,49 @@ public class FrameApartamento extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAddApartamentoAdicionar;
-    private javax.swing.JButton jButtonAddApartamentoVoltar;
-    private javax.swing.JButton jButtonConsultarApartamento;
+    private javax.swing.JButton jButtonAddAdicionar;
+    private javax.swing.JButton jButtonAddVoltar;
+    private javax.swing.JButton jButtonConsultar;
     private javax.swing.JButton jButtonConsultarVoltar;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabelAddApartamentoAnoConstrucao;
-    private javax.swing.JLabel jLabelAddApartamentoAreaTotal;
-    private javax.swing.JLabel jLabelAddApartamentoBairro;
-    private javax.swing.JLabel jLabelAddApartamentoCidade;
-    private javax.swing.JLabel jLabelAddApartamentoNum;
-    private javax.swing.JLabel jLabelAddApartamentoValor;
-    private javax.swing.JLabel jLabelAddApartamentoValorCond;
-    private javax.swing.JLabel jLabelAddApartamentoapart;
+    private javax.swing.JButton jButtonEditarBuscar;
+    private javax.swing.JButton jButtonEditarSalvar;
+    private javax.swing.JButton jButtonEditarVoltar;
+    private javax.swing.JButton jButtonExcluir;
+    private javax.swing.JButton jButtonExcluirBuscar;
+    private javax.swing.JButton jButtonExcluirVoltar;
+    private javax.swing.JLabel jLabelAddAndar;
+    private javax.swing.JLabel jLabelAddAnoConstrucao;
+    private javax.swing.JLabel jLabelAddApartamento;
+    private javax.swing.JLabel jLabelAddAreaTotal;
+    private javax.swing.JLabel jLabelAddBairro;
+    private javax.swing.JLabel jLabelAddCidade;
+    private javax.swing.JLabel jLabelAddCodigo;
+    private javax.swing.JLabel jLabelAddDescricao;
+    private javax.swing.JLabel jLabelAddEdificio;
     private javax.swing.JLabel jLabelAddLogradouro;
-    private javax.swing.JLabel jLabelCodApartamento;
-    private javax.swing.JLabel jLabelcodApartamento;
+    private javax.swing.JLabel jLabelAddNumero;
+    private javax.swing.JLabel jLabelAddQuartos;
+    private javax.swing.JLabel jLabelAddVagasGaragem;
+    private javax.swing.JLabel jLabelAddValor;
+    private javax.swing.JLabel jLabelAddValorCondominio;
+    private javax.swing.JLabel jLabelConsultarCodigoApartamento;
+    private javax.swing.JLabel jLabelEditarAndar;
+    private javax.swing.JLabel jLabelEditarAnoConstruca;
+    private javax.swing.JLabel jLabelEditarApartamento;
+    private javax.swing.JLabel jLabelEditarAreaTotal;
+    private javax.swing.JLabel jLabelEditarBairro;
+    private javax.swing.JLabel jLabelEditarCidade;
+    private javax.swing.JLabel jLabelEditarCodApart;
+    private javax.swing.JLabel jLabelEditarDescricao;
+    private javax.swing.JLabel jLabelEditarEdificio;
+    private javax.swing.JLabel jLabelEditarLogradouro;
+    private javax.swing.JLabel jLabelEditarNumero;
+    private javax.swing.JLabel jLabelEditarQuartos;
+    private javax.swing.JLabel jLabelEditarVagasGaragem;
+    private javax.swing.JLabel jLabelEditarValor;
+    private javax.swing.JLabel jLabelEditarValorCondominio;
+    private javax.swing.JLabel jLabelExcluirCodigoApartamento;
+    private javax.swing.JList<String> jListExcluirLista;
     private javax.swing.JList<String> jListListaApartamento;
     private javax.swing.JPanel jPanelApartamentoAdicionar;
     private javax.swing.JPanel jPanelApartamentoConsultar;
@@ -441,22 +705,40 @@ public class FrameApartamento extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelApartamentoExcluir;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPaneApartamento;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextFieldAddApartamentoAndar;
-    private javax.swing.JTextField jTextFieldAddApartamentoAno;
-    private javax.swing.JTextField jTextFieldAddApartamentoAreaTotal;
-    private javax.swing.JTextField jTextFieldAddApartamentoBairro;
-    private javax.swing.JTextField jTextFieldAddApartamentoCidade;
-    private javax.swing.JTextField jTextFieldAddApartamentoEdificio;
-    private javax.swing.JTextField jTextFieldAddApartamentoLogradouro;
+    private javax.swing.JTextArea jTextAreaAddDescricao;
+    private javax.swing.JTextArea jTextAreaEditarDescricao;
+    private javax.swing.JTextField jTextFieldAddAndar;
+    private javax.swing.JTextField jTextFieldAddAnoConstrucao;
+    private javax.swing.JTextField jTextFieldAddApartamento;
     private javax.swing.JTextField jTextFieldAddApartamentoNum;
-    private javax.swing.JTextField jTextFieldAddApartamentoValor;
-    private javax.swing.JTextField jTextFieldAddApartamentoValorCond;
-    private javax.swing.JTextField jTextFieldAddCodApartamento;
-    private javax.swing.JTextField jTextFieldCodApartamento;
+    private javax.swing.JTextField jTextFieldAddAreaTotal;
+    private javax.swing.JTextField jTextFieldAddBairro;
+    private javax.swing.JTextField jTextFieldAddCidade;
+    private javax.swing.JTextField jTextFieldAddCodigoApartamento;
+    private javax.swing.JTextField jTextFieldAddEdificio;
+    private javax.swing.JTextField jTextFieldAddLogradouro;
+    private javax.swing.JTextField jTextFieldAddQuartos;
+    private javax.swing.JTextField jTextFieldAddVagasGaragem;
+    private javax.swing.JTextField jTextFieldAddValor;
+    private javax.swing.JTextField jTextFieldAddValorCondominio;
+    private javax.swing.JTextField jTextFieldConsultarCodigoApartamento;
+    private javax.swing.JTextField jTextFieldEditarAndar;
+    private javax.swing.JTextField jTextFieldEditarAnoConstrucao;
+    private javax.swing.JTextField jTextFieldEditarApartamento;
+    private javax.swing.JTextField jTextFieldEditarAreaTotal;
+    private javax.swing.JTextField jTextFieldEditarBairro;
+    private javax.swing.JTextField jTextFieldEditarCidade;
+    private javax.swing.JTextField jTextFieldEditarCodigoApartamento;
+    private javax.swing.JTextField jTextFieldEditarEdificio;
+    private javax.swing.JTextField jTextFieldEditarLogradouro;
+    private javax.swing.JTextField jTextFieldEditarNumero;
+    private javax.swing.JTextField jTextFieldEditarQuartos;
+    private javax.swing.JTextField jTextFieldEditarVagasGaragem;
+    private javax.swing.JTextField jTextFieldEditarValor;
+    private javax.swing.JTextField jTextFieldEditarValorComdominio;
+    private javax.swing.JTextField jTextFieldExcluirCodigoApartamento;
     // End of variables declaration//GEN-END:variables
 }

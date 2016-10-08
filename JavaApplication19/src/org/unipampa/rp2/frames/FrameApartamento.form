@@ -23,12 +23,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPaneApartamento" alignment="0" max="32767" attributes="0"/>
+          <Component id="jTabbedPaneApartamento" alignment="0" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPaneApartamento" alignment="0" max="32767" attributes="0"/>
+          <Component id="jTabbedPaneApartamento" alignment="0" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -56,17 +56,17 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
-                                      <Component id="jLabelcodApartamento" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelConsultarCodigoApartamento" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextFieldCodApartamento" min="-2" pref="100" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldConsultarCodigoApartamento" min="-2" pref="100" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="jButtonConsultarVoltar" min="-2" pref="100" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="208" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="225" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jButtonConsultarApartamento" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonConsultar" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -78,13 +78,13 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelcodApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldCodApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonConsultarApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelConsultarCodigoApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldConsultarCodigoApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="109" max="32767" attributes="0"/>
+                      <Component id="jScrollPane1" min="-2" pref="200" max="-2" attributes="0"/>
+                      <EmptySpace pref="68" max="32767" attributes="0"/>
                       <Component id="jButtonConsultarVoltar" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -92,14 +92,14 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabelcodApartamento">
+            <Component class="javax.swing.JLabel" name="jLabelConsultarCodigoApartamento">
               <Properties>
                 <Property name="text" type="java.lang.String" value="C&#xf3;digo do Apartamento:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldCodApartamento">
+            <Component class="javax.swing.JTextField" name="jTextFieldConsultarCodigoApartamento">
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonConsultarApartamento">
+            <Component class="javax.swing.JButton" name="jButtonConsultar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Consultar"/>
               </Properties>
@@ -154,86 +154,84 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButtonAddApartamentoVoltar" max="32767" attributes="0"/>
-                          <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAddApartamentoCidade" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAddApartamentoNum" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonAddVoltar" max="32767" attributes="0"/>
+                          <Component id="jLabelAddDescricao" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddQuartos" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddAndar" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddCidade" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddNumero" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelAddLogradouro" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLabelCodApartamento" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAddApartamentoValor" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddCodigo" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddValor" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddEdificio" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextFieldAddApartamentoLogradouro" max="32767" attributes="0"/>
+                          <Component id="jTextFieldAddLogradouro" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <Component id="jTextFieldAddApartamentoNum" min="-2" pref="70" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabelAddApartamentoBairro" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAddBairro" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jTextFieldAddApartamentoCidade" min="-2" pref="150" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldAddCidade" min="-2" pref="150" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldAddApartamentoBairro" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAddBairro" max="32767" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace pref="26" max="32767" attributes="0"/>
-                                      <Component id="jLabelAddApartamentoAreaTotal" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace pref="43" max="32767" attributes="0"/>
+                                      <Component id="jLabelAddAreaTotal" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jTextFieldAddApartamentoAreaTotal" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAddAreaTotal" min="-2" pref="70" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jTextFieldAddApartamentoValor" min="-2" pref="69" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldAddValor" min="-2" pref="69" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="jLabelAddApartamentoValorCond" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabelAddValorCondominio" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
-                                      <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextFieldAddCodApartamento" min="-2" pref="70" max="-2" attributes="0"/>
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jTextFieldAddApartamentoEdificio" min="-2" pref="150" max="-2" attributes="0"/>
-                                              <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jLabelAddApartamentoAnoConstrucao" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                      <Component id="jTextFieldAddCodigoApartamento" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <EmptySpace min="0" pref="248" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jTextFieldAddEdificio" min="-2" pref="150" max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
+                                      <Component id="jLabelAddAnoConstrucao" min="-2" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextFieldAddApartamentoValorCond" pref="70" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldAddApartamentoAno" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAddValorCondominio" pref="70" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAddAnoConstrucao" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Component id="jTextField2" alignment="0" pref="71" max="32767" attributes="0"/>
-                                  <Component id="jTextFieldAddApartamentoAndar" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAddQuartos" alignment="0" pref="71" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAddAndar" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jLabelAddApartamentoapart" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAddApartamento" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAddVagasGaragem" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextField3" pref="71" max="32767" attributes="0"/>
-                                  <Component id="jTextField1" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAddVagasGaragem" pref="71" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldAddApartamento" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Component id="jScrollPane2" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="jButtonAddApartamentoAdicionar" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonAddAdicionar" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -245,67 +243,67 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelCodApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldAddCodApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAddCodigoApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelAddLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldAddApartamentoLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAddLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelAddApartamentoNum" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddNumero" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldAddApartamentoNum" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAddApartamentoBairro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldAddApartamentoBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAddBairro" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelAddApartamentoCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldAddApartamentoCidade" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAddApartamentoAreaTotal" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldAddApartamentoAreaTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAddCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddAreaTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAddAreaTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelAddApartamentoValor" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldAddApartamentoValor" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAddApartamentoValorCond" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldAddApartamentoValorCond" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAddValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddValorCondominio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAddValorCondominio" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldAddApartamentoEdificio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelAddApartamentoAnoConstrucao" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldAddApartamentoAno" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddEdificio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAddEdificio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddAnoConstrucao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAddAnoConstrucao" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddAndar" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldAddApartamentoAndar" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelAddApartamentoapart" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldAddAndar" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAddApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldAddApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddQuartos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAddQuartos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddVagasGaragem" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAddVagasGaragem" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAddDescricao" min="-2" max="-2" attributes="0"/>
                           <Component id="jScrollPane2" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonAddApartamentoVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonAddApartamentoAdicionar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonAddVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonAddAdicionar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -313,110 +311,110 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabelCodApartamento">
+            <Component class="javax.swing.JLabel" name="jLabelAddCodigo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldAddCodApartamento">
+            <Component class="javax.swing.JTextField" name="jTextFieldAddCodigoApartamento">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelAddLogradouro">
               <Properties>
                 <Property name="text" type="java.lang.String" value="* Logradouro:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldAddApartamentoLogradouro">
+            <Component class="javax.swing.JTextField" name="jTextFieldAddLogradouro">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelAddApartamentoNum">
+            <Component class="javax.swing.JLabel" name="jLabelAddNumero">
               <Properties>
                 <Property name="text" type="java.lang.String" value="* N&#xfa;mero:"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAddApartamentoNum">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelAddApartamentoBairro">
+            <Component class="javax.swing.JLabel" name="jLabelAddBairro">
               <Properties>
                 <Property name="text" type="java.lang.String" value="* Bairro:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldAddApartamentoBairro">
+            <Component class="javax.swing.JTextField" name="jTextFieldAddBairro">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelAddApartamentoCidade">
+            <Component class="javax.swing.JLabel" name="jLabelAddCidade">
               <Properties>
                 <Property name="text" type="java.lang.String" value="* Cidade:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldAddApartamentoCidade">
+            <Component class="javax.swing.JTextField" name="jTextFieldAddCidade">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelAddApartamentoAreaTotal">
+            <Component class="javax.swing.JLabel" name="jLabelAddAreaTotal">
               <Properties>
                 <Property name="text" type="java.lang.String" value="* &#xc1;rea Total (m&#xb2;):"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldAddApartamentoAreaTotal">
+            <Component class="javax.swing.JTextField" name="jTextFieldAddAreaTotal">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelAddApartamentoValor">
+            <Component class="javax.swing.JLabel" name="jLabelAddValor">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Valor (R$):"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldAddApartamentoValor">
+            <Component class="javax.swing.JTextField" name="jTextFieldAddValor">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelAddApartamentoValorCond">
+            <Component class="javax.swing.JLabel" name="jLabelAddValorCondominio">
               <Properties>
-                <Property name="text" type="java.lang.String" value="* Valor do Comdom&#xed;nio (R$):"/>
+                <Property name="text" type="java.lang.String" value="* Valor do Condom&#xed;nio (R$):"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldAddApartamentoValorCond">
+            <Component class="javax.swing.JTextField" name="jTextFieldAddValorCondominio">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="jLabelAddEdificio">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Edif&#xed;cio:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldAddApartamentoEdificio">
+            <Component class="javax.swing.JTextField" name="jTextFieldAddEdificio">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddApartamentoEdificioActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAddEdificioActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelAddApartamentoAnoConstrucao">
+            <Component class="javax.swing.JLabel" name="jLabelAddAnoConstrucao">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ano de Constru&#xe7;&#xe3;o:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldAddApartamentoAno">
+            <Component class="javax.swing.JTextField" name="jTextFieldAddAnoConstrucao">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="jLabelAddAndar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="* Andar:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldAddApartamentoAndar">
+            <Component class="javax.swing.JTextField" name="jTextFieldAddAndar">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelAddApartamentoapart">
+            <Component class="javax.swing.JLabel" name="jLabelAddApartamento">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Apartamento:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField1">
+            <Component class="javax.swing.JTextField" name="jTextFieldAddApartamento">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="jLabelAddQuartos">
               <Properties>
                 <Property name="text" type="java.lang.String" value="* Quartos:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField2">
+            <Component class="javax.swing.JTextField" name="jTextFieldAddQuartos">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="jLabelAddVagasGaragem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="* Vagas na garagem:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextField3">
+            <Component class="javax.swing.JTextField" name="jTextFieldAddVagasGaragem">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="jLabelAddDescricao">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o:"/>
+                <Property name="text" type="java.lang.String" value="* Descri&#xe7;&#xe3;o:"/>
               </Properties>
             </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
@@ -426,7 +424,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea1">
+                <Component class="javax.swing.JTextArea" name="jTextAreaAddDescricao">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="rows" type="int" value="5"/>
@@ -434,12 +432,12 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButtonAddApartamentoVoltar">
+            <Component class="javax.swing.JButton" name="jButtonAddVoltar">
               <Properties>
                 <Property name="label" type="java.lang.String" value="Voltar"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonAddApartamentoAdicionar">
+            <Component class="javax.swing.JButton" name="jButtonAddAdicionar">
               <Properties>
                 <Property name="label" type="java.lang.String" value="Adicionar"/>
               </Properties>
@@ -458,15 +456,97 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="517" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="jScrollPane3" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabelExcluirCodigoApartamento" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextFieldExcluirCodigoApartamento" min="-2" pref="101" max="-2" attributes="0"/>
+                              <EmptySpace pref="142" max="32767" attributes="0"/>
+                              <Component id="jButtonExcluirBuscar" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jButtonExcluirVoltar" min="-2" pref="100" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButtonExcluir" min="-2" pref="101" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="333" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelExcluirCodigoApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldExcluirCodigoApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonExcluirBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jScrollPane3" min="-2" pref="200" max="-2" attributes="0"/>
+                      <EmptySpace pref="73" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jButtonExcluirVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabelExcluirCodigoApartamento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C&#xf3;digo do Apartamento:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldExcluirCodigoApartamento">
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonExcluirBuscar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane3">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JList" name="jListExcluirLista">
+                  <Properties>
+                    <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
+                      <StringArray count="5">
+                        <StringItem index="0" value="Item 1"/>
+                        <StringItem index="1" value="Item 2"/>
+                        <StringItem index="2" value="Item 3"/>
+                        <StringItem index="3" value="Item 4"/>
+                        <StringItem index="4" value="Item 5"/>
+                      </StringArray>
+                    </Property>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+                  </AuxValues>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="jButtonExcluirVoltar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Voltar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonExcluir">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Excluir"/>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanelApartamentoEditar">
           <Constraints>
@@ -480,15 +560,301 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="517" max="32767" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="jLabelEditarCodApart" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextFieldEditarCodigoApartamento" min="-2" pref="103" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButtonEditarBuscar" min="-2" pref="100" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="jLabelEditarNumero" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelEditarLogradouro" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jLabelEditarCidade" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelEditarValor" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelEditarEdificio" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelEditarAndar" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelEditarQuartos" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelEditarDescricao" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonEditarVoltar" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jTextFieldEditarLogradouro" max="32767" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Component id="jTextFieldEditarCidade" alignment="0" max="32767" attributes="0"/>
+                                              <Group type="102" attributes="0">
+                                                  <Component id="jTextFieldEditarNumero" min="-2" pref="70" max="-2" attributes="0"/>
+                                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                                  <Component id="jLabelEditarBairro" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jTextFieldEditarBairro" min="-2" pref="225" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <EmptySpace min="-2" pref="125" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Component id="jLabelEditarAreaTotal" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabelEditarValorCondominio" min="-2" max="-2" attributes="0"/>
+                                                      <Component id="jLabelEditarAnoConstruca" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  </Group>
+                                              </Group>
+                                              <Component id="jTextFieldEditarValor" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldEditarEdificio" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" attributes="0">
+                                              <Component id="jTextFieldEditarAreaTotal" min="-2" pref="73" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldEditarValorComdominio" min="-2" pref="73" max="-2" attributes="0"/>
+                                              <Component id="jTextFieldEditarAnoConstrucao" min="-2" pref="73" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jTextFieldEditarQuartos" min="-2" pref="70" max="-2" attributes="0"/>
+                                                  <EmptySpace max="32767" attributes="0"/>
+                                                  <Component id="jLabelEditarVagasGaragem" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                              <Group type="102" alignment="0" attributes="0">
+                                                  <Component id="jTextFieldEditarAndar" min="-2" pref="70" max="-2" attributes="0"/>
+                                                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
+                                                  <Component id="jLabelEditarApartamento" min="-2" max="-2" attributes="0"/>
+                                              </Group>
+                                          </Group>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jTextFieldEditarApartamento" pref="69" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldEditarVagasGaragem" max="32767" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                      <Component id="jScrollPane4" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jButtonEditarSalvar" min="-2" pref="98" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <EmptySpace pref="29" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="333" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelEditarCodApart" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarCodigoApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonEditarBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelEditarLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelEditarNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarNumero" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelEditarBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarBairro" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelEditarCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarCidade" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelEditarAreaTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarAreaTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelEditarValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarValor" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelEditarValorCondominio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarValorComdominio" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelEditarEdificio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarEdificio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarAnoConstrucao" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelEditarAnoConstruca" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelEditarAndar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarAndar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelEditarApartamento" alignment="3" min="-2" pref="19" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelEditarQuartos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarQuartos" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelEditarVagasGaragem" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarVagasGaragem" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabelEditarDescricao" min="-2" max="-2" attributes="0"/>
+                          <Component id="jScrollPane4" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jButtonEditarSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonEditarVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="jLabelEditarCodApart">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="C&#xf3;digo do Apartamento:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarCodigoApartamento">
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonEditarBuscar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Buscar"/>
+                <Property name="actionCommand" type="java.lang.String" value=""/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEditarLogradouro">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Logradouro:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarLogradouro">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEditarNumero">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* N&#xfa;mero:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarNumero">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEditarBairro">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Bairro:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarBairro">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEditarCidade">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Cidade:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarCidade">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEditarAreaTotal">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* &#xc1;rea Total (m&#xb2;):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarAreaTotal">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEditarValor">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Valor (R$):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarValor">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEditarValorCondominio">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Valor Condom&#xed;nio (R$):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarValorComdominio">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEditarEdificio">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Edif&#xed;cio:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarEdificio">
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarAnoConstrucao">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEditarAnoConstruca">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ano de Constru&#xe7;&#xe3;o:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEditarAndar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Andar:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarAndar">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEditarApartamento">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Apartamento:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarApartamento">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEditarQuartos">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Quartos:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarQuartos">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEditarVagasGaragem">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Vagas na Garagem:"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarVagasGaragem">
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelEditarDescricao">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="* Descri&#xe7;&#xe3;o:"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="jScrollPane4">
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="jTextAreaEditarDescricao">
+                  <Properties>
+                    <Property name="columns" type="int" value="20"/>
+                    <Property name="rows" type="int" value="5"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="jButtonEditarVoltar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Voltar"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonEditarSalvar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Salvar"/>
+              </Properties>
+            </Component>
+          </SubComponents>
         </Container>
       </SubComponents>
     </Container>
