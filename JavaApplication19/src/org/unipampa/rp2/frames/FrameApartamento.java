@@ -59,10 +59,10 @@ public class FrameApartamento extends javax.swing.JFrame  {
         jTextFieldConsultarCodigoApartamento = new javax.swing.JTextField();
         jButtonConsultar = new javax.swing.JButton();
         jButtonConsultarVoltar = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jListListaApartamento = new javax.swing.JList<>();
         jButtonExcluir = new javax.swing.JButton();
         jButtonEditar = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jListListaApartamento = new javax.swing.JList<>();
         jPanelApartamentoAdicionar = new javax.swing.JPanel();
         jLabelAddLogradouro = new javax.swing.JLabel();
         jTextFieldAddLogradouro = new javax.swing.JTextField();
@@ -147,11 +147,16 @@ public class FrameApartamento extends javax.swing.JFrame  {
             }
         });
 
-        jScrollPane1.setViewportView(jListListaApartamento);
-
-        jButtonExcluir.setText("Excluir");
+        jButtonExcluir.setText("Listar");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         jButtonEditar.setText("Editar");
+
+        jScrollPane3.setViewportView(jListListaApartamento);
 
         javax.swing.GroupLayout jPanelApartamentoConsultarLayout = new javax.swing.GroupLayout(jPanelApartamentoConsultar);
         jPanelApartamentoConsultar.setLayout(jPanelApartamentoConsultarLayout);
@@ -160,10 +165,6 @@ public class FrameApartamento extends javax.swing.JFrame  {
             .addGroup(jPanelApartamentoConsultarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelApartamentoConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
-                    .addGroup(jPanelApartamentoConsultarLayout.createSequentialGroup()
-                        .addComponent(jButtonConsultarVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanelApartamentoConsultarLayout.createSequentialGroup()
                         .addComponent(jLabelConsultarCodigoApartamento)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -171,9 +172,13 @@ public class FrameApartamento extends javax.swing.JFrame  {
                         .addGap(18, 18, 18)
                         .addComponent(jButtonConsultar)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonEditar, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonExcluir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelApartamentoConsultarLayout.createSequentialGroup()
+                        .addComponent(jButtonConsultarVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3))
                 .addContainerGap())
         );
         jPanelApartamentoConsultarLayout.setVerticalGroup(
@@ -187,8 +192,8 @@ public class FrameApartamento extends javax.swing.JFrame  {
                     .addComponent(jButtonExcluir)
                     .addComponent(jButtonEditar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
                 .addComponent(jButtonConsultarVoltar)
                 .addContainerGap())
         );
@@ -479,7 +484,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
                                 .addComponent(jTextFieldEditarVagasGaragem, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jButtonEditarSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanelApartamentoEditarLayout.setVerticalGroup(
             jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -629,8 +634,22 @@ public class FrameApartamento extends javax.swing.JFrame  {
 
     private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
         // TODO add your handling code here:
-        listar();
+        int codigo;
+        codigo = Integer.parseInt(jTextFieldConsultarCodigoApartamento.getText().trim());
+        DefaultListModel modelo = new DefaultListModel();
+        Imovel modelo1 = ListaApartamento.consultar(codigo);
+        if (modelo1 == null) {
+            JOptionPane.showMessageDialog(null, "Imóvel não encontrado");
+        } else {
+            modelo.addElement(modelo1.toString());
+            jListListaApartamento.setModel(modelo);
+        }
     }//GEN-LAST:event_jButtonConsultarActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+
+        listar();
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
 
 //</editor-fold> // Modificado
 
@@ -673,8 +692,8 @@ public class FrameApartamento extends javax.swing.JFrame  {
         DefaultListModel modelList = new DefaultListModel();
         
         List<Imovel> imovel = ListaApartamento.getLista();
-        int aux = imovel.size();
-        for(int i = 0; i < aux; i++){
+        //int aux = imovel.size();
+        for(Imovel  imovel1: imovel){
             modelList.addElement(imovel.toString());
         }
         jListListaApartamento.setModel(modelList);
@@ -751,8 +770,8 @@ public class FrameApartamento extends javax.swing.JFrame  {
     private javax.swing.JPanel jPanelApartamentoAdicionar;
     private javax.swing.JPanel jPanelApartamentoConsultar;
     private javax.swing.JPanel jPanelApartamentoEditar;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPaneApartamento;
     private javax.swing.JTextArea jTextAreaAddDescricao;
