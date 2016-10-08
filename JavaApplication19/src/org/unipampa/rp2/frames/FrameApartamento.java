@@ -647,7 +647,6 @@ public class FrameApartamento extends javax.swing.JFrame  {
     }//GEN-LAST:event_jButtonConsultarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-
         listar();
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
@@ -694,7 +693,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
         List<Imovel> imovel = ListaApartamento.getLista();
         //int aux = imovel.size();
         for(Imovel  imovel1: imovel){
-            modelList.addElement(imovel.toString());
+            modelList.addElement(imovel1.toString());
         }
         jListListaApartamento.setModel(modelList);
     }
