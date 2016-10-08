@@ -793,11 +793,13 @@ public class FrameSalaComercial extends javax.swing.JFrame {
     }
 
     /**
-     * Método isDouble que verifica se um '.' já foi digitado em campos double.
+     * Metodo para verificar um campo de texto, verifica se já possui um char ==
+     * '.' para campos double
      *
-     * @param campo - o campo para pegar o item digitado
-     * @return - true caso não tenha um ponto, e false caso o mesmo exista para
-     * que não possa mais ser adicionado
+     * @param campo - javax.swing.JTextField, ou seja, o campo que deseja fazer
+     * a verificação
+     * @return - true caso o campo ainda possa colocar o '.' e false caso
+     * contrário
      */
     private boolean isDouble(javax.swing.JTextField campo) {
         String texto = campo.getText().trim();
