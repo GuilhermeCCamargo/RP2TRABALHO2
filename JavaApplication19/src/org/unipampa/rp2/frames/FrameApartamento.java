@@ -21,8 +21,8 @@ public class FrameApartamento extends javax.swing.JFrame  {
     /**
      * Creates new form FrameApartamento
     */
-    private Lista ListaApartamento;
-    private List<Imovel> Apartamento;
+    private Lista listaapartamento;
+    private List<Imovel> apartamento;
     private int codEdit = 0;
     private boolean isEdit = false;
     
@@ -32,7 +32,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
          this.setLocationRelativeTo(null);
         this.setTitle("Imobiliária - Apartamento");
         
-        this.ListaApartamento = ListaApartamento;
+        this.listaapartamento = ListaApartamento;
        
         jTabbedPaneApartamento.setEnabledAt(0, true);
         
@@ -687,7 +687,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
                 Edificio, Andar,Apartamento, AnoConstrucao,Quartos,Garagem, ValorCondominio);
 
             //Salvando na Lista o objeto apartamento
-            ListaApartamento.incluir(objeto);
+            listaapartamento.incluir(objeto);
             JOptionPane.showMessageDialog(null,"Imóvel salvo com sucesso.");
             limparCampos();
         }
@@ -712,7 +712,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
         int codigo;
         codigo = Integer.parseInt(jTextFieldConsultarCodigoApartamento.getText().trim());
         DefaultListModel modelo = new DefaultListModel();
-        Imovel modelo1 = ListaApartamento.consultar(codigo);
+        Imovel modelo1 = listaapartamento.consultar(codigo);
         if (modelo1 == null) {
             JOptionPane.showMessageDialog(null, "Imóvel não encontrado");
         } else {
@@ -816,10 +816,13 @@ public class FrameApartamento extends javax.swing.JFrame  {
         });
     }
     
+    /**
+     * Método para listar os objetos Apartamento
+     */
     private void listar(){
         DefaultListModel modelList = new DefaultListModel();
         
-        List<Imovel> imovel = ListaApartamento.getLista();
+        List<Imovel> imovel = listaapartamento.getLista();
         //int aux = imovel.size();
         for(Imovel  imovel1: imovel){
             modelList.addElement(imovel1.toString());
@@ -853,6 +856,12 @@ public class FrameApartamento extends javax.swing.JFrame  {
         jTextFieldAddValorCondominio.setText("");
         jTextAreaAddDescricao.setText("");
     }
+    
+    /**
+     * metodo para validar campo numerico
+     * @param evt
+     * @param isDouble 
+     */
     private void soNumeros(java.awt.event.KeyEvent evt, boolean isDouble) {
         char ch = evt.getKeyChar();
         if (isDouble) {
@@ -868,6 +877,11 @@ public class FrameApartamento extends javax.swing.JFrame  {
         }
     }
     
+   /**
+    * Metodo para Validar campos double
+    * @param campo
+    * @return 
+    */ 
     private boolean isDouble(javax.swing.JTextField campo) {
         String texto = campo.getText().trim();
 
@@ -879,6 +893,12 @@ public class FrameApartamento extends javax.swing.JFrame  {
 
         return true;
     }
+    
+    /**
+     * Método para pegar o codigo do objeto
+     * @param cod
+     * @return 
+     */
     private int getCod(String cod) {
         int end = 0;
         for (int i = 9; i < cod.length(); i++) {
@@ -892,9 +912,13 @@ public class FrameApartamento extends javax.swing.JFrame  {
         return Integer.parseInt(cod);
     }
     
+    /**
+     * Método para preencher os campos com informaçoes de um objeto especifico
+     * @param apartamento 
+     */
     private void preencherCampos(int apartamento) {
 
-        Apartamento newapartamento = (Apartamento) ListaApartamento.consultar(apartamento);
+        Apartamento newapartamento = (Apartamento) listaapartamento.consultar(apartamento);
 
         jTextFieldEditarAndar.setText(String.valueOf(newapartamento.getAndar()));
         jTextFieldEditarAreaTotal.setText(String.valueOf(newapartamento.getAreaTotal()));
@@ -912,7 +936,9 @@ public class FrameApartamento extends javax.swing.JFrame  {
         
     }
     
-
+/**
+ * Declaraçao das variaveis
+ */
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddAdicionar;
     private javax.swing.JButton jButtonAddVoltar;
