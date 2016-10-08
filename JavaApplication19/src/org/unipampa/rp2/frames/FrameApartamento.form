@@ -149,6 +149,9 @@
                       <StringArray count="0"/>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jListListaApartamentoMouseClicked"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
@@ -549,7 +552,7 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jTextFieldEditarAreaTotal" min="-2" pref="73" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldEditarValorComdominio" min="-2" pref="73" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldEditarValorCondominio" min="-2" pref="73" max="-2" attributes="0"/>
                                       <Component id="jTextFieldEditarAnoConstrucao" min="-2" pref="73" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
@@ -607,7 +610,7 @@
                           <Component id="jLabelEditarValor" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldEditarValor" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabelEditarValorCondominio" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldEditarValorComdominio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldEditarValorCondominio" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -693,7 +696,7 @@
                 <Property name="text" type="java.lang.String" value="* Valor Condom&#xed;nio (R$):"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldEditarValorComdominio">
+            <Component class="javax.swing.JTextField" name="jTextFieldEditarValorCondominio">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabelEditarEdificio">
               <Properties>

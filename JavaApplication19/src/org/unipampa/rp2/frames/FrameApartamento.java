@@ -110,7 +110,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
         jLabelEditarValor = new javax.swing.JLabel();
         jTextFieldEditarValor = new javax.swing.JTextField();
         jLabelEditarValorCondominio = new javax.swing.JLabel();
-        jTextFieldEditarValorComdominio = new javax.swing.JTextField();
+        jTextFieldEditarValorCondominio = new javax.swing.JTextField();
         jLabelEditarEdificio = new javax.swing.JLabel();
         jTextFieldEditarEdificio = new javax.swing.JTextField();
         jTextFieldEditarAnoConstrucao = new javax.swing.JTextField();
@@ -162,6 +162,11 @@ public class FrameApartamento extends javax.swing.JFrame  {
 
         jButtonEditar.setText("Editar");
 
+        jListListaApartamento.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListListaApartamentoMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jListListaApartamento);
 
         javax.swing.GroupLayout jPanelApartamentoConsultarLayout = new javax.swing.GroupLayout(jPanelApartamentoConsultar);
@@ -531,7 +536,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextFieldEditarAreaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextFieldEditarValorComdominio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldEditarValorCondominio, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextFieldEditarAnoConstrucao, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
                             .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -575,7 +580,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
                     .addComponent(jLabelEditarValor)
                     .addComponent(jTextFieldEditarValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelEditarValorCondominio)
-                    .addComponent(jTextFieldEditarValorComdominio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldEditarValorCondominio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelEditarEdificio)
@@ -759,6 +764,11 @@ public class FrameApartamento extends javax.swing.JFrame  {
         soNumeros(evt, isDouble(jTextFieldAddValor));
     }//GEN-LAST:event_jTextFieldAddValorKeyTyped
 
+    private void jListListaApartamentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListListaApartamentoMouseClicked
+        // TODO add your handling code here:
+        jListListaApartamento.getSelectedValue();
+    }//GEN-LAST:event_jListListaApartamentoMouseClicked
+
 //</editor-fold> // Modificado
 
     /**
@@ -859,6 +869,39 @@ public class FrameApartamento extends javax.swing.JFrame  {
 
         return true;
     }
+    private int getCod(String cod) {
+        int end = 0;
+        for (int i = 8; i < cod.length(); i++) {
+            if (cod.charAt(i) == '-') {
+                end = i - 1;
+                break;
+            }
+        }
+
+        cod = cod.substring(8, end);
+        return Integer.parseInt(cod);
+    }
+    
+    private void preencherCampos(String apartamento) {
+
+        Apartamento newapartamento = (Apartamento) ListaApartamento.consultar(getCod(apartamento));
+
+        jTextFieldEditarAndar.setText(String.valueOf(newapartamento.getAndar()));
+        jTextFieldEditarAreaTotal.setText(String.valueOf(newapartamento.getAreaTotal()));
+        jTextFieldEditarAnoConstrucao.setText(String.valueOf(newapartamento.getAnoConstrucao()));
+        jTextFieldEditarApartamento.setText(String.valueOf(newapartamento.getNroApartamento()));
+        jTextFieldEditarBairro.setText(String.valueOf(newapartamento.getBairro()));
+        jTextFieldEditarCidade.setText(String.valueOf(newapartamento.getCidade()));
+        jTextFieldEditarEdificio.setText(String.valueOf(newapartamento.getNomeEdificio()));
+        jTextFieldEditarLogradouro.setText(newapartamento.getLogradouro());
+        jTextFieldEditarNumero.setText(String.valueOf(newapartamento.getNumero()));
+        jTextFieldEditarQuartos.setText(String.valueOf(newapartamento.getNroQuartos()));
+        jTextFieldEditarVagasGaragem.setText(String.valueOf(newapartamento.getVgsGaragem()));
+        jTextFieldEditarValor.setText(String.valueOf(newapartamento.getValor()));
+        jTextFieldEditarValorCondominio.setText(String.valueOf(newapartamento.getValorCondominio()));
+        
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddAdicionar;
@@ -935,6 +978,6 @@ public class FrameApartamento extends javax.swing.JFrame  {
     private javax.swing.JTextField jTextFieldEditarQuartos;
     private javax.swing.JTextField jTextFieldEditarVagasGaragem;
     private javax.swing.JTextField jTextFieldEditarValor;
-    private javax.swing.JTextField jTextFieldEditarValorComdominio;
+    private javax.swing.JTextField jTextFieldEditarValorCondominio;
     // End of variables declaration//GEN-END:variables
 }
