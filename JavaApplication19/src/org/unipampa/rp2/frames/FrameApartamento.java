@@ -161,6 +161,11 @@ public class FrameApartamento extends javax.swing.JFrame  {
         });
 
         jButtonEditar.setText("Editar");
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarActionPerformed(evt);
+            }
+        });
 
         jListListaApartamento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -769,6 +774,11 @@ public class FrameApartamento extends javax.swing.JFrame  {
         jListListaApartamento.getSelectedValue();
     }//GEN-LAST:event_jListListaApartamentoMouseClicked
 
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        // TODO add your handling code here:
+        preencherCampos(getCod(jListListaApartamento.getSelectedValue()));
+    }//GEN-LAST:event_jButtonEditarActionPerformed
+
 //</editor-fold> // Modificado
 
     /**
@@ -871,20 +881,20 @@ public class FrameApartamento extends javax.swing.JFrame  {
     }
     private int getCod(String cod) {
         int end = 0;
-        for (int i = 8; i < cod.length(); i++) {
+        for (int i = 9; i < cod.length(); i++) {
             if (cod.charAt(i) == '-') {
                 end = i - 1;
                 break;
             }
         }
 
-        cod = cod.substring(8, end);
+        cod = cod.substring(9, end);
         return Integer.parseInt(cod);
     }
     
-    private void preencherCampos(String apartamento) {
+    private void preencherCampos(int apartamento) {
 
-        Apartamento newapartamento = (Apartamento) ListaApartamento.consultar(getCod(apartamento));
+        Apartamento newapartamento = (Apartamento) ListaApartamento.consultar(apartamento);
 
         jTextFieldEditarAndar.setText(String.valueOf(newapartamento.getAndar()));
         jTextFieldEditarAreaTotal.setText(String.valueOf(newapartamento.getAreaTotal()));
