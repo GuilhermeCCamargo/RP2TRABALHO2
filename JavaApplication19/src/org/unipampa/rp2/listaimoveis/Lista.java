@@ -125,7 +125,7 @@ public class Lista implements ListaImoveis {
      * Método para retornar a lista de imóveis
      * @return - uma Lista contendo todos o imóveis cadastrados de tal tipo(List)
      */
-    public List getLista(){
+    public List<Imovel> getLista(){
         return this.lista;
     }
 

@@ -90,4 +90,10 @@ public class Terreno extends Imovel{
     
     //</editor-fold>
     
+    public String toString(){
+        
+       
+        return String.valueOf(getCod());
+        
+    }
 }

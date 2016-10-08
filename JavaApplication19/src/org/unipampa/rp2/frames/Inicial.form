@@ -35,6 +35,7 @@
                           <Component id="jButtonSalaComercial" pref="299" max="32767" attributes="0"/>
                           <Component id="jButtonApartamento" max="32767" attributes="0"/>
                           <Component id="jButtonCasa" max="32767" attributes="0"/>
+                          <Component id="jButtonTerreno" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -53,7 +54,9 @@
               <Component id="jButtonApartamento" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jButtonCasa" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="143" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jButtonTerreno" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="109" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -89,6 +92,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCasaActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonTerreno">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Terreno"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonTerrenoActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

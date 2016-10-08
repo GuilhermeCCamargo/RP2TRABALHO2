@@ -16,6 +16,7 @@ public class Inicial extends javax.swing.JFrame {
     private Lista listaSalaComercial = new Lista();
     private Lista ListaApartamento = new Lista();
     private Lista listaCasa = new Lista();
+    private Lista listaTerreno = new Lista();
     /**
      * Creates new form Inicial
      */
@@ -38,6 +39,7 @@ public class Inicial extends javax.swing.JFrame {
         jButtonSalaComercial = new javax.swing.JButton();
         jButtonApartamento = new javax.swing.JButton();
         jButtonCasa = new javax.swing.JButton();
+        jButtonTerreno = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -65,6 +67,13 @@ public class Inicial extends javax.swing.JFrame {
             }
         });
 
+        jButtonTerreno.setText("Terreno");
+        jButtonTerreno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonTerrenoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -79,7 +88,8 @@ public class Inicial extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonSalaComercial, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
                             .addComponent(jButtonApartamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonCasa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(jButtonCasa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonTerreno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -93,7 +103,9 @@ public class Inicial extends javax.swing.JFrame {
                 .addComponent(jButtonApartamento)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonCasa)
-                .addContainerGap(143, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonTerreno)
+                .addContainerGap(109, Short.MAX_VALUE))
         );
 
         pack();
@@ -115,6 +127,12 @@ public class Inicial extends javax.swing.JFrame {
         new FrameCasa(this.listaCasa).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonCasaActionPerformed
+
+    private void jButtonTerrenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTerrenoActionPerformed
+        // TODO add your handling code here:
+        new FrameTerreno(this.listaTerreno).setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonTerrenoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -155,6 +173,7 @@ public class Inicial extends javax.swing.JFrame {
     private javax.swing.JButton jButtonApartamento;
     private javax.swing.JButton jButtonCasa;
     private javax.swing.JButton jButtonSalaComercial;
+    private javax.swing.JButton jButtonTerreno;
     private javax.swing.JLabel jLabelImovel;
     // End of variables declaration//GEN-END:variables
 }
