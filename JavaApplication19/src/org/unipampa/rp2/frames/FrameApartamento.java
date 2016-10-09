@@ -692,7 +692,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
 
             //Atribuindo todos os valores ao Apartamento referenciado como objeto
             Apartamento objeto = new Apartamento(Cidade, Bairro, Logradouro, Numero, Valor,
-                Edificio, Andar,Apartamento, AnoConstrucao,Quartos,Garagem, ValorCondominio);
+                Edificio, Andar,Apartamento, AnoConstrucao,Quartos,Garagem, ValorCondominio, Descricao);
 
             //Salvando na Lista o objeto apartamento
             listaapartamento.incluir(objeto);
@@ -935,7 +935,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
         jTextFieldEditarVagasGaragem.setText(String.valueOf(newapartamento.getVgsGaragem()));
         jTextFieldEditarValor.setText(String.valueOf(newapartamento.getValor()));
         jTextFieldEditarValorCondominio.setText(String.valueOf(newapartamento.getValorCondominio()));
-        
+        jTextAreaEditarDescricao.setText(String.valueOf(newapartamento.getDescricao()));
     }
     
 /**
