@@ -64,7 +64,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonEditar" pref="100" max="32767" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButtonExcluir" min="-2" pref="90" max="-2" attributes="0"/>
+                              <Component id="jButtonListar" min="-2" pref="90" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="jButtonConsultarVoltar" min="-2" pref="100" max="-2" attributes="0"/>
@@ -84,7 +84,7 @@
                           <Component id="jLabelConsultarCodigoApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldConsultarCodigoApartamento" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonConsultar" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonExcluir" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonListar" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonEditar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -123,12 +123,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonConsultarVoltarActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonExcluir">
+            <Component class="javax.swing.JButton" name="jButtonListar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Listar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonExcluirActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonListarActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonEditar">
@@ -775,6 +775,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Salvar"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditarSalvarActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
