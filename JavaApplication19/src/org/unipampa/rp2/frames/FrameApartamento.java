@@ -633,6 +633,10 @@ public class FrameApartamento extends javax.swing.JFrame  {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Botão Voltar da Tela de edicao
+     * @param evt 
+     */
     private void jButtonEditarVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarVoltarActionPerformed
         Inicial voltar = new Inicial();
         voltar.setVisible(true);
@@ -640,7 +644,11 @@ public class FrameApartamento extends javax.swing.JFrame  {
     }//GEN-LAST:event_jButtonEditarVoltarActionPerformed
 
 //<editor-fold defaultstate="collapsed" desc="Botão Adicionar">
-    
+    /**
+     * Método para Salvar um objeto Apartamento 
+     * Quando clicado no botão salvar
+     * @param evt 
+     */
     private void jButtonAddAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAdicionarActionPerformed
         if(jTextFieldAddLogradouro.getText().trim().equals("") || jTextFieldAddApartamentoNum.getText().trim().equals("") || jTextFieldAddCidade.getText().equals("")
             || jTextFieldAddBairro.getText().trim().equals("") || jTextFieldAddVagasGaragem.getText().trim().equals("") || jTextFieldAddQuartos.getText().trim().equals("")
@@ -779,7 +787,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
         preencherCampos(getCod(jListListaApartamento.getSelectedValue()));
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
-//</editor-fold> // Modificado
+//</editor-fold> 
 
     /**
      * @param args the command line arguments
@@ -829,13 +837,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
         }
         jListListaApartamento.setModel(modelList);
     }
-      /*  for (Imovel imovel1 : imovel) {
-            modelList.addElement(imovel.toString());
-        }
-        
-        jListListaApartamento.setModel(modelList);
-    }*/
-    
+       
     /**
      * Método usado para limpar todos os campos tanto após uma edição quanto
      * após uma edição.
