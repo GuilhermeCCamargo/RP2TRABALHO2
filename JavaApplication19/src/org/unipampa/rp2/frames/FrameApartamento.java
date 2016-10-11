@@ -5,7 +5,11 @@
  */
 package org.unipampa.rp2.frames;
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import org.unipampa.rp2.listaimoveis.Lista;
@@ -701,7 +705,61 @@ public class FrameApartamento extends javax.swing.JFrame  {
                                   JOptionPane.showMessageDialog(null, "O imóvel não pode ser adicionado.");
                                   limparCampos();
                                 }
-        } 
+        }
+        
+        try {
+            PrintWriter objeto = new PrintWriter("Apartamento.txt");
+             objeto.println(jLabelAddLogradouro.getText());
+                objeto.println(jTextFieldAddLogradouro.getText());
+                objeto.println();
+                objeto.println(jLabelAddNumero.getText());
+                objeto.println(jTextFieldAddApartamentoNum.getText());
+                objeto.println();
+                objeto.println(jLabelAddEdificio.getText());
+                objeto.println(jTextFieldAddEdificio.getText());
+                objeto.println();
+                objeto.println(jLabelAddAnoConstrucao.getText());
+                objeto.println(jTextFieldAddAnoConstrucao.getText());
+                objeto.println();
+                objeto.println(jLabelAddAndar.getText());
+                objeto.println(jTextFieldAddAndar.getText());
+                objeto.println();
+                objeto.println(jLabelAddApartamento.getText());
+                objeto.println(jTextFieldAddApartamento.getText());
+                objeto.println();
+                objeto.println(jLabelAddAreaTotal.getText());
+                objeto.println(jTextFieldAddAreaTotal.getText());
+                objeto.println();
+                objeto.println(jLabelAddBairro.getText());
+                objeto.println(jTextFieldAddBairro.getText());
+                objeto.println();
+                objeto.println(jLabelAddCidade.getText());
+                objeto.println(jTextFieldAddCidade.getText());
+                objeto.println();
+                objeto.println(jLabelAddDescricao.getText());
+                objeto.println(jTextAreaAddDescricao.getText());
+                objeto.println();
+                objeto.println(jLabelAddQuartos.getText());
+                objeto.println(jTextFieldAddQuartos.getText());
+                objeto.println();
+                objeto.println(jLabelAddVagasGaragem.getText());
+                objeto.println(jTextFieldAddVagasGaragem.getText());
+                objeto.println();
+                objeto.println(jLabelAddValor.getText());
+                objeto.println(jTextFieldAddValor.getText());
+                objeto.println();
+                objeto.println(jLabelAddValorCondominio.getText());
+                objeto.println(jTextFieldAddValorCondominio.getText());
+                objeto.println();
+                objeto.close();
+                JOptionPane.showMessageDialog(null, "Dia Salvo com sucesso, continue registrando seus momentos. Seja Forte!!");
+        
+            
+        } catch (Exception erro) {
+            JOptionPane.showMessageDialog(null, "Não foi possível salvar.");
+        }
+               
+        
     }//GEN-LAST:event_jButtonAddAdicionarActionPerformed
 //</editor-fold>
     
@@ -855,10 +913,10 @@ public class FrameApartamento extends javax.swing.JFrame  {
                                                                     JOptionPane.showMessageDialog(null,"Imóvel editado com sucesso.");
                                                                     limparCampos();
                                                                  }
-            else{
-                    JOptionPane.showMessageDialog(null, "Objeto não pode ser editado.");
-                    limparCampos();
-                  }
+                                                                   else{
+                                                                            JOptionPane.showMessageDialog(null, "Objeto não pode ser editado.");
+                                                                            limparCampos();
+                                                                         }
         }
     }//GEN-LAST:event_jButtonEditarSalvarActionPerformed
 

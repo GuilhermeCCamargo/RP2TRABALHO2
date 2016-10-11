@@ -60,7 +60,7 @@ public class Apartamento extends Imovel{
      */
     public Apartamento(String cidade, String bairro ,String logradouro, int numero,  
             double valor, String nomeEdificio, int andar, int nroApartamento, 
-            int anoConstrucao, int nroQuartos, int vgsGaragem, double valorCondominio) {
+            int anoConstrucao, int nroQuartos, int vgsGaragem, double valorCondominio, String descricao) {
     
        this(numero, valor, cidade);
         
@@ -77,7 +77,7 @@ public class Apartamento extends Imovel{
         this.valorCondominio = valorCondominio;
         this.logradouro = logradouro;
         this.bairro = bairro;
-        
+        this.descricao = descricao;
     }
    
     /**
@@ -179,7 +179,12 @@ public class Apartamento extends Imovel{
     }    
     
     public String toString(){
-        return "\n"+"Código: "+getCod()+" - "+" Cidade: "+getCidade();
+        return "Código: "+getCod()+" - "+" Edifício: "+getNomeEdificio()+" - "+" Andar: "+getAndar()+" - "+" Valor: R$"+getValor();
+    }
+
+    @Override
+    public String writeFile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }    
