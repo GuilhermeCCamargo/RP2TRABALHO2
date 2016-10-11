@@ -56,7 +56,28 @@ public class Terreno extends Imovel{
         this.dimensaoLado = dimensaoLado;
     }
     
+    
     //</editor-fold>
+    
+    
+    
+     /**
+     * Método que pega todos os atributos e coloca em formato .csv
+     * para que se possa pegar a string para escrever dentro do arquivo
+     * @return - retorna uma String com todos os atributos separados por vírgula
+     * ordem (cod, numero, areaTotal, valor, logradouro, bairro, cidade
+     * descrição + os específicos (Dimenção Frente, Dimenção Lado.))
+     */
+    @Override
+    public String writeFile(){
+        String writeFile = super.getCod()+";"+super.getNumero()+";"+super.getAreaTotal()+";"+
+                super.getValor()+";"+super.getLogradouro()+";"+super.getBairro()+";"+
+                super.getCidade()+";"+super.getDescricao()+";"+getDimensaoFrente()+";"
+                +getDimensaoLado()+";\n";
+        
+        return writeFile;
+    }
+
     
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
     
