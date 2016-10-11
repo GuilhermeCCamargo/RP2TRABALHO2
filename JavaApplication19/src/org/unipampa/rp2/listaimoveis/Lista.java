@@ -107,7 +107,7 @@ public class Lista implements ListaImoveis {
     @Override
     public boolean escreverArquivo() {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter("/home/yuryalencar/NetBeansProjects/RP2TRABALHO2/JavaApplication19/src/org/unipampa/rp2/arquivos/"+this.tipo+".csv"));
+            BufferedWriter bw = new BufferedWriter(new FileWriter(System.getProperty("user.dir")+System.getProperty("file.separator")+this.tipo+".csv"));
         
             for (Imovel imovel : lista) {
                 bw.write(imovel.writeFile());
