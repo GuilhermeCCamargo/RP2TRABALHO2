@@ -28,7 +28,7 @@ import org.unipampa.rp2.tiposimoveis.SalaComercial;
  */
 public class Lista implements ListaImoveis {
 
-    //<editor-fold defaultstate="collapsed" desc="Atriutos">
+    //<editor-fold defaultstate="collapsed" desc="Atributos">
     
     private List<Imovel> lista = new ArrayList();
     private final String tipo;
