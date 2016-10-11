@@ -455,14 +455,13 @@ public class FrameTerreno extends javax.swing.JFrame {
 
             listaTerreno.incluir(t);
             limparCampos();
-            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
-                        
-        }
-        if(listaTerreno.escreverArquivo())
-                JOptionPane.showMessageDialog(null, "ESCRITO COM SUCESSO");
-            
-            limparCampos();
             listar();
+            JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+        
+            if(listaTerreno.escreverArquivo())
+                JOptionPane.showMessageDialog(null, "ESCRITO COM SUCESSO");
+        
+        }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jTextFieldNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroKeyTyped
