@@ -10,6 +10,15 @@ package org.unipampa.rp2.listaimoveis;
 import java.util.ArrayList;
 import java.util.List;
 import org.unipampa.rp2.tiposimoveis.Imovel;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.BufferedWriter;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.unipampa.rp2.tiposimoveis.SalaComercial;
 
 //</editor-fold>
 
@@ -19,11 +28,28 @@ import org.unipampa.rp2.tiposimoveis.Imovel;
  */
 public class Lista implements ListaImoveis {
 
-    //<editor-fold defaultstate="collapsed" desc="List (Atributo)">
+    //<editor-fold defaultstate="collapsed" desc="Atriutos">
+    
     private List<Imovel> lista = new ArrayList();
+    private final String tipo;
+    
     //</editor-fold>
-         
-    //<editor-fold defaultstate="collapsed" desc="Incluir, consultar, editar e excluir (Implementados)">
+       
+    //<editor-fold defaultstate="collapsed" desc="Construtor">
+    
+    /**
+     * Construtor que pega qual o tipo
+     * para criar um arquivo a partir do
+     * mesmo
+     * @param tipo - String nome que será gravado o .csv
+     */
+    public Lista(String tipo){
+        this.tipo = tipo;
+    }
+    
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Incluir, consultar por codigo, editar, excluir e escreverArquivo (Implementados)">
     
     /**
      * Método para que se possa cadastrar um imóvel
@@ -78,6 +104,24 @@ public class Lista implements ListaImoveis {
         return false;
     }
 
+    @Override
+    public boolean escreverArquivo() {
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("/home/yuryalencar/NetBeansProjects/RP2TRABALHO2/JavaApplication19/src/org/unipampa/rp2/arquivos/"+this.tipo+".csv"));
+        
+            for (Imovel imovel : lista) {
+                bw.write(imovel.writeFile());
+            }
+            
+            bw.close();
+            
+            return true;
+        } catch (IOException ex) {
+            Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+    }
+
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Não implementados">
@@ -104,11 +148,6 @@ public class Lista implements ListaImoveis {
 
     @Override
     public List<Imovel> pesquisaBairro(String bairro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean escreverArquivo() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
