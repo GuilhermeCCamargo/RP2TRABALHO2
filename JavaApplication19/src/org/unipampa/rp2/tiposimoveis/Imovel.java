@@ -59,6 +59,19 @@ public abstract class Imovel {
 
     //</editor-fold>
     
+    //<editor-fold defaultstate="collapsed" desc="String que vai escrever no arquivo">
+    
+    /**
+     * Método que pega todos os atributos e coloca em formato .csv
+     * para que se possa pegar a string para escrever dentro do arquivo
+     * @return - retorna uma String com todos os atributos separados por
+     * vírgula ordem (cod, numero, areaTotal, valor, logradouro, bairro, cidade
+     * descrição + os específicos)
+     */
+    public abstract String writeFile();
+
+    //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">
 
     /**

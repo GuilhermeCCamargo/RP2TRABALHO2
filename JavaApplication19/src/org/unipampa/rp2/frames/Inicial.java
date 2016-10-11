@@ -13,10 +13,10 @@ import org.unipampa.rp2.listaimoveis.Lista;
  */
 public class Inicial extends javax.swing.JFrame {
 
-    private Lista listaSalaComercial = new Lista();
-    private Lista ListaApartamento = new Lista();
-    private Lista listaCasa = new Lista();
-    private Lista listaTerreno = new Lista();
+    private Lista listaSalaComercial = new Lista("SalasComerciais");
+    private Lista ListaApartamento = new Lista("Apartamentos");
+    private Lista listaCasa = new Lista("Casas");
+    private Lista listaTerreno = new Lista("Terrenos");
     /**
      * Creates new form Inicial
      */

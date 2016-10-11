@@ -50,7 +50,8 @@ public class FrameSalaComercial extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jTabbedPaneSalaComercial = new javax.swing.JTabbedPane();
         jPanelConsultar = new javax.swing.JPanel();
         jScrollPaneListarSalaComercial = new javax.swing.JScrollPane();
@@ -95,10 +96,21 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         jButtonVoltarConsultar = new javax.swing.JButton();
         jButtonSalvar = new javax.swing.JButton();
 
-        jTextField1.setText("jTextField1");
+        jMenuItem1.setText("jMenuItem1");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jPopupMenu1.add(jMenuItem1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jListSalaComercial.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jListSalaComercialMouseClicked(evt);
+            }
+        });
         jListSalaComercial.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
                 jListSalaComercialValueChanged(evt);
@@ -552,11 +564,15 @@ public class FrameSalaComercial extends javax.swing.JFrame {
                 } else {
                     JOptionPane.showMessageDialog(null, "ERRO 03 - Imóvel não encontrado para a edição");
                 }
-            } else if (listaSalaComercial.incluir(sala) == true) {
+            } else if (listaSalaComercial.incluir(sala)) {
                 JOptionPane.showMessageDialog(null, "Imóvel inserido com sucesso!");
             } else {
                 JOptionPane.showMessageDialog(null, "ERRO 04 - Imóvel não pode ser adicionado");
             }
+            
+            if(listaSalaComercial.escreverArquivo())
+                JOptionPane.showMessageDialog(null, "ESCRITO COM SUCESSO");
+            
             limparCampos();
             listar(false, 0);
 
@@ -637,6 +653,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
                     }
                 }
                 listar(false, 0);
+                listaSalaComercial.escreverArquivo();
             } else {
                 JOptionPane.showMessageDialog(null, "ERRO 04 - Informe um número inteiro para prosseguir.");
             }
@@ -689,6 +706,25 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         new Inicial().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonVoltarInicialActionPerformed
+
+    private void jListSalaComercialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListSalaComercialMouseClicked
+        // TODO add your handling code here:
+//        if(javax.swing.SwingUtilities.isMiddleMouseButton(evt)){
+            
+//      }
+
+        if(jListSalaComercial.getModel().getSize() != 0){
+            preencherCampos(jListSalaComercial.getSelectedValue());
+            desativarCampos();
+            jTabbedPaneSalaComercial.setSelectedIndex(1);
+            jTabbedPaneSalaComercial.setEnabledAt(1, true);
+            jTabbedPaneSalaComercial.setEnabledAt(0, false);     
+        }
+    }//GEN-LAST:event_jListSalaComercialMouseClicked
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -749,15 +785,16 @@ public class FrameSalaComercial extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelValorCondomioSalaComercial;
     private javax.swing.JLabel jLabelValorImovel;
     private javax.swing.JList<String> jListSalaComercial;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JPanel jPanelAdicionar;
     private javax.swing.JPanel jPanelAdicionarHeranca;
     private javax.swing.JPanel jPanelConsultar;
     private javax.swing.JPanel jPanelImovel;
     private javax.swing.JPanel jPanelSalaComercial;
+    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPaneAdicionar;
     private javax.swing.JScrollPane jScrollPaneListarSalaComercial;
     private javax.swing.JTabbedPane jTabbedPaneSalaComercial;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldAndarSalaComercial;
     private javax.swing.JTextField jTextFieldAreaTotalImovel;
     private javax.swing.JTextField jTextFieldBairroImovel;
@@ -931,7 +968,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
         } else {
             Imovel sala = listaSalaComercial.consultar(cod);
-
+//javax.swing.SwingUtilities.isLeftMouseButton(anEvent);
             if (sala == null) {
                 JOptionPane.showMessageDialog(null, "Imóvel não encontrado!");
             } else {
@@ -941,5 +978,8 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
         jListSalaComercial.setModel(listModel);
     }
+    
+    
+    
 
 }

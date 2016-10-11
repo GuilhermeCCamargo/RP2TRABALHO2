@@ -165,6 +165,28 @@ public class SalaComercial extends Imovel{
 
     //</editor-fold>
     
+    //<editor-fold defaultstate="collapsed" desc="String que vai escrever no arquivo">
+    
+    /**
+     * Método que pega todos os atributos e coloca em formato .csv
+     * para que se possa pegar a string para escrever dentro do arquivo
+     * @return - retorna uma String com todos os atributos separados por
+     * vírgula ordem (cod, numero, areaTotal, valor, logradouro, bairro, cidade
+     * descrição + os específicos (nroBanheiros, andar, nroSala, valorCondominio,
+     * nomeEdificio))
+     */
+    @Override
+    public String writeFile(){
+        String writeFile = super.getCod()+";"+super.getNumero()+";"+super.getAreaTotal()+";"+
+                super.getValor()+";"+super.getLogradouro()+";"+super.getBairro()+";"+
+                super.getCidade()+";"+super.getDescricao()+";"+getNroBanheiros()+";"+
+                getAndar()+";"+getNroSala()+";"+getValorCondominio()+";"+getNomeEdificio()+";\n";
+        
+        return writeFile;
+    }
+
+    //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="toString">
     
     @Override
