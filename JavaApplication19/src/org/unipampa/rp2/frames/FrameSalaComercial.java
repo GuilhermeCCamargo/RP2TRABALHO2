@@ -573,8 +573,8 @@ public class FrameSalaComercial extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "ERRO 04 - Imóvel não pode ser adicionado");
             }
             
-            if(listaSalaComercial.escreverArquivo())
-                JOptionPane.showMessageDialog(null, "ESCRITO COM SUCESSO");
+            if(!(listaSalaComercial.escreverArquivo()))
+                JOptionPane.showMessageDialog(null, "ERRO 05 - Não foi possível Gravar o arquivo");
             
             limparCampos();
             listar(false, 0);
@@ -655,11 +655,16 @@ public class FrameSalaComercial extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Imóvel deletado com sucesso.");
                     }
                 }
+            
+                if(!(listaSalaComercial.escreverArquivo()))
+                    JOptionPane.showMessageDialog(null, "ERRO 05 - Não foi possível Gravar o arquivo");
+                
                 listar(false, 0);
-                listaSalaComercial.escreverArquivo();
+            
             } else {
                 JOptionPane.showMessageDialog(null, "ERRO 04 - Informe um número inteiro para prosseguir.");
             }
+                        
         }
     }//GEN-LAST:event_jButtonExcluirSalaComercialActionPerformed
 
