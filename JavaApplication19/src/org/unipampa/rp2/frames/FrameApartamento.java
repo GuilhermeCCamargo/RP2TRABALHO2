@@ -693,11 +693,12 @@ public class FrameApartamento extends javax.swing.JFrame  {
             //Atribuindo todos os valores ao Apartamento referenciado como objeto
             Apartamento objeto = new Apartamento(Cidade, Bairro, Logradouro, Numero, Valor,
                 Edificio, Andar,Apartamento, AnoConstrucao,Quartos,Garagem, ValorCondominio, Descricao);
-
-            //Salvando na Lista o objeto apartamento
+            
             listaapartamento.incluir(objeto);
+            //Salvando na Lista o objeto apartamento
+            listaapartamento.escreverArquivo();
            
-                        if(listaapartamento.incluir(objeto) == true){
+                        if(listaapartamento.escreverArquivo()){
                                                                         JOptionPane.showMessageDialog(null,"Imóvel salvo com sucesso.");
                                                                         limparCampos();
                                                                       }
@@ -707,7 +708,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
                                 }
         }
         
-        try {
+        /*try {
             PrintWriter objeto = new PrintWriter("Apartamento.txt");
              objeto.println(jLabelAddLogradouro.getText());
                 objeto.println(jTextFieldAddLogradouro.getText());
@@ -757,7 +758,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
             
         } catch (Exception erro) {
             JOptionPane.showMessageDialog(null, "Não foi possível salvar.");
-        }
+        }*/
                
         
     }//GEN-LAST:event_jButtonAddAdicionarActionPerformed
