@@ -9,9 +9,8 @@ package org.unipampa.rp2.tiposimoveis;
  *
  * @author vitao375
  */
+public class Casa extends Imovel {
 
-public class Casa extends Imovel{
-    
     //<editor-fold defaultstate="collapsed" desc="Atributos">
     protected Tipo tipo;
     protected Double areaConstruida;
@@ -19,26 +18,27 @@ public class Casa extends Imovel{
     protected int nVagasGaragem;
     protected int anoConstrucao;
     //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="construtores">
     public Casa(int numero, double valor, String logradouro) {
         super(numero, valor, logradouro);
     }
+
     public Casa(int numero, double valor, String logradouro, Tipo tipo,
             Double areaConstruida, int nQuartos, int nVagasGaragem, int anoConstrucao,
             String cidade, String bairro) {
-   
+
         super(numero, valor, cidade);
         this.tipo = tipo;
         this.logradouro = logradouro;
         this.bairro = bairro;
-        this.areaConstruida=areaConstruida;
-        this.nQuartos=nQuartos;
-        this.nVagasGaragem=nVagasGaragem;
-        this.anoConstrucao=anoConstrucao;
+        this.areaConstruida = areaConstruida;
+        this.nQuartos = nQuartos;
+        this.nVagasGaragem = nVagasGaragem;
+        this.anoConstrucao = anoConstrucao;
     }
 //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="Gets e Sets">
     /**
      * @return the tipo
@@ -110,12 +110,20 @@ public class Casa extends Imovel{
         this.anoConstrucao = anoConstrucao;
     }
 //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="toString">
     @Override
-    public String toString(){
-        return "Código: "+getCod()+" Tipo: "+getTipo()+" Valor: "+getValor();
+    public String toString() {
+        return "Código: " + getCod() + " Tipo: " + getTipo() + " Valor: " + getValor();
     }
-        
+
 //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Não implementados">
+    @Override
+    public String writeFile() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+//</editor-fold>
+
 }
