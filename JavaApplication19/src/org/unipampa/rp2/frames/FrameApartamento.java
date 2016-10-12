@@ -637,16 +637,17 @@ public class FrameApartamento extends javax.swing.JFrame  {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * Botão Voltar da Tela de edicao
-     * @param evt 
-     */
+//<editor-fold defaultstate="collapsed" desc="Botão Voltar (Tab Edição)">
+     
     private void jButtonEditarVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarVoltarActionPerformed
         Inicial voltar = new Inicial();
         voltar.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonEditarVoltarActionPerformed
 
+//</editor-fold>
+    
+    
 //<editor-fold defaultstate="collapsed" desc="Botão Adicionar">
    
     private void jButtonAddAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddAdicionarActionPerformed
@@ -693,11 +694,12 @@ public class FrameApartamento extends javax.swing.JFrame  {
             //Atribuindo todos os valores ao Apartamento referenciado como objeto
             Apartamento objeto = new Apartamento(Cidade, Bairro, Logradouro, Numero, Valor,
                 Edificio, Andar,Apartamento, AnoConstrucao,Quartos,Garagem, ValorCondominio, Descricao);
-
-            //Salvando na Lista o objeto apartamento
+            
             listaapartamento.incluir(objeto);
+            //Salvando na Lista o objeto apartamento
+            listaapartamento.escreverArquivo();
            
-                        if(listaapartamento.incluir(objeto) == true){
+                        if(listaapartamento.escreverArquivo()){
                                                                         JOptionPane.showMessageDialog(null,"Imóvel salvo com sucesso.");
                                                                         limparCampos();
                                                                       }
@@ -707,61 +709,11 @@ public class FrameApartamento extends javax.swing.JFrame  {
                                 }
         }
         
-        try {
-            PrintWriter objeto = new PrintWriter("Apartamento.txt");
-             objeto.println(jLabelAddLogradouro.getText());
-                objeto.println(jTextFieldAddLogradouro.getText());
-                objeto.println();
-                objeto.println(jLabelAddNumero.getText());
-                objeto.println(jTextFieldAddApartamentoNum.getText());
-                objeto.println();
-                objeto.println(jLabelAddEdificio.getText());
-                objeto.println(jTextFieldAddEdificio.getText());
-                objeto.println();
-                objeto.println(jLabelAddAnoConstrucao.getText());
-                objeto.println(jTextFieldAddAnoConstrucao.getText());
-                objeto.println();
-                objeto.println(jLabelAddAndar.getText());
-                objeto.println(jTextFieldAddAndar.getText());
-                objeto.println();
-                objeto.println(jLabelAddApartamento.getText());
-                objeto.println(jTextFieldAddApartamento.getText());
-                objeto.println();
-                objeto.println(jLabelAddAreaTotal.getText());
-                objeto.println(jTextFieldAddAreaTotal.getText());
-                objeto.println();
-                objeto.println(jLabelAddBairro.getText());
-                objeto.println(jTextFieldAddBairro.getText());
-                objeto.println();
-                objeto.println(jLabelAddCidade.getText());
-                objeto.println(jTextFieldAddCidade.getText());
-                objeto.println();
-                objeto.println(jLabelAddDescricao.getText());
-                objeto.println(jTextAreaAddDescricao.getText());
-                objeto.println();
-                objeto.println(jLabelAddQuartos.getText());
-                objeto.println(jTextFieldAddQuartos.getText());
-                objeto.println();
-                objeto.println(jLabelAddVagasGaragem.getText());
-                objeto.println(jTextFieldAddVagasGaragem.getText());
-                objeto.println();
-                objeto.println(jLabelAddValor.getText());
-                objeto.println(jTextFieldAddValor.getText());
-                objeto.println();
-                objeto.println(jLabelAddValorCondominio.getText());
-                objeto.println(jTextFieldAddValorCondominio.getText());
-                objeto.println();
-                objeto.close();
-                JOptionPane.showMessageDialog(null, "Dia Salvo com sucesso, continue registrando seus momentos. Seja Forte!!");
-        
-            
-        } catch (Exception erro) {
-            JOptionPane.showMessageDialog(null, "Não foi possível salvar.");
-        }
-               
+ 
         
     }//GEN-LAST:event_jButtonAddAdicionarActionPerformed
 //</editor-fold>
+ 
     
     private void jButtonAddVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddVoltarActionPerformed
         jTabbedPaneApartamento.setSelectedIndex(0);

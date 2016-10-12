@@ -36,10 +36,6 @@ interface ListaImoveis {
      * imóvel com o código informado.
      */
     public Imovel consultar(int codigo);
-
-    //</editor-fold>
-    
-    //<editor-fold defaultstate="collapsed" desc="Não implementados">
     
     /**
      * Edita o imóvel com o código informado.
@@ -59,6 +55,10 @@ interface ListaImoveis {
      * nenhum imóvel com o código infornado for encontrado.
      */
     public boolean excluir(int codigo);
+
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Não implementados">
 
     /**
      * Ordena os imóveis em ordem crescente de código.

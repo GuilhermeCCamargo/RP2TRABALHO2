@@ -455,7 +455,12 @@ public class FrameTerreno extends javax.swing.JFrame {
 
             listaTerreno.incluir(t);
             limparCampos();
+            listar();
             JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
+        
+            if(listaTerreno.escreverArquivo())
+                JOptionPane.showMessageDialog(null, "ESCRITO COM SUCESSO");
+        
         }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
@@ -510,7 +515,7 @@ public class FrameTerreno extends javax.swing.JFrame {
     private void jTextFieldBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBairroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldBairroActionPerformed
-
+//Preencher pra quando eu quiser ver detalhes.
     private void preencherCampos(int cod){
         Terreno imovel = (Terreno) listaTerreno.consultar(cod);
         jTextFieldCidade.setText(imovel.getCidade());
@@ -625,6 +630,7 @@ public class FrameTerreno extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
+        
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 

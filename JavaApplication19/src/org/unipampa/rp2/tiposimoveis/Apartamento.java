@@ -180,6 +180,18 @@ public class Apartamento extends Imovel{
     
     public String toString(){
         return "Código: "+getCod()+" - "+" Edifício: "+getNomeEdificio()+" - "+" Andar: "+getAndar()+" - "+" Valor: R$"+getValor();
+
     }
     
-}    
+    public String writeFile() {
+                                    String writeFile = super.getCod()+";"+super.getNumero()+";"+super.getAreaTotal()+";"+
+                                    super.getValor()+";"+super.getLogradouro()+";"+super.getBairro()+";"+
+                                    super.getCidade()+";"+super.getDescricao()+";"+getNomeEdificio()+";"+getAnoConstrucao()+";"+getNroApartamento()+";"+
+                                    getNroQuartos()+";"+getAndar()+";"+getValorCondominio()+";\n";
+        
+        return writeFile;
+    }
+
+    }
+    
+    
