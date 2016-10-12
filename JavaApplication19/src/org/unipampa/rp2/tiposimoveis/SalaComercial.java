@@ -89,6 +89,24 @@ public class SalaComercial extends Imovel{
         
     }
 
+    public SalaComercial(int cod, int numero, double areaTotal, double valor, String logradouro,
+            String bairro, String cidade, String descricao, int nroBanheiros,
+            int andar, int nroSala, double valorCondominio,
+            String nomeEdificio) {
+        
+        super(cod, numero, valor, cidade);
+        this.areaTotal = areaTotal;
+        this.logradouro = logradouro;
+        this.bairro = bairro;
+        this.cidade = cidade;
+        this.descricao = descricao;
+        this.nroBanheiros = nroBanheiros;
+        this.andar = andar;
+        this.nroSala = nroSala;
+        this.valorCondominio = valorCondominio;
+        this.nomeEdificio = nomeEdificio;
+    }
+
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Getters e Setters">

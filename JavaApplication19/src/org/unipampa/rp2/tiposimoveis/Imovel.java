@@ -57,6 +57,41 @@ public abstract class Imovel {
         this.cidade = cidade;
     }
 
+    /**
+     * Construtor para a leitura de arquivos não incrementar o código.
+     * @param cod
+     * @param numero
+     * @param valor
+     * @param cidade 
+     */
+    public Imovel(int cod, int numero, double valor, String cidade) {
+        //@TODO: aqui acontece uma verificação para analisar se o número informado é
+        //um número inteiro positivo, caso não 
+        if(cod < 0 || numero < 0 || valor < 0){
+            throw new InvalidParameterException("Números informados devem ser inteiros positivos");
+        }
+        // @TODO: coloquei o código estático e com isso sempre que for cadastrado
+        //um novo imóvel o código será incrementado.
+        this.cod = cod;
+        
+        this.numero = numero;
+        this.valor = valor;
+        this.cidade = cidade;
+    }
+
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Inicializador dos códigos">
+    
+    /**
+     * Método para começar sempre a partir de um código
+     * caso já tenha arquivos salvos.
+     * @param cod - código no qual irá iniciar a sequência
+     */
+    public static void startCodigo(int cod){
+        Imovel.codigo = cod;
+    }
+    
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="String que vai escrever no arquivo">

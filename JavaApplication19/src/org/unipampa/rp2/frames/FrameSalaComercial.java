@@ -5,7 +5,10 @@
  */
 package org.unipampa.rp2.frames;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import org.unipampa.rp2.listaimoveis.Lista;
@@ -572,10 +575,17 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             } else {
                 JOptionPane.showMessageDialog(null, "ERRO 04 - Imóvel não pode ser adicionado");
             }
-            
-            if(!(listaSalaComercial.escreverArquivo()))
+
+            if (!(listaSalaComercial.escreverArquivo())) {
                 JOptionPane.showMessageDialog(null, "ERRO 05 - Não foi possível Gravar o arquivo");
+            }
             
+            try {
+                listaSalaComercial.gravarUltimoCod(sala.getCod());
+            } catch (IOException ex) {
+                Logger.getLogger(FrameSalaComercial.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
             limparCampos();
             listar(false, 0);
 
@@ -655,16 +665,17 @@ public class FrameSalaComercial extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Imóvel deletado com sucesso.");
                     }
                 }
-            
-                if(!(listaSalaComercial.escreverArquivo()))
+
+                if (!(listaSalaComercial.escreverArquivo())) {
                     JOptionPane.showMessageDialog(null, "ERRO 05 - Não foi possível Gravar o arquivo");
-                
+                }
+
                 listar(false, 0);
-            
+
             } else {
                 JOptionPane.showMessageDialog(null, "ERRO 04 - Informe um número inteiro para prosseguir.");
             }
-                        
+
         }
     }//GEN-LAST:event_jButtonExcluirSalaComercialActionPerformed
 
@@ -717,17 +728,16 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
     private void jListSalaComercialMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jListSalaComercialMouseClicked
         // TODO add your handling code here:
-//        if(javax.swing.SwingUtilities.isMiddleMouseButton(evt)){
-            
-//      }
-
-        if(jListSalaComercial.getModel().getSize() != 0){
-            preencherCampos(jListSalaComercial.getSelectedValue());
-            desativarCampos();
-            jTabbedPaneSalaComercial.setSelectedIndex(1);
-            jTabbedPaneSalaComercial.setEnabledAt(1, true);
-            jTabbedPaneSalaComercial.setEnabledAt(0, false);     
+        if(javax.swing.SwingUtilities.isMiddleMouseButton(evt)){
+            if (jListSalaComercial.getModel().getSize() != 0) {
+                preencherCampos(jListSalaComercial.getSelectedValue());
+                desativarCampos();
+                jTabbedPaneSalaComercial.setSelectedIndex(1);
+                jTabbedPaneSalaComercial.setEnabledAt(1, true);
+                jTabbedPaneSalaComercial.setEnabledAt(0, false);
+            }
         }
+        
     }//GEN-LAST:event_jListSalaComercialMouseClicked
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
@@ -986,8 +996,5 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
         jListSalaComercial.setModel(listModel);
     }
-    
-    
-    
 
 }

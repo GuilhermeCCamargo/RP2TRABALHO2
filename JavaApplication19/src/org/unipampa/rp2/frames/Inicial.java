@@ -113,6 +113,7 @@ public class Inicial extends javax.swing.JFrame {
 
     private void jButtonSalaComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalaComercialActionPerformed
         // TODO add your handling code here:
+        listaSalaComercial.lerArquivo();
         new FrameSalaComercial(this.listaSalaComercial).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonSalaComercialActionPerformed
