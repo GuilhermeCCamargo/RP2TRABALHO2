@@ -119,20 +119,21 @@ public class Casa extends Imovel {
 
 //</editor-fold>
     
-    //<editor-fold defaultstate="collapsed" desc="Não implementados">
+    //<editor-fold defaultstate="collapsed" desc="writeFile">
     /**
      * Método que pega todos os atributos e coloca em formato .csv
      * para que se possa pegar a string para escrever dentro do arquivo
      * @return - retorna uma String com todos os atributos separados por
      * vírgula ordem (cod, numero, areaTotal, valor, logradouro, bairro, cidade
-     * descrição + os específicos)
+     * descricao, tipo, areaContruida, NQuartos, NVagasGaragem, anoContrucao)
      */
     @Override
     public String writeFile() {
         return super.getCod()+";"+super.getNumero()+";"+super.getAreaTotal()+";"+
                 super.getValor()+";"+super.getLogradouro()+";"+super.getBairro()+";"+
-                super.getCidade()+";"+ tipo.getTipo()+";"+getAreaConstruida()+";"
-                +getNQuartos()+";"+getNVagasGaragem()+";"+getAnoConstrucao()+";\n";
+                super.getCidade()+";"+getDescricao()+";"+ tipo.getTipo()+";"+
+                getAreaConstruida()+";"+getNQuartos()+";"+getNVagasGaragem()+";"+
+                getAnoConstrucao()+";\n";
     }
 //</editor-fold>
 
