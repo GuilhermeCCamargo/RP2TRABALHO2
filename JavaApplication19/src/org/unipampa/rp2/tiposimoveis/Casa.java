@@ -13,7 +13,7 @@ public class Casa extends Imovel {
 
     //<editor-fold defaultstate="collapsed" desc="Atributos">
     protected Tipo tipo;
-    protected Double areaConstruida;
+    protected double areaConstruida;
     protected int nQuartos;
     protected int nVagasGaragem;
     protected int anoConstrucao;
@@ -25,7 +25,7 @@ public class Casa extends Imovel {
     }
 
     public Casa(int numero, double valor, String logradouro, Tipo tipo,
-            Double areaConstruida, int nQuartos, int nVagasGaragem, int anoConstrucao,
+            double areaConstruida, int nQuartos, int nVagasGaragem, int anoConstrucao,
             String cidade, String bairro) {
 
         super(numero, valor, cidade);
@@ -71,28 +71,28 @@ public class Casa extends Imovel {
     /**
      * @return the nQuartos
      */
-    public int getnQuartos() {
+    public int getNQuartos() {
         return nQuartos;
     }
 
     /**
      * @param nQuartos the nQuartos to set
      */
-    public void setnQuartos(int nQuartos) {
+    public void setNQuartos(int nQuartos) {
         this.nQuartos = nQuartos;
     }
 
     /**
      * @return the nVagasGaragem
      */
-    public int getnVagasGaragem() {
+    public int getNVagasGaragem() {
         return nVagasGaragem;
     }
 
     /**
      * @param nVagasGaragem the nVagasGaragem to set
      */
-    public void setnVagasGaragem(int nVagasGaragem) {
+    public void setNVagasGaragem(int nVagasGaragem) {
         this.nVagasGaragem = nVagasGaragem;
     }
 
@@ -120,9 +120,19 @@ public class Casa extends Imovel {
 //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Não implementados">
+    /**
+     * Método que pega todos os atributos e coloca em formato .csv
+     * para que se possa pegar a string para escrever dentro do arquivo
+     * @return - retorna uma String com todos os atributos separados por
+     * vírgula ordem (cod, numero, areaTotal, valor, logradouro, bairro, cidade
+     * descrição + os específicos)
+     */
     @Override
     public String writeFile() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return super.getCod()+";"+super.getNumero()+";"+super.getAreaTotal()+";"+
+                super.getValor()+";"+super.getLogradouro()+";"+super.getBairro()+";"+
+                super.getCidade()+";"+ tipo.getTipo()+";"+getAreaConstruida()+";"
+                +getNQuartos()+";"+getNVagasGaragem()+";"+getAnoConstrucao()+";\n";
     }
 //</editor-fold>
 

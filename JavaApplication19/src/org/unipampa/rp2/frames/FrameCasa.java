@@ -16,12 +16,14 @@ import org.unipampa.rp2.tiposimoveis.Casa;
 public class FrameCasa extends javax.swing.JFrame {
 
     private Lista listaCasa;
-    private List<Imovel> casa;
+    
+    private boolean editar = false;
+    private int isCod=-1;
     /**
-     * Construtor que inicia a classe
-     * Desabilita a 2 aba(indice 1)
-     * Inser as opções na comboBox
-     * @param listaCasa 
+     * Construtor que inicia a classe Desabilita a 2 aba(indice 1) Inser as
+     * opções na comboBox
+     *
+     * @param listaCasa
      */
     public FrameCasa(Lista listaCasa) {
         initComponents();
@@ -31,19 +33,21 @@ public class FrameCasa extends javax.swing.JFrame {
 
         this.listaCasa = listaCasa;
 
-        jTabbedPane4.setEnabledAt(1, false);
-        jTabbedPane4.setEnabledAt(0, true);
+        jTabbedPaneCasa.setEnabledAt(1, false);
+        jTabbedPaneCasa.setEnabledAt(0, true);
 
         for (Tipo t : Tipo.values()) {
             jComboBoxTipo.addItem(t.getTipo());
         }
 
     }
+
     /**
      * Retorna true caso consiga preencher os campos com o objeto do codigo
      * selecionado e false caso contrário
+     *
      * @param cod
-     * @return 
+     * @return
      */
     public boolean preencherCampos(int cod) {
 
@@ -57,10 +61,10 @@ public class FrameCasa extends javax.swing.JFrame {
             jTextFieldValor.setText(String.valueOf(c.getValor()));
             jTextFieldLogradouro.setText(c.getLogradouro());
             jTextFieldAC.setText(String.valueOf(c.getAreaConstruida()));
-            jTextFieldNQ.setText(String.valueOf(c.getnQuartos()));
-            jTextFieldNVG.setText(String.valueOf(c.getnVagasGaragem()));
+            jTextFieldNQ.setText(String.valueOf(c.getNQuartos()));
+            jTextFieldNVG.setText(String.valueOf(c.getNVagasGaragem()));
             jTextFieldAnoC.setText(String.valueOf(c.getAnoConstrucao()));
-            
+
             return true;
         } else {
             JOptionPane.showMessageDialog(null, "ERRO 03 - Imóvel não encontrado");
@@ -80,7 +84,7 @@ public class FrameCasa extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jListCasa = new javax.swing.JList<>();
         jPanel1 = new javax.swing.JPanel();
-        jTabbedPane4 = new javax.swing.JTabbedPane();
+        jTabbedPaneCasa = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldCodigo = new javax.swing.JTextField();
@@ -164,8 +168,18 @@ public class FrameCasa extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jListFrameCasa);
 
         jButtonEditar.setText("Editar");
+        jButtonEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarActionPerformed(evt);
+            }
+        });
 
         jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -214,7 +228,7 @@ public class FrameCasa extends javax.swing.JFrame {
                 .addContainerGap(28, Short.MAX_VALUE))
         );
 
-        jTabbedPane4.addTab("Consultar", jPanel2);
+        jTabbedPaneCasa.addTab("Consultar", jPanel2);
 
         jPanelImovel.setPreferredSize(new java.awt.Dimension(360, 128));
 
@@ -439,19 +453,19 @@ public class FrameCasa extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jTabbedPane4.addTab("Dados", jPanel3);
+        jTabbedPaneCasa.addTab("Dados", jPanel3);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jTabbedPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPaneCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4)
+            .addComponent(jTabbedPaneCasa)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -481,24 +495,65 @@ public class FrameCasa extends javax.swing.JFrame {
     private void jTextFieldNVGActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNVGActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNVGActionPerformed
-    
+
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
+        if (!editar) {
+            Casa casa = new Casa(Integer.parseInt(jTextFieldNumero.getText().trim()),
+                    Double.parseDouble(jTextFieldValor.getText().trim()),
+                    jTextFieldLogradouro.getText().trim(),
+                    Tipo.verificarTipo(jComboBoxTipo.getSelectedItem().toString()),
+                    Double.parseDouble(jTextFieldAC.getText().trim()),
+                    Integer.parseInt(jTextFieldNQ.getText()),
+                    Integer.parseInt(jTextFieldNVG.getText()),
+                    Integer.parseInt(jTextFieldAnoC.getText()),
+                    jTextFieldCidade.getText(), jTextFieldBairro.getText());
+                    casa.setDescricao(jTextFieldDescricao.getText().trim());
+
+            if (listaCasa.incluir(casa)) {
+                limparCampos();
+                JOptionPane.showMessageDialog(null, "Imóvel cadastrado com sucesso!");
+                jTabbedPaneCasa.setEnabledAt(1, false);
+                jTabbedPaneCasa.setEnabledAt(0, true);
+                jTabbedPaneCasa.setSelectedIndex(0);
+                if(listaCasa.escreverArquivo()){
+                    JOptionPane.showMessageDialog(this, "Salvo com sucesso");
+                } else{
+                    JOptionPane.showMessageDialog(this, "Erro ao salvar");
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro digite novamente");
+            }
+        }else{
+            Casa novaCasa = new Casa(Integer.parseInt(jTextFieldNumero.getText().trim()),
+                    Double.parseDouble(jTextFieldValor.getText().trim()),
+                    jTextFieldLogradouro.getText().trim(),
+                    Tipo.verificarTipo(jComboBoxTipo.getSelectedItem().toString()),
+                    Double.parseDouble(jTextFieldAC.getText().trim()),
+                    Integer.parseInt(jTextFieldNQ.getText()),
+                    Integer.parseInt(jTextFieldNVG.getText()),
+                    Integer.parseInt(jTextFieldAnoC.getText()),
+                    jTextFieldCidade.getText(), jTextFieldBairro.getText());
+                    novaCasa.setDescricao(jTextFieldDescricao.getText().trim());
+            if(listaCasa.editar(isCod, novaCasa)){
+                JOptionPane.showMessageDialog(null, "Editado com sucesso!");
+                isCod=-1;
+                limparCampos();
+                jTabbedPaneCasa.setEnabledAt(1, false);
+                jTabbedPaneCasa.setEnabledAt(0, true);
+                jTabbedPaneCasa.setSelectedIndex(0);
+                if(listaCasa.escreverArquivo()){
+                    JOptionPane.showMessageDialog(this, "Salvo com sucesso");
+                } else{
+                    JOptionPane.showMessageDialog(this, "Erro ao salvar");
+                }
+                
+            } else{
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro, tente novamente!");
+            }
+            
+        }
         
-        Casa casa = new Casa(Integer.parseInt(jTextFieldNumero.getText().trim()),
-                Double.parseDouble(jTextFieldValor.getText().trim()),
-                jTextFieldLogradouro.getText().trim(),
-                Tipo.verificarTipo(jComboBoxTipo.getSelectedItem().toString()),
-                Double.parseDouble(jTextFieldAC.getText().trim()),
-                Integer.parseInt(jTextFieldNQ.getText()),
-                Integer.parseInt(jTextFieldNVG.getText()),
-                Integer.parseInt(jTextFieldAnoC.getText()),
-                jTextFieldCidade.getText(), jTextFieldBairro.getText());
-
-        listaCasa.incluir(casa);
-
-        limparCampos();
-        JOptionPane.showMessageDialog(null, "Imóvel cadastrado com sucesso!");
-
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
@@ -508,16 +563,17 @@ public class FrameCasa extends javax.swing.JFrame {
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
         ativarCampos();
         limparCampos();
-        jTabbedPane4.setEnabledAt(0, false);
-        jTabbedPane4.setEnabledAt(1, true);
-        jTabbedPane4.setSelectedIndex(1);
+        jTabbedPaneCasa.setEnabledAt(0, false);
+        jTabbedPaneCasa.setEnabledAt(1, true);
+        jTabbedPaneCasa.setSelectedIndex(1);
 
     }//GEN-LAST:event_jButtonIncluirActionPerformed
 
     private void jButtonVoltarAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarAdicionarActionPerformed
-        jTabbedPane4.setEnabledAt(0, true);
-        jTabbedPane4.setEnabledAt(1, false);
-        jTabbedPane4.setSelectedIndex(0);
+        jTabbedPaneCasa.setEnabledAt(0, true);
+        jTabbedPaneCasa.setEnabledAt(1, false);
+        jTabbedPaneCasa.setSelectedIndex(0);
+        limparCampos();
     }//GEN-LAST:event_jButtonVoltarAdicionarActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
@@ -541,11 +597,11 @@ public class FrameCasa extends javax.swing.JFrame {
 
     private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
         // TODO add your handling code here:
-        String aux="";
+        String aux = "";
         boolean error = false;
         aux = JOptionPane.showInputDialog("Insira o código do objeto que deseja buscar: ");
-        
-        if(aux == null){
+
+        if (aux == null) {
         } else if (aux.trim().equals("")) {
             JOptionPane.showMessageDialog(null, "ERRO 01 - Insira um valor");
         } else {
@@ -558,19 +614,50 @@ public class FrameCasa extends javax.swing.JFrame {
 
             if (error) {
                 JOptionPane.showMessageDialog(null, "ERRO 02 - Insira somente número inteiros");
-            } else {
-                if(preencherCampos(Integer.parseInt(aux))){
-                    desativarCampos();
-                    jTabbedPane4.setSelectedIndex(1);
-                    jTabbedPane4.setEnabledAt(1, true);
-                    jTabbedPane4.setEnabledAt(0, false);
-                }
+            } else if (preencherCampos(Integer.parseInt(aux))) {
+                desativarCampos();
+                jTabbedPaneCasa.setSelectedIndex(1);
+                jTabbedPaneCasa.setEnabledAt(1, true);
+                jTabbedPaneCasa.setEnabledAt(0, false);
             }
         }
     }//GEN-LAST:event_jButtonConsultarActionPerformed
 
+    private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+        String cod = JOptionPane.showInputDialog("Insira o código do objeto que deseja editar: ");
+        if (cod.equals("") || cod.equals(null)) {
+            JOptionPane.showMessageDialog(null, "Insira um número!");
+        } else if (preencherCampos(Integer.parseInt(cod))) {
+            jTabbedPaneCasa.setSelectedIndex(1);
+            jTabbedPaneCasa.setEnabledAt(0, false);
+            jTabbedPaneCasa.setEnabledAt(1, true);
+            editar = true;
+            isCod=Integer.parseInt(cod);
+            ativarCampos();
+        }
+
+
+    }//GEN-LAST:event_jButtonEditarActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        int cod =Integer.parseInt(JOptionPane.showInputDialog("Informe o código da casa a ser removida."));
+        if(listaCasa.excluir(cod)){
+            JOptionPane.showMessageDialog(this, "Casa removida com sucesso!");
+        } else{
+            JOptionPane.showMessageDialog(this, "Casa com o código: "+cod+" não encontrada.");
+        }
+        if(listaCasa.escreverArquivo()){
+            JOptionPane.showMessageDialog(this, "Salvo");
+        } else{
+            JOptionPane.showMessageDialog(this, "Erro ao salvar");
+        }
+               
+        
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
+
     /**
-     * Main para teste unitário 
+     * Main para teste unitário
+     *
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -639,7 +726,7 @@ public class FrameCasa extends javax.swing.JFrame {
     private javax.swing.JPanel jPanelImovel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTabbedPane jTabbedPane4;
+    private javax.swing.JTabbedPane jTabbedPaneCasa;
     private javax.swing.JTextField jTextFieldAC;
     private javax.swing.JTextField jTextFieldAnoC;
     private javax.swing.JTextField jTextFieldAreaTotal;
@@ -653,15 +740,16 @@ public class FrameCasa extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNumero;
     private javax.swing.JTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
-    
+
     /**
-     * Recebe o codigo e adiciona a lista a monografia selecionada 
-     * 
-     * @param cod 
+     * Recebe o codigo e adiciona a lista a monografia selecionada
+     *
+     * @param cod
      */
     public void listar(int cod) {
         DefaultListModel listModel = new DefaultListModel();
-        this.casa = listaCasa.getLista();//Atribui a lista da classe Lista a variável
+        List<Imovel> casa;
+        casa = listaCasa.getLista();//Atribui a lista da classe Lista a variável
         if (cod == -1) {
             //Percorre a lista e insere os resultados em listModel(Lista padrão)
             for (Imovel home : casa) {
@@ -679,6 +767,7 @@ public class FrameCasa extends javax.swing.JFrame {
 
         jListFrameCasa.setModel(listModel);//Mudar a lista
     }
+
     /**
      * Apenas limpa todos os campos
      */
@@ -696,8 +785,9 @@ public class FrameCasa extends javax.swing.JFrame {
         jTextFieldAnoC.setText("");
 
     }
+
     /**
-     * Apenas ativa todos os campos 
+     * Apenas ativa todos os campos
      */
     public void ativarCampos() {
         jTextFieldNumero.setEnabled(true);
@@ -714,6 +804,7 @@ public class FrameCasa extends javax.swing.JFrame {
 
         jButtonSalvar.setVisible(true);
     }
+
     /**
      * Apenas destiva todos os campos
      */
