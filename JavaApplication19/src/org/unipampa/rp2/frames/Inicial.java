@@ -125,6 +125,7 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonApartamentoActionPerformed
 
     private void jButtonCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCasaActionPerformed
+        this.listaCasa.lerArquivo();
         new FrameCasa(this.listaCasa).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonCasaActionPerformed

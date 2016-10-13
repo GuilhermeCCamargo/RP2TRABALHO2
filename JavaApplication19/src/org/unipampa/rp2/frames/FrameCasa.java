@@ -17,7 +17,7 @@ public class FrameCasa extends javax.swing.JFrame {
 
     private Lista listaCasa;
     
-    private boolean editar = false;
+    private boolean isEditar = false;
     private int isCod=-1;
     /**
      * Construtor que inicia a classe Desabilita a 2 aba(indice 1) Inser as
@@ -30,7 +30,7 @@ public class FrameCasa extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
 
         this.setTitle("Imobiliária - Casa");
-
+        
         this.listaCasa = listaCasa;
 
         jTabbedPaneCasa.setEnabledAt(1, false);
@@ -497,7 +497,7 @@ public class FrameCasa extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNVGActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        if (!editar) {
+        if (!isEditar) {
             Casa casa = new Casa(Integer.parseInt(jTextFieldNumero.getText().trim()),
                     Double.parseDouble(jTextFieldValor.getText().trim()),
                     jTextFieldLogradouro.getText().trim(),
@@ -544,6 +544,7 @@ public class FrameCasa extends javax.swing.JFrame {
                 jTabbedPaneCasa.setSelectedIndex(0);
                 if(listaCasa.escreverArquivo()){
                     JOptionPane.showMessageDialog(this, "Salvo com sucesso");
+                    isEditar=false;
                 } else{
                     JOptionPane.showMessageDialog(this, "Erro ao salvar");
                 }
@@ -631,7 +632,7 @@ public class FrameCasa extends javax.swing.JFrame {
             jTabbedPaneCasa.setSelectedIndex(1);
             jTabbedPaneCasa.setEnabledAt(0, false);
             jTabbedPaneCasa.setEnabledAt(1, true);
-            editar = true;
+            isEditar = true;
             isCod=Integer.parseInt(cod);
             ativarCampos();
         }

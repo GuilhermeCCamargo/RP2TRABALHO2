@@ -20,6 +20,8 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.unipampa.rp2.tiposimoveis.SalaComercial;
+import org.unipampa.rp2.tiposimoveis.Tipo;
+import org.unipampa.rp2.tiposimoveis.Casa;
 
 //</editor-fold>
 
@@ -177,6 +179,12 @@ public class Lista implements ListaImoveis {
 
                     break;
                 case "Casas":
+                    try {
+                        lerCasas();
+                        return true;
+                    } catch (Exception ex) {
+                        Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 
                     break;
                 case "Terreno":
@@ -191,6 +199,87 @@ public class Lista implements ListaImoveis {
         }
         return false;
     }
+    //<editor-fold defaultstate="collapsed" desc="Método para leitura de uma Casa">
+    private void lerCasas() throws FileNotFoundException, IOException{
+        String linha, logradouro="", bairro="", cidade="", descricao="";
+        int cod=0, numero=0, NQuartos=0, NVagasGaragem=0, anoConstrucao=0;
+        double areaTotal=0, valor=0, areaConstruida=0;
+        Tipo tipo=null;
+        String convercao = "";
+        int aux=0;
+        
+        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir")+System.getProperty("file.separator")+this.tipo+".csv"));
+        
+        do{
+            linha = br.readLine();
+            
+            if(linha != null){
+                for (int i = 0; i < linha.length(); i++) {
+                    if(linha.charAt(i)==';'){
+                        
+                        //<editor-fold defaultstate="collapsed" desc="Switch Casa">
+                        switch (aux){
+                            case 0:
+                                cod = Integer.parseInt(convercao);
+                                break;
+                            case 1:
+                                numero = Integer.parseInt(convercao);
+                                break;
+                            case 2:
+                                areaTotal = Double.parseDouble(convercao);
+                                break;
+                            case 3:
+                                valor = Double.parseDouble(convercao);
+                                break;
+                            case 4:
+                                logradouro = convercao;
+                                break;
+                            case 5:
+                                bairro = convercao;
+                                break;
+                            case 6:
+                                cidade = convercao;
+                                break;
+                            case 7:
+                                descricao = convercao;
+                                break;
+                            case 8:
+                                tipo = Tipo.verificarTipo(convercao);
+                                break;
+                            case 9:
+                                areaConstruida = Double.parseDouble(convercao);
+                                break;
+                            case 10:
+                                NQuartos = Integer.parseInt(convercao);
+                                break;
+                            case 11:
+                                NVagasGaragem = Integer.parseInt(convercao);
+                                break;
+                            case 12:
+                                anoConstrucao = Integer.parseInt(convercao);
+                                break; 
+                        }
+                        //</editor-fold>
+                        
+                        convercao = "";
+                        aux ++;
+                    } else {
+                        convercao += linha.charAt(i);
+                    }
+                }
+                
+                Casa casa = new Casa(cod, numero, areaTotal, valor, logradouro, bairro, cidade,
+      descricao, tipo, areaConstruida, NQuartos, NVagasGaragem, anoConstrucao);
+                    
+                aux = 0;
+                this.lista.add(casa);
+            }
+            
+        }while(linha != null);
+        
+        br.close();
+    }
+//</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Método para a leitura de uma sala comercial">
     
@@ -362,5 +451,7 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
+
+   
     
 }
