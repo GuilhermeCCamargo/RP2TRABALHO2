@@ -5,6 +5,9 @@
  */
 package org.unipampa.rp2.frames;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.unipampa.rp2.listaimoveis.Lista;
 
 /**
@@ -24,6 +27,12 @@ public class Inicial extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("RP2 - Imobiliária");
+        
+        try {
+            Lista.startCodigo();
+        } catch (IOException ex) {
+            Logger.getLogger(Inicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -113,7 +122,7 @@ public class Inicial extends javax.swing.JFrame {
 
     private void jButtonSalaComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalaComercialActionPerformed
         // TODO add your handling code here:
-        listaSalaComercial.lerArquivo();
+        this.listaSalaComercial.lerArquivo();
         new FrameSalaComercial(this.listaSalaComercial).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonSalaComercialActionPerformed
@@ -125,13 +134,13 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonApartamentoActionPerformed
 
     private void jButtonCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCasaActionPerformed
-        this.listaCasa.lerArquivo();
         new FrameCasa(this.listaCasa).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonCasaActionPerformed
 
     private void jButtonTerrenoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonTerrenoActionPerformed
         // TODO add your handling code here:
+        this.listaCasa.lerArquivo();
         new FrameTerreno(this.listaTerreno).setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonTerrenoActionPerformed

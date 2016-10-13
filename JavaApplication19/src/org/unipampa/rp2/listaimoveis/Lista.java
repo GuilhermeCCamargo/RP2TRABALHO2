@@ -19,9 +19,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.unipampa.rp2.tiposimoveis.Casa;
 import org.unipampa.rp2.tiposimoveis.SalaComercial;
 import org.unipampa.rp2.tiposimoveis.Tipo;
-import org.unipampa.rp2.tiposimoveis.Casa;
 
 //</editor-fold>
 
@@ -185,7 +185,6 @@ public class Lista implements ListaImoveis {
                     } catch (Exception ex) {
                         Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
                     }
-
                     break;
                 case "Terreno":
 
@@ -199,12 +198,14 @@ public class Lista implements ListaImoveis {
         }
         return false;
     }
+    
     //<editor-fold defaultstate="collapsed" desc="Método para leitura de uma Casa">
+   
     private void lerCasas() throws FileNotFoundException, IOException{
         String linha, logradouro="", bairro="", cidade="", descricao="";
         int cod=0, numero=0, NQuartos=0, NVagasGaragem=0, anoConstrucao=0;
         double areaTotal=0, valor=0, areaConstruida=0;
-        Tipo tipo=null;
+        Tipo tipo = null;
         String convercao = "";
         int aux=0;
         
@@ -279,7 +280,8 @@ public class Lista implements ListaImoveis {
         
         br.close();
     }
-//</editor-fold>
+
+    //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Método para a leitura de uma sala comercial">
     
@@ -393,15 +395,18 @@ public class Lista implements ListaImoveis {
      * paramos
      * @throws IOException 
      */
-    public void startCodigo() throws IOException{
+    public static void startCodigo() throws IOException{
         File inputFile = new File(System.getProperty("user.dir")+System.getProperty("file.separator")+"lastCod.txt");
-
+        int initCod;
+        
         if(inputFile.exists()){
             BufferedReader br = new BufferedReader(new FileReader(inputFile));
 
-            Imovel.startCodigo(Integer.parseInt(br.readLine()));
+            initCod = Integer.parseInt(br.readLine());
 
             br.close();
+            
+            Imovel.startCodigo((initCod+1));
         }
     }
     
@@ -451,7 +456,5 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
-
-   
     
 }
