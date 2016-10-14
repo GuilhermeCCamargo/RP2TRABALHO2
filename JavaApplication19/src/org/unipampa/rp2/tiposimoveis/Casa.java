@@ -20,8 +20,21 @@ public class Casa extends Imovel {
     //</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="construtores">
-    public Casa(int numero, double valor, String logradouro) {
-        super(numero, valor, logradouro);
+    public Casa(int cod,int numero,double areaTotal,double valor,String logradouro,
+            String bairro,String cidade,String descricao, Tipo tipo,
+            double areaConstruida,int nQuartos,int nVagasGaragem,int anoConstrucao) {
+        
+        super(cod, numero, valor, cidade);
+        this.areaTotal = areaTotal;
+        this.logradouro = logradouro;
+        this.bairro = bairro;
+        this.descricao = descricao;
+        this.tipo = tipo;
+        this.areaConstruida = areaConstruida;
+        this.nQuartos = nQuartos;
+        this.nVagasGaragem = nVagasGaragem;
+        this.anoConstrucao = anoConstrucao;
+        
     }
 
     public Casa(int numero, double valor, String logradouro, Tipo tipo,
