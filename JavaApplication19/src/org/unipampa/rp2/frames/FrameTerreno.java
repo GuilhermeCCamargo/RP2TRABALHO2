@@ -26,6 +26,7 @@ public class FrameTerreno extends javax.swing.JFrame {
      */
     public FrameTerreno(Lista listaTerreno) {
         initComponents();
+        listaTerreno.lerArquivo();
         this.listaTerreno = listaTerreno;
         this.setLocationRelativeTo(null);
         this.setTitle("Imobiliária - Terreno");
@@ -94,6 +95,11 @@ public class FrameTerreno extends javax.swing.JFrame {
         });
 
         jButtonExcluir.setText("Excluir");
+        jButtonExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonExcluirActionPerformed(evt);
+            }
+        });
 
         jButtonBuscarC.setText("Buscar Por Código");
         jButtonBuscarC.addActionListener(new java.awt.event.ActionListener() {
@@ -515,6 +521,16 @@ public class FrameTerreno extends javax.swing.JFrame {
     private void jTextFieldBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBairroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldBairroActionPerformed
+
+    private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
+        int cod = Integer.parseInt(jList1.getSelectedValue().toString());
+        if(listaTerreno.excluir(cod)){
+            JOptionPane.showMessageDialog(this,"Excluido com sucesso.");
+        } else{
+            JOptionPane.showMessageDialog(this,"Erro ao excluir.");
+        }
+        
+    }//GEN-LAST:event_jButtonExcluirActionPerformed
 //Preencher pra quando eu quiser ver detalhes.
     private void preencherCampos(int cod){
         Terreno imovel = (Terreno) listaTerreno.consultar(cod);
