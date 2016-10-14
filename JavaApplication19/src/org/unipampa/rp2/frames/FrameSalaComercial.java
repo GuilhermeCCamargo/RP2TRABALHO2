@@ -42,6 +42,8 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setTitle("Imobiliária - Sala Comercial");
+        
+        listar(false, 0);
 
         this.listaSalaComercial = listaSalaComercial;
 
@@ -50,7 +52,6 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
         jTabbedPaneSalaComercial.setEnabledAt(0, true);
         jTabbedPaneSalaComercial.setEnabledAt(1, false);
-
     }
 
     //</editor-fold>
@@ -246,6 +247,27 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         jTabbedPaneSalaComercial.setEnabledAt(saida, false);
         jTabbedPaneSalaComercial.setEnabledAt(chegada, true);
         jTabbedPaneSalaComercial.setSelectedIndex(chegada);
+    }
+    
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Método de verificação">
+    
+    /**
+     * Método para fazer alguma verificação no sistema.
+     * @param mensagem - Mensagem que deseja ser exibida para
+     * o usuário.
+     * @return - true caso a resposta seja sim e false caso contrário
+     */
+    private boolean verificacao(String mensagem){
+        int reply = JOptionPane.showConfirmDialog(null, mensagem,
+                            "RP II - IMOBILIÁRIA", JOptionPane.YES_NO_OPTION);
+                    
+        if(reply == JOptionPane.YES_OPTION){
+            return true;
+        }
+        
+        return false;
     }
     
     //</editor-fold>
@@ -739,6 +761,8 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             int nroBanheiros = 0, andar = 0, nroSala = 0;
             double valorCondominio = 0, areaTotal = 0;
 
+            //<editor-fold defaultstate="collapsed" desc="Verificando campos em branco">
+            
             if (!(jTextFieldNroBanheirosSalaComercial.getText().trim().equals(""))) {
                 nroBanheiros = Integer.parseInt(jTextFieldNroBanheirosSalaComercial.getText().trim());
             }
@@ -759,14 +783,46 @@ public class FrameSalaComercial extends javax.swing.JFrame {
                 areaTotal = Double.parseDouble(jTextFieldAreaTotalImovel.getText().trim());
             }
 
+            //</editor-fold>
+            
             if (isEdit) {
                 SalaComercial sala = (SalaComercial) listaSalaComercial.consultar(codEdit);
-                //SalaComercial sala = (SalaComercial) salaEdit.;
-                if (listaSalaComercial.editar(codEdit, sala)) {
-                    JOptionPane.showMessageDialog(null, "Imóvel editado com sucesso!");
-                } else {
-                    JOptionPane.showMessageDialog(null, "ERRO 03 - Imóvel não encontrado para a edição");
+                
+                try {
+                    SalaComercial novaSala = (SalaComercial) sala.clone();
+                
+                    //<editor-fold defaultstate="collapsed" desc="Sets (NovaSala)">
+                    
+                    novaSala.setAndar(andar);
+                    novaSala.setAreaTotal(areaTotal);
+                    novaSala.setNroBanheiros(nroBanheiros);
+                    novaSala.setNroSala(nroSala);
+                    novaSala.setValorCondominio(valorCondominio);
+                    novaSala.setValor(Double.parseDouble(jTextFieldValorImovel.getText().trim()));
+                    novaSala.setNumero(Integer.parseInt(jTextFieldNumeroImovel.getText().trim()));
+                    novaSala.setNomeEdificio(jTextFieldNomeEdificioSalaComercial.getText().trim());
+                    novaSala.setLogradouro(jTextFieldLogradouroImovel.getText().trim());
+                    novaSala.setDescricao(jTextFieldDescricaoImovel.getText().trim());
+                    novaSala.setCidade(jTextFieldCidadeImovel.getText().trim());
+                    novaSala.setBairro(jTextFieldBairroImovel.getText().trim());
+                
+                    //</editor-fold>
+                    
+                    if(verificacao("Deseja realmente editar este imóvel?")){
+                        if (listaSalaComercial.editar(codEdit, novaSala)) {
+                            JOptionPane.showMessageDialog(null, "Imóvel editado com sucesso!");
+                            listar(false, 0);
+                            mudarAbas(1, 0);
+                        } else {
+                            JOptionPane.showMessageDialog(null, "ERRO 03 - Imóvel não encontrado para a edição");
+                        }
+                        limparCampos();
+                    }
+                    
+                } catch (CloneNotSupportedException ex) {
+                    Logger.getLogger(FrameSalaComercial.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                
             } else {
                 SalaComercial sala = new SalaComercial(Integer.parseInt(jTextFieldNumeroImovel.getText().trim()),
                     Double.parseDouble(jTextFieldValorImovel.getText().trim()),
@@ -778,11 +834,13 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
                 if (listaSalaComercial.incluir(sala)) {
                     JOptionPane.showMessageDialog(null, "Imóvel inserido com sucesso!");
+                    
                     try {
                         listaSalaComercial.gravarUltimoCod(sala.getCod());
                     } catch (IOException ex) {
                         Logger.getLogger(FrameSalaComercial.class.getName()).log(Level.SEVERE, null, ex);
                     }
+                    
                 } else {
                     JOptionPane.showMessageDialog(null, "ERRO 04 - Imóvel não pode ser adicionado");
                 }
@@ -791,9 +849,15 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             if (!(listaSalaComercial.escreverArquivo())) {
                 JOptionPane.showMessageDialog(null, "ERRO 05 - Não foi possível Gravar o arquivo");
             }
-
-            limparCampos();
-            listar(false, 0);
+            
+            if(!isEdit){
+                if(!(verificacao("Deseja cadastrar um novo imóvel?"))){
+                    limparCampos();
+                    listar(false, 0);
+                    mudarAbas(1, 0);
+                }
+            }
+            
         }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
@@ -874,10 +938,12 @@ public class FrameSalaComercial extends javax.swing.JFrame {
                 }
 
                 if (!error) {
-                    if (!(listaSalaComercial.excluir(Integer.parseInt(aux)))) {
-                        JOptionPane.showMessageDialog(null, "ERRO 02 - Imóvel não encontrado.");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Imóvel deletado com sucesso.");
+                    if(verificacao("Deseja realmente excluir este imóvel?")){
+                        if (!(listaSalaComercial.excluir(Integer.parseInt(aux)))) {
+                            JOptionPane.showMessageDialog(null, "ERRO 02 - Imóvel não encontrado.");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Imóvel deletado com sucesso.");
+                        }
                     }
                 }
 

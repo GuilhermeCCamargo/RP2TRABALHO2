@@ -15,7 +15,7 @@ import java.security.InvalidParameterException;
  *
  * @author yuryalencar
  */
-public class SalaComercial extends Imovel{
+public class SalaComercial extends Imovel implements Cloneable{
     
     //<editor-fold defaultstate="collapsed" desc="Atributos">
     
@@ -203,6 +203,15 @@ public class SalaComercial extends Imovel{
         return writeFile;
     }
 
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Método para poder clonar o objeto">
+    
+    @Override
+    public SalaComercial clone() throws CloneNotSupportedException{
+        return (SalaComercial) super.clone();
+    }
+    
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="toString">
