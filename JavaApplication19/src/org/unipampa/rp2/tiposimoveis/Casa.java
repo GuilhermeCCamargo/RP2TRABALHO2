@@ -9,7 +9,7 @@ package org.unipampa.rp2.tiposimoveis;
  *
  * @author vitao375
  */
-public class Casa extends Imovel {
+public class Casa extends Imovel implements Cloneable{
 
     //<editor-fold defaultstate="collapsed" desc="Atributos">
     protected Tipo tipo;
@@ -147,6 +147,19 @@ public class Casa extends Imovel {
                 super.getCidade()+";"+getDescricao()+";"+ tipo.getTipo()+";"+
                 getAreaConstruida()+";"+getNQuartos()+";"+getNVagasGaragem()+";"+
                 getAnoConstrucao()+";\n";
+    }
+//</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Método de clonagem">
+
+    /**
+     *Apenas clona um objeto
+     * @return
+     * @throws CloneNotSupportedException
+     */
+    @Override
+    public Casa clone() throws CloneNotSupportedException{
+        return (Casa) super.clone();
     }
 //</editor-fold>
 
