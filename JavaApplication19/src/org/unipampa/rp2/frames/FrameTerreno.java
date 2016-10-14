@@ -19,7 +19,10 @@ import org.unipampa.rp2.tiposimoveis.Imovel;
  */
 public class FrameTerreno extends javax.swing.JFrame {
 
-    Lista listaTerreno;
+     Lista listaTerreno;
+    private boolean isEdit = false;
+    private int codEdit = 0;
+    
 
     /**
      * Creates new form FrameTerreno
@@ -407,7 +410,15 @@ public class FrameTerreno extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonIncluirActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
+       
         // TODO add your handling code here:
+        
+        isEdit = true;
+        mudarAbas(0, 1);
+        int cod = Integer.parseInt(jList1.getSelectedValue().toString());
+        preencherCampos(cod);
+        this.codEdit = cod;
+
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonBuscarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarCActionPerformed
@@ -555,6 +566,12 @@ public class FrameTerreno extends javax.swing.JFrame {
         jTextFieldNumero.setText("");
         jTextFieldValor.setText("");
         jTextFieldLog.setText("");
+    }
+    
+    private void mudarAbas(int fim, int inicio){
+        jTabbedPaneGuias.setEnabledAt(fim, false);
+        jTabbedPaneGuias.setEnabledAt(inicio, true);
+        jTabbedPaneGuias.setSelectedIndex(inicio);
     }
 
     public void listar() {
