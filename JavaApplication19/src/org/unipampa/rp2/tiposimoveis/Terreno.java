@@ -21,17 +21,6 @@ public class Terreno extends Imovel{
     //<editor-fold defaultstate="collapsed" desc="Construtores">
     
     /**
-     * Construtor com o mínimo para adicionar um terreno no
-     * sistema
-     * @param numero - número
-     * @param valor - valor do terreno
-     * @param cidade - Cidade onde se localiza o terreno
-     */
-    public Terreno(int numero, double valor, String cidade){
-        super(numero, valor, cidade);
-    }
-    
-    /**
      *  Construtor contendo todos os parâmetros possíveis para a inserção
      * de um terreno
      * @param numero - numero do terreno
@@ -47,7 +36,33 @@ public class Terreno extends Imovel{
     public Terreno(int numero , double valor, String cidade, String descricao,
             String logradouro, double areaTotal, String bairro, double dimensaoFrente,
             double dimensaoLado){
-        this(numero, valor, cidade);
+        super(numero, valor, cidade);
+        this.logradouro = logradouro;
+        this.descricao = descricao;
+        this.areaTotal = areaTotal;
+        this.bairro = bairro;
+        this.dimensaoFrente = dimensaoFrente;
+        this.dimensaoLado = dimensaoLado;
+    }
+    
+    /**
+     *  Construtor contendo todos os parâmetros possíveis para a leitura 
+     * de um terreno
+     * @param cod - codigo
+     * @param numero - numero do terreno
+     * @param valor - valor o mesmo
+     * @param cidade - cidade onde se localiza o terreno
+     * @param descricao - descricao sobre o mesmo
+     * @param logradouro - logradouro so terreno
+     * @param areaTotal - area total do terreno em m²
+     * @param bairro - bairro onde se localiza o terreno
+     * @param dimensaoFrente - dimensao de frente do terreno em m
+     * @param dimensaoLado - dimensao de lado do terreno em m
+     */
+    public Terreno(int cod,int numero , double valor, String cidade, String descricao,
+            String logradouro, double areaTotal, String bairro, double dimensaoFrente,
+            double dimensaoLado){
+        super(cod, numero, valor, cidade);
         this.logradouro = logradouro;
         this.descricao = descricao;
         this.areaTotal = areaTotal;
