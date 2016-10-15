@@ -5,13 +5,9 @@
  */
 package org.unipampa.rp2.frames;
 
-import java.io.FileNotFoundException;
-import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import org.unipampa.rp2.listaimoveis.Lista;
@@ -75,6 +71,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
         jLabeldia = new javax.swing.JLabel();
         jLabelData = new javax.swing.JLabel();
         jButtonExcluir = new javax.swing.JButton();
+        teste = new javax.swing.JLabel();
         jPanelApartamentoAdicionar = new javax.swing.JPanel();
         jLabelAddLogradouro = new javax.swing.JLabel();
         jTextFieldAddLogradouro = new javax.swing.JTextField();
@@ -139,7 +136,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextAreaEditarDescricao = new javax.swing.JTextArea();
         jButtonEditarVoltar = new javax.swing.JButton();
-        jButtonEditarSalvar = new javax.swing.JButton();
+        jButtonSalvarEdicao = new javax.swing.JButton();
         jButtonEditarsalvar = new javax.swing.JButton();
         jLabelauxiliar = new javax.swing.JLabel();
 
@@ -154,6 +151,11 @@ public class FrameApartamento extends javax.swing.JFrame  {
         jPanelApartamentoConsultar.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
                 jPanelApartamentoConsultarMouseMoved(evt);
+            }
+        });
+        jPanelApartamentoConsultar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelApartamentoConsultarMouseClicked(evt);
             }
         });
         jPanelApartamentoConsultar.addComponentListener(new java.awt.event.ComponentAdapter() {
@@ -214,6 +216,8 @@ public class FrameApartamento extends javax.swing.JFrame  {
             }
         });
 
+        teste.setText("jLabel1");
+
         javax.swing.GroupLayout jPanelApartamentoConsultarLayout = new javax.swing.GroupLayout(jPanelApartamentoConsultar);
         jPanelApartamentoConsultar.setLayout(jPanelApartamentoConsultarLayout);
         jPanelApartamentoConsultarLayout.setHorizontalGroup(
@@ -223,7 +227,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
                 .addGroup(jPanelApartamentoConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane3)
                     .addGroup(jPanelApartamentoConsultarLayout.createSequentialGroup()
-                        .addGroup(jPanelApartamentoConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelApartamentoConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonConsultarVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanelApartamentoConsultarLayout.createSequentialGroup()
                                 .addGap(62, 62, 62)
@@ -231,11 +235,15 @@ public class FrameApartamento extends javax.swing.JFrame  {
                             .addGroup(jPanelApartamentoConsultarLayout.createSequentialGroup()
                                 .addGap(188, 188, 188)
                                 .addGroup(jPanelApartamentoConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelBemvindo)
                                     .addGroup(jPanelApartamentoConsultarLayout.createSequentialGroup()
                                         .addComponent(jLabeldia)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabelData, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(jLabelData, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanelApartamentoConsultarLayout.createSequentialGroup()
+                                        .addComponent(jLabelBemvindo)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(teste)
+                                        .addGap(20, 20, 20)))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanelApartamentoConsultarLayout.createSequentialGroup()
                         .addGap(11, 11, 11)
@@ -254,7 +262,9 @@ public class FrameApartamento extends javax.swing.JFrame  {
             jPanelApartamentoConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelApartamentoConsultarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabelBemvindo)
+                .addGroup(jPanelApartamentoConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelBemvindo)
+                    .addComponent(teste))
                 .addGap(1, 1, 1)
                 .addGroup(jPanelApartamentoConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabeldia, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -524,11 +534,6 @@ public class FrameApartamento extends javax.swing.JFrame  {
                 jPanelApartamentoEditarMouseMoved(evt);
             }
         });
-        jPanelApartamentoEditar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanelApartamentoEditarMouseClicked(evt);
-            }
-        });
 
         jLabelEditarLogradouro.setText("* Logradouro:");
 
@@ -569,10 +574,10 @@ public class FrameApartamento extends javax.swing.JFrame  {
             }
         });
 
-        jButtonEditarSalvar.setText("Salvar");
-        jButtonEditarSalvar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSalvarEdicao.setText("Salvar");
+        jButtonSalvarEdicao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEditarSalvarActionPerformed(evt);
+                jButtonSalvarEdicaoActionPerformed(evt);
             }
         });
 
@@ -647,7 +652,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
                         .addGap(114, 114, 114)
                         .addComponent(jButtonEditarsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonEditarSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jButtonSalvarEdicao, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanelApartamentoEditarLayout.setVerticalGroup(
@@ -705,7 +710,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
                         .addGap(41, 41, 41)))
                 .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButtonEditarSalvar)
+                        .addComponent(jButtonSalvarEdicao)
                         .addComponent(jButtonEditarVoltar))
                     .addComponent(jButtonEditarsalvar))
                 .addContainerGap(27, Short.MAX_VALUE))
@@ -828,7 +833,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
         int codigo;
         codigo = Integer.parseInt(jTextFieldConsultarCodigoApartamento.getText().trim());
         preencherCampos(codigo);
-        jButtonEditarSalvar.setVisible(false);
+        jButtonSalvarEdicao.setVisible(false);
         jButtonEditarsalvar.setVisible(false);
     }//GEN-LAST:event_jButtonConsultarActionPerformed
 
@@ -894,7 +899,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
 
 //<editor-fold defaultstate="collapsed" desc="Botão Salvar Edição">
     
-    private void jButtonEditarSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarSalvarActionPerformed
+    private void jButtonSalvarEdicaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarEdicaoActionPerformed
         
         if(jTextAreaEditarDescricao.getText().trim().equals("") || jTextFieldEditarVagasGaragem.getText().trim().equals("") || jTextFieldEditarQuartos.getText().trim().equals("") || jTextFieldEditarApartamento.getText().trim().equals("") ||
             jTextFieldEditarAndar.getText().trim().equals("") || jTextFieldEditarValor.getText().trim().equals("") || jTextFieldEditarAreaTotal.getText().trim().equals("") || jTextFieldEditarCidade.getText().trim().equals("") || jTextFieldEditarBairro.getText().trim().equals("")
@@ -944,7 +949,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
             codigo = getCod(jListListaApartamento.getSelectedValue());//Recebendo o código do objeto
             
             //Salvando objeto editado na Lista 
-            listaapartamento.editar(codigo, objeto);
+            //listaapartamento.editar(codigo, objeto);
             
             if(listaapartamento.editar(codigo, objeto) == true){
                                                                     JOptionPane.showMessageDialog(null,"Imóvel editado com sucesso.");
@@ -955,7 +960,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
                                                                             limparCampos();
                                                                          }
         }
-    }//GEN-LAST:event_jButtonEditarSalvarActionPerformed
+    }//GEN-LAST:event_jButtonSalvarEdicaoActionPerformed
 
     private void jPanelApartamentoConsultarComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanelApartamentoConsultarComponentShown
                    Date hoje = new Date();
@@ -1042,14 +1047,19 @@ public class FrameApartamento extends javax.swing.JFrame  {
             apartclone.setValor(Valor);
             apartclone.setValorCondominio(ValorCondominio);
             
-            listaapartamento.escreverArquivo();
-            listaapartamento.editar(codigo, apartclone);
+            if(listaapartamento.escreverArquivo()){
+                
+            }else{
+                JOptionPane.showMessageDialog(null," Erro ao escrever o arquivo.");
+            }
+            //listaapartamento.editar(codigo, apartclone);
             
-            if(listaapartamento.editar(codigo,apartclone) == false){
-                JOptionPane.showMessageDialog(null, "Nao foi possivel salvar.");
+            if(listaapartamento.editar(codigo,apartclone) ){
+                JOptionPane.showMessageDialog(null, "Editado com Sucesso");
+                limparCampos();
             }
             
-            else{           JOptionPane.showMessageDialog(null, "Salvo.");
+            else{           JOptionPane.showMessageDialog(null, "Não foi possível editar o imóvel desejado.");
                             limparCampos();
             }   
             
@@ -1058,6 +1068,10 @@ public class FrameApartamento extends javax.swing.JFrame  {
     private void jPanelApartamentoEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelApartamentoEditarMouseClicked
         jLabelauxiliar.setVisible(false);
     }//GEN-LAST:event_jPanelApartamentoEditarMouseClicked
+
+    private void jPanelApartamentoConsultarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelApartamentoConsultarMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jPanelApartamentoConsultarMouseClicked
 
 //</editor-fold>  
 
@@ -1199,7 +1213,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
         Apartamento newapartamento = (Apartamento) listaapartamento.consultar(apartamento);
         
            
-        jButtonEditarSalvar.setVisible(false);
+        jButtonSalvarEdicao.setVisible(false);
         jTextFieldEditarAndar.setText(String.valueOf(newapartamento.getAndar()));
         jTextFieldEditarAreaTotal.setText(String.valueOf(newapartamento.getAreaTotal()));
         jTextFieldEditarAnoConstrucao.setText(String.valueOf(newapartamento.getAnoConstrucao()));
@@ -1230,10 +1244,10 @@ public class FrameApartamento extends javax.swing.JFrame  {
     private javax.swing.JButton jButtonConsultar;
     private javax.swing.JButton jButtonConsultarVoltar;
     private javax.swing.JButton jButtonEditar;
-    private javax.swing.JButton jButtonEditarSalvar;
     private javax.swing.JButton jButtonEditarVoltar;
     private javax.swing.JButton jButtonEditarsalvar;
     private javax.swing.JButton jButtonExcluir;
+    private javax.swing.JButton jButtonSalvarEdicao;
     private javax.swing.JLabel jLabelAddAndar;
     private javax.swing.JLabel jLabelAddAnoConstrucao;
     private javax.swing.JLabel jLabelAddApartamento;
@@ -1306,6 +1320,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
     private javax.swing.JTextField jTextFieldEditarVagasGaragem;
     private javax.swing.JTextField jTextFieldEditarValor;
     private javax.swing.JTextField jTextFieldEditarValorCondominio;
+    private javax.swing.JLabel teste;
     // End of variables declaration//GEN-END:variables
 //</editor-fold>
     
