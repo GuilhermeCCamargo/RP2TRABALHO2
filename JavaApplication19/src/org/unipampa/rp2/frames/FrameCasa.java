@@ -31,7 +31,11 @@ public class FrameCasa extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
 
         this.setTitle("Imobiliária - Casa");
-        listaCasa.lerArquivo();
+        if(listaCasa.lerArquivo()){   
+        } else{
+            JOptionPane.showMessageDialog(null, "Arquivo não encontrado!");
+        }
+            
         this.listaCasa = listaCasa;
 
         jTabbedPaneCasa.setEnabledAt(1, false);
