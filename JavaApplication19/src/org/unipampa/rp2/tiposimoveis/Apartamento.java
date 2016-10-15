@@ -57,10 +57,12 @@ public class Apartamento extends Imovel{
      * @param nroQuartos - Número de quartos (Tipo Inteiro)
      * @param vgsGaragem - Número de vagas na garagem (Tipo Inteiro)
      * @param valorCondominio - preço do condominio, do tipo double positivo
+     * @param descricao
+     * @param areaTotal
      */
     public Apartamento(String cidade, String bairro ,String logradouro, int numero,  
             double valor, String nomeEdificio, int andar, int nroApartamento, 
-            int anoConstrucao, int nroQuartos, int vgsGaragem, double valorCondominio, String descricao) {
+            int anoConstrucao, int nroQuartos, int vgsGaragem, double valorCondominio, String descricao , double areaTotal) {
     
        this(numero, valor, cidade);
         
@@ -78,6 +80,7 @@ public class Apartamento extends Imovel{
         this.logradouro = logradouro;
         this.bairro = bairro;
         this.descricao = descricao;
+        this.areaTotal = areaTotal;
     }
    
     /**

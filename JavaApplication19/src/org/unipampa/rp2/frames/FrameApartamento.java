@@ -45,6 +45,8 @@ public class FrameApartamento extends javax.swing.JFrame  {
        
         jTabbedPaneApartamento.setEnabledAt(0, true);
         
+        listaapartamento.lerArquivo();
+        
     }
 
     private FrameApartamento() {
@@ -134,6 +136,8 @@ public class FrameApartamento extends javax.swing.JFrame  {
         jTextAreaEditarDescricao = new javax.swing.JTextArea();
         jButtonEditarVoltar = new javax.swing.JButton();
         jButtonEditarSalvar = new javax.swing.JButton();
+        jButtonEditarsalvar = new javax.swing.JButton();
+        jLabelauxiliar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -563,24 +567,32 @@ public class FrameApartamento extends javax.swing.JFrame  {
             }
         });
 
+        jButtonEditarsalvar.setText("Editar");
+        jButtonEditarsalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEditarsalvarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelApartamentoEditarLayout = new javax.swing.GroupLayout(jPanelApartamentoEditar);
         jPanelApartamentoEditar.setLayout(jPanelApartamentoEditarLayout);
         jPanelApartamentoEditarLayout.setHorizontalGroup(
             jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jLabelEditarNumero)
+                        .addComponent(jLabelEditarLogradouro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelEditarCidade)
+                        .addComponent(jLabelEditarValor)
+                        .addComponent(jLabelEditarEdificio)
+                        .addComponent(jLabelEditarAndar)
+                        .addComponent(jLabelEditarQuartos)
+                        .addComponent(jLabelEditarDescricao)
+                        .addComponent(jButtonEditarVoltar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabelauxiliar))
                 .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabelEditarNumero)
-                    .addComponent(jLabelEditarLogradouro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabelEditarCidade)
-                    .addComponent(jLabelEditarValor)
-                    .addComponent(jLabelEditarEdificio)
-                    .addComponent(jLabelEditarAndar)
-                    .addComponent(jLabelEditarQuartos)
-                    .addComponent(jLabelEditarDescricao)
-                    .addComponent(jButtonEditarVoltar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jTextFieldEditarLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
@@ -622,8 +634,12 @@ public class FrameApartamento extends javax.swing.JFrame  {
                                 .addComponent(jTextFieldEditarApartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jTextFieldEditarVagasGaragem, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jButtonEditarSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
+                        .addGap(114, 114, 114)
+                        .addComponent(jButtonEditarsalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonEditarSalvar, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanelApartamentoEditarLayout.setVerticalGroup(
             jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -669,14 +685,21 @@ public class FrameApartamento extends javax.swing.JFrame  {
                     .addComponent(jLabelEditarVagasGaragem)
                     .addComponent(jTextFieldEditarVagasGaragem, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(jPanelApartamentoEditarLayout.createSequentialGroup()
+                        .addComponent(jLabelEditarDescricao)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabelauxiliar)
+                        .addGap(41, 41, 41)))
                 .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelEditarDescricao)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonEditarSalvar)
-                    .addComponent(jButtonEditarVoltar))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanelApartamentoEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButtonEditarSalvar)
+                        .addComponent(jButtonEditarVoltar))
+                    .addComponent(jButtonEditarsalvar))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         jTabbedPaneApartamento.addTab("Detalhes", jPanelApartamentoEditar);
@@ -753,7 +776,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
 
             //Atribuindo todos os valores ao Apartamento referenciado como objeto
             Apartamento objeto = new Apartamento(Cidade, Bairro, Logradouro, Numero, Valor,
-                Edificio, Andar,Apartamento, AnoConstrucao,Quartos,Garagem, ValorCondominio, Descricao);
+                Edificio, Andar,Apartamento, AnoConstrucao,Quartos,Garagem, ValorCondominio, Descricao,AreaTotal);
             
             listaapartamento.incluir(objeto);
             //Salvando na Lista o objeto apartamento
@@ -803,6 +826,8 @@ public class FrameApartamento extends javax.swing.JFrame  {
             modelo.addElement(modelo1.toString());
             jListListaApartamento.setModel(modelo);
         }
+        preencherCampos(codigo);
+        jButtonEditarSalvar.setVisible(false);
     }//GEN-LAST:event_jButtonConsultarActionPerformed
 
     //</editor-fold>
@@ -860,70 +885,9 @@ public class FrameApartamento extends javax.swing.JFrame  {
     }//GEN-LAST:event_jListListaApartamentoMouseClicked
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-       int auxiliar = Integer.parseInt(jTextFieldConsultarCodigoApartamento.getText());
-        if(jTextFieldConsultarCodigoApartamento.getText().equals("") || jListListaApartamento.getSelectedValue() == null){//Esse if verifica se foi buscado valor em branco ou com um espaço
-        
-           if(jListListaApartamento.getSelectedValue() == null){//este if verifica se foi clicado na lista
-                                                                     Apartamento apart = (Apartamento) listaapartamento.consultar(auxiliar);
-                                                                          try {
-
-                                                                                 Apartamento apartclone = (Apartamento) apart.clone();
-                                                                                 jButtonEditarSalvar.setVisible(true);
-                                                                                 jTextFieldEditarAndar.setText(String.valueOf(apartclone.getAndar()));
-                                                                                 jTextFieldEditarAreaTotal.setText(String.valueOf(apartclone.getAreaTotal()));
-                                                                                 jTextFieldEditarAnoConstrucao.setText(String.valueOf(apartclone.getAnoConstrucao()));
-                                                                                 jTextFieldEditarApartamento.setText(String.valueOf(apartclone.getNroApartamento()));
-                                                                                 jTextFieldEditarBairro.setText(String.valueOf(apartclone.getBairro()));
-                                                                                 jTextFieldEditarCidade.setText(String.valueOf(apartclone.getCidade()));
-                                                                                 jTextFieldEditarEdificio.setText(String.valueOf(apartclone.getNomeEdificio()));
-                                                                                 jTextFieldEditarLogradouro.setText(apartclone.getLogradouro());
-                                                                                 jTextFieldEditarNumero.setText(String.valueOf(apartclone.getNumero()));
-                                                                                 jTextFieldEditarQuartos.setText(String.valueOf(apartclone.getNroQuartos()));
-                                                                                 jTextFieldEditarVagasGaragem.setText(String.valueOf(apartclone.getVgsGaragem()));
-                                                                                 jTextFieldEditarValor.setText(String.valueOf(apartclone.getValor()));
-                                                                                 jTextFieldEditarValorCondominio.setText(String.valueOf(apartclone.getValorCondominio()));
-                                                                                 jTextAreaEditarDescricao.setText(String.valueOf(apartclone.getDescricao()));
-                                                                              
-                                                                                } catch (CloneNotSupportedException ex) {
-                                                                                                                            JOptionPane.showMessageDialog(this, "Erro: " + ex.getMessage());
-                                                                                                                          }
-                               
-                                                                 }
-                                                                   else{   
-                                                                           Apartamento apart = (Apartamento) listaapartamento.consultar(getCod(jListListaApartamento.getSelectedValue()));
-                                                                          try {
-
-                                                                                 Apartamento apartclone = (Apartamento) apart.clone();
-                                                                                 jButtonEditarSalvar.setVisible(true);
-                                                                                 jTextFieldEditarAndar.setText(String.valueOf(apartclone.getAndar()));
-                                                                                 jTextFieldEditarAreaTotal.setText(String.valueOf(apartclone.getAreaTotal()));
-                                                                                 jTextFieldEditarAnoConstrucao.setText(String.valueOf(apartclone.getAnoConstrucao()));
-                                                                                 jTextFieldEditarApartamento.setText(String.valueOf(apartclone.getNroApartamento()));
-                                                                                 jTextFieldEditarBairro.setText(String.valueOf(apartclone.getBairro()));
-                                                                                 jTextFieldEditarCidade.setText(String.valueOf(apartclone.getCidade()));
-                                                                                 jTextFieldEditarEdificio.setText(String.valueOf(apartclone.getNomeEdificio()));
-                                                                                 jTextFieldEditarLogradouro.setText(apartclone.getLogradouro());
-                                                                                 jTextFieldEditarNumero.setText(String.valueOf(apartclone.getNumero()));
-                                                                                 jTextFieldEditarQuartos.setText(String.valueOf(apartclone.getNroQuartos()));
-                                                                                 jTextFieldEditarVagasGaragem.setText(String.valueOf(apartclone.getVgsGaragem()));
-                                                                                 jTextFieldEditarValor.setText(String.valueOf(apartclone.getValor()));
-                                                                                 jTextFieldEditarValorCondominio.setText(String.valueOf(apartclone.getValorCondominio()));
-                                                                                 jTextAreaEditarDescricao.setText(String.valueOf(apartclone.getDescricao()));
-                                                                              
-                                                                                } catch (CloneNotSupportedException ex) {
-                                                                                                                            JOptionPane.showMessageDialog(this, "Erro: " + ex.getMessage());
-                                                                                                                          }
-                                                                         }
-                       }else if (listaapartamento.consultar(Integer.valueOf(jTextFieldConsultarCodigoApartamento.getText())) == null){
-                                
-                           JOptionPane.showMessageDialog(null, "Por favor, insira um código válido.");
-                                 
-                       }
-                       
-                                    
-       
-        
-        
+      int auxiliar = Integer.parseInt(jTextFieldConsultarCodigoApartamento.getText());
+        preencherCampos(auxiliar);
+        jLabelauxiliar.setText(String.valueOf(auxiliar));
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
 //<editor-fold defaultstate="collapsed" desc="Botão Salvar Edição">
@@ -972,7 +936,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
             
             //Atribuindo todos os valores ao Apartamento referenciado como objeto
             Apartamento objeto = new Apartamento(Cidade, Bairro, Logradouro, Numero, Valor,
-                Edificio, Andar,Apartamento, AnoConstrucao,Quartos,Garagem, ValorCondominio, Descricao);
+                Edificio, Andar,Apartamento, AnoConstrucao,Quartos,Garagem, ValorCondominio, Descricao, AreaTotal);
             
             int codigo;
             codigo = getCod(jListListaApartamento.getSelectedValue());//Recebendo o código do objeto
@@ -1027,6 +991,66 @@ public class FrameApartamento extends javax.swing.JFrame  {
     private void jPanelApartamentoConsultarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelApartamentoConsultarMouseMoved
         listar();
     }//GEN-LAST:event_jPanelApartamentoConsultarMouseMoved
+
+    private void jButtonEditarsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarsalvarActionPerformed
+       
+        int AnoConstrucao;
+            int Andar;
+            int Apartamento;
+            int Numero;
+            int Garagem;
+            int Quartos;
+            String Logradouro;
+            String Edificio;
+            String Cidade;
+            String Bairro;
+            String Descricao;
+            double Valor;
+            double ValorCondominio;
+            double AreaTotal;
+        
+        int codigo = Integer.parseInt(jLabelauxiliar.getText()); 
+        Apartamento apartclone = (Apartamento) listaapartamento.consultar(codigo);
+        System.out.println(codigo);
+        try {
+             Apartamento apart = (Apartamento) apartclone.clone();
+            AnoConstrucao = Integer.parseInt(jTextFieldEditarAnoConstrucao.getText().trim());
+            Andar = Integer.parseInt(jTextFieldEditarAndar.getText().trim());
+            Apartamento = Integer.parseInt(jTextFieldEditarApartamento.getText().trim());
+            Numero = Integer.parseInt(jTextFieldEditarNumero.getText().trim());
+            Garagem = Integer.parseInt(jTextFieldEditarVagasGaragem.getText().trim());
+            Quartos = Integer.parseInt(jTextFieldEditarQuartos.getText().trim());
+            Logradouro = jTextFieldEditarLogradouro.getText().trim();
+            Edificio = jTextFieldEditarEdificio.getText().trim();
+            Cidade = jTextFieldEditarCidade.getText().trim();
+            Bairro = jTextFieldEditarBairro.getText().trim();
+            Descricao = jTextAreaEditarDescricao.getText().trim();
+            Valor = Double.parseDouble(jTextFieldEditarValor.getText().trim());
+            ValorCondominio = Double.parseDouble(jTextFieldEditarValorCondominio.getText().trim());
+            AreaTotal = Double.parseDouble(jTextFieldEditarAreaTotal.getText().trim());
+            apart.setAnoConstrucao(AnoConstrucao);
+            apart.setAndar(Andar);
+            apart.setNroApartamento(Apartamento);
+            apart.setNumero(Numero);
+            apart.setVgsGaragem(Garagem);
+            apart.setNroQuartos(Quartos);
+            apart.setLogradouro(Logradouro);
+            apart.setNomeEdificio(Edificio);
+            apart.setCidade(Cidade);
+            apart.setBairro(Bairro);
+            apart.setDescricao(Descricao);
+            apart.setValor(Valor);
+            apart.setValorCondominio(ValorCondominio);
+            
+            listaapartamento.escreverArquivo();
+            listaapartamento.editar(codigo, apart);
+            JOptionPane.showMessageDialog(null, "Salvo.");
+                    
+            
+        } catch (CloneNotSupportedException ex) {
+            JOptionPane.showMessageDialog(this, "Erro: " + ex.getMessage());
+        }
+    }//GEN-LAST:event_jButtonEditarsalvarActionPerformed
 
 //</editor-fold>  
 
@@ -1166,6 +1190,8 @@ public class FrameApartamento extends javax.swing.JFrame  {
     private void preencherCampos(int apartamento) {
 
         Apartamento newapartamento = (Apartamento) listaapartamento.consultar(apartamento);
+        
+           
         jButtonEditarSalvar.setVisible(false);
         jTextFieldEditarAndar.setText(String.valueOf(newapartamento.getAndar()));
         jTextFieldEditarAreaTotal.setText(String.valueOf(newapartamento.getAreaTotal()));
@@ -1185,36 +1211,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
 
 //</editor-fold>
   
-//<editor-fold defaultstate="collapsed" desc="Editar">
-
-    
-private void preenchepraEditar(int apartamento) throws CloneNotSupportedException {
-
-        Apartamento newapartamento = (Apartamento) listaapartamento.consultar(apartamento);
-        if(listaapartamento.consultar(apartamento) == null){
-            
-            JOptionPane.showMessageDialog(null,"Imóvel não encontrado. Por favor insira o código correto.");
-            
-        } else {
-                    Apartamento apartclone = (Apartamento) newapartamento.clone();
-                   jButtonEditarSalvar.setVisible(true);
-                   jTextFieldEditarAndar.setText(String.valueOf(apartclone.getAndar()));
-                   jTextFieldEditarAreaTotal.setText(String.valueOf(apartclone.getAreaTotal()));
-                   jTextFieldEditarAnoConstrucao.setText(String.valueOf(apartclone.getAnoConstrucao()));
-                   jTextFieldEditarApartamento.setText(String.valueOf(apartclone.getNroApartamento()));
-                   jTextFieldEditarBairro.setText(String.valueOf(apartclone.getBairro()));
-                   jTextFieldEditarCidade.setText(String.valueOf(apartclone.getCidade()));
-                   jTextFieldEditarEdificio.setText(String.valueOf(apartclone.getNomeEdificio()));
-                   jTextFieldEditarLogradouro.setText(apartclone.getLogradouro());
-                   jTextFieldEditarNumero.setText(String.valueOf(apartclone.getNumero()));
-                   jTextFieldEditarQuartos.setText(String.valueOf(apartclone.getNroQuartos()));
-                   jTextFieldEditarVagasGaragem.setText(String.valueOf(apartclone.getVgsGaragem()));
-                   jTextFieldEditarValor.setText(String.valueOf(apartclone.getValor()));
-                   jTextFieldEditarValorCondominio.setText(String.valueOf(apartclone.getValorCondominio()));
-                   jTextAreaEditarDescricao.setText(String.valueOf(apartclone.getDescricao()));
-                }
-        }    
-//</editor-folda>    
+   
     
 //<editor-fold defaultstate="collapsed" desc="Declaração dos Componentes">    
 /**
@@ -1228,6 +1225,7 @@ private void preenchepraEditar(int apartamento) throws CloneNotSupportedExceptio
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonEditarSalvar;
     private javax.swing.JButton jButtonEditarVoltar;
+    private javax.swing.JButton jButtonEditarsalvar;
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JLabel jLabelAddAndar;
     private javax.swing.JLabel jLabelAddAnoConstrucao;
@@ -1262,6 +1260,7 @@ private void preenchepraEditar(int apartamento) throws CloneNotSupportedExceptio
     private javax.swing.JLabel jLabelEditarValor;
     private javax.swing.JLabel jLabelEditarValorCondominio;
     private javax.swing.JLabel jLabelajuda;
+    private javax.swing.JLabel jLabelauxiliar;
     private javax.swing.JLabel jLabeldia;
     private javax.swing.JList<String> jListListaApartamento;
     private javax.swing.JPanel jPanelApartamentoAdicionar;
