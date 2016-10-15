@@ -411,8 +411,7 @@ public class FrameTerreno extends javax.swing.JFrame {
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
        
-        // TODO add your handling code here:
-        
+        jButtonSalvar.setEnabled(true);
         isEdit = true;
         mudarAbas(0, 1);
         int cod = Integer.parseInt(jList1.getSelectedValue().toString());
@@ -457,7 +456,7 @@ public class FrameTerreno extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltandoActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        // TODO add your handling code here:
+        
         if (jTextFieldAtotal.getText().trim().equals("") || jTextFieldBairro.getText().trim().equals("")
                 || jTextFieldCidade.getText().trim().equals("") || jTextFieldDescricao.getText().trim().equals("")
                 || jTextFieldDimencaoF.getText().trim().equals("") || jTextFieldDimencaoL.getText().trim().equals("")
@@ -477,7 +476,9 @@ public class FrameTerreno extends javax.swing.JFrame {
         
             if(listaTerreno.escreverArquivo())
                 JOptionPane.showMessageDialog(null, "ESCRITO COM SUCESSO");
-        
+            else{
+                JOptionPane.showMessageDialog(null, "Erro Ao Salvar");
+            }
         }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 

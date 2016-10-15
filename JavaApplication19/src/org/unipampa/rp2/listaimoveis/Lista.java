@@ -250,7 +250,7 @@ public class Lista implements ListaImoveis {
                         }
                         //</editor-fold>
 
-                        convercao = "";
+                        convercao = " ";
                         aux++;
                     } else {
                         convercao += linha.charAt(i);
@@ -350,6 +350,7 @@ public class Lista implements ListaImoveis {
 
         br.close();
     }
+
 
     //</editor-fold>
     
