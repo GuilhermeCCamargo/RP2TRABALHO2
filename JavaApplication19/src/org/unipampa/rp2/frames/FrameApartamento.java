@@ -45,7 +45,11 @@ public class FrameApartamento extends javax.swing.JFrame  {
        
         jTabbedPaneApartamento.setEnabledAt(0, true);
         
-        listaapartamento.lerArquivo();
+        if(listaapartamento.lerArquivo()){
+            
+        }else{
+            JOptionPane.showMessageDialog(null,"Arquivo não encontrado.");
+        }
         
     }
 
