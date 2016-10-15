@@ -48,7 +48,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
         if(listaapartamento.lerArquivo()){
             
         }else{
-            JOptionPane.showMessageDialog(null,"Arquivo não encontrado.");
+            JOptionPane.showMessageDialog(null,"Arquivo não encontrado. Será criado um novo arquivo.");
         }
         
     }
