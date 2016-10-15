@@ -191,7 +191,11 @@ public class Apartamento extends Imovel{
         
         return writeFile;
     }
-
+    @Override
+    public Apartamento clone() throws CloneNotSupportedException{
+        return (Apartamento) super.clone();
+    }
+    
     }
     
     
