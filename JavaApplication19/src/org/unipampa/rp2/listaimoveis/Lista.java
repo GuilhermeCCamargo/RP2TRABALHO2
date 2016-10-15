@@ -180,7 +180,7 @@ public class Lista implements ListaImoveis {
                         Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     break;
-                case "Terreno":
+                case "Terrenos":
                     try {
                         lerTerreno();
                         return true;
@@ -214,7 +214,7 @@ public class Lista implements ListaImoveis {
                 for (int i = 0; i < linha.length(); i++) {
                     if (linha.charAt(i) == ';') {
 
-                        //<editor-fold defaultstate="collapsed" desc="Switch Casa">
+                        //<editor-fold defaultstate="collapsed" desc="Switch Terreno">
                         switch (aux) {
                             case 0:
                                 cod = Integer.parseInt(convercao);
@@ -250,7 +250,7 @@ public class Lista implements ListaImoveis {
                         }
                         //</editor-fold>
 
-                        convercao = " ";
+                        convercao = "";
                         aux++;
                     } else {
                         convercao += linha.charAt(i);

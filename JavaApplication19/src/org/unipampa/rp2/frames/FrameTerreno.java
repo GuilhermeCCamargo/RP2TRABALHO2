@@ -19,10 +19,9 @@ import org.unipampa.rp2.tiposimoveis.Imovel;
  */
 public class FrameTerreno extends javax.swing.JFrame {
 
-     Lista listaTerreno;
+    Lista listaTerreno;
     private boolean isEdit = false;
     private int codEdit = 0;
-    
 
     /**
      * Creates new form FrameTerreno
@@ -33,7 +32,7 @@ public class FrameTerreno extends javax.swing.JFrame {
         this.listaTerreno = listaTerreno;
         this.setLocationRelativeTo(null);
         this.setTitle("Imobiliária - Terreno");
-        
+
         jButtonDetalhe.setEnabled(false);
 
         jTabbedPaneGuias.setEnabledAt(1, false);
@@ -407,15 +406,17 @@ public class FrameTerreno extends javax.swing.JFrame {
         jTabbedPaneGuias.setEnabledAt(0, false);
         ativarCampos();
         limparCampos();
+        isEdit= false;
     }//GEN-LAST:event_jButtonIncluirActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-       
+
         jButtonSalvar.setEnabled(true);
         isEdit = true;
         mudarAbas(0, 1);
         int cod = Integer.parseInt(jList1.getSelectedValue().toString());
         preencherCampos(cod);
+        ativarCampos();
         this.codEdit = cod;
 
     }//GEN-LAST:event_jButtonEditarActionPerformed
@@ -456,14 +457,15 @@ public class FrameTerreno extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonVoltandoActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        
+
         if (jTextFieldAtotal.getText().trim().equals("") || jTextFieldBairro.getText().trim().equals("")
                 || jTextFieldCidade.getText().trim().equals("") || jTextFieldDescricao.getText().trim().equals("")
                 || jTextFieldDimencaoF.getText().trim().equals("") || jTextFieldDimencaoL.getText().trim().equals("")
                 || jTextFieldLog.getText().trim().equals("") || jTextFieldNumero.getText().trim().equals("")
                 || jTextFieldValor.getText().trim().equals("")) {
             JOptionPane.showMessageDialog(null, "É necessário o preenchimento de todos os campos");
-        } else {
+        } else if (!isEdit) {
+
             Terreno t = new Terreno(Integer.parseInt(jTextFieldNumero.getText()),
                     Double.parseDouble(jTextFieldValor.getText()), jTextFieldCidade.getText(),
                     jTextFieldDescricao.getText(), jTextFieldLog.getText(), Double.parseDouble(jTextFieldAtotal.getText()),
@@ -473,13 +475,31 @@ public class FrameTerreno extends javax.swing.JFrame {
             limparCampos();
             listar();
             JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
-        
-            if(listaTerreno.escreverArquivo())
+
+            if (listaTerreno.escreverArquivo()) {
                 JOptionPane.showMessageDialog(null, "ESCRITO COM SUCESSO");
-            else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Erro Ao Salvar");
             }
+        } else {
+            Terreno t = new Terreno(Integer.parseInt(jTextFieldNumero.getText()),
+                    Double.parseDouble(jTextFieldValor.getText()), jTextFieldCidade.getText(),
+                    jTextFieldDescricao.getText(), jTextFieldLog.getText(), Double.parseDouble(jTextFieldAtotal.getText()),
+                    jTextFieldBairro.getText(), Double.parseDouble(jTextFieldDimencaoF.getText()), Double.parseDouble(jTextFieldDimencaoL.getText()));
+
+            if(listaTerreno.editar(codEdit, t)){
+                JOptionPane.showMessageDialog(null, "Editado com sucesso");
+                if(listaTerreno.escreverArquivo()){
+                    JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
+                } else{
+                    JOptionPane.showMessageDialog(null, "Não salvo com sucesso! ERROR");
+                }
+                
+            }
+            limparCampos();
+            listar();
         }
+        
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jTextFieldNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroKeyTyped
@@ -523,9 +543,9 @@ public class FrameTerreno extends javax.swing.JFrame {
 
     private void jList1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_jList1ValueChanged
         // TODO add your handling code here:
-        if(jList1.isSelectionEmpty()){
+        if (jList1.isSelectionEmpty()) {
             jButtonDetalhe.setEnabled(false);
-        }else{
+        } else {
             jButtonDetalhe.setEnabled(true);
         }
     }//GEN-LAST:event_jList1ValueChanged
@@ -536,15 +556,22 @@ public class FrameTerreno extends javax.swing.JFrame {
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
         int cod = Integer.parseInt(jList1.getSelectedValue().toString());
-        if(listaTerreno.excluir(cod)){
-            JOptionPane.showMessageDialog(this,"Excluido com sucesso.");
-        } else{
-            JOptionPane.showMessageDialog(this,"Erro ao excluir.");
+        if (listaTerreno.excluir(cod)) {
+            JOptionPane.showMessageDialog(this, "Excluido com sucesso.");
+            if(listaTerreno.escreverArquivo()){
+                JOptionPane.showMessageDialog(null, "Mudanças feitas com sucesso!");
+            }else {
+                JOptionPane.showMessageDialog(null, "Não foi alterado ERROR!");
+            }
+            
+        } else {
+            JOptionPane.showMessageDialog(this, "Erro ao excluir.");
         }
         
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 //Preencher pra quando eu quiser ver detalhes.
-    private void preencherCampos(int cod){
+
+    private void preencherCampos(int cod) {
         Terreno imovel = (Terreno) listaTerreno.consultar(cod);
         jTextFieldCidade.setText(imovel.getCidade());
         jTextFieldAtotal.setText(String.valueOf(imovel.getAreaTotal()));
@@ -556,7 +583,7 @@ public class FrameTerreno extends javax.swing.JFrame {
         jTextFieldNumero.setText(String.valueOf(imovel.getNumero()));
         jTextFieldValor.setText(String.valueOf(imovel.getValor()));
     }
-    
+
     public void limparCampos() {
         jTextFieldAtotal.setText("");
         jTextFieldBairro.setText("");
@@ -568,8 +595,8 @@ public class FrameTerreno extends javax.swing.JFrame {
         jTextFieldValor.setText("");
         jTextFieldLog.setText("");
     }
-    
-    private void mudarAbas(int fim, int inicio){
+
+    private void mudarAbas(int fim, int inicio) {
         jTabbedPaneGuias.setEnabledAt(fim, false);
         jTabbedPaneGuias.setEnabledAt(inicio, true);
         jTabbedPaneGuias.setSelectedIndex(inicio);
@@ -650,12 +677,10 @@ public class FrameTerreno extends javax.swing.JFrame {
             } else {
                 evt.consume();
             }
-        } else {
-            if (Character.isDigit(c)) {
+        } else if (Character.isDigit(c)) {
 
-            } else {
-                evt.consume();
-            }
+        } else {
+            evt.consume();
         }
     }
 
@@ -664,7 +689,7 @@ public class FrameTerreno extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
-        
+
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
