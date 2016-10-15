@@ -383,46 +383,45 @@ public class Lista implements ListaImoveis {
                                 cod = Integer.parseInt(conversao);
                                 break;
                             case 1:
-                                cidade = conversao;
-                                break;
-                            case 2:
-                                bairro = conversao;
-                                break;
-                            case 3:
-                                logradouro = conversao;
-                                break;
-                            case 4:
                                 numero = Integer.parseInt(conversao);
                                 break;
-                            case 5:
+                            case 2:
+                                areaTotal = Double.parseDouble(conversao);
+                                break;
+                            case 3:
                                 valor = Double.parseDouble(conversao);
                                 break;
+                            case 4:
+                                logradouro = conversao;
+                                break;
+                            case 5:
+                                bairro = conversao;
+                                break;
                             case 6:
-                                nomeEdificio = conversao;
+                                cidade = conversao;
                                 break;
                             case 7:
-                                andar = Integer.parseInt(conversao);
+                                descricao = conversao;
                                 break;
                             case 8:
-                                nroApartamento = Integer.parseInt(conversao);
+                                nomeEdificio = conversao;
                                 break;
                             case 9:
                                 anoConstrucao = Integer.parseInt(conversao);
                                 break;
                             case 10:
-                                nroQuartos = Integer.parseInt(conversao);
+                                nroApartamento = Integer.parseInt(conversao);
                                 break;
                             case 11:
-                                vgsGaragem = Integer.parseInt(conversao);
+                                nroQuartos = Integer.parseInt(conversao);
                                 break;
                             case 12:
-                                valorCondominio = Double.parseDouble(conversao);
+                                andar = Integer.parseInt(conversao);
                                 break;
                             case 13:
-                                descricao = conversao;
+                                valorCondominio = Double.parseDouble(conversao);
                                 break;
-                            case 14: 
-                                areaTotal = Double.parseDouble(conversao);
+                            
                              
                         }
                         //</editor-fold>

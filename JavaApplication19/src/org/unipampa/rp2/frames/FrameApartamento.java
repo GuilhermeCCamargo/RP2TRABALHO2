@@ -1012,8 +1012,6 @@ public class FrameApartamento extends javax.swing.JFrame  {
         int codigo = Integer.parseInt(jLabelauxiliar.getText()); 
         Apartamento apartclone = (Apartamento) listaapartamento.consultar(codigo);
         System.out.println(codigo);
-        try {
-             Apartamento apart = (Apartamento) apartclone.clone();
             AnoConstrucao = Integer.parseInt(jTextFieldEditarAnoConstrucao.getText().trim());
             Andar = Integer.parseInt(jTextFieldEditarAndar.getText().trim());
             Apartamento = Integer.parseInt(jTextFieldEditarApartamento.getText().trim());
@@ -1028,28 +1026,30 @@ public class FrameApartamento extends javax.swing.JFrame  {
             Valor = Double.parseDouble(jTextFieldEditarValor.getText().trim());
             ValorCondominio = Double.parseDouble(jTextFieldEditarValorCondominio.getText().trim());
             AreaTotal = Double.parseDouble(jTextFieldEditarAreaTotal.getText().trim());
-            apart.setAnoConstrucao(AnoConstrucao);
-            apart.setAndar(Andar);
-            apart.setNroApartamento(Apartamento);
-            apart.setNumero(Numero);
-            apart.setVgsGaragem(Garagem);
-            apart.setNroQuartos(Quartos);
-            apart.setLogradouro(Logradouro);
-            apart.setNomeEdificio(Edificio);
-            apart.setCidade(Cidade);
-            apart.setBairro(Bairro);
-            apart.setDescricao(Descricao);
-            apart.setValor(Valor);
-            apart.setValorCondominio(ValorCondominio);
+            apartclone.setAnoConstrucao(AnoConstrucao);
+            apartclone.setAndar(Andar);
+            apartclone.setNroApartamento(Apartamento);
+            apartclone.setNumero(Numero);
+            apartclone.setVgsGaragem(Garagem);
+            apartclone.setNroQuartos(Quartos);
+            apartclone.setLogradouro(Logradouro);
+            apartclone.setNomeEdificio(Edificio);
+            apartclone.setCidade(Cidade);
+            apartclone.setBairro(Bairro);
+            apartclone.setDescricao(Descricao);
+            apartclone.setValor(Valor);
+            apartclone.setValorCondominio(ValorCondominio);
             
             listaapartamento.escreverArquivo();
-            listaapartamento.editar(codigo, apart);
-            JOptionPane.showMessageDialog(null, "Salvo.");
-                    
+            listaapartamento.editar(codigo, apartclone);
             
-        } catch (CloneNotSupportedException ex) {
-            JOptionPane.showMessageDialog(this, "Erro: " + ex.getMessage());
-        }
+            if(listaapartamento.editar(codigo,apartclone) == false){
+                JOptionPane.showMessageDialog(null, "Nao foi possivel salvar.");
+            }
+            
+            else{           JOptionPane.showMessageDialog(null, "Salvo.");
+            }   
+            
     }//GEN-LAST:event_jButtonEditarsalvarActionPerformed
 
 //</editor-fold>  
