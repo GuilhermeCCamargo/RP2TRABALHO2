@@ -18,6 +18,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.unipampa.rp2.tiposimoveis.Apartamento;
 import org.unipampa.rp2.tiposimoveis.Casa;
 import org.unipampa.rp2.tiposimoveis.SalaComercial;
 import org.unipampa.rp2.tiposimoveis.Tipo;
@@ -170,7 +171,13 @@ public class Lista implements ListaImoveis {
                     }
                     break;
                 case "Apartamentos":
-
+            {
+                try {
+                    lerApartamento();
+                } catch (IOException ex) {
+                    Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
                     break;
                 case "Casas":
                     try {
@@ -353,6 +360,92 @@ public class Lista implements ListaImoveis {
 
 
     //</editor-fold>
+    
+    private void lerApartamento() throws FileNotFoundException, IOException{
+        int cod=0, numero=0, nroQuartos=0,vgsGaragem=0, nroApartamento=0,andar=0,anoConstrucao=0;
+        double areaTotal=0, valor=0, valorCondominio=0;
+        String logradouro="", bairro="", cidade="", descricao="", linha="", nomeEdificio="";
+        int aux=0;
+        String conversao="";
+        
+        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
+        
+        do {
+            linha = br.readLine();
+
+            if (linha != null) {
+                for (int i = 0; i < linha.length(); i++) {
+                    if (linha.charAt(i) == ';') {
+
+                        //<editor-fold defaultstate="collapsed" desc="Switch Terreno">
+                        switch (aux) {
+                            case 0:
+                                cod = Integer.parseInt(conversao);
+                                break;
+                            case 1:
+                                cidade = conversao;
+                                break;
+                            case 2:
+                                bairro = conversao;
+                                break;
+                            case 3:
+                                logradouro = conversao;
+                                break;
+                            case 4:
+                                numero = Integer.parseInt(conversao);
+                                break;
+                            case 5:
+                                valor = Double.parseDouble(conversao);
+                                break;
+                            case 6:
+                                nomeEdificio = conversao;
+                                break;
+                            case 7:
+                                andar = Integer.parseInt(conversao);
+                                break;
+                            case 8:
+                                nroApartamento = Integer.parseInt(conversao);
+                                break;
+                            case 9:
+                                anoConstrucao = Integer.parseInt(conversao);
+                                break;
+                            case 10:
+                                nroQuartos = Integer.parseInt(conversao);
+                                break;
+                            case 11:
+                                vgsGaragem = Integer.parseInt(conversao);
+                                break;
+                            case 12:
+                                valorCondominio = Double.parseDouble(conversao);
+                                break;
+                            case 13:
+                                descricao = conversao;
+                                break;
+                            case 14: 
+                                areaTotal = Double.parseDouble(conversao);
+                             
+                        }
+                        //</editor-fold>
+
+                        conversao = "";
+                        aux++;
+                    } else {
+                        conversao += linha.charAt(i);
+                    }
+                }
+
+                Apartamento apartamento = new Apartamento (cidade, bairro ,logradouro, numero,  
+            valor, nomeEdificio, andar, nroApartamento, 
+            anoConstrucao, nroQuartos,vgsGaragem, valorCondominio, descricao, areaTotal);
+
+                aux = 0;
+                this.lista.add(apartamento);
+            }
+
+        } while (linha != null);
+
+        br.close();
+    }
     
     //<editor-fold defaultstate="collapsed" desc="Método para a leitura de uma sala comercial">
     /**
