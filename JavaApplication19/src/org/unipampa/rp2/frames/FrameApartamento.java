@@ -520,6 +520,11 @@ public class FrameApartamento extends javax.swing.JFrame  {
                 jPanelApartamentoEditarMouseMoved(evt);
             }
         });
+        jPanelApartamentoEditar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanelApartamentoEditarMouseClicked(evt);
+            }
+        });
 
         jLabelEditarLogradouro.setText("* Logradouro:");
 
@@ -818,16 +823,9 @@ public class FrameApartamento extends javax.swing.JFrame  {
         // TODO add your handling code here:
         int codigo;
         codigo = Integer.parseInt(jTextFieldConsultarCodigoApartamento.getText().trim());
-        DefaultListModel modelo = new DefaultListModel();
-        Imovel modelo1 = listaapartamento.consultar(codigo);
-        if (modelo1 == null) {
-            JOptionPane.showMessageDialog(null, "Imóvel não encontrado");
-        } else {
-            modelo.addElement(modelo1.toString());
-            jListListaApartamento.setModel(modelo);
-        }
         preencherCampos(codigo);
         jButtonEditarSalvar.setVisible(false);
+        jButtonEditarsalvar.setVisible(false);
     }//GEN-LAST:event_jButtonConsultarActionPerformed
 
     //</editor-fold>
@@ -1048,9 +1046,14 @@ public class FrameApartamento extends javax.swing.JFrame  {
             }
             
             else{           JOptionPane.showMessageDialog(null, "Salvo.");
+                            limparCampos();
             }   
             
     }//GEN-LAST:event_jButtonEditarsalvarActionPerformed
+
+    private void jPanelApartamentoEditarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanelApartamentoEditarMouseClicked
+        jLabelauxiliar.setVisible(false);
+    }//GEN-LAST:event_jPanelApartamentoEditarMouseClicked
 
 //</editor-fold>  
 
