@@ -853,8 +853,9 @@ public class FrameCasa extends javax.swing.JFrame {
         DefaultListModel listModel = new DefaultListModel();
         List<Imovel> casa;
         List<Imovel> casaValor = new ArrayList();
+               if (valor == -1) {
+ 
         casa = listaCasa.getLista();
-        if (valor == -1) {
             for (Imovel home : casa) {
                 casaValor.add(home);
                 listModel.addElement(home);
