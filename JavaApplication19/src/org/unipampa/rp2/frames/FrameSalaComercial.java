@@ -43,9 +43,9 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("Imobiliária - Sala Comercial");
         
-        listar(false, 0);
-
         this.listaSalaComercial = listaSalaComercial;
+
+        listar(false, 0);
 
         jButtonEditarSalaComercial.setEnabled(false);
         jButtonDetalhesSalaComercial.setEnabled(false);
@@ -228,7 +228,6 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
         } else {
             Imovel sala = listaSalaComercial.consultar(cod);
-//javax.swing.SwingUtilities.isLeftMouseButton(anEvent);
             if (sala == null) {
                 JOptionPane.showMessageDialog(null, "Imóvel não encontrado!");
             } else {
@@ -745,6 +744,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
      */
     private void jButtonVoltarConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarConsultarActionPerformed
         // TODO add your handling code here:
+        listar(false, 0);
         mudarAbas(1, 0);
     }//GEN-LAST:event_jButtonVoltarConsultarActionPerformed
 
@@ -852,11 +852,14 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             
             if(!isEdit){
                 if(!(verificacao("Deseja cadastrar um novo imóvel?"))){
-                    limparCampos();
                     listar(false, 0);
+                    limparCampos();
                     mudarAbas(1, 0);
+                } else {
+                    limparCampos();
                 }
             }
+            
             
         }
     }//GEN-LAST:event_jButtonSalvarActionPerformed

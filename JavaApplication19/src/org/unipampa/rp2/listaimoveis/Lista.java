@@ -37,6 +37,7 @@ public class Lista implements ListaImoveis {
     private final String tipo;
 
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Construtor">
     /**
      * Construtor que pega qual o tipo para criar um arquivo a partir do mesmo
@@ -48,7 +49,9 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Implementados">
+    
     //<editor-fold defaultstate="collapsed" desc="Listas(Incluir, Editar, Excluir e Consultar)">
     /**
      * Método para que se possa cadastrar um imóvel
@@ -123,7 +126,9 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Manipulação de Arquivos(Escrever e Ler)">
+    
     //<editor-fold defaultstate="collapsed" desc="Arquivos padrões">
     /**
      * Método para escrever dentro de um documento no formato .csv
@@ -204,6 +209,7 @@ public class Lista implements ListaImoveis {
         }
         return false;
     }
+    
     //<editor-fold defaultstate="collapsed" desc="Método para leitura de um Terreno">
     private void lerTerreno() throws FileNotFoundException, IOException{
         int cod=0, numero=0;
@@ -361,6 +367,8 @@ public class Lista implements ListaImoveis {
 
     //</editor-fold>
     
+    //<editor-fold defaultstate="collapsed" desc="Método para a leitura de um Apartamento">
+    
     private void lerApartamento() throws FileNotFoundException, IOException{
         int cod=0, numero=0, nroQuartos=0,vgsGaragem=0, nroApartamento=0,andar=0,anoConstrucao=0;
         double areaTotal=0, valor=0, valorCondominio=0;
@@ -446,6 +454,8 @@ public class Lista implements ListaImoveis {
         br.close();
     }
     
+    //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Método para a leitura de uma sala comercial">
     /**
      * Método privado para a leitura de arquivos .csv do tipo sala comercial
@@ -455,83 +465,47 @@ public class Lista implements ListaImoveis {
      */
     private void lerSalasComerciais() throws FileNotFoundException, IOException {
         String line, logradouro = "", nomeEdificio = "", descricao = "", bairro = "", cidade = "", convert = "";
+        String [] dados=null;
         int cod = 0, numero = 0, andar = 0, nroSala = 0, nroBanheiros = 0, aux = 0;
         double valor = 0, areaTotal = 0, valorCondominio = 0;
 
         BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
 
-        do {
-            line = br.readLine();
-
-            if (line != null) {
-                for (int i = 0; i < line.length(); i++) {
-                    if (line.charAt(i) == ';') {
-
-                        //<editor-fold defaultstate="collapsed" desc="Switch">
-                        switch (aux) {
-                            case 0:
-                                cod = Integer.parseInt(convert);
-                                break;
-                            case 1:
-                                numero = Integer.parseInt(convert);
-                                break;
-                            case 2:
-                                areaTotal = Double.parseDouble(convert);
-                                break;
-                            case 3:
-                                valor = Double.parseDouble(convert);
-                                break;
-                            case 4:
-                                logradouro = convert;
-                                break;
-                            case 5:
-                                bairro = convert;
-                                break;
-                            case 6:
-                                cidade = convert;
-                                break;
-                            case 7:
-                                descricao = convert;
-                                break;
-                            case 8:
-                                nroBanheiros = Integer.parseInt(convert);
-                                break;
-                            case 9:
-                                andar = Integer.parseInt(convert);
-                                break;
-                            case 10:
-                                nroSala = Integer.parseInt(convert);
-                                break;
-                            case 11:
-                                valorCondominio = Double.parseDouble(convert);
-                                break;
-                            case 12:
-                                nomeEdificio = convert;
-                                break;
-                        }
-                        //</editor-fold>
-
-                        convert = "";
-                        aux++;
-                    } else {
-                        convert += line.charAt(i);
-                    }
-                }
-
-                SalaComercial sala = new SalaComercial(cod, numero, areaTotal, valor, logradouro,
+        line = br.readLine();
+        
+        while(line != null){
+            
+            dados = line.split(";");
+            cod = Integer.parseInt(dados[0]);
+            numero = Integer.parseInt(dados[1]);
+            areaTotal = Double.parseDouble(dados[2]);
+            valor = Double.parseDouble(dados[3]);
+            logradouro = dados[4];
+            bairro = dados[5];
+            cidade = dados[6];
+            descricao = dados[7];
+            nroBanheiros = Integer.parseInt(dados[8]);
+            andar = Integer.parseInt(dados[9]);
+            nroSala = Integer.parseInt(dados[10]);
+            nomeEdificio = dados[11];
+            valorCondominio = Double.parseDouble(dados[12]);
+            
+            SalaComercial sala = new SalaComercial(cod, numero, areaTotal, valor, logradouro,
                         bairro, cidade, descricao, nroBanheiros, andar, nroSala, valorCondominio, nomeEdificio);
 
-                aux = 0;
-                this.lista.add(sala);
-            }
-
-        } while (line != null);
-
+                
+            this.lista.add(sala);
+            
+            line = br.readLine();
+        }
+        
         br.close();
     }
 
     //</editor-fold>
+    
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Arquivos Extras (Gerenciamento do Código)">
     /**
      * Método para sempre atualizar o último código onde assim com isto
@@ -573,8 +547,11 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
+    
     //</editor-fold>
+    
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Não implementados">
     @Override
     public List<Imovel> ordenarCodigo() {
@@ -602,6 +579,7 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="GetLista(Implementado)">
     /**
      * Método para retornar a lista de imóveis
