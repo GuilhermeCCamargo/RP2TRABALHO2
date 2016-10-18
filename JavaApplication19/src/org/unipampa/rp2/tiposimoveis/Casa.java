@@ -127,7 +127,7 @@ public class Casa extends Imovel implements Cloneable{
     //<editor-fold defaultstate="collapsed" desc="toString">
     @Override
     public String toString() {
-        return "Código: " + getCod() + " Tipo: " + getTipo() + " Valor: " + getValor();
+        return "Código: " + getCod() + " Bairro: " + getBairro()+ " Valor: " + getValor();
     }
 
 //</editor-fold>

@@ -5,6 +5,7 @@
  */
 package org.unipampa.rp2.frames;
 
+import java.util.ArrayList;
 import org.unipampa.rp2.tiposimoveis.Tipo;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -31,11 +32,11 @@ public class FrameCasa extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
 
         this.setTitle("Imobiliária - Casa");
-        if(listaCasa.lerArquivo()){   
-        } else{
+        if (listaCasa.lerArquivo()) {
+        } else {
             JOptionPane.showMessageDialog(null, "Arquivo não encontrado!");
         }
-            
+
         this.listaCasa = listaCasa;
 
         jTabbedPaneCasa.setEnabledAt(1, false);
@@ -86,21 +87,20 @@ public class FrameCasa extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jListCasa = new javax.swing.JList<>();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPaneCasa = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jTextFieldCodigo = new javax.swing.JTextField();
         jButtonBuscarCasa = new javax.swing.JButton();
         jButtonIncluir = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
-        jButtonConsultar = new javax.swing.JButton();
+        jButtonDetalhes = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jListFrameCasa = new javax.swing.JList<>();
         jButtonEditar = new javax.swing.JButton();
         jButtonExcluir = new javax.swing.JButton();
+        jComboBoxPesquisa = new javax.swing.JComboBox<>();
+        jButtonOrdenar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanelImovel = new javax.swing.JPanel();
         jLabelLogradouro = new javax.swing.JLabel();
@@ -130,11 +130,7 @@ public class FrameCasa extends javax.swing.JFrame {
         jButtonVoltarAdicionar = new javax.swing.JButton();
         jButtonSalvar = new javax.swing.JButton();
 
-        jScrollPane1.setViewportView(jListCasa);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jLabel1.setText("Código: ");
 
         jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,10 +159,10 @@ public class FrameCasa extends javax.swing.JFrame {
             }
         });
 
-        jButtonConsultar.setText("Consultar");
-        jButtonConsultar.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDetalhes.setText("Detalhes");
+        jButtonDetalhes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonConsultarActionPerformed(evt);
+                jButtonDetalhesActionPerformed(evt);
             }
         });
 
@@ -186,27 +182,46 @@ public class FrameCasa extends javax.swing.JFrame {
             }
         });
 
+        jComboBoxPesquisa.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigo", "Valor", "Bairro" }));
+        jComboBoxPesquisa.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxPesquisaItemStateChanged(evt);
+            }
+        });
+        jComboBoxPesquisa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxPesquisaActionPerformed(evt);
+            }
+        });
+
+        jButtonOrdenar.setText("Ordenar");
+        jButtonOrdenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOrdenarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonConsultar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonDetalhes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonOrdenar, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(35, 35, 35)
-                        .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77)
-                        .addComponent(jButtonBuscarCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 55, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2))
+                        .addComponent(jComboBoxPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldCodigo)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonBuscarCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -214,20 +229,22 @@ public class FrameCasa extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
                     .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonBuscarCasa))
+                    .addComponent(jButtonBuscarCasa)
+                    .addComponent(jComboBoxPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButtonIncluir)
+                        .addComponent(jButtonIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonConsultar)
+                        .addComponent(jButtonDetalhes)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonEditar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonExcluir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(134, 134, 134)
+                        .addComponent(jButtonOrdenar)
+                        .addGap(18, 18, 18)
                         .addComponent(jButtonVoltar))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(28, Short.MAX_VALUE))
@@ -596,10 +613,32 @@ public class FrameCasa extends javax.swing.JFrame {
 
     private void jButtonBuscarCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarCasaActionPerformed
         // TODO add your handling code here:
+        String indice = jComboBoxPesquisa.getSelectedItem().toString();
+        switch (indice) {
+            case "Codigo":
+                if (jTextFieldCodigo.getText().trim().equals("")) {
+                    listarCod(-1);
+                } else {
+                    listarCod(Integer.parseInt(jTextFieldCodigo.getText().trim()));
+                }
+                break;
+            case "Valor":
+                if (jTextFieldCodigo.getText().trim().equals("")) {
+                    listarValor(-1);
+                } else {
+                    listarValor(Double.parseDouble(jTextFieldCodigo.getText().trim()));
+                }
+                break;
+            case "Bairro":
+                listarBairro(jTextFieldCodigo.getText().trim());
+                break;
+
+        }
+
         if (jTextFieldCodigo.getText().trim().equals("")) {
-            listar(-1);
+            listarCod(-1);
         } else {
-            listar(Integer.parseInt(jTextFieldCodigo.getText().trim()));
+            listarCod(Integer.parseInt(jTextFieldCodigo.getText().trim()));
         }
     }//GEN-LAST:event_jButtonBuscarCasaActionPerformed
 
@@ -607,7 +646,7 @@ public class FrameCasa extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNQActionPerformed
 
-    private void jButtonConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonConsultarActionPerformed
+    private void jButtonDetalhesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDetalhesActionPerformed
         // TODO add your handling code here:
         String aux = "";
         boolean error = false;
@@ -633,11 +672,11 @@ public class FrameCasa extends javax.swing.JFrame {
                 jTabbedPaneCasa.setEnabledAt(0, false);
             }
         }
-    }//GEN-LAST:event_jButtonConsultarActionPerformed
+    }//GEN-LAST:event_jButtonDetalhesActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         String cod = JOptionPane.showInputDialog("Insira o código da Casa que deseja editar: ");
-        if (cod==null || cod.equals("") ) {
+        if (cod == null || cod.equals("")) {
             JOptionPane.showMessageDialog(null, "Insira um número!");
         } else if (preencherCampos(Integer.parseInt(cod))) {
             jTabbedPaneCasa.setSelectedIndex(1);
@@ -666,6 +705,36 @@ public class FrameCasa extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private void jComboBoxPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPesquisaActionPerformed
+
+    }//GEN-LAST:event_jComboBoxPesquisaActionPerformed
+
+    private void jComboBoxPesquisaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxPesquisaItemStateChanged
+        jTextFieldCodigo.setText("");
+    }//GEN-LAST:event_jComboBoxPesquisaItemStateChanged
+
+    private void jButtonOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrdenarActionPerformed
+        String [] textMessages = {"Codigo","Valor", "Area", "Cancelar"}; 
+        int x = JOptionPane.showOptionDialog(null, "Texto", "Título",   
+                JOptionPane.WHEN_IN_FOCUSED_WINDOW, JOptionPane.QUESTION_MESSAGE,   
+                null, textMessages, null);
+                DefaultListModel lista = new DefaultListModel();
+        switch(x){
+            case 0:
+                listaCasa.ordenarCodigo();
+                listarCod(-1);
+                break;
+            case 1:
+                listaCasa.ordenarValor();
+                listarCod(-1);
+                break;
+            case 2:
+                listaCasa.ordenarArea();
+                listarCod(-1);
+                break;
+        }
+    }//GEN-LAST:event_jButtonOrdenarActionPerformed
 
     /**
      * Main para teste unitário
@@ -709,15 +778,16 @@ public class FrameCasa extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBuscarCasa;
-    private javax.swing.JButton jButtonConsultar;
+    private javax.swing.JButton jButtonDetalhes;
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonIncluir;
+    private javax.swing.JButton jButtonOrdenar;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JButton jButtonVoltar;
     private javax.swing.JButton jButtonVoltarAdicionar;
+    private javax.swing.JComboBox<String> jComboBoxPesquisa;
     private javax.swing.JComboBox<String> jComboBoxTipo;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelAC;
     private javax.swing.JLabel jLabelAnoC;
     private javax.swing.JLabel jLabelAreaTotal;
@@ -730,13 +800,11 @@ public class FrameCasa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelNumero;
     private javax.swing.JLabel jLabelTipo;
     private javax.swing.JLabel jLabelValor;
-    private javax.swing.JList<String> jListCasa;
     private javax.swing.JList<String> jListFrameCasa;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanelImovel;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPaneCasa;
     private javax.swing.JTextField jTextFieldAC;
@@ -758,7 +826,7 @@ public class FrameCasa extends javax.swing.JFrame {
      *
      * @param cod
      */
-    public void listar(int cod) {
+    public void listarCod(int cod) {
         DefaultListModel listModel = new DefaultListModel();
         List<Imovel> casa;
         casa = listaCasa.getLista();//Atribui a lista da classe Lista a variável
@@ -778,6 +846,67 @@ public class FrameCasa extends javax.swing.JFrame {
         }
 
         jListFrameCasa.setModel(listModel);//Mudar a lista
+    }
+
+    //Necessita de refatoração após a implementação dos métodos
+    public List<Imovel> listarValor(double valor) {
+        DefaultListModel listModel = new DefaultListModel();
+        List<Imovel> casa;
+        List<Imovel> casaValor = new ArrayList();
+        casa = listaCasa.getLista();
+        if (valor == -1) {
+            for (Imovel home : casa) {
+                casaValor.add(home);
+                listModel.addElement(home);
+
+            }
+            return casaValor;
+        } else {
+            casa = listaCasa.pesquisaValor(valor);
+
+            if (casa != null) {
+                for (Imovel home : casa) {
+                    casaValor.add(home);
+                    listModel.addElement(home);
+
+                }
+                return casaValor;
+            } else {
+                return null;
+            }
+
+        }
+
+    }
+
+    public List<Imovel> listarBairro(String bairro) {
+        DefaultListModel listModel = new DefaultListModel();
+        List<Imovel> casa;
+        List<Imovel> casaBairro = new ArrayList();
+        casa = listaCasa.getLista();
+        if (bairro.equals("")) {
+            for (Imovel home : casa) {
+                casaBairro.add(home);
+                listModel.addElement(home);
+
+            }
+            return casaBairro;
+        } else {
+            casa = listaCasa.pesquisaBairro(bairro);
+
+            if (casa != null) {
+                for (Imovel home : casa) {
+                    casaBairro.add(home);
+                    listModel.addElement(home);
+
+                }
+                return casaBairro;
+            } else {
+                return null;
+            }
+
+        }
+
     }
 
     /**
