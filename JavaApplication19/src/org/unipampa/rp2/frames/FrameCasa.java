@@ -636,7 +636,7 @@ public class FrameCasa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonConsultarActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
-        String cod = JOptionPane.showInputDialog("Insira o código do objeto que deseja editar: ");
+        String cod = JOptionPane.showInputDialog("Insira o código da Casa que deseja editar: ");
         if (cod==null || cod.equals("") ) {
             JOptionPane.showMessageDialog(null, "Insira um número!");
         } else if (preencherCampos(Integer.parseInt(cod))) {
