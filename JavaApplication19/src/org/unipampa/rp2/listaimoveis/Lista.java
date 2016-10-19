@@ -29,6 +29,7 @@ import org.unipampa.rp2.tiposimoveis.Terreno;
  *
  * @author yuryalencar
  * @author VitorSantos
+ * @GuilhermeCCamargo
  */
 public class Lista implements ListaImoveis {
 
@@ -550,24 +551,66 @@ public class Lista implements ListaImoveis {
     
     //</editor-fold>
     
-    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc="Ordenações">
     
-    //<editor-fold defaultstate="collapsed" desc="Não implementados">
-    @Override
+      @Override
     public List<Imovel> ordenarCodigo() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                        Imovel auxiliar;
+       
+            for(int i = 0; i < lista.size()-1; i++){
+            for(int j = i + 1; j < lista.size() ; j++){
+              if(lista.get(i).getCod()> lista.get(j).getCod()){
+                 auxiliar = lista.get(i);
+                 lista.set(i, lista.get(j));
+                 lista.set(j, auxiliar);
+              }
+             }
+            }
+               
+        return lista;
     }
 
     @Override
     public List<Imovel> ordenarValor() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+            Imovel auxiliar;
+       
+            for(int i = 0; i < lista.size()-1; i++){
+            for(int j = i + 1; j < lista.size() ; j++){
+              if(lista.get(i).getValor()> lista.get(j).getValor()){
+                 auxiliar = lista.get(i);
+                 lista.set(i, lista.get(j));
+                 lista.set(j, auxiliar);
+              }
+             }
+            }
+               
+        return lista;
+    }    
 
     @Override
     public List<Imovel> ordenarArea() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Imovel auxiliar;
+       
+            for(int i = 0; i < lista.size()-1; i++){
+            for(int j = i + 1; j < lista.size() ; j++){
+              if(lista.get(i).getAreaTotal()> lista.get(j).getAreaTotal()){
+                 auxiliar = lista.get(i);
+                 lista.set(i, lista.get(j));
+                 lista.set(j, auxiliar);
+              }
+             }
+            }
+               
+        return lista;
     }
 
+    
+    //</editor-fold>
+    
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Não implementados">
+  
     @Override
     public List<Imovel> pesquisaValor(double valor) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
