@@ -73,19 +73,22 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jComboBoxBusca" max="32767" attributes="0"/>
                           <Component id="jButtonDetalhesSalaComercial" alignment="1" max="32767" attributes="0"/>
                           <Component id="jButtonExcluirSalaComercial" max="32767" attributes="0"/>
                           <Component id="jButtonEditarSalaComercial" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButtonIncluirSalaComercial" alignment="1" max="32767" attributes="0"/>
                           <Component id="jButtonVoltarInicial" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jButtonOrdenar" max="32767" attributes="0"/>
+                          <Component id="jButtonIncluirSalaComercial" alignment="0" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jScrollPaneListarSalaComercial" min="-2" pref="368" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="jLabelCodigo" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jTextFieldBuscaCodigo" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="jScrollPaneListarSalaComercial" min="-2" pref="368" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                              <Component id="jTextFieldBusca" min="-2" pref="292" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="jButtonBuscaSalaComercial" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -97,27 +100,28 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonBuscaSalaComercial" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldBuscaCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jComboBoxBusca" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldBusca" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonBuscaSalaComercial" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPaneListarSalaComercial" min="-2" pref="243" max="-2" attributes="0"/>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Component id="jButtonOrdenar" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonIncluirSalaComercial" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonExcluirSalaComercial" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonEditarSalaComercial" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonDetalhesSalaComercial" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="18" max="32767" attributes="0"/>
+                      <EmptySpace min="18" pref="16" max="32767" attributes="0"/>
                       <Component id="jButtonVoltarInicial" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -156,11 +160,6 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonIncluirSalaComercialActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelCodigo">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="C&#xf3;digo:"/>
-              </Properties>
-            </Component>
             <Component class="javax.swing.JButton" name="jButtonBuscaSalaComercial">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Buscar"/>
@@ -185,9 +184,9 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonExcluirSalaComercialActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldBuscaCodigo">
+            <Component class="javax.swing.JTextField" name="jTextFieldBusca">
               <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuscaCodigoKeyTyped"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuscaKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonDetalhesSalaComercial">
@@ -204,6 +203,31 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVoltarInicialActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jComboBoxBusca">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="3">
+                    <StringItem index="0" value="C&#xf3;digo"/>
+                    <StringItem index="1" value="Bairro"/>
+                    <StringItem index="2" value="Valor"/>
+                  </StringArray>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxBuscaItemStateChanged"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonOrdenar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Ordenar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonOrdenarActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

@@ -45,7 +45,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         
         this.listaSalaComercial = listaSalaComercial;
 
-        listar(false, 0);
+        listar();
 
         jButtonEditarSalaComercial.setEnabled(false);
         jButtonDetalhesSalaComercial.setEnabled(false);
@@ -210,34 +210,85 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
     //</editor-fold>
     
-    //<editor-fold defaultstate="collapsed" desc="Manipulação de jList (Listar)">
+    //<editor-fold defaultstate="collapsed" desc="Manipulação de jList (todos os listar)">
     
     /**
      * Método para listar todos os dados dentro da jList
      */
-    private void listar(boolean isPesquisa, int cod) {
+    private void listar() {
 
         DefaultListModel listModel = new DefaultListModel();
 
-        if (!isPesquisa) {
-            List<Imovel> salaComercial = listaSalaComercial.getLista();
+        List<Imovel> salaComercial = listaSalaComercial.getLista();
 
-            for (Imovel sala : salaComercial) {
-                listModel.addElement(sala.toString());
-            }
-
-        } else {
-            Imovel sala = listaSalaComercial.consultar(cod);
-            if (sala == null) {
-                JOptionPane.showMessageDialog(null, "Imóvel não encontrado!");
-            } else {
-                listModel.addElement(sala.toString());
-            }
+        for (Imovel sala : salaComercial) {
+            listModel.addElement(sala.toString());
         }
 
         jListSalaComercial.setModel(listModel);
     }
 
+    /**
+     * Método para pesquisar a partir do código
+     * @param cod - inteiro para a busca
+     */
+    private void listarCodigo(int cod){
+        DefaultListModel listModel = new DefaultListModel();
+        
+        Imovel sala = listaSalaComercial.consultar(cod);
+        
+        if (sala == null) {
+            JOptionPane.showMessageDialog(null, "Imóvel não encontrado!");
+        } else {
+            listModel.addElement(sala.toString());
+        }
+        
+        jListSalaComercial.setModel(listModel);
+
+    }
+    
+    /**
+     * Método para pesquisar a partir do valor
+     * @param valor - double para a busca(valor)
+     */
+    private void listarValor(double valor){
+        DefaultListModel listModel = new DefaultListModel();
+        
+        List<Imovel> sala = listaSalaComercial.pesquisaValor(valor);
+        
+        if (sala == null) {
+            JOptionPane.showMessageDialog(null, "Nenhum imóvel não encontrado!");
+        } else {
+            for (Imovel imovel : sala) {
+                listModel.addElement(imovel.toString());    
+            }
+        }
+        
+        jListSalaComercial.setModel(listModel);
+
+    }
+    
+    /**
+     * Método para pesquisar a partir do bairro
+     * @param bairro - String para a busca(bairro)
+     */
+    private void listarBairro(String bairro){
+        DefaultListModel listModel = new DefaultListModel();
+        
+        List<Imovel> sala = listaSalaComercial.pesquisaBairro(bairro);
+        
+        if (sala == null) {
+            JOptionPane.showMessageDialog(null, "Nenhum imóvel não encontrado!");
+        } else {
+            for (Imovel imovel : sala) {
+                listModel.addElement(imovel.toString());    
+            }
+        }
+        
+        jListSalaComercial.setModel(listModel);
+
+    }
+    
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Mudança de abas">
@@ -287,13 +338,14 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         jScrollPaneListarSalaComercial = new javax.swing.JScrollPane();
         jListSalaComercial = new javax.swing.JList<>();
         jButtonIncluirSalaComercial = new javax.swing.JButton();
-        jLabelCodigo = new javax.swing.JLabel();
         jButtonBuscaSalaComercial = new javax.swing.JButton();
         jButtonEditarSalaComercial = new javax.swing.JButton();
         jButtonExcluirSalaComercial = new javax.swing.JButton();
-        jTextFieldBuscaCodigo = new javax.swing.JTextField();
+        jTextFieldBusca = new javax.swing.JTextField();
         jButtonDetalhesSalaComercial = new javax.swing.JButton();
         jButtonVoltarInicial = new javax.swing.JButton();
+        jComboBoxBusca = new javax.swing.JComboBox<>();
+        jButtonOrdenar = new javax.swing.JButton();
         jPanelAdicionar = new javax.swing.JPanel();
         jScrollPaneAdicionar = new javax.swing.JScrollPane();
         jPanelAdicionarHeranca = new javax.swing.JPanel();
@@ -355,8 +407,6 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             }
         });
 
-        jLabelCodigo.setText("Código:");
-
         jButtonBuscaSalaComercial.setText("Buscar");
         jButtonBuscaSalaComercial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -378,9 +428,9 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             }
         });
 
-        jTextFieldBuscaCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldBusca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldBuscaCodigoKeyTyped(evt);
+                jTextFieldBuscaKeyTyped(evt);
             }
         });
 
@@ -398,6 +448,20 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             }
         });
 
+        jComboBoxBusca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Código", "Bairro", "Valor" }));
+        jComboBoxBusca.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxBuscaItemStateChanged(evt);
+            }
+        });
+
+        jButtonOrdenar.setText("Ordenar");
+        jButtonOrdenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOrdenarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelConsultarLayout = new javax.swing.GroupLayout(jPanelConsultar);
         jPanelConsultar.setLayout(jPanelConsultarLayout);
         jPanelConsultarLayout.setHorizontalGroup(
@@ -405,18 +469,20 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             .addGroup(jPanelConsultarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBoxBusca, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonDetalhesSalaComercial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonExcluirSalaComercial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonEditarSalaComercial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonIncluirSalaComercial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonVoltarInicial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(31, 31, 31)
+                    .addComponent(jButtonVoltarInicial, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonOrdenar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonIncluirSalaComercial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPaneListarSalaComercial, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelConsultarLayout.createSequentialGroup()
-                        .addComponent(jLabelCodigo)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextFieldBuscaCodigo)
+                        .addGap(31, 31, 31)
+                        .addComponent(jScrollPaneListarSalaComercial, javax.swing.GroupLayout.PREFERRED_SIZE, 368, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelConsultarLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                        .addComponent(jTextFieldBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 292, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonBuscaSalaComercial)))
                 .addContainerGap())
@@ -424,16 +490,17 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         jPanelConsultarLayout.setVerticalGroup(
             jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelConsultarLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCodigo)
-                    .addComponent(jButtonBuscaSalaComercial)
-                    .addComponent(jTextFieldBuscaCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jComboBoxBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonBuscaSalaComercial))
+                .addGap(10, 10, 10)
                 .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPaneListarSalaComercial, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanelConsultarLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addComponent(jButtonOrdenar)
+                        .addGap(18, 18, 18)
                         .addComponent(jButtonIncluirSalaComercial)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonExcluirSalaComercial)
@@ -441,7 +508,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
                         .addComponent(jButtonEditarSalaComercial)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonDetalhesSalaComercial)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(16, 16, Short.MAX_VALUE)
                 .addComponent(jButtonVoltarInicial)
                 .addContainerGap())
         );
@@ -727,7 +794,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jTabbedPaneSalaComercial, javax.swing.GroupLayout.DEFAULT_SIZE, 528, Short.MAX_VALUE))
+                .addComponent(jTabbedPaneSalaComercial, javax.swing.GroupLayout.PREFERRED_SIZE, 528, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -744,7 +811,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
      */
     private void jButtonVoltarConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarConsultarActionPerformed
         // TODO add your handling code here:
-        listar(false, 0);
+        listar();
         mudarAbas(1, 0);
     }//GEN-LAST:event_jButtonVoltarConsultarActionPerformed
 
@@ -811,7 +878,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
                     if(verificacao("Deseja realmente editar este imóvel?")){
                         if (listaSalaComercial.editar(codEdit, novaSala)) {
                             JOptionPane.showMessageDialog(null, "Imóvel editado com sucesso!");
-                            listar(false, 0);
+                            listar();
                             mudarAbas(1, 0);
                         } else {
                             JOptionPane.showMessageDialog(null, "ERRO 03 - Imóvel não encontrado para a edição");
@@ -852,7 +919,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
             
             if(!isEdit){
                 if(!(verificacao("Deseja cadastrar um novo imóvel?"))){
-                    listar(false, 0);
+                    listar();
                     limparCampos();
                     mudarAbas(1, 0);
                 } else {
@@ -916,10 +983,17 @@ public class FrameSalaComercial extends javax.swing.JFrame {
     
     //<editor-fold defaultstate="collapsed" desc="Evento de campo">
     
-    private void jTextFieldBuscaCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscaCodigoKeyTyped
+    private void jTextFieldBuscaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscaKeyTyped
         // TODO add your handling code here:
-        soNumeros(evt, false);
-    }//GEN-LAST:event_jTextFieldBuscaCodigoKeyTyped
+        switch(jComboBoxBusca.getSelectedItem().toString().trim()){
+            case "Código":
+                soNumeros(evt, false);
+                break;
+            case "Valor":
+                soNumeros(evt, isDouble(jTextFieldBusca));
+                break;
+        }
+    }//GEN-LAST:event_jTextFieldBuscaKeyTyped
 
     //</editor-fold>
     
@@ -954,7 +1028,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "ERRO 05 - Não foi possível Gravar o arquivo");
                 }
 
-                listar(false, 0);
+                listar();
 
             } else {
                 JOptionPane.showMessageDialog(null, "ERRO 04 - Informe um número inteiro para prosseguir.");
@@ -974,11 +1048,22 @@ public class FrameSalaComercial extends javax.swing.JFrame {
 
     private void jButtonBuscaSalaComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscaSalaComercialActionPerformed
         // TODO add your handling code here:
-        if (jTextFieldBuscaCodigo.getText().trim().equals("")) {
-            listar(false, 0);
+        if (jTextFieldBusca.getText().trim().equals("")) {
+            listar();
         } else {
-            listar(true, Integer.parseInt(jTextFieldBuscaCodigo.getText().trim()));
+            switch(jComboBoxBusca.getSelectedItem().toString().trim()){
+                case "Código":
+                    listarCodigo(Integer.parseInt(jTextFieldBusca.getText().trim()));
+                    break;
+                case "Bairro":
+                    listarBairro(jTextFieldBusca.getText().trim());
+                    break;
+                case "Valor":
+                    listarValor(Double.parseDouble(jTextFieldBusca.getText().trim()));
+                    break;
+            }    
         }
+        
     }//GEN-LAST:event_jButtonBuscaSalaComercialActionPerformed
 
     private void jButtonIncluirSalaComercialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirSalaComercialActionPerformed
@@ -1022,6 +1107,44 @@ public class FrameSalaComercial extends javax.swing.JFrame {
         desativarCampos();
         mudarAbas(0, 1);    
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jComboBoxBuscaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxBuscaItemStateChanged
+        // TODO add your handling code here:
+        jTextFieldBusca.setText("");
+    }//GEN-LAST:event_jComboBoxBuscaItemStateChanged
+
+    private void jButtonOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrdenarActionPerformed
+        // TODO add your handling code here:
+        String [] opcao = {"Código","Valor","Área Total", "Cancelar"};
+        int result = JOptionPane.showOptionDialog(null, "Deseja ordenar:", "Ordenação",   
+                JOptionPane.WHEN_IN_FOCUSED_WINDOW, JOptionPane.QUESTION_MESSAGE, null, opcao, opcao[3]);
+
+        DefaultListModel listModel = new DefaultListModel();
+        List<Imovel> listaOrdenada=null;
+        boolean ordenacao=false;
+        
+        switch(result){
+            case 0:
+                listaOrdenada = listaSalaComercial.ordenarCodigo();
+                ordenacao=true;
+                break;
+            case 1:
+                listaOrdenada = listaSalaComercial.ordenarValor();
+                ordenacao=true;
+                break;
+            case 2:
+                listaOrdenada = listaSalaComercial.ordenarArea();
+                ordenacao=true;
+                break;
+        }
+        
+        if(ordenacao){
+            for (Imovel imovel : listaOrdenada) {
+                listModel.addElement(imovel.toString());
+            }
+            jListSalaComercial.setModel(listModel);
+        }
+    }//GEN-LAST:event_jButtonOrdenarActionPerformed
 
     //<editor-fold defaultstate="collapsed" desc="Main (Frame)">
     
@@ -1071,14 +1194,15 @@ public class FrameSalaComercial extends javax.swing.JFrame {
     private javax.swing.JButton jButtonEditarSalaComercial;
     private javax.swing.JButton jButtonExcluirSalaComercial;
     private javax.swing.JButton jButtonIncluirSalaComercial;
+    private javax.swing.JButton jButtonOrdenar;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JButton jButtonVoltarConsultar;
     private javax.swing.JButton jButtonVoltarInicial;
+    private javax.swing.JComboBox<String> jComboBoxBusca;
     private javax.swing.JLabel jLabelAndarSalaComercial;
     private javax.swing.JLabel jLabelAreaTotalImovel;
     private javax.swing.JLabel jLabelBairroImovel;
     private javax.swing.JLabel jLabelCidadeImovel;
-    private javax.swing.JLabel jLabelCodigo;
     private javax.swing.JLabel jLabelDescricaoImovel;
     private javax.swing.JLabel jLabelLogradouroImovel;
     private javax.swing.JLabel jLabelNomeEdificioSalaComercial;
@@ -1101,7 +1225,7 @@ public class FrameSalaComercial extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldAndarSalaComercial;
     private javax.swing.JTextField jTextFieldAreaTotalImovel;
     private javax.swing.JTextField jTextFieldBairroImovel;
-    private javax.swing.JTextField jTextFieldBuscaCodigo;
+    private javax.swing.JTextField jTextFieldBusca;
     private javax.swing.JTextField jTextFieldCidadeImovel;
     private javax.swing.JTextField jTextFieldDescricaoImovel;
     private javax.swing.JTextField jTextFieldLogradouroImovel;
