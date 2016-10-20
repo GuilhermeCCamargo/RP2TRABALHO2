@@ -29,7 +29,7 @@ import org.unipampa.rp2.tiposimoveis.Terreno;
  *
  * @author yuryalencar
  * @author VitorSantos
- * @GuilhermeCCamargo
+ * @author GuilhermeCCamargo
  */
 public class Lista implements ListaImoveis {
 
@@ -180,6 +180,7 @@ public class Lista implements ListaImoveis {
             {
                 try {
                     lerApartamento();
+                    return true;
                 } catch (IOException ex) {
                     Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -555,30 +556,33 @@ public class Lista implements ListaImoveis {
     
       @Override
     public List<Imovel> ordenarCodigo() {
-                        Imovel auxiliar;
-       
-            for(int i = 0; i < lista.size()-1; i++){
-            for(int j = i + 1; j < lista.size() ; j++){
-              if(lista.get(i).getCod()> lista.get(j).getCod()){
-                 auxiliar = lista.get(i);
-                 lista.set(i, lista.get(j));
-                 lista.set(j, auxiliar);
-              }
-             }
-            }
-               
-        return lista;
+        //Selection Sort        
+        for (int i = 0; i < lista.size() - 1; i++){  
+                        int index = i;  
+                       
+                        for (int j = i + 1; j < lista.size(); j++){  
+                   
+                             if (lista.get(j).getCod() < lista.get(index).getCod()){  
+                                                                                        index = j;  
+                                                                                     }  
+                                                           }                    
+            Imovel menorcodigo = lista.get(index);   
+            lista.set(index,lista.get(i));  
+            lista.set(i, menorcodigo);  
+        }  
+    return lista;  
     }
 
     @Override
     public List<Imovel> ordenarValor() {
-            Imovel auxiliar;
+        //Bubble Sort    
+        Imovel auxiliar;
        
-            for(int i = 0; i < lista.size()-1; i++){
-            for(int j = i + 1; j < lista.size() ; j++){
-              if(lista.get(i).getValor()> lista.get(j).getValor()){
-                 auxiliar = lista.get(i);
-                 lista.set(i, lista.get(j));
+            for(int i = 0; i < lista.size(); i++){
+            for(int j =  1; j < lista.size() - 1; j++){
+              if(lista.get(j-1).getValor()> lista.get(j).getValor()){
+                 auxiliar = lista.get(j-1);
+                 lista.set(j-1, lista.get(j));
                  lista.set(j, auxiliar);
               }
              }
@@ -589,18 +593,17 @@ public class Lista implements ListaImoveis {
 
     @Override
     public List<Imovel> ordenarArea() {
-       Imovel auxiliar;
-       
-            for(int i = 0; i < lista.size()-1; i++){
-            for(int j = i + 1; j < lista.size() ; j++){
-              if(lista.get(i).getAreaTotal()> lista.get(j).getAreaTotal()){
-                 auxiliar = lista.get(i);
-                 lista.set(i, lista.get(j));
-                 lista.set(j, auxiliar);
-              }
-             }
-            }
-               
+        
+        //Insertion Sort 
+        for (int j = 1; j < lista.size(); j++) {  
+            Imovel auxiliar = lista.get(j);  
+            int i = j-1;  
+            while ( (i > -1) && ( lista.get(i).getAreaTotal() > auxiliar.getAreaTotal() ) ) {  
+                lista.set(i+1, lista.get(i));  
+                i--;  
+            }  
+            lista.set(i+1, auxiliar);
+        }
         return lista;
     }
 
@@ -613,12 +616,35 @@ public class Lista implements ListaImoveis {
   
     @Override
     public List<Imovel> pesquisaValor(double valor) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+           Imovel auxiliar;
+       for(int i = 0; i < lista.size()-1; i++){
+            for(int j = i + 1; j < lista.size() ; j++){
+              if(lista.get(j).getValor() == valor){
+                 auxiliar = lista.get(i);
+                 lista.set(i, lista.get(j));
+                 lista.set(j, auxiliar);
+              }else{
+                  lista.remove(lista.get(j));
+              }
+             }
+    }return lista;
     }
 
     @Override
     public List<Imovel> pesquisaBairro(String bairro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+          Imovel auxiliar;
+       for(int i = 0; i < lista.size()-1; i++){
+            for(int j = i + 1; j < lista.size() ; j++){
+              if(lista.get(j).getBairro().equals(bairro)){
+                 auxiliar = lista.get(i);
+                 lista.set(i, lista.get(j));
+                 lista.set(j, auxiliar);
+              }else{
+                  lista.remove(lista.get(j));
+              }
+             }
+    }return lista;
     }
 
     //</editor-fold>
