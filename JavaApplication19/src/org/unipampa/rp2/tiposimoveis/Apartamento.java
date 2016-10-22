@@ -82,6 +82,8 @@ public class Apartamento extends Imovel{
         this.descricao = descricao;
         this.areaTotal = areaTotal;
     }
+
+   
    
     /**
      * @return the nomeEdificio
@@ -182,7 +184,7 @@ public class Apartamento extends Imovel{
     }    
     
     public String toString(){
-        return "Código: "+getCod()+" - "+" Edifício: "+getNomeEdificio()+" - "+" Andar: "+getAndar()+" - "+" Valor: R$"+getValor();
+        return "Código: "+getCod()+" - "+" Valor: R$"+getValor()+" - "+" Área Total (m²): "+getAreaTotal()+" - "+" Bairro:"+getBairro();
 
     }
     
