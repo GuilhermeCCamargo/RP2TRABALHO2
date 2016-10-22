@@ -659,30 +659,37 @@ public class FrameApartamento extends javax.swing.JFrame  {
                 switch(opcao1){
                     case 1:
                         String bairro = String.valueOf(JOptionPane.showInputDialog("Digite o bairro desejado:"));
-                         listaapartamento.pesquisaBairro(bairro);
+                         List<Imovel> listapesquisabairro = listaapartamento.pesquisaBairro(bairro);
                             DefaultListModel modelListx = new DefaultListModel();
 
-                            List<Imovel> imovelI = listaapartamento.getLista();
-
+                            if(listapesquisabairro == null){
+                               JOptionPane.showMessageDialog(null, "Não encontrado.");
+                            }
+                            else{
                             for (Imovel imovel3 : imovelI) {
                                 modelListx.addElement(imovel3.toString());
                             }
                             jListListaApartamento.setModel(modelListx);
-                            
+                            }
                             break;
                     case 2:
                         double valor = Double.valueOf(JOptionPane.showInputDialog("Digite o valor desejado:"));
-                         listaapartamento.pesquisaValor(valor);
+                         List<Imovel> listapesquisavalor = listaapartamento.pesquisaValor(valor);
                             DefaultListModel modelList5 = new DefaultListModel();
 
-                            List<Imovel> imovelT = listaapartamento.getLista();
-
+                            if(listapesquisavalor == null){
+                                JOptionPane.showMessageDialog(null, "Não encontrado.");
+                            }
+                            else{
                             for (Imovel imovel3 : imovelT) {
                                 modelList5.addElement(imovel3.toString());
                             }
                             jListListaApartamento.setModel(modelList5);
-                            
+                            }
                             break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Digite uma opçao válida.");
+                        break;
                 }
             }
         }
