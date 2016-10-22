@@ -609,37 +609,43 @@ public class FrameApartamento extends javax.swing.JFrame  {
                     int opcao = Integer.valueOf(JOptionPane.showInputDialog(menu2));
                     switch (opcao) {
                         case 1:
-                            listaapartamento.ordenarValor();
+                            List<Imovel> listaordenadaporvalor = listaapartamento.ordenarValor();
                             DefaultListModel modelList = new DefaultListModel();
-
-                            List<Imovel> imovel = listaapartamento.getLista();
-
-                            for (Imovel imovel1 : imovel) {
+                            if(listaordenadaporvalor == null){
+                                JOptionPane.showMessageDialog(null, "Não encontrado.");
+                            }else{
+                            for (Imovel imovel1 : listaordenadaporvalor) {
                                 modelList.addElement(imovel1.toString());
                             }
-                            jListListaApartamento.setModel(modelList);
+                            jListListaApartamento.setModel(modelList);}
                             break;
                         case 2:
-                            listaapartamento.ordenarCodigo();
+                            List<Imovel> listaordenadaporcodigo = listaapartamento.ordenarCodigo();
                             DefaultListModel modelList1 = new DefaultListModel();
+                            if(listaordenadaporcodigo == null){
+                                JOptionPane.showMessageDialog(null, "Não encontrado.");
+                            }
+                            else{
+                            
 
-                            List<Imovel> imovel2 = listaapartamento.getLista();
-
-                            for (Imovel imovelx : imovel2) {
+                            for (Imovel imovelx : listaordenadaporcodigo) {
                                 modelList1.addElement(imovelx.toString());
                             }
-                            jListListaApartamento.setModel(modelList1);
+                            jListListaApartamento.setModel(modelList1);}
                             break;
                         case 3:
-                            listaapartamento.ordenarArea();
+                            
+                            List<Imovel> listaordenadaporarea = listaapartamento.ordenarArea();
                             DefaultListModel modelListx = new DefaultListModel();
+                            if(listaordenadaporarea == null){
+                                                                JOptionPane.showMessageDialog(null, "Não encontrado.");
 
-                            List<Imovel> imovelI = listaapartamento.getLista();
-
-                            for (Imovel imovel3 : imovelI) {
+                            }
+                            else{
+                            for (Imovel imovel3 : listaordenadaporarea) {
                                 modelListx.addElement(imovel3.toString());
                             }
-                            jListListaApartamento.setModel(modelListx);
+                            jListListaApartamento.setModel(modelListx);}
                             break;
                         case 4:
                             break;
