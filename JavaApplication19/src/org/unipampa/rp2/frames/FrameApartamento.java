@@ -10,7 +10,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -648,6 +647,37 @@ public class FrameApartamento extends javax.swing.JFrame  {
                             JOptionPane.showMessageDialog(null, "Digite uma opção válida.");
                             break;
                     }
+                case 2:
+                    String menu3 = "Selecione um tipo de pesquisa:\n\n1- Por Bairro\n2- Por Valor\n3- Voltar";
+                    int opcao1 = Integer.valueOf(JOptionPane.showInputDialog(menu3));
+                switch(opcao1){
+                    case 1:
+                        String bairro = String.valueOf(JOptionPane.showInputDialog("Digite o bairro desejado:"));
+                         listaapartamento.pesquisaBairro(bairro);
+                            DefaultListModel modelListx = new DefaultListModel();
+
+                            List<Imovel> imovelI = listaapartamento.getLista();
+
+                            for (Imovel imovel3 : imovelI) {
+                                modelListx.addElement(imovel3.toString());
+                            }
+                            jListListaApartamento.setModel(modelListx);
+                            
+                            break;
+                    case 2:
+                        double valor = Double.valueOf(JOptionPane.showInputDialog("Digite o valor desejado:"));
+                         listaapartamento.pesquisaValor(valor);
+                            DefaultListModel modelList5 = new DefaultListModel();
+
+                            List<Imovel> imovelT = listaapartamento.getLista();
+
+                            for (Imovel imovel3 : imovelT) {
+                                modelList5.addElement(imovel3.toString());
+                            }
+                            jListListaApartamento.setModel(modelList5);
+                            
+                            break;
+                }
             }
         }
 
