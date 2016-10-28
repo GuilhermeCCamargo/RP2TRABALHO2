@@ -5,7 +5,6 @@
  */
 package org.unipampa.rp2.frames;
 
-import java.util.ArrayList;
 import org.unipampa.rp2.tiposimoveis.Tipo;
 import java.util.List;
 import javax.swing.DefaultListModel;
@@ -41,41 +40,10 @@ public class FrameCasa extends javax.swing.JFrame {
 
         jTabbedPaneCasa.setEnabledAt(1, false);
         jTabbedPaneCasa.setEnabledAt(0, true);
-
         for (Tipo t : Tipo.values()) {
             jComboBoxTipo.addItem(t.getTipo());
         }
 
-    }
-
-    /**
-     * Retorna true caso consiga preencher os campos com o objeto do codigo
-     * selecionado e false caso contrário
-     *
-     * @param cod
-     * @return
-     */
-    public boolean preencherCampos(int cod) {
-
-        Casa c = (Casa) listaCasa.consultar(cod);
-        if (c != null) {
-            jTextFieldNumero.setText(String.valueOf(c.getNumero()));
-            jTextFieldBairro.setText(c.getBairro());
-            jTextFieldCidade.setText(c.getCidade());
-            jTextFieldDescricao.setText(c.getDescricao());
-            jTextFieldAreaTotal.setText(String.valueOf(c.getAreaTotal()));
-            jTextFieldValor.setText(String.valueOf(c.getValor()));
-            jTextFieldLogradouro.setText(c.getLogradouro());
-            jTextFieldAC.setText(String.valueOf(c.getAreaConstruida()));
-            jTextFieldNQ.setText(String.valueOf(c.getNQuartos()));
-            jTextFieldNVG.setText(String.valueOf(c.getNVagasGaragem()));
-            jTextFieldAnoC.setText(String.valueOf(c.getAnoConstrucao()));
-
-            return true;
-        } else {
-            JOptionPane.showMessageDialog(null, "ERRO 03 - Imóvel não encontrado");
-            return false;
-        }
     }
 
     /**
@@ -135,6 +103,11 @@ public class FrameCasa extends javax.swing.JFrame {
         jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCodigoActionPerformed(evt);
+            }
+        });
+        jTextFieldCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldCodigoKeyTyped(evt);
             }
         });
 
@@ -247,7 +220,7 @@ public class FrameCasa extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButtonVoltar))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jTabbedPaneCasa.addTab("Consultar", jPanel2);
@@ -263,6 +236,16 @@ public class FrameCasa extends javax.swing.JFrame {
         jLabelNumero.setToolTipText("");
 
         jTextFieldNumero.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldNumero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNumeroActionPerformed(evt);
+            }
+        });
+        jTextFieldNumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNumeroKeyTyped(evt);
+            }
+        });
 
         jLabelBairro.setText(" Bairro:");
 
@@ -283,6 +266,16 @@ public class FrameCasa extends javax.swing.JFrame {
         jLabelValor.setText(" Valor (R$):");
 
         jTextFieldValor.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldValor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldValorActionPerformed(evt);
+            }
+        });
+        jTextFieldValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldValorKeyTyped(evt);
+            }
+        });
 
         jLabelTipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTipo.setText("Tipo:");
@@ -613,33 +606,23 @@ public class FrameCasa extends javax.swing.JFrame {
 
     private void jButtonBuscarCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarCasaActionPerformed
         // TODO add your handling code here:
-        String indice = jComboBoxPesquisa.getSelectedItem().toString();
-        switch (indice) {
-            case "Codigo":
-                if (jTextFieldCodigo.getText().trim().equals("")) {
-                    listarCod(-1);
-                } else {
-                    listarCod(Integer.parseInt(jTextFieldCodigo.getText().trim()));
-                }
-                break;
-            case "Valor":
-                if (jTextFieldCodigo.getText().trim().equals("")) {
-                    listarValor(-1);
-                } else {
-                    listarValor(Double.parseDouble(jTextFieldCodigo.getText().trim()));
-                }
-                break;
-            case "Bairro":
-                listarBairro(jTextFieldCodigo.getText().trim());
-                break;
-
-        }
-
         if (jTextFieldCodigo.getText().trim().equals("")) {
-            listarCod(-1);
+            listar();
         } else {
-            listarCod(Integer.parseInt(jTextFieldCodigo.getText().trim()));
+            switch (jComboBoxPesquisa.getSelectedItem().toString()) {
+                case "Codigo":
+                    listarCod(Integer.parseInt(jTextFieldCodigo.getText().trim()));
+                    break;
+                case "Valor":
+                    listarValor(Double.parseDouble(jTextFieldCodigo.getText().trim()));
+                    break;
+                case "Bairro":
+                    listarBairro(jTextFieldCodigo.getText().trim());
+                    break;
+
+            }
         }
+
     }//GEN-LAST:event_jButtonBuscarCasaActionPerformed
 
     private void jTextFieldNQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNQActionPerformed
@@ -711,16 +694,16 @@ public class FrameCasa extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBoxPesquisaActionPerformed
 
     private void jComboBoxPesquisaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxPesquisaItemStateChanged
-        jTextFieldCodigo.setText("");
+
     }//GEN-LAST:event_jComboBoxPesquisaItemStateChanged
 
     private void jButtonOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrdenarActionPerformed
-        String [] textMessages = {"Codigo","Valor", "Area", "Cancelar"}; 
-        int x = JOptionPane.showOptionDialog(null, "Texto", "Título",   
-                JOptionPane.WHEN_IN_FOCUSED_WINDOW, JOptionPane.QUESTION_MESSAGE,   
+        String[] textMessages = {"Codigo", "Valor", "Area", "Cancelar"};
+        int x = JOptionPane.showOptionDialog(null, "Texto", "Título",
+                JOptionPane.WHEN_IN_FOCUSED_WINDOW, JOptionPane.QUESTION_MESSAGE,
                 null, textMessages, null);
-                DefaultListModel lista = new DefaultListModel();
-        switch(x){
+        DefaultListModel lista = new DefaultListModel();
+        switch (x) {
             case 0:
                 listaCasa.ordenarCodigo();
                 listarCod(-1);
@@ -735,6 +718,28 @@ public class FrameCasa extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_jButtonOrdenarActionPerformed
+
+    private void jTextFieldCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCodigoKeyTyped
+
+    }//GEN-LAST:event_jTextFieldCodigoKeyTyped
+
+    private void jTextFieldValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorKeyTyped
+        // TODO add your handling code here:
+        soDouble(evt, jTextFieldValor.getText());
+    }//GEN-LAST:event_jTextFieldValorKeyTyped
+
+    private void jTextFieldValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldValorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldValorActionPerformed
+
+    private void jTextFieldNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNumeroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNumeroActionPerformed
+
+    private void jTextFieldNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroKeyTyped
+        // TODO add your handling code here:
+        soNumeros(evt);
+    }//GEN-LAST:event_jTextFieldNumeroKeyTyped
 
     /**
      * Main para teste unitário
@@ -763,6 +768,10 @@ public class FrameCasa extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(FrameCasa.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -822,92 +831,68 @@ public class FrameCasa extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     /**
+     * Insere tudo na lista
+     *
+     *
+     */
+    public void listar() {
+        DefaultListModel listModel = new DefaultListModel();
+        List<Imovel> casa;
+        casa = listaCasa.getLista();//Atribui a lista da classe Lista a variável
+        for (Imovel imovel : casa) {
+            listModel.addElement(imovel.toString());
+        }
+
+        jListFrameCasa.setModel(listModel);
+    }
+
+    /**
      * Recebe o codigo e adiciona a lista a monografia selecionada
      *
      * @param cod
      */
     public void listarCod(int cod) {
         DefaultListModel listModel = new DefaultListModel();
-        List<Imovel> casa;
-        casa = listaCasa.getLista();//Atribui a lista da classe Lista a variável
-        if (cod == -1) {
-            //Percorre a lista e insere os resultados em listModel(Lista padrão)
-            for (Imovel home : casa) {
-                listModel.addElement(home.toString());
-            }
-
+        Imovel casa = listaCasa.consultar(cod);
+        if (casa == null) {
+            JOptionPane.showMessageDialog(null, "Não encontrado");
         } else {
-
-            Imovel home = listaCasa.consultar(cod);
-            if (home != null) {
-                listModel.addElement(home.toString());
-            }
-
+            listModel.addElement(casa.toString());
         }
 
         jListFrameCasa.setModel(listModel);//Mudar a lista
     }
 
     //Necessita de refatoração após a implementação dos métodos
-    public List<Imovel> listarValor(double valor) {
+    public void listarValor(double valor) {
         DefaultListModel listModel = new DefaultListModel();
-        List<Imovel> casa;
-        List<Imovel> casaValor = new ArrayList();
-               if (valor == -1) {
- 
-        casa = listaCasa.getLista();
-            for (Imovel home : casa) {
-                casaValor.add(home);
-                listModel.addElement(home);
+        List<Imovel> casa = listaCasa.pesquisaValor(valor);
 
-            }
-            return casaValor;
+        if (casa == null) {
+            JOptionPane.showMessageDialog(null, "Não encontrado");
+
         } else {
-            casa = listaCasa.pesquisaValor(valor);
-
-            if (casa != null) {
-                for (Imovel home : casa) {
-                    casaValor.add(home);
-                    listModel.addElement(home);
-
-                }
-                return casaValor;
-            } else {
-                return null;
+            for (Imovel home : casa) {
+                listModel.addElement(home.toString());
             }
-
         }
 
+        jListFrameCasa.setModel(listModel);
     }
 
-    public List<Imovel> listarBairro(String bairro) {
+    public void listarBairro(String bairro) {
         DefaultListModel listModel = new DefaultListModel();
-        List<Imovel> casa;
-        List<Imovel> casaBairro = new ArrayList();
-        casa = listaCasa.getLista();
-        if (bairro.equals("")) {
-            for (Imovel home : casa) {
-                casaBairro.add(home);
-                listModel.addElement(home);
+        List<Imovel> casa = listaCasa.pesquisaBairro(bairro);
 
-            }
-            return casaBairro;
+        if (casa == null) {
+            JOptionPane.showMessageDialog(null, "Não encontrado");
         } else {
-            casa = listaCasa.pesquisaBairro(bairro);
-
-            if (casa != null) {
-                for (Imovel home : casa) {
-                    casaBairro.add(home);
-                    listModel.addElement(home);
-
-                }
-                return casaBairro;
-            } else {
-                return null;
+            for (Imovel home : casa) {
+                listModel.addElement(home.toString());
             }
-
         }
 
+        jListFrameCasa.setModel(listModel);
     }
 
     /**
@@ -926,6 +911,36 @@ public class FrameCasa extends javax.swing.JFrame {
         jTextFieldNVG.setText("");
         jTextFieldAnoC.setText("");
 
+    }
+
+    /**
+     * Retorna true caso consiga preencher os campos com o objeto do codigo
+     * selecionado e false caso contrário
+     *
+     * @param cod
+     * @return
+     */
+    public boolean preencherCampos(int cod) {
+
+        Casa c = (Casa) listaCasa.consultar(cod);
+        if (c != null) {
+            jTextFieldNumero.setText(String.valueOf(c.getNumero()));
+            jTextFieldBairro.setText(c.getBairro());
+            jTextFieldCidade.setText(c.getCidade());
+            jTextFieldDescricao.setText(c.getDescricao());
+            jTextFieldAreaTotal.setText(String.valueOf(c.getAreaTotal()));
+            jTextFieldValor.setText(String.valueOf(c.getValor()));
+            jTextFieldLogradouro.setText(c.getLogradouro());
+            jTextFieldAC.setText(String.valueOf(c.getAreaConstruida()));
+            jTextFieldNQ.setText(String.valueOf(c.getNQuartos()));
+            jTextFieldNVG.setText(String.valueOf(c.getNVagasGaragem()));
+            jTextFieldAnoC.setText(String.valueOf(c.getAnoConstrucao()));
+
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(null, "ERRO 03 - Imóvel não encontrado");
+            return false;
+        }
     }
 
     /**
@@ -966,4 +981,29 @@ public class FrameCasa extends javax.swing.JFrame {
         jButtonSalvar.setVisible(false);
     }
 
+    public void soNumeros(java.awt.event.KeyEvent evt) {
+        char aux = evt.getKeyChar();
+        if (!Character.isDigit(aux)) {
+            evt.consume();
+        }
+    }
+
+    public void soDouble(java.awt.event.KeyEvent evt, String text) {
+        char aux = evt.getKeyChar();
+        int tem = 0;
+        for (int i = 0; i < text.length(); i++) {
+            if(text.charAt(i) == '.'){
+                tem++;
+                break;
+            }
+        }
+        
+        if(aux =='.'){
+            if(tem != 0){
+                evt.consume();
+            }
+        }else if(!Character.isDigit(aux)){
+            evt.consume();
+        }
+    }
 }
