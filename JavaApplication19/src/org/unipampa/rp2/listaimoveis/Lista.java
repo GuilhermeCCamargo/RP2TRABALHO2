@@ -23,6 +23,7 @@ import org.unipampa.rp2.tiposimoveis.Casa;
 import org.unipampa.rp2.tiposimoveis.SalaComercial;
 import org.unipampa.rp2.tiposimoveis.Tipo;
 import org.unipampa.rp2.tiposimoveis.Terreno;
+import org.unipampa.rp2.tiposimoveis.Chacara;
 
 //</editor-fold>
 /**
@@ -203,7 +204,11 @@ public class Lista implements ListaImoveis {
                     }
                     break;
                 case "Chacara":
-
+                    try {
+                        lerChacara();
+                    } catch (IOException ex) {
+                        Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                     break;
                 default:
                     return false;
@@ -506,7 +511,46 @@ public class Lista implements ListaImoveis {
 
     //</editor-fold>
     
-    //</editor-fold>
+    //<editor-fold defaultstate="collapsed" desc="Método para ler Chácaras">
+    private void lerChacara() throws FileNotFoundException, IOException {
+        int cod = 0, ano = 0, numero = 0, nroQuartos = 0, distanciaCidade = 0;
+        double valor = 0, areaTotal = 0, areaConstruida = 0;
+        String cidade = " ", bairro = " ", logradouro = " ", descricao = " ", dados;
+        int aux = 0;
+        String[] line;
+
+        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
+
+        dados = br.readLine();
+
+        while (dados != null) {
+
+            line = dados.split(";");
+            
+            cod = Integer.parseInt(line[0]);
+            numero = Integer.parseInt(line[1]);
+            areaTotal = Double.parseDouble(line[2]);
+            valor = Double.parseDouble(line[3]);
+            logradouro = line[4];
+            bairro = line[5];
+            cidade = line[6];
+            descricao = line[7];
+            nroQuartos = Integer.parseInt(line[8]);
+            areaConstruida = Double.parseDouble(line[9]);
+            ano = Integer.parseInt(line[10]);
+            distanciaCidade = Integer.parseInt(line[11]);
+
+            Chacara chacara = new Chacara(cod,numero, valor, cidade, bairro, nroQuartos, areaTotal, areaConstruida, ano, distanciaCidade, logradouro, descricao);
+
+            this.lista.add(chacara);
+
+            dados = br.readLine();
+
+        }
+
+        br.close();
+    }
+//</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Arquivos Extras (Gerenciamento do Código)">
     /**
