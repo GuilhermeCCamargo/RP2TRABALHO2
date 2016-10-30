@@ -262,6 +262,11 @@ public class FrameCasa extends javax.swing.JFrame {
         jLabelAreaTotal.setText(" Área Total (m²):");
 
         jTextFieldAreaTotal.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldAreaTotal.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAreaTotalKeyTyped(evt);
+            }
+        });
 
         jLabelValor.setText(" Valor (R$):");
 
@@ -294,6 +299,11 @@ public class FrameCasa extends javax.swing.JFrame {
                 jTextFieldACActionPerformed(evt);
             }
         });
+        jTextFieldAC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldACKeyTyped(evt);
+            }
+        });
 
         jLabelNQ.setText("Número de Quartos:");
 
@@ -301,6 +311,11 @@ public class FrameCasa extends javax.swing.JFrame {
         jTextFieldNQ.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldNQActionPerformed(evt);
+            }
+        });
+        jTextFieldNQ.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNQKeyTyped(evt);
             }
         });
 
@@ -314,8 +329,18 @@ public class FrameCasa extends javax.swing.JFrame {
                 jTextFieldNVGActionPerformed(evt);
             }
         });
+        jTextFieldNVG.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNVGKeyTyped(evt);
+            }
+        });
 
         jTextFieldAnoC.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldAnoC.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAnoCKeyTyped(evt);
+            }
+        });
 
         jButtonVoltarAdicionar.setText("Voltar");
         jButtonVoltarAdicionar.addActionListener(new java.awt.event.ActionListener() {
@@ -724,8 +749,10 @@ public class FrameCasa extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCodigoKeyTyped
 
     private void jTextFieldValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorKeyTyped
-        // TODO add your handling code here:
-        soDouble(evt, jTextFieldValor.getText());
+        if(jComboBoxPesquisa.getSelectedItem().toString().equals("Codigo")){
+            soNumeros(evt);
+        }
+        
     }//GEN-LAST:event_jTextFieldValorKeyTyped
 
     private void jTextFieldValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldValorActionPerformed
@@ -740,6 +767,26 @@ public class FrameCasa extends javax.swing.JFrame {
         // TODO add your handling code here:
         soNumeros(evt);
     }//GEN-LAST:event_jTextFieldNumeroKeyTyped
+
+    private void jTextFieldAreaTotalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAreaTotalKeyTyped
+        soDouble(evt, jTextFieldAreaTotal.getText());
+    }//GEN-LAST:event_jTextFieldAreaTotalKeyTyped
+
+    private void jTextFieldNQKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNQKeyTyped
+        soNumeros(evt);
+    }//GEN-LAST:event_jTextFieldNQKeyTyped
+
+    private void jTextFieldACKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldACKeyTyped
+        soDouble(evt, jTextFieldAC.getText());
+    }//GEN-LAST:event_jTextFieldACKeyTyped
+
+    private void jTextFieldAnoCKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAnoCKeyTyped
+        soNumeros(evt);
+    }//GEN-LAST:event_jTextFieldAnoCKeyTyped
+
+    private void jTextFieldNVGKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNVGKeyTyped
+        soNumeros(evt);
+    }//GEN-LAST:event_jTextFieldNVGKeyTyped
 
     /**
      * Main para teste unitário
