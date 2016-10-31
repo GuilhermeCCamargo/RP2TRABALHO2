@@ -164,7 +164,9 @@ public class Chacara extends Imovel {
     
     @Override
     public String writeFile(){
-        return getCod()+";"+getNumero()+";"+getAreaTotal()+";"+getValor()+";"+getLogradouro()+";"+getBairro()+";"+
+        String dados="";
+        dados=getCod()+";"+getNumero()+";"+getAreaTotal()+";"+getValor()+";"+getLogradouro()+";"+getBairro()+";"+
         getCidade()+";"+getDescricao()+";"+getNroQuartos()+";"+getAreaConstruida()+";"+getAno()+";"+getDistanciaCidade()+";\n";
+        return dados;
     }
 }

@@ -5,7 +5,10 @@
  */
 package org.unipampa.rp2.frames;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import org.unipampa.rp2.listaimoveis.Lista;
@@ -17,10 +20,13 @@ import org.unipampa.rp2.tiposimoveis.Imovel;
  * @author Windows 7 Home Basic
  */
 public class FrameChacara extends javax.swing.JFrame {
+
     private Lista listaChacara;
     private List<Imovel> xacara;
+
     /**
      * Creates new form FrameChacara
+     *
      * @param listaChacara
      */
     public FrameChacara(Lista listaChacara) {
@@ -28,17 +34,19 @@ public class FrameChacara extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setTitle("Imobiliária - Chacára");
         this.listaChacara = listaChacara;
+        this.listaChacara.lerArquivo();
+        jTabbedPane1.setEnabledAt(1, false);
+        jTabbedPane1.setEnabledAt(2, false);
+
     }
 
-    private FrameChacara() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
+
     /**
      * Método para preencher os campos quando for editar uma chacara
+     *
      * @param cod - inteiro que está no jList
      */
-    private int getCod(String cod){
+    private int getCod(String cod) {
         int end = 0;
         for (int i = 9; i < cod.length(); i++) {
             if (cod.charAt(i) == '-') {
@@ -50,7 +58,7 @@ public class FrameChacara extends javax.swing.JFrame {
         cod = cod.substring(8, end);
         return Integer.parseInt(cod);
     }
-    
+
     public boolean preencherCampos(int chacara) {
         Chacara cha = (Chacara) listaChacara.consultar(chacara);
 
@@ -75,7 +83,6 @@ public class FrameChacara extends javax.swing.JFrame {
     /**
      * Método para listar todos os dados dentro da jList
      */
-    
     public void listar(int cod) {
         DefaultListModel listChacara = new DefaultListModel();
 
@@ -93,10 +100,9 @@ public class FrameChacara extends javax.swing.JFrame {
     }
 
     /**
-     * Método usado para limpar todos os campos, tanto após uma inclusão quanto após
-     * uma edição.
+     * Método usado para limpar todos os campos, tanto após uma inclusão quanto
+     * após uma edição.
      */
-    
     private void limpar() {
         jTextFieldLogradouro.setText("");
         jTextFieldAno.setText("");
@@ -131,6 +137,7 @@ public class FrameChacara extends javax.swing.JFrame {
         jButtonEditarChacara = new javax.swing.JButton();
         jButtonExcluirChacara = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButtonIncluir = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -191,6 +198,11 @@ public class FrameChacara extends javax.swing.JFrame {
         });
 
         jComboBoxOpcoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigo", "Valor", "Bairro" }));
+        jComboBoxOpcoes.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxOpcoesItemStateChanged(evt);
+            }
+        });
 
         jButtonPesqConfirm.setText("BUSCAR");
         jButtonPesqConfirm.addActionListener(new java.awt.event.ActionListener() {
@@ -229,6 +241,13 @@ public class FrameChacara extends javax.swing.JFrame {
             }
         });
 
+        jButtonIncluir.setText("Incluir Chacara");
+        jButtonIncluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonIncluirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -242,19 +261,18 @@ public class FrameChacara extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButtonBotaoPesq2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonEditarChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonExcluirChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(30, 30, 30)))
+                            .addComponent(jButtonExcluirChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonEditarChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jTextFieldCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonPesqConfirm)
-                        .addGap(4, 4, 4))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 343, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))))
+                        .addComponent(jButtonPesqConfirm))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(4, 4, 4))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,17 +283,19 @@ public class FrameChacara extends javax.swing.JFrame {
                     .addComponent(jTextFieldCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonPesqConfirm))
                 .addGap(44, 44, 44)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonBotaoPesq2)
-                        .addGap(28, 28, 28)
+                        .addGap(42, 42, 42)
                         .addComponent(jButtonEditarChacara)
-                        .addGap(29, 29, 29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButtonExcluirChacara)
-                        .addGap(35, 35, 35)
-                        .addComponent(jButton1)))
-                .addContainerGap(63, Short.MAX_VALUE))
+                        .addGap(39, 39, 39)
+                        .addComponent(jButton1)
+                        .addGap(43, 43, 43)
+                        .addComponent(jButtonIncluir)))
+                .addContainerGap(70, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Consultar", jPanel1);
@@ -302,9 +322,45 @@ public class FrameChacara extends javax.swing.JFrame {
 
         jLabel11.setText("Descrição");
 
+        jTextFieldDistancia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDistanciaKeyTyped(evt);
+            }
+        });
+
+        jTextFieldValor.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldValorKeyTyped(evt);
+            }
+        });
+
+        jTextFieldArea.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAreaKeyTyped(evt);
+            }
+        });
+
+        jTextFieldAno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAnoKeyTyped(evt);
+            }
+        });
+
+        jTextFieldQuartos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldQuartosKeyTyped(evt);
+            }
+        });
+
         jTextFieldLogradouro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldLogradouroActionPerformed(evt);
+            }
+        });
+
+        jTextFieldNumero.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNumeroKeyTyped(evt);
             }
         });
 
@@ -397,9 +453,9 @@ public class FrameChacara extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(jTextFieldLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel9)
@@ -453,6 +509,11 @@ public class FrameChacara extends javax.swing.JFrame {
         });
 
         jButtonVoltardeta.setText("VOLTAR");
+        jButtonVoltardeta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltardetaActionPerformed(evt);
+            }
+        });
 
         jLabel24.setText("*Campo indiferente para cadastro de uma Chácara");
 
@@ -606,23 +667,44 @@ public class FrameChacara extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonPesqConfirmActionPerformed
 
     private void jButtonEditarChacaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarChacaraActionPerformed
-        // TODO add your handling code here:
-        preencherCampos(Integer.parseInt(jTextFieldCampo.getText()));
-        jButtonSave1.setVisible(true);
-        jTabbedPane1.setSelectedIndex(2); //Possivel erro
+        String cod = JOptionPane.showInputDialog("Informe o código");
+        boolean error = false;
+        if (cod == null) {
+            error = true;
+        } else if (cod.equals("")) {
+            JOptionPane.showMessageDialog(null, "Informe um código!");
+            error = true;
+        } else {
+            for (int i = 0; i < cod.length(); i++) {
+                if (!(Character.isDigit(cod.charAt(i)))) {
+                    JOptionPane.showMessageDialog(null, "Informe apenas números inteiros.");
+                    error = true;
+                    break;
+                }
+            }
+        }
+        if (!error) {
+            preencherCampos(Integer.parseInt(cod));
+            jTabbedPane1.setEnabledAt(0, false);
+            jTabbedPane1.setEnabledAt(2, true);
+            jTabbedPane1.setSelectedIndex(2);
+            jButtonSave1.setVisible(true);
+            jTabbedPane1.setSelectedIndex(2);
+        }
+
     }//GEN-LAST:event_jButtonEditarChacaraActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String [] textMessages = {"Código", "Valor", "Área", "Cancelar"};
-        int x = JOptionPane.showOptionDialog(null, "Escolha uma opção", "Ordenação",   
-                JOptionPane.WHEN_IN_FOCUSED_WINDOW, JOptionPane.QUESTION_MESSAGE,   
+        String[] textMessages = {"Código", "Valor", "Área", "Cancelar"};
+        int x = JOptionPane.showOptionDialog(null, "Escolha uma opção", "Ordenação",
+                JOptionPane.WHEN_IN_FOCUSED_WINDOW, JOptionPane.QUESTION_MESSAGE,
                 null, textMessages, null);
-                
+
         List<Imovel> aux = null;
-        boolean troca=false;        
+        boolean troca = false;
         DefaultListModel lista = new DefaultListModel();
-        switch(x){
+        switch (x) {
             case 0:
                 aux = listaChacara.ordenarCodigo();
                 troca = true;
@@ -636,7 +718,7 @@ public class FrameChacara extends javax.swing.JFrame {
                 troca = true;
                 break;
         }
-        if(troca){
+        if (troca) {
             for (Imovel imovel : aux) {
                 lista.addElement(imovel.toString());
             }
@@ -661,17 +743,31 @@ public class FrameChacara extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldCampoActionPerformed
 
     private void jButtonBotaoPesq2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBotaoPesq2ActionPerformed
-        // TODO add your handling code here:
-        boolean erro = false;
-        int aux = Integer.valueOf(JOptionPane.showInputDialog("Informe o código a ser buscado"));
-        preencherCampos(aux);
-        if(preencherCampos(aux)==false){
-            JOptionPane.showMessageDialog(null, "Por favor, digite um numero válido.");
-        }   else {
-            
-            preencherCampos(aux);
-        }     
-        jButtonVoltardeta.setVisible(false);
+        String cod = JOptionPane.showInputDialog("Informe o código");
+        boolean error = false;
+        if (cod == null) {
+            error = true;
+        } else if (cod.equals("")) {
+            JOptionPane.showMessageDialog(null, "Informe um código!");
+            error = true;
+        } else {
+            for (int i = 0; i < cod.length(); i++) {
+                if (!(Character.isDigit(cod.charAt(i)))) {
+                    JOptionPane.showMessageDialog(null, "Informe apenas números inteiros.");
+                    error = true;
+                    break;
+                }
+            }
+        }
+        if (!error) {
+            if (preencherCampos(Integer.parseInt(cod))) {
+                jTabbedPane1.setEnabledAt(0, false);
+                jTabbedPane1.setEnabledAt(2, true);
+                jTabbedPane1.setSelectedIndex(2);
+                jButtonSave1.setVisible(false);
+            }
+
+        }
     }//GEN-LAST:event_jButtonBotaoPesq2ActionPerformed
 
     private void jButtonExcluirChacaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirChacaraActionPerformed
@@ -696,42 +792,64 @@ public class FrameChacara extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Imóvel não encontrado.");
                     } else {
                         JOptionPane.showMessageDialog(null, "Imóvel deletado com sucesso.");
+                        listaChacara.escreverArquivo();
+                    }
+                    try {
+                        Lista.startCodigo();
+                    } catch (IOException ex) {
+                        Logger.getLogger(FrameChacara.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
-            
-                //if(!(listaChacara.escreverArquivo()))
-                    //JOptionPane.showMessageDialog(null, "Não foi possível gravar o arquivo");
-                
-                //listar(false, 0);
-            
+
             } else {
                 JOptionPane.showMessageDialog(null, "Informe um número inteiro para prosseguir.");
             }
-                        
+
         }
     }//GEN-LAST:event_jButtonExcluirChacaraActionPerformed
 
     private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
-        // TODO add your handling code here:
-        Chacara cha = new Chacara(Integer.parseInt(jTextFieldNumero.getText().trim()),
-                Double.parseDouble(jTextFieldValor.getText().trim()),
-                jTextFieldCidade.getText().trim(),
-                jTextFieldBairro.getText().trim(),
-                Integer.parseInt(jTextFieldQuartos.getText().trim()),
-                Double.parseDouble(jTextFieldArea.getText().trim()),
-                Integer.parseInt(jTextFieldAno.getText().trim()),
-                Integer.parseInt(jTextFieldDistancia.getText().trim()),
-                jTextFieldLogradouro.getText().trim(),
-                jTextFieldDesc.getText().trim());
-               
 
-            if(listaChacara.incluir(cha) == false){
-            JOptionPane.showMessageDialog(null,"Não foi possível salvar.");
-        }else{
-            JOptionPane.showMessageDialog(null, "Salvo com sucesso.");
-             listaChacara.escreverArquivo();
+        if (jTextFieldNumero.getText().equals("")
+                || jTextFieldValor.getText().equals("")
+                || jTextFieldBairro.getText().equals("")
+                || jTextFieldQuartos.getText().equals("")
+                || jTextFieldArea.getText().equals("")
+                || jTextFieldAno.getText().equals("")
+                || jTextFieldDistancia.getText().equals("")
+                || jTextFieldLogradouro.getText().equals("")
+                || jTextFieldDesc.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Informe todos os campos!");
+        } else {
+            Chacara cha = new Chacara(Integer.parseInt(jTextFieldNumero.getText().trim()),
+                    Double.parseDouble(jTextFieldValor.getText().trim()),
+                    jTextFieldCidade.getText().trim(),
+                    jTextFieldBairro.getText().trim(),
+                    Integer.parseInt(jTextFieldQuartos.getText().trim()),
+                    Double.parseDouble(jTextFieldArea.getText().trim()),
+                    Integer.parseInt(jTextFieldAno.getText().trim()),
+                    Integer.parseInt(jTextFieldDistancia.getText().trim()),
+                    jTextFieldLogradouro.getText().trim(),
+                    jTextFieldDesc.getText().trim());
+
+            if (listaChacara.incluir(cha) == false) {
+                JOptionPane.showMessageDialog(null, "Não foi possível salvar.");
+            } else {
+                JOptionPane.showMessageDialog(null, "Salvo com sucesso.");
+                try {
+                    listaChacara.gravarUltimoCod(cha.getCod());
+                } catch (IOException ex) {
+                    Logger.getLogger(FrameChacara.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                listaChacara.escreverArquivo();
+            }
+            limpar();
+            jTabbedPane1.setEnabledAt(1, false);
+            jTabbedPane1.setEnabledAt(0, true);
+            jTabbedPane1.setSelectedIndex(0);
         }
-        limpar();
+
+
     }//GEN-LAST:event_jButtonSaveActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -739,11 +857,21 @@ public class FrameChacara extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(0);
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(0, true);
+        limpar();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButtonSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSave1ActionPerformed
-        // TODO add your handling code here:
-        //Declarando as variaveis que irao armazenar os valores do objeto Chacara
+        if (jTextFieldNumero.getText().equals("")
+                || jTextFieldValor.getText().equals("")
+                || jTextFieldBairro.getText().equals("")
+                || jTextFieldQuartos.getText().equals("")
+                || jTextFieldArea.getText().equals("")
+                || jTextFieldAno.getText().equals("")
+                || jTextFieldDistancia.getText().equals("")
+                || jTextFieldLogradouro.getText().equals("")
+                || jTextFieldDesc.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Informe todos os campos!");
+        } else {
             double areaConstruida;
             int distanciaCidade;
             int ano;
@@ -754,8 +882,7 @@ public class FrameChacara extends javax.swing.JFrame {
             String descricao;
             String logradouro;
             double valor;
-            
-            //Atribuindo os valores dos campos às variaveis
+
             areaConstruida = Double.parseDouble(jTextFieldAreaEdit.getText().trim());
             distanciaCidade = Integer.parseInt(jTextFieldDistanciaEditar.getText().trim());
             ano = Integer.parseInt(jTextFieldAnoEdit.getText().trim());
@@ -766,25 +893,66 @@ public class FrameChacara extends javax.swing.JFrame {
             descricao = jTextFieldDescEdit.getText().trim();
             logradouro = jTextFieldLogradouroEdit.getText().trim();
             valor = Double.parseDouble(jTextFieldValorEdit.getText().trim());
-            
+
             //Atribuindo todos os valores a Chacara referenciado como objeto
-                
-            Chacara objeto = new Chacara (numero, valor, cidade, bairro, nroQuartos, areaConstruida, ano, distanciaCidade, logradouro, descricao);
-            
+            Chacara objeto = new Chacara(numero, valor, cidade, bairro, nroQuartos, areaConstruida, ano, distanciaCidade, logradouro, descricao);
+
             int codigo;
             codigo = Integer.parseInt(jTextFieldCampo.getText());//Recebendo o código do objeto
-            
+
             //Salvando objeto editado na Lista 
-            if(listaChacara.editar(codigo, objeto)){
-                JOptionPane.showMessageDialog(null,"Imóvel editado com sucesso.");
+            if (listaChacara.editar(codigo, objeto)) {
+                JOptionPane.showMessageDialog(null, "Imóvel editado com sucesso.");
                 listaChacara.escreverArquivo();
                 limpar();
-            }else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Objeto não pode ser editado.");
                 limpar();
-            
+
+            }
         }
     }//GEN-LAST:event_jButtonSave1ActionPerformed
+
+    private void jTextFieldDistanciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDistanciaKeyTyped
+        soDouble(evt, jTextFieldDistancia.getText());
+    }//GEN-LAST:event_jTextFieldDistanciaKeyTyped
+
+    private void jTextFieldValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorKeyTyped
+        soDouble(evt, jTextFieldValor.getText());
+    }//GEN-LAST:event_jTextFieldValorKeyTyped
+
+    private void jTextFieldAreaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAreaKeyTyped
+        soDouble(evt, jTextFieldArea.getText());
+    }//GEN-LAST:event_jTextFieldAreaKeyTyped
+
+    private void jTextFieldAnoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAnoKeyTyped
+        soNumeros(evt);
+    }//GEN-LAST:event_jTextFieldAnoKeyTyped
+
+    private void jTextFieldQuartosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldQuartosKeyTyped
+        soNumeros(evt);
+    }//GEN-LAST:event_jTextFieldQuartosKeyTyped
+
+    private void jTextFieldNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroKeyTyped
+        soNumeros(evt);
+    }//GEN-LAST:event_jTextFieldNumeroKeyTyped
+
+    private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
+        jTabbedPane1.setEnabledAt(1, true);
+        jTabbedPane1.setEnabledAt(0, false);
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jButtonIncluirActionPerformed
+
+    private void jButtonVoltardetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltardetaActionPerformed
+        jTabbedPane1.setEnabledAt(2, false);
+        jTabbedPane1.setEnabledAt(0, true);
+        jTabbedPane1.setSelectedIndex(0);
+        jButtonSave1.setVisible(true);
+    }//GEN-LAST:event_jButtonVoltardetaActionPerformed
+
+    private void jComboBoxOpcoesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxOpcoesItemStateChanged
+        jTextFieldCampo.setText("");
+    }//GEN-LAST:event_jComboBoxOpcoesItemStateChanged
 
     /**
      * @param args the command line arguments
@@ -816,7 +984,7 @@ public class FrameChacara extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameChacara().setVisible(true);
+                new FrameChacara(null).setVisible(true);
             }
         });
     }
@@ -827,6 +995,7 @@ public class FrameChacara extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBotaoPesq2;
     private javax.swing.JButton jButtonEditarChacara;
     private javax.swing.JButton jButtonExcluirChacara;
+    private javax.swing.JButton jButtonIncluir;
     private javax.swing.JButton jButtonPesqConfirm;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JButton jButtonSave1;
@@ -885,103 +1054,99 @@ public class FrameChacara extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldValorEdit;
     // End of variables declaration//GEN-END:variables
 
-    private void listar(){
+    private void listar() {
         DefaultListModel modelList = new DefaultListModel();
-        
+
         List<Imovel> imovel = listaChacara.getLista();
-        
-        for(Imovel  imovel1: imovel){
+
+        for (Imovel imovel1 : imovel) {
             modelList.addElement(imovel1.toString());
         }
         jListChacaraLista.setModel(modelList);
     }
-    
-     /**
-     * Método que aceita a entrada somente de números inteiros dentro do campo
-     * de texto
-     *
-     * @param evt - evento de digitar no campo de texto através do teclado
-     */
-    private void soNumeros(java.awt.event.KeyEvent evt, boolean isDouble) {
-        char ch = evt.getKeyChar();
-        if (isDouble) {
-            if (Character.isDigit(ch) || ch == '.') {
 
-            } else {
-                evt.consume();
-            }
-        } else if (Character.isDigit(ch)) {
-
-        } else {
-            evt.consume();
-        }
-    }
-    
-    private boolean isDouble(javax.swing.JTextField campo) {
-        String texto = campo.getText().trim();
-
-        for (int i = 0; i < texto.length(); i++) {
-            if (texto.charAt(i) == '.') {
-                return false;
-            }
-        }
-
-        return true;
-    }
-    
-    private void listarCodigo(int cod){
+    private void listarCodigo(int cod) {
         DefaultListModel listModel = new DefaultListModel();
-        
+
         Imovel xa = listaChacara.consultar(cod);
-        
-        if (xa == null) {
+        if (cod == -1) {
+            listar();
+        } else if (xa == null) {
             JOptionPane.showMessageDialog(null, "Imóvel não encontrado!");
         } else {
             listModel.addElement(xa.toString());
+            jListChacaraLista.setModel(listModel);
         }
-        
-        jListChacaraLista.setModel(listModel);
 
     }
+
     /**
      * Método para pesquisar a partir do valor
-     * @param valor 
+     *
+     * @param valor
      */
-    private void listarValor(double valor){
+    private void listarValor(double valor) {
         DefaultListModel listModel = new DefaultListModel();
-        
+
         List<Imovel> aux = listaChacara.pesquisaValor(valor);
-        
-        if (aux == null) {
+        if (valor == -1) {
+            listar();
+        } else if (aux == null) {
             JOptionPane.showMessageDialog(null, "Nenhum imóvel não encontrado!");
         } else {
             for (Imovel imovel : aux) {
-                listModel.addElement(imovel.toString());    
+                listModel.addElement(imovel.toString());
             }
+            jListChacaraLista.setModel(listModel);
         }
-        
-        jListChacaraLista.setModel(listModel);    
+
     }
-    
+
     /**
      * Método para pesquisar a partir do bairro
+     *
      * @param bairro - String para a busca(bairro)
      */
-    private void listarBairro(String bairro){
+    private void listarBairro(String bairro) {
         DefaultListModel listModel = new DefaultListModel();
-        
+
         List<Imovel> chac = listaChacara.pesquisaBairro(bairro);
-        
-        if (chac == null) {
+        if (bairro.equals("")) {
+            listar();
+        } else if (chac == null) {
             JOptionPane.showMessageDialog(null, "Nenhum imóvel não encontrado!");
         } else {
             for (Imovel imovel : chac) {
-                listModel.addElement(imovel.toString());    
+                listModel.addElement(imovel.toString());
             }
+            jListChacaraLista.setModel(listModel);
         }
-        
-        jListChacaraLista.setModel(listModel);
 
     }
-}
 
+    public void soNumeros(java.awt.event.KeyEvent evt) {
+        char aux = evt.getKeyChar();
+        if (!Character.isDigit(aux)) {
+            evt.consume();
+        }
+    }
+
+    public void soDouble(java.awt.event.KeyEvent evt, String text) {
+        char aux = evt.getKeyChar();
+        int tem = 0;
+        for (int i = 0; i < text.length(); i++) {
+            if (text.charAt(i) == '.') {
+                tem++;
+                break;
+            }
+        }
+
+        if (aux == '.') {
+            if (tem != 0) {
+                evt.consume();
+            }
+        } else if (!Character.isDigit(aux)) {
+            evt.consume();
+        }
+    }
+}

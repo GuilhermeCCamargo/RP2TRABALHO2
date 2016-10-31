@@ -42,7 +42,7 @@ public class FrameCasa extends javax.swing.JFrame {
         this.listaCasa = listaCasa;
 
         try {
-            this.listaCasa.startCodigo();
+            Lista.startCodigo();
         } catch (IOException ex) {
 
         }

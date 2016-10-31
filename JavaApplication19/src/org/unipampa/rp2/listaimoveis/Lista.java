@@ -197,7 +197,7 @@ public class Lista implements ListaImoveis {
                         Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     break;
-                case "Chacara":
+                case "Chacaras":
                     try {
                         lerChacara();
                     } catch (IOException ex) {
@@ -509,7 +509,7 @@ public class Lista implements ListaImoveis {
         BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
 
         dados = br.readLine();
-
+        List<Imovel>listaAux= new ArrayList();
         while (dados != null) {
 
             line = dados.split(";");
@@ -529,11 +529,13 @@ public class Lista implements ListaImoveis {
 
             Chacara chacara = new Chacara(cod, numero, valor, cidade, bairro, nroQuartos, areaTotal, areaConstruida, ano, distanciaCidade, logradouro, descricao);
 
-            this.lista.add(chacara);
+            listaAux.add(chacara);
 
             dados = br.readLine();
 
         }
+        lista = listaAux;
+        
 
         br.close();
     }
