@@ -302,7 +302,7 @@ public class Lista implements ListaImoveis {
                 for (int i = 0; i < linha.length(); i++) {
                     if (linha.charAt(i) == ';') {
 
-                        //<editor-fold defaultstate="collapsed" desc="Switch Terreno">
+                        //<editor-fold defaultstate="collapsed" desc="Switch Casa">
                         switch (aux) {
                             case 0:
                                 cod = Integer.parseInt(convercao);
