@@ -67,7 +67,7 @@ public class FrameCasa extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jTabbedPaneCasa = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
-        jTextFieldCodigo = new javax.swing.JTextField();
+        jTextFieldBusca = new javax.swing.JTextField();
         jButtonBuscarCasa = new javax.swing.JButton();
         jButtonIncluir = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
@@ -109,14 +109,14 @@ public class FrameCasa extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextFieldCodigo.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldBusca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCodigoActionPerformed(evt);
+                jTextFieldBuscaActionPerformed(evt);
             }
         });
-        jTextFieldCodigo.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldBusca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldCodigoKeyTyped(evt);
+                jTextFieldBuscaKeyTyped(evt);
             }
         });
 
@@ -170,11 +170,6 @@ public class FrameCasa extends javax.swing.JFrame {
                 jComboBoxPesquisaItemStateChanged(evt);
             }
         });
-        jComboBoxPesquisa.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxPesquisaActionPerformed(evt);
-            }
-        });
 
         jButtonOrdenar.setText("Ordenar");
         jButtonOrdenar.addActionListener(new java.awt.event.ActionListener() {
@@ -200,10 +195,10 @@ public class FrameCasa extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jComboBoxPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldCodigo)
-                        .addGap(18, 18, 18)
+                        .addComponent(jTextFieldBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, Short.MAX_VALUE)
                         .addComponent(jButtonBuscarCasa, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 493, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 493, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -211,12 +206,13 @@ public class FrameCasa extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonBuscarCasa)
                     .addComponent(jComboBoxPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
                         .addComponent(jButtonIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDetalhes)
@@ -224,7 +220,7 @@ public class FrameCasa extends javax.swing.JFrame {
                         .addComponent(jButtonEditar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonExcluir)
-                        .addGap(134, 134, 134)
+                        .addGap(114, 114, 114)
                         .addComponent(jButtonOrdenar)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonVoltar))
@@ -271,6 +267,11 @@ public class FrameCasa extends javax.swing.JFrame {
         jLabelAreaTotal.setText(" Área Total (m²):");
 
         jTextFieldAreaTotal.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldAreaTotal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldAreaTotalFocusLost(evt);
+            }
+        });
         jTextFieldAreaTotal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldAreaTotalKeyTyped(evt);
@@ -412,7 +413,7 @@ public class FrameCasa extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelImovelLayout.createSequentialGroup()
-                                        .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                             .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(jTextFieldAC, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -557,7 +558,8 @@ public class FrameCasa extends javax.swing.JFrame {
                 || jTextFieldAnoC.getText().equals("")
                 || jTextFieldCidade.getText().equals("")
                 || jTextFieldBairro.getText().equals("")
-                || jTextFieldDescricao.getText().equals("")) {
+                || jTextFieldDescricao.getText().equals("")
+                || jTextFieldAreaTotal.getText().equals("")) {
 
             JOptionPane.showMessageDialog(null, "Por Favor informe todos os campos!");
 
@@ -573,6 +575,7 @@ public class FrameCasa extends javax.swing.JFrame {
                     Integer.parseInt(jTextFieldAnoC.getText()),
                     jTextFieldCidade.getText(), jTextFieldBairro.getText());
             casa.setDescricao(jTextFieldDescricao.getText().trim());
+            casa.setAreaTotal(Double.parseDouble(jTextFieldAreaTotal.getText()));
 
             if (listaCasa.incluir(casa)) {
                 limparCampos();
@@ -631,9 +634,9 @@ public class FrameCasa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
-    private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
+    private void jTextFieldBuscaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBuscaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCodigoActionPerformed
+    }//GEN-LAST:event_jTextFieldBuscaActionPerformed
 
     private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
         ativarCampos();
@@ -659,18 +662,18 @@ public class FrameCasa extends javax.swing.JFrame {
 
     private void jButtonBuscarCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarCasaActionPerformed
         // TODO add your handling code here:
-        if (jTextFieldCodigo.getText().trim().equals("")) {
+        if (jTextFieldBusca.getText().trim().equals("")) {
             listarCod(-1);
         } else {
             switch (jComboBoxPesquisa.getSelectedItem().toString()) {
                 case "Codigo":
-                    listarCod(Integer.parseInt(jTextFieldCodigo.getText().trim()));
+                    listarCod(Integer.parseInt(jTextFieldBusca.getText().trim()));
                     break;
                 case "Valor":
-                    listarValor(Double.parseDouble(jTextFieldCodigo.getText().trim()));
+                    listarValor(Double.parseDouble(jTextFieldBusca.getText().trim()));
                     break;
                 case "Bairro":
-                    listarBairro(jTextFieldCodigo.getText().trim());
+                    listarBairro(jTextFieldBusca.getText().trim());
                     break;
 
             }
@@ -774,12 +777,8 @@ public class FrameCasa extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
-    private void jComboBoxPesquisaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxPesquisaActionPerformed
-
-    }//GEN-LAST:event_jComboBoxPesquisaActionPerformed
-
     private void jComboBoxPesquisaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxPesquisaItemStateChanged
-
+        jTextFieldBusca.setText("");
     }//GEN-LAST:event_jComboBoxPesquisaItemStateChanged
 
     private void jButtonOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrdenarActionPerformed
@@ -804,11 +803,13 @@ public class FrameCasa extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonOrdenarActionPerformed
 
-    private void jTextFieldCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCodigoKeyTyped
+    private void jTextFieldBuscaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscaKeyTyped
         if (jComboBoxPesquisa.getSelectedItem().toString().equals("Codigo")) {
             soNumeros(evt);
+        }else if(jComboBoxPesquisa.getSelectedItem().toString().equals("Valor")){
+            soDouble(evt, jTextFieldBusca.getText());
         }
-    }//GEN-LAST:event_jTextFieldCodigoKeyTyped
+    }//GEN-LAST:event_jTextFieldBuscaKeyTyped
 
     private void jTextFieldValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorKeyTyped
         if (jComboBoxPesquisa.getSelectedItem().toString().equals("Codigo")) {
@@ -849,6 +850,13 @@ public class FrameCasa extends javax.swing.JFrame {
     private void jTextFieldNVGKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNVGKeyTyped
         soNumeros(evt);
     }//GEN-LAST:event_jTextFieldNVGKeyTyped
+
+    private void jTextFieldAreaTotalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAreaTotalFocusLost
+        // TODO add your handling code here:
+        if(jTextFieldAreaTotal.getText().trim().equals(".")){
+            jTextFieldAreaTotal.setText("");
+        }
+    }//GEN-LAST:event_jTextFieldAreaTotalFocusLost
 
     /**
      * Main para teste unitário
@@ -929,8 +937,8 @@ public class FrameCasa extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldAnoC;
     private javax.swing.JTextField jTextFieldAreaTotal;
     private javax.swing.JTextField jTextFieldBairro;
+    private javax.swing.JTextField jTextFieldBusca;
     private javax.swing.JTextField jTextFieldCidade;
-    private javax.swing.JTextField jTextFieldCodigo;
     private javax.swing.JTextField jTextFieldDescricao;
     private javax.swing.JTextField jTextFieldLogradouro;
     private javax.swing.JTextField jTextFieldNQ;

@@ -84,11 +84,11 @@
                               <Group type="102" attributes="0">
                                   <Component id="jComboBoxPesquisa" min="-2" pref="96" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="jTextFieldCodigo" max="32767" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldBusca" min="-2" pref="224" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="32767" attributes="0"/>
                                   <Component id="jButtonBuscarCasa" min="-2" pref="149" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane2" pref="493" max="32767" attributes="0"/>
+                              <Component id="jScrollPane2" min="-2" pref="493" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -99,13 +99,14 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldCodigo" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="jTextFieldBusca" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jButtonBuscarCasa" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jComboBoxPesquisa" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                                   <Component id="jButtonIncluir" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButtonDetalhes" min="-2" max="-2" attributes="0"/>
@@ -113,7 +114,7 @@
                                   <Component id="jButtonEditar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jButtonExcluir" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="134" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
                                   <Component id="jButtonOrdenar" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="jButtonVoltar" min="-2" max="-2" attributes="0"/>
@@ -126,10 +127,10 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JTextField" name="jTextFieldCodigo">
+                <Component class="javax.swing.JTextField" name="jTextFieldBusca">
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCodigoActionPerformed"/>
-                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldCodigoKeyTyped"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldBuscaActionPerformed"/>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuscaKeyTyped"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JButton" name="jButtonBuscarCasa">
@@ -211,7 +212,6 @@
                   </Properties>
                   <Events>
                     <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxPesquisaItemStateChanged"/>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBoxPesquisaActionPerformed"/>
                   </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -317,9 +317,9 @@
                                                       <Component id="jTextFieldValor" min="-2" pref="157" max="-2" attributes="0"/>
                                                   </Group>
                                                   <Group type="102" alignment="1" attributes="0">
-                                                      <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jComboBoxTipo" alignment="0" min="-2" pref="107" max="-2" attributes="0"/>
-                                                          <Component id="jTextFieldAC" alignment="0" min="-2" pref="103" max="-2" attributes="0"/>
+                                                      <Group type="103" groupAlignment="1" attributes="0">
+                                                          <Component id="jComboBoxTipo" min="-2" pref="107" max="-2" attributes="0"/>
+                                                          <Component id="jTextFieldAC" min="-2" pref="103" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -498,6 +498,7 @@
                         </Property>
                       </Properties>
                       <Events>
+                        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldAreaTotalFocusLost"/>
                         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAreaTotalKeyTyped"/>
                       </Events>
                     </Component>
