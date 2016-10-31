@@ -39,7 +39,6 @@ public class Lista implements ListaImoveis {
     private final String tipo;
 
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Construtor">
     /**
      * Construtor que pega qual o tipo para criar um arquivo a partir do mesmo
@@ -51,9 +50,7 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Implementados">
-    
     //<editor-fold defaultstate="collapsed" desc="Listas(Incluir, Editar, Excluir e Consultar)">
     /**
      * Método para que se possa cadastrar um imóvel
@@ -128,9 +125,7 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Manipulação de Arquivos(Escrever e Ler)">
-    
     //<editor-fold defaultstate="collapsed" desc="Arquivos padrões">
     /**
      * Método para escrever dentro de um documento no formato .csv
@@ -177,16 +172,15 @@ public class Lista implements ListaImoveis {
                         Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
                     }
                     break;
-                case "Apartamentos":
-            {
-                try {
-                    lerApartamento();
-                    return true;
-                } catch (IOException ex) {
-                    Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
+                case "Apartamentos": {
+                    try {
+                        lerApartamento();
+                        return true;
+                    } catch (IOException ex) {
+                        Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
+                    }
                 }
-            }
-                    break;
+                break;
                 case "Casas":
                     try {
                         lerCasas();
@@ -216,17 +210,17 @@ public class Lista implements ListaImoveis {
         }
         return false;
     }
-    
+
     //<editor-fold defaultstate="collapsed" desc="Método para leitura de um Terreno">
-    private void lerTerreno() throws FileNotFoundException, IOException{
-        int cod=0, numero=0;
-        double areaTotal=0, valor=0, dimensaoFrente=0, dimensaoLado=0;
-        String logradouro="", bairro="", cidade="", descricao="", linha="";
-        int aux=0;
-        String convercao="";
-        
+    private void lerTerreno() throws FileNotFoundException, IOException {
+        int cod = 0, numero = 0;
+        double areaTotal = 0, valor = 0, dimensaoFrente = 0, dimensaoLado = 0;
+        String logradouro = "", bairro = "", cidade = "", descricao = "", linha = "";
+        int aux = 0;
+        String convercao = "";
+
         BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
-        
+
         do {
             linha = br.readLine();
 
@@ -266,7 +260,7 @@ public class Lista implements ListaImoveis {
                             case 9:
                                 dimensaoLado = Double.parseDouble(convercao);
                                 break;
-                            
+
                         }
                         //</editor-fold>
 
@@ -277,8 +271,8 @@ public class Lista implements ListaImoveis {
                     }
                 }
 
-                Terreno terreno = new Terreno(cod ,numero ,valor,cidade,descricao,
-                        logradouro, areaTotal,bairro, dimensaoFrente,dimensaoLado);
+                Terreno terreno = new Terreno(cod, numero, valor, cidade, descricao,
+                        logradouro, areaTotal, bairro, dimensaoFrente, dimensaoLado);
 
                 aux = 0;
                 this.lista.add(terreno);
@@ -289,7 +283,7 @@ public class Lista implements ListaImoveis {
         br.close();
     }
 //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="Método para leitura de uma Casa">
     private void lerCasas() throws FileNotFoundException, IOException {
         String linha, logradouro = "", bairro = "", cidade = "", descricao = "";
@@ -371,20 +365,17 @@ public class Lista implements ListaImoveis {
         br.close();
     }
 
-
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Método para a leitura de um Apartamento">
-    
-    private void lerApartamento() throws FileNotFoundException, IOException{
-        int cod=0, numero=0, nroQuartos=0,vgsGaragem=0, nroApartamento=0,andar=0,anoConstrucao=0;
-        double areaTotal=0, valor=0, valorCondominio=0;
-        String logradouro="", bairro="", cidade="", descricao="", linha="", nomeEdificio="";
-        int aux=0;
-        String conversao="";
-        
+    private void lerApartamento() throws FileNotFoundException, IOException {
+        int cod = 0, numero = 0, nroQuartos = 0, vgsGaragem = 0, nroApartamento = 0, andar = 0, anoConstrucao = 0;
+        double areaTotal = 0, valor = 0, valorCondominio = 0;
+        String logradouro = "", bairro = "", cidade = "", descricao = "", linha = "", nomeEdificio = "";
+        int aux = 0;
+        String conversao = "";
+
         BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
-        
+
         do {
             linha = br.readLine();
 
@@ -436,8 +427,7 @@ public class Lista implements ListaImoveis {
                             case 13:
                                 valorCondominio = Double.parseDouble(conversao);
                                 break;
-                            
-                             
+
                         }
                         //</editor-fold>
 
@@ -448,9 +438,9 @@ public class Lista implements ListaImoveis {
                     }
                 }
 
-                Apartamento apartamento = new Apartamento (cidade, bairro ,logradouro, numero,  
-            valor, nomeEdificio, andar, nroApartamento, 
-            anoConstrucao, nroQuartos,vgsGaragem, valorCondominio, descricao, areaTotal);
+                Apartamento apartamento = new Apartamento(cidade, bairro, logradouro, numero,
+                        valor, nomeEdificio, andar, nroApartamento,
+                        anoConstrucao, nroQuartos, vgsGaragem, valorCondominio, descricao, areaTotal);
 
                 aux = 0;
                 this.lista.add(apartamento);
@@ -460,9 +450,8 @@ public class Lista implements ListaImoveis {
 
         br.close();
     }
-    
+
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Método para a leitura de uma sala comercial">
     /**
      * Método privado para a leitura de arquivos .csv do tipo sala comercial
@@ -472,16 +461,16 @@ public class Lista implements ListaImoveis {
      */
     private void lerSalasComerciais() throws FileNotFoundException, IOException {
         String line, logradouro = "", nomeEdificio = "", descricao = "", bairro = "", cidade = "", convert = "";
-        String [] dados=null;
+        String[] dados = null;
         int cod = 0, numero = 0, andar = 0, nroSala = 0, nroBanheiros = 0, aux = 0;
         double valor = 0, areaTotal = 0, valorCondominio = 0;
 
         BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
 
         line = br.readLine();
-        
-        while(line != null){
-            
+
+        while (line != null) {
+
             dados = line.split(";");
             cod = Integer.parseInt(dados[0]);
             numero = Integer.parseInt(dados[1]);
@@ -496,21 +485,19 @@ public class Lista implements ListaImoveis {
             nroSala = Integer.parseInt(dados[10]);
             nomeEdificio = dados[11];
             valorCondominio = Double.parseDouble(dados[12]);
-            
-            SalaComercial sala = new SalaComercial(cod, numero, areaTotal, valor, logradouro,
-                        bairro, cidade, descricao, nroBanheiros, andar, nroSala, valorCondominio, nomeEdificio);
 
-                
+            SalaComercial sala = new SalaComercial(cod, numero, areaTotal, valor, logradouro,
+                    bairro, cidade, descricao, nroBanheiros, andar, nroSala, valorCondominio, nomeEdificio);
+
             this.lista.add(sala);
-            
+
             line = br.readLine();
         }
-        
+
         br.close();
     }
 
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Método para ler Chácaras">
     private void lerChacara() throws FileNotFoundException, IOException {
         int cod = 0, ano = 0, numero = 0, nroQuartos = 0, distanciaCidade = 0;
@@ -526,7 +513,7 @@ public class Lista implements ListaImoveis {
         while (dados != null) {
 
             line = dados.split(";");
-            
+
             cod = Integer.parseInt(line[0]);
             numero = Integer.parseInt(line[1]);
             areaTotal = Double.parseDouble(line[2]);
@@ -540,7 +527,7 @@ public class Lista implements ListaImoveis {
             ano = Integer.parseInt(line[10]);
             distanciaCidade = Integer.parseInt(line[11]);
 
-            Chacara chacara = new Chacara(cod,numero, valor, cidade, bairro, nroQuartos, areaTotal, areaConstruida, ano, distanciaCidade, logradouro, descricao);
+            Chacara chacara = new Chacara(cod, numero, valor, cidade, bairro, nroQuartos, areaTotal, areaConstruida, ano, distanciaCidade, logradouro, descricao);
 
             this.lista.add(chacara);
 
@@ -551,7 +538,7 @@ public class Lista implements ListaImoveis {
         br.close();
     }
 //</editor-fold>
-    
+
     //<editor-fold defaultstate="collapsed" desc="Arquivos Extras (Gerenciamento do Código)">
     /**
      * Método para sempre atualizar o último código onde assim com isto
@@ -593,106 +580,100 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
-    
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Ordenações">
-    
-      @Override
+    @Override
     public List<Imovel> ordenarCodigo() {
         //Selection Sort        
-        for (int i = 0; i < lista.size() - 1; i++){  
-                        int index = i;  
-                       
-                        for (int j = i + 1; j < lista.size(); j++){  
-                   
-                             if (lista.get(j).getCod() < lista.get(index).getCod()){  
-                                                                                        index = j;  
-                                                                                     }  
-                                                           }                    
-            Imovel menorcodigo = lista.get(index);   
-            lista.set(index,lista.get(i));  
-            lista.set(i, menorcodigo);  
-        }  
-    return lista;  
+        for (int i = 0; i < lista.size() - 1; i++) {
+            int index = i;
+
+            for (int j = i + 1; j < lista.size(); j++) {
+
+                if (lista.get(j).getCod() < lista.get(index).getCod()) {
+                    index = j;
+                }
+            }
+            Imovel menorcodigo = lista.get(index);
+            lista.set(index, lista.get(i));
+            lista.set(i, menorcodigo);
+        }
+        return lista;
     }
 
     @Override
     public List<Imovel> ordenarValor() {
         //Bubble Sort    
         Imovel auxiliar;
-       
-            for(int i = 0; i < lista.size(); i++){
-            for(int j =  1; j < lista.size() - 1; j++){
-              if(lista.get(j-1).getValor()> lista.get(j).getValor()){
-                 auxiliar = lista.get(j-1);
-                 lista.set(j-1, lista.get(j));
-                 lista.set(j, auxiliar);
-              }
-             }
+
+        for (int i = 0; i < lista.size(); i++) {
+            for (int j = 1; j < lista.size() - 1; j++) {
+                if (lista.get(j - 1).getValor() > lista.get(j).getValor()) {
+                    auxiliar = lista.get(j - 1);
+                    lista.set(j - 1, lista.get(j));
+                    lista.set(j, auxiliar);
+                }
             }
-               
+        }
+
         return lista;
-    }    
+    }
 
     @Override
     public List<Imovel> ordenarArea() {
-        
+
         //Insertion Sort 
-        for (int j = 1; j < lista.size(); j++) {  
-            Imovel auxiliar = lista.get(j);  
-            int i = j-1;  
-            while ( (i > -1) && ( lista.get(i).getAreaTotal() > auxiliar.getAreaTotal() ) ) {  
-                lista.set(i+1, lista.get(i));  
-                i--;  
-            }  
-            lista.set(i+1, auxiliar);
+        for (int j = 1; j < lista.size(); j++) {
+            Imovel auxiliar = lista.get(j);
+            int i = j - 1;
+            while ((i > -1) && (lista.get(i).getAreaTotal() > auxiliar.getAreaTotal())) {
+                lista.set(i + 1, lista.get(i));
+                i--;
+            }
+            lista.set(i + 1, auxiliar);
         }
         return lista;
     }
 
-    
     //</editor-fold>
-    
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="Não implementados">
-  
     @Override
     public List<Imovel> pesquisaValor(double valor) {
-           Imovel auxiliar;
-       for(int i = 0; i < lista.size()-1; i++){
-            for(int j = i + 1; j < lista.size() ; j++){
-              if(lista.get(j).getValor() == valor){
-                 auxiliar = lista.get(i);
-                 lista.set(i, lista.get(j));
-                 lista.set(j, auxiliar);
-              }else{
-                  lista.remove(lista.get(j));
-              }
-             }
-    }return lista;
+        Imovel auxiliar;
+        for (int i = 0; i < lista.size() - 1; i++) {
+            for (int j = i + 1; j < lista.size(); j++) {
+                if (lista.get(j).getValor() == valor) {
+                    auxiliar = lista.get(i);
+                    lista.set(i, lista.get(j));
+                    lista.set(j, auxiliar);
+                } else {
+                    lista.remove(lista.get(j));
+                }
+            }
+        }
+        return lista;
     }
 
     @Override
     public List<Imovel> pesquisaBairro(String bairro) {
-       
-          Imovel auxiliar;
-       for(int i = 0; i < lista.size()-1; i++){
-            for(int j = i + 1; j < lista.size() ; j++){
-              if(lista.get(j).getBairro().equals(bairro)){
-                 auxiliar = lista.get(i);
-                 lista.set(i, lista.get(j));
-                 lista.set(j, auxiliar);
-              }else{
-                  lista.remove(lista.get(j));
-              }
-             }
-    }return lista;
+
+        Imovel auxiliar;
+        for (int i = 0; i < lista.size() - 1; i++) {
+            for (int j = i + 1; j < lista.size(); j++) {
+                if (lista.get(j).getBairro().equals(bairro)) {
+                    auxiliar = lista.get(i);
+                    lista.set(i, lista.get(j));
+                    lista.set(j, auxiliar);
+                } else {
+                    lista.remove(lista.get(j));
+                }
+            }
+        }
+        return lista;
     }
 
     //</editor-fold>
-    
     //<editor-fold defaultstate="collapsed" desc="GetLista(Implementado)">
     /**
      * Método para retornar a lista de imóveis
