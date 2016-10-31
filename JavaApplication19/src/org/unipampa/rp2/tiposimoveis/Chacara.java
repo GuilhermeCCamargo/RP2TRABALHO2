@@ -11,7 +11,7 @@ import java.security.InvalidParameterException;
  *
  * @author Gustavo Carvalho
  */
-public class Chacara extends Imovel {
+public class Chacara extends Imovel implements Cloneable{
     
     /**
      * Atributos próprios de uma Chacara
@@ -20,7 +20,7 @@ public class Chacara extends Imovel {
     private int nroQuartos;
     private double areaConstruida;
     private int ano;
-    private int distanciaCidade;
+    private double distanciaCidade;
     
     
     /**
@@ -54,7 +54,7 @@ public class Chacara extends Imovel {
     
     public Chacara (int numero, double valor, String cidade, 
             String bairro, int nroQuartos, double areaConstruida, 
-            int ano, int distanciaCidade, 
+            int ano, double distanciaCidade, 
             String logradouro, String descricao){
         
         this(numero, valor, cidade);
@@ -73,7 +73,7 @@ public class Chacara extends Imovel {
         
     }
 
-    public Chacara(int cod, int numero, double valor, String cidade, String bairro, int nroQuartos, double areaTotal, int ano, int distanciaCidade, String logradouro, String descricao) {
+    public Chacara(int cod, int numero, double valor, String cidade, String bairro, int nroQuartos, double areaTotal, int ano, double distanciaCidade, String logradouro, String descricao) {
         super(cod, numero, valor, cidade);
         this.nroQuartos = nroQuartos;
         this.areaConstruida = areaConstruida;
@@ -84,7 +84,7 @@ public class Chacara extends Imovel {
         this.descricao = descricao;
     }
 
-    public Chacara(int cod, int numero, double valor, String cidade, String bairro, int nroQuartos, double areaTotal, double areaConstruida, int ano, int distanciaCidade, String logradouro, String descricao) {
+    public Chacara(int cod, int numero, double valor, String cidade, String bairro, int nroQuartos, double areaTotal, double areaConstruida, int ano, double distanciaCidade, String logradouro, String descricao) {
         super(cod, numero, valor, cidade);
         this.nroQuartos = nroQuartos;
         this.areaConstruida = areaConstruida;
@@ -142,14 +142,14 @@ public class Chacara extends Imovel {
     /**
      * @return the distancia
      */
-    public int getDistanciaCidade() {
+    public double getDistanciaCidade() {
         return distanciaCidade;
     }
 
     /**
      * @param distanciaCidade
      */
-    public void setDistanciaCidade(int distanciaCidade) {
+    public void setDistanciaCidade(double distanciaCidade) {
         this.distanciaCidade = distanciaCidade;
     }
     
@@ -168,5 +168,9 @@ public class Chacara extends Imovel {
         dados=getCod()+";"+getNumero()+";"+getAreaTotal()+";"+getValor()+";"+getLogradouro()+";"+getBairro()+";"+
         getCidade()+";"+getDescricao()+";"+getNroQuartos()+";"+getAreaConstruida()+";"+getAno()+";"+getDistanciaCidade()+";\n";
         return dados;
+    }
+    
+    public Chacara clone() throws CloneNotSupportedException{
+        return (Chacara) super.clone();
     }
 }

@@ -23,6 +23,7 @@ public class FrameChacara extends javax.swing.JFrame {
 
     private Lista listaChacara;
     private List<Imovel> xacara;
+    private int cod;
 
     /**
      * Creates new form FrameChacara
@@ -39,7 +40,6 @@ public class FrameChacara extends javax.swing.JFrame {
         jTabbedPane1.setEnabledAt(2, false);
 
     }
-
 
     /**
      * Método para preencher os campos quando for editar uma chacara
@@ -70,14 +70,42 @@ public class FrameChacara extends javax.swing.JFrame {
             jTextFieldAnoEdit.setText(String.valueOf(cha.getAno()));
             jTextFieldAreaEdit.setText(String.valueOf(cha.getAreaConstruida()));
             jTextFieldCidadeEdit.setText(cha.getCidade());
-            jTextFieldDistanciaEditar.setText(String.valueOf(cha.getDistanciaCidade()));
+            jTextFieldDistanciaEdit.setText(String.valueOf(cha.getDistanciaCidade()));
             jTextFieldQuartosEdit.setText(String.valueOf(cha.getNroQuartos()));
             jTextFieldLogradouroEdit.setText(cha.getLogradouro());
             jTextFieldNumeroEdit.setText(String.valueOf(cha.getNumero()));
             jTextFieldValorEdit.setText(String.valueOf(cha.getValor()));
             jTextFieldDescEdit.setText(cha.getDescricao());
+            jTextFieldAreaTotalEdit.setText(String.valueOf(cha.getAreaTotal()));
             return true;
         }
+    }
+    public void desativarCampos(){
+        jTextFieldBairroEdit.setEnabled(false);
+            jTextFieldAnoEdit.setEnabled(false);
+            jTextFieldAreaEdit.setEnabled(false);
+            jTextFieldCidadeEdit.setEnabled(false);
+            jTextFieldDistanciaEdit.setEnabled(false);
+            jTextFieldQuartosEdit.setEnabled(false);
+            jTextFieldLogradouroEdit.setEnabled(false);
+            jTextFieldNumeroEdit.setEnabled(false);
+            jTextFieldValorEdit.setEnabled(false);
+            jTextFieldDescEdit.setEnabled(false);
+            jTextFieldAreaTotalEdit.setEnabled(false);
+    }
+    
+    public void ativarCampos(){
+        jTextFieldBairroEdit.setEnabled(true);
+            jTextFieldAnoEdit.setEnabled(true);
+            jTextFieldAreaEdit.setEnabled(true);
+            jTextFieldCidadeEdit.setEnabled(true);
+            jTextFieldDistanciaEdit.setEnabled(true);
+            jTextFieldQuartosEdit.setEnabled(true);
+            jTextFieldLogradouroEdit.setEnabled(true);
+            jTextFieldNumeroEdit.setEnabled(true);
+            jTextFieldValorEdit.setEnabled(true);
+            jTextFieldDescEdit.setEnabled(true);
+            jTextFieldAreaTotalEdit.setEnabled(true);
     }
 
     /**
@@ -162,10 +190,11 @@ public class FrameChacara extends javax.swing.JFrame {
         jTextFieldDesc = new javax.swing.JTextField();
         jButtonSave = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jLabel12 = new javax.swing.JLabel();
+        jLabelAraTotal = new javax.swing.JLabel();
+        jTextFieldAreaTotal = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        jTextFieldDistanciaEditar = new javax.swing.JTextField();
+        jTextFieldDistanciaEdit = new javax.swing.JTextField();
         jTextFieldValorEdit = new javax.swing.JTextField();
         jTextFieldAreaEdit = new javax.swing.JTextField();
         jTextFieldAnoEdit = new javax.swing.JTextField();
@@ -187,13 +216,19 @@ public class FrameChacara extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jButtonSave1 = new javax.swing.JButton();
         jButtonVoltardeta = new javax.swing.JButton();
-        jLabel24 = new javax.swing.JLabel();
+        jLabelAreaTotalEdit = new javax.swing.JLabel();
+        jTextFieldAreaTotalEdit = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTextFieldCampo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCampoActionPerformed(evt);
+            }
+        });
+        jTextFieldCampo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldCampoKeyTyped(evt);
             }
         });
 
@@ -318,22 +353,37 @@ public class FrameChacara extends javax.swing.JFrame {
 
         jLabel9.setText("Cidade");
 
-        jLabel10.setText("*Bairro");
+        jLabel10.setText("Bairro");
 
         jLabel11.setText("Descrição");
 
+        jTextFieldDistancia.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldDistanciaFocusLost(evt);
+            }
+        });
         jTextFieldDistancia.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldDistanciaKeyTyped(evt);
             }
         });
 
+        jTextFieldValor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldValorFocusLost(evt);
+            }
+        });
         jTextFieldValor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldValorKeyTyped(evt);
             }
         });
 
+        jTextFieldArea.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldAreaFocusLost(evt);
+            }
+        });
         jTextFieldArea.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldAreaKeyTyped(evt);
@@ -378,7 +428,7 @@ public class FrameChacara extends javax.swing.JFrame {
             }
         });
 
-        jLabel12.setText("*Campo indiferente para o cadastro de uma Chacára");
+        jLabelAraTotal.setText("Area Total");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -402,9 +452,10 @@ public class FrameChacara extends javax.swing.JFrame {
                             .addComponent(jLabel9)
                             .addComponent(jLabel10)
                             .addComponent(jLabel11)
-                            .addComponent(jLabel6))
+                            .addComponent(jLabel6)
+                            .addComponent(jLabelAraTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(58, 58, 58)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jTextFieldArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
@@ -412,13 +463,13 @@ public class FrameChacara extends javax.swing.JFrame {
                                 .addComponent(jTextFieldDistancia, javax.swing.GroupLayout.Alignment.LEADING))
                             .addComponent(jTextFieldAno, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldDesc, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextFieldDesc, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
                             .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(jTextFieldBairro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                                .addComponent(jTextFieldLogradouro, javax.swing.GroupLayout.Alignment.LEADING))))
-                    .addComponent(jLabel12))
+                                .addComponent(jTextFieldLogradouro, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jTextFieldAreaTotal))))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -468,9 +519,11 @@ public class FrameChacara extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(jTextFieldDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel12)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelAraTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldAreaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSave)
                     .addComponent(jButton2))
@@ -480,6 +533,57 @@ public class FrameChacara extends javax.swing.JFrame {
         jTabbedPane1.addTab("Cadastrar", jPanel2);
 
         jLabel13.setText("DETALHES DA CHÁCARA");
+
+        jTextFieldDistanciaEdit.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldDistanciaEditFocusLost(evt);
+            }
+        });
+        jTextFieldDistanciaEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldDistanciaEditKeyTyped(evt);
+            }
+        });
+
+        jTextFieldValorEdit.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldValorEditFocusLost(evt);
+            }
+        });
+        jTextFieldValorEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldValorEditKeyTyped(evt);
+            }
+        });
+
+        jTextFieldAreaEdit.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldAreaEditFocusLost(evt);
+            }
+        });
+        jTextFieldAreaEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAreaEditKeyTyped(evt);
+            }
+        });
+
+        jTextFieldAnoEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAnoEditKeyTyped(evt);
+            }
+        });
+
+        jTextFieldQuartosEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldQuartosEditKeyTyped(evt);
+            }
+        });
+
+        jTextFieldNumeroEdit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldNumeroEditKeyTyped(evt);
+            }
+        });
 
         jLabel14.setText("Distância da cidade (em KM)");
 
@@ -497,7 +601,7 @@ public class FrameChacara extends javax.swing.JFrame {
 
         jLabel21.setText("Cidade");
 
-        jLabel22.setText("*Bairro");
+        jLabel22.setText("Bairro");
 
         jLabel23.setText("Descrição");
 
@@ -515,7 +619,7 @@ public class FrameChacara extends javax.swing.JFrame {
             }
         });
 
-        jLabel24.setText("*Campo indiferente para cadastro de uma Chácara");
+        jLabelAreaTotalEdit.setText("Area Total");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -546,7 +650,7 @@ public class FrameChacara extends javax.swing.JFrame {
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jTextFieldAreaEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                                         .addComponent(jTextFieldValorEdit, javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextFieldDistanciaEditar, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addComponent(jTextFieldDistanciaEdit, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jTextFieldQuartosEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
                                         .addComponent(jTextFieldAnoEdit, javax.swing.GroupLayout.Alignment.LEADING))
@@ -554,16 +658,17 @@ public class FrameChacara extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextFieldDescEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jTextFieldBairroEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextFieldDescEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldBairroEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldAreaTotalEdit))
                                     .addComponent(jButtonSave1, javax.swing.GroupLayout.Alignment.TRAILING)))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(213, 213, 213)
                         .addComponent(jLabel13))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel24)))
+                        .addComponent(jLabelAreaTotalEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(199, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -573,7 +678,7 @@ public class FrameChacara extends javax.swing.JFrame {
                 .addComponent(jLabel13)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextFieldDistanciaEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldDistanciaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -611,9 +716,11 @@ public class FrameChacara extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldDescEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel23))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(jLabel24)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelAreaTotalEdit)
+                    .addComponent(jTextFieldAreaTotalEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonSave1)
                     .addComponent(jButtonVoltardeta))
@@ -685,6 +792,7 @@ public class FrameChacara extends javax.swing.JFrame {
         }
         if (!error) {
             preencherCampos(Integer.parseInt(cod));
+            this.cod = Integer.parseInt(cod);
             jTabbedPane1.setEnabledAt(0, false);
             jTabbedPane1.setEnabledAt(2, true);
             jTabbedPane1.setSelectedIndex(2);
@@ -729,18 +837,6 @@ public class FrameChacara extends javax.swing.JFrame {
     private void jTextFieldLogradouroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLogradouroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldLogradouroActionPerformed
-
-    private void jTextFieldCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCampoActionPerformed
-        // TODO add your handling code here:
-        /*switch(jComboBoxOpcoes.getSelectedItem().toString().trim()){
-            case "Código":
-                soNumeros(evt, false);
-                break;
-            case "Valor":
-                soNumeros(evt, isDouble(jTextFieldCampo));
-                break;
-        }*/
-    }//GEN-LAST:event_jTextFieldCampoActionPerformed
 
     private void jButtonBotaoPesq2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBotaoPesq2ActionPerformed
         String cod = JOptionPane.showInputDialog("Informe o código");
@@ -828,10 +924,10 @@ public class FrameChacara extends javax.swing.JFrame {
                     Integer.parseInt(jTextFieldQuartos.getText().trim()),
                     Double.parseDouble(jTextFieldArea.getText().trim()),
                     Integer.parseInt(jTextFieldAno.getText().trim()),
-                    Integer.parseInt(jTextFieldDistancia.getText().trim()),
+                    Double.parseDouble(jTextFieldDistancia.getText().trim()),
                     jTextFieldLogradouro.getText().trim(),
                     jTextFieldDesc.getText().trim());
-
+            cha.setAreaTotal(Double.parseDouble(jTextFieldAreaTotal.getText()));
             if (listaChacara.incluir(cha) == false) {
                 JOptionPane.showMessageDialog(null, "Não foi possível salvar.");
             } else {
@@ -861,19 +957,19 @@ public class FrameChacara extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButtonSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSave1ActionPerformed
-        if (jTextFieldNumero.getText().equals("")
-                || jTextFieldValor.getText().equals("")
-                || jTextFieldBairro.getText().equals("")
-                || jTextFieldQuartos.getText().equals("")
-                || jTextFieldArea.getText().equals("")
-                || jTextFieldAno.getText().equals("")
-                || jTextFieldDistancia.getText().equals("")
-                || jTextFieldLogradouro.getText().equals("")
-                || jTextFieldDesc.getText().equals("")) {
+        if (jTextFieldNumeroEdit.getText().equals("")
+                || jTextFieldValorEdit.getText().equals("")
+                || jTextFieldBairroEdit.getText().equals("")
+                || jTextFieldQuartosEdit.getText().equals("")
+                || jTextFieldAreaEdit.getText().equals("")
+                || jTextFieldAnoEdit.getText().equals("")
+                || jTextFieldDistanciaEdit.getText().equals("")
+                || jTextFieldLogradouroEdit.getText().equals("")
+                || jTextFieldDescEdit.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Informe todos os campos!");
         } else {
             double areaConstruida;
-            int distanciaCidade;
+            double distanciaCidade;
             int ano;
             int numero;
             int nroQuartos;
@@ -884,7 +980,7 @@ public class FrameChacara extends javax.swing.JFrame {
             double valor;
 
             areaConstruida = Double.parseDouble(jTextFieldAreaEdit.getText().trim());
-            distanciaCidade = Integer.parseInt(jTextFieldDistanciaEditar.getText().trim());
+            distanciaCidade = Double.parseDouble(jTextFieldDistanciaEdit.getText().trim());
             ano = Integer.parseInt(jTextFieldAnoEdit.getText().trim());
             numero = Integer.parseInt(jTextFieldNumeroEdit.getText().trim());
             nroQuartos = Integer.parseInt(jTextFieldQuartosEdit.getText().trim());
@@ -893,24 +989,41 @@ public class FrameChacara extends javax.swing.JFrame {
             descricao = jTextFieldDescEdit.getText().trim();
             logradouro = jTextFieldLogradouroEdit.getText().trim();
             valor = Double.parseDouble(jTextFieldValorEdit.getText().trim());
+            double areaTotal=Double.parseDouble(jTextFieldAreaTotalEdit.getText().trim());
+            Chacara a = (Chacara) listaChacara.consultar(cod);
 
-            //Atribuindo todos os valores a Chacara referenciado como objeto
-            Chacara objeto = new Chacara(numero, valor, cidade, bairro, nroQuartos, areaConstruida, ano, distanciaCidade, logradouro, descricao);
+            try {
+                Chacara objeto = a.clone();
+                objeto.setAreaConstruida(TOP_ALIGNMENT);
+                objeto.setDistanciaCidade(distanciaCidade);
+                objeto.setAno(ano);
+                objeto.setNumero(numero);
+                objeto.setNroQuartos(nroQuartos);
+                objeto.setCidade(cidade);
+                objeto.setBairro(bairro);
+                objeto.setDescricao(descricao);
+                objeto.setLogradouro(logradouro);
+                objeto.setValor(valor);
+                objeto.setAreaTotal(areaTotal);
+                if (listaChacara.editar(cod, objeto)) {
+                    JOptionPane.showMessageDialog(null, "Imóvel editado com sucesso.");
+                    listaChacara.escreverArquivo();
+                    limpar();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Objeto não pode ser editado.");
+                    limpar();
+
+                }
+                //Chacara objeto = new Chacara(numero, valor, cidade, bairro, nroQuartos, areaConstruida, ano, distanciaCidade, logradouro, descricao);
+            } catch (CloneNotSupportedException ex) {
+                Logger.getLogger(FrameChacara.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
             int codigo;
-            codigo = Integer.parseInt(jTextFieldCampo.getText());//Recebendo o código do objeto
+            codigo = cod;
 
-            //Salvando objeto editado na Lista 
-            if (listaChacara.editar(codigo, objeto)) {
-                JOptionPane.showMessageDialog(null, "Imóvel editado com sucesso.");
-                listaChacara.escreverArquivo();
-                limpar();
-            } else {
-                JOptionPane.showMessageDialog(null, "Objeto não pode ser editado.");
-                limpar();
-
-            }
         }
+        cod = -1;
     }//GEN-LAST:event_jButtonSave1ActionPerformed
 
     private void jTextFieldDistanciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDistanciaKeyTyped
@@ -953,6 +1066,80 @@ public class FrameChacara extends javax.swing.JFrame {
     private void jComboBoxOpcoesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxOpcoesItemStateChanged
         jTextFieldCampo.setText("");
     }//GEN-LAST:event_jComboBoxOpcoesItemStateChanged
+
+    private void jTextFieldCampoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCampoKeyTyped
+        if (jTextFieldCampo.getText().equals(".")) {
+            jTextFieldCampo.setText("");
+        } else if (jComboBoxOpcoes.getSelectedItem().toString().equals("Codigo")) {
+            soNumeros(evt);
+        } else if (jComboBoxOpcoes.getSelectedItem().toString().equals("Valor")) {
+            soDouble(evt, jTextFieldCampo.getText());
+        }
+    }//GEN-LAST:event_jTextFieldCampoKeyTyped
+
+    private void jTextFieldDistanciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDistanciaFocusLost
+        if (jTextFieldDistancia.getText().equals(".")) {
+            jTextFieldDistancia.setText("");
+        }
+    }//GEN-LAST:event_jTextFieldDistanciaFocusLost
+
+    private void jTextFieldValorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldValorFocusLost
+        if (jTextFieldValor.getText().equals(".")) {
+            jTextFieldValor.setText("");
+        }
+    }//GEN-LAST:event_jTextFieldValorFocusLost
+
+    private void jTextFieldAreaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAreaFocusLost
+        if (jTextFieldArea.getText().equals(".")) {
+            jTextFieldArea.setText("");
+        }
+    }//GEN-LAST:event_jTextFieldAreaFocusLost
+
+    private void jTextFieldDistanciaEditFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDistanciaEditFocusLost
+        if (jTextFieldDistanciaEdit.getText().equals(".")) {
+            jTextFieldDistanciaEdit.setText("");
+        }
+    }//GEN-LAST:event_jTextFieldDistanciaEditFocusLost
+
+    private void jTextFieldValorEditFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldValorEditFocusLost
+        if (jTextFieldValorEdit.getText().equals(".")) {
+            jTextFieldValorEdit.setText("");
+        }
+    }//GEN-LAST:event_jTextFieldValorEditFocusLost
+
+    private void jTextFieldAreaEditFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAreaEditFocusLost
+        if (jTextFieldAreaEdit.getText().equals(".")) {
+            jTextFieldAreaEdit.setText("");
+        }
+    }//GEN-LAST:event_jTextFieldAreaEditFocusLost
+
+    private void jTextFieldDistanciaEditKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDistanciaEditKeyTyped
+        soDouble(evt, jTextFieldDistanciaEdit.getText());
+    }//GEN-LAST:event_jTextFieldDistanciaEditKeyTyped
+
+    private void jTextFieldValorEditKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorEditKeyTyped
+        soDouble(evt, jTextFieldValorEdit.getText());
+    }//GEN-LAST:event_jTextFieldValorEditKeyTyped
+
+    private void jTextFieldAreaEditKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAreaEditKeyTyped
+        soDouble(evt, jTextFieldAreaEdit.getText());
+    }//GEN-LAST:event_jTextFieldAreaEditKeyTyped
+
+    private void jTextFieldAnoEditKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAnoEditKeyTyped
+        soNumeros(evt);
+    }//GEN-LAST:event_jTextFieldAnoEditKeyTyped
+
+    private void jTextFieldQuartosEditKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldQuartosEditKeyTyped
+        soNumeros(evt);
+    }//GEN-LAST:event_jTextFieldQuartosEditKeyTyped
+
+    private void jTextFieldNumeroEditKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroEditKeyTyped
+        soNumeros(evt);
+    }//GEN-LAST:event_jTextFieldNumeroEditKeyTyped
+
+    private void jTextFieldCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCampoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCampoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1004,7 +1191,6 @@ public class FrameChacara extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
@@ -1017,7 +1203,6 @@ public class FrameChacara extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -1025,6 +1210,8 @@ public class FrameChacara extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelAraTotal;
+    private javax.swing.JLabel jLabelAreaTotalEdit;
     private javax.swing.JList<String> jListChacaraLista;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -1035,6 +1222,8 @@ public class FrameChacara extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldAnoEdit;
     private javax.swing.JTextField jTextFieldArea;
     private javax.swing.JTextField jTextFieldAreaEdit;
+    private javax.swing.JTextField jTextFieldAreaTotal;
+    private javax.swing.JTextField jTextFieldAreaTotalEdit;
     private javax.swing.JTextField jTextFieldBairro;
     private javax.swing.JTextField jTextFieldBairroEdit;
     private javax.swing.JTextField jTextFieldCampo;
@@ -1043,7 +1232,7 @@ public class FrameChacara extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldDesc;
     private javax.swing.JTextField jTextFieldDescEdit;
     private javax.swing.JTextField jTextFieldDistancia;
-    private javax.swing.JTextField jTextFieldDistanciaEditar;
+    private javax.swing.JTextField jTextFieldDistanciaEdit;
     private javax.swing.JTextField jTextFieldLogradouro;
     private javax.swing.JTextField jTextFieldLogradouroEdit;
     private javax.swing.JTextField jTextFieldNumero;

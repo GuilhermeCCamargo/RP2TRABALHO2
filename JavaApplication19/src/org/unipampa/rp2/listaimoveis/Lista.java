@@ -500,8 +500,8 @@ public class Lista implements ListaImoveis {
     //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="Método para ler Chácaras">
     private void lerChacara() throws FileNotFoundException, IOException {
-        int cod = 0, ano = 0, numero = 0, nroQuartos = 0, distanciaCidade = 0;
-        double valor = 0, areaTotal = 0, areaConstruida = 0;
+        int cod = 0, ano = 0, numero = 0, nroQuartos = 0;
+        double valor = 0, areaTotal = 0, areaConstruida = 0, distanciaCidade = 0;
         String cidade = " ", bairro = " ", logradouro = " ", descricao = " ", dados;
         int aux = 0;
         String[] line;
@@ -525,7 +525,7 @@ public class Lista implements ListaImoveis {
             nroQuartos = Integer.parseInt(line[8]);
             areaConstruida = Double.parseDouble(line[9]);
             ano = Integer.parseInt(line[10]);
-            distanciaCidade = Integer.parseInt(line[11]);
+            distanciaCidade = Double.parseDouble(line[11]);
 
             Chacara chacara = new Chacara(cod, numero, valor, cidade, bairro, nroQuartos, areaTotal, areaConstruida, ano, distanciaCidade, logradouro, descricao);
 
@@ -644,7 +644,7 @@ public class Lista implements ListaImoveis {
     public List<Imovel> pesquisaValor(double valor) {
         List<Imovel> listaValor = new ArrayList();
         for (Imovel imovel : this.lista) {
-            if(imovel.getValor() ==  valor){
+            if(imovel.getValor() <=  valor){
                 listaValor.add(imovel);
             }
         }

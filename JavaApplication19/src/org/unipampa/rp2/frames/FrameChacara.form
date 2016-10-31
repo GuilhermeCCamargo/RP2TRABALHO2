@@ -112,6 +112,7 @@
             <Component class="javax.swing.JTextField" name="jTextFieldCampo">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCampoActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldCampoKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="jComboBoxOpcoes">
@@ -212,7 +213,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
@@ -232,9 +233,10 @@
                                   <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAraTotal" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="jTextFieldArea" alignment="0" pref="98" max="32767" attributes="0"/>
@@ -243,16 +245,16 @@
                                   </Group>
                                   <Component id="jTextFieldAno" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
                                   <Component id="jTextFieldQuartos" min="-2" pref="57" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldDesc" alignment="0" min="-2" pref="294" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldDesc" alignment="0" pref="294" max="32767" attributes="0"/>
                                   <Component id="jTextFieldNumero" min="-2" pref="53" max="-2" attributes="0"/>
                                   <Component id="jTextFieldCidade" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                       <Component id="jTextFieldBairro" alignment="0" pref="208" max="32767" attributes="0"/>
                                       <Component id="jTextFieldLogradouro" alignment="0" max="32767" attributes="0"/>
                                   </Group>
+                                  <Component id="jTextFieldAreaTotal" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="71" max="32767" attributes="0"/>
                   </Group>
@@ -316,9 +318,12 @@
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldDesc" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="34" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelAraTotal" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAreaTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="40" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonSave" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -376,7 +381,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
-                <Property name="text" type="java.lang.String" value="*Bairro"/>
+                <Property name="text" type="java.lang.String" value="Bairro"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel11">
@@ -386,16 +391,19 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldDistancia">
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldDistanciaFocusLost"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldDistanciaKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldValor">
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldValorFocusLost"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldValorKeyTyped"/>
               </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldArea">
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldAreaFocusLost"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAreaKeyTyped"/>
               </Events>
             </Component>
@@ -441,10 +449,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel12">
+            <Component class="javax.swing.JLabel" name="jLabelAraTotal">
               <Properties>
-                <Property name="text" type="java.lang.String" value="*Campo indiferente para o cadastro de uma Chac&#xe1;ra"/>
+                <Property name="text" type="java.lang.String" value="Area Total"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldAreaTotal">
             </Component>
           </SubComponents>
         </Container>
@@ -486,7 +496,7 @@
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                               <Component id="jTextFieldAreaEdit" alignment="0" pref="91" max="32767" attributes="0"/>
                                               <Component id="jTextFieldValorEdit" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="jTextFieldDistanciaEditar" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldDistanciaEdit" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                                               <Component id="jTextFieldQuartosEdit" alignment="0" pref="71" max="32767" attributes="0"/>
@@ -498,9 +508,10 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                                              <Component id="jTextFieldDescEdit" alignment="0" min="-2" pref="202" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldBairroEdit" min="-2" pref="202" max="-2" attributes="0"/>
+                                          <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jTextFieldDescEdit" alignment="0" pref="202" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldBairroEdit" pref="202" max="32767" attributes="0"/>
+                                              <Component id="jTextFieldAreaTotalEdit" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <Component id="jButtonSave1" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -513,7 +524,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAreaTotalEdit" min="-2" pref="55" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="199" max="32767" attributes="0"/>
@@ -527,7 +538,7 @@
                       <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jTextFieldDistanciaEditar" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldDistanciaEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -575,9 +586,12 @@
                           <Component id="jTextFieldDescEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="40" max="32767" attributes="0"/>
-                      <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabelAreaTotalEdit" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldAreaTotalEdit" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace pref="55" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jButtonSave1" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonVoltardeta" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -593,19 +607,40 @@
                 <Property name="text" type="java.lang.String" value="DETALHES DA CH&#xc1;CARA"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldDistanciaEditar">
+            <Component class="javax.swing.JTextField" name="jTextFieldDistanciaEdit">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldDistanciaEditFocusLost"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldDistanciaEditKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldValorEdit">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldValorEditFocusLost"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldValorEditKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAreaEdit">
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldAreaEditFocusLost"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAreaEditKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAnoEdit">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAnoEditKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldQuartosEdit">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldQuartosEditKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldLogradouroEdit">
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldNumeroEdit">
+              <Events>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldNumeroEditKeyTyped"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldCidadeEdit">
             </Component>
@@ -655,7 +690,7 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel22">
               <Properties>
-                <Property name="text" type="java.lang.String" value="*Bairro"/>
+                <Property name="text" type="java.lang.String" value="Bairro"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel23">
@@ -679,10 +714,12 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVoltardetaActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel24">
+            <Component class="javax.swing.JLabel" name="jLabelAreaTotalEdit">
               <Properties>
-                <Property name="text" type="java.lang.String" value="*Campo indiferente para cadastro de uma Ch&#xe1;cara"/>
+                <Property name="text" type="java.lang.String" value="Area Total"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jTextFieldAreaTotalEdit">
             </Component>
           </SubComponents>
         </Container>
