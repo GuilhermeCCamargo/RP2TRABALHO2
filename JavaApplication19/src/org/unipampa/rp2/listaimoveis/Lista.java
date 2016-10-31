@@ -607,10 +607,10 @@ public class Lista implements ListaImoveis {
         Imovel auxiliar;
 
         for (int i = 0; i < lista.size(); i++) {
-            for (int j = 1; j < lista.size() - 1; j++) {
-                if (lista.get(j - 1).getValor() > lista.get(j).getValor()) {
-                    auxiliar = lista.get(j - 1);
-                    lista.set(j - 1, lista.get(j));
+            for (int j = 0; j < lista.size()-1; j++) {
+                if (lista.get(j).getValor() > lista.get(j+1).getValor()) {
+                    auxiliar = lista.get(j + 1);
+                    lista.set(j+1, lista.get(j));
                     lista.set(j, auxiliar);
                 }
             }
@@ -640,37 +640,25 @@ public class Lista implements ListaImoveis {
     //<editor-fold defaultstate="collapsed" desc="Não implementados">
     @Override
     public List<Imovel> pesquisaValor(double valor) {
-        Imovel auxiliar;
-        for (int i = 0; i < lista.size() - 1; i++) {
-            for (int j = i + 1; j < lista.size(); j++) {
-                if (lista.get(j).getValor() == valor) {
-                    auxiliar = lista.get(i);
-                    lista.set(i, lista.get(j));
-                    lista.set(j, auxiliar);
-                } else {
-                    lista.remove(lista.get(j));
-                }
+        List<Imovel> listaValor = new ArrayList();
+        for (Imovel imovel : this.lista) {
+            if(imovel.getValor() ==  valor){
+                listaValor.add(imovel);
             }
         }
-        return lista;
+        return listaValor;
     }
 
     @Override
     public List<Imovel> pesquisaBairro(String bairro) {
 
-        Imovel auxiliar;
-        for (int i = 0; i < lista.size() - 1; i++) {
-            for (int j = i + 1; j < lista.size(); j++) {
-                if (lista.get(j).getBairro().equals(bairro)) {
-                    auxiliar = lista.get(i);
-                    lista.set(i, lista.get(j));
-                    lista.set(j, auxiliar);
-                } else {
-                    lista.remove(lista.get(j));
-                }
+        List<Imovel> listaBairro = new ArrayList();
+        for (Imovel imovel : this.lista) {
+            if(imovel.getBairro().trim().toLowerCase().contains(bairro.toLowerCase().trim())){
+                listaBairro.add(imovel);
             }
         }
-        return lista;
+        return listaBairro;
     }
 
     //</editor-fold>

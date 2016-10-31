@@ -43,7 +43,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jTabbedPaneSalaComercial" pref="528" max="32767" attributes="0"/>
+              <Component id="jTabbedPaneSalaComercial" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -72,28 +72,26 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jComboBoxBusca" max="32767" attributes="0"/>
-                          <Component id="jButtonDetalhesSalaComercial" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButtonExcluirSalaComercial" max="32767" attributes="0"/>
-                          <Component id="jButtonEditarSalaComercial" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButtonVoltarInicial" alignment="1" max="32767" attributes="0"/>
-                          <Component id="jButtonOrdenar" max="32767" attributes="0"/>
-                          <Component id="jButtonIncluirSalaComercial" alignment="0" max="32767" attributes="0"/>
-                      </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                              <Component id="jScrollPaneListarSalaComercial" min="-2" pref="368" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jButtonDetalhesSalaComercial" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jButtonExcluirSalaComercial" max="32767" attributes="0"/>
+                              <Component id="jButtonEditarSalaComercial" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jButtonVoltarInicial" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jButtonIncluirSalaComercial" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace pref="15" max="32767" attributes="0"/>
-                              <Component id="jTextFieldBusca" min="-2" pref="292" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButtonBuscaSalaComercial" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBoxBusca" min="-2" pref="117" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="jScrollPaneListarSalaComercial" min="-2" pref="368" max="-2" attributes="0"/>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jTextFieldBusca" max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButtonOrdenar" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace pref="50" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -104,14 +102,12 @@
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jComboBoxBusca" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldBusca" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonBuscaSalaComercial" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonOrdenar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jScrollPaneListarSalaComercial" min="-2" pref="243" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
-                              <Component id="jButtonOrdenar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonIncluirSalaComercial" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonExcluirSalaComercial" min="-2" max="-2" attributes="0"/>
@@ -121,7 +117,7 @@
                               <Component id="jButtonDetalhesSalaComercial" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="18" pref="16" max="32767" attributes="0"/>
+                      <EmptySpace pref="16" max="32767" attributes="0"/>
                       <Component id="jButtonVoltarInicial" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -143,7 +139,6 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jListSalaComercialMouseClicked"/>
                     <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="jListSalaComercialValueChanged"/>
                   </Events>
                   <AuxValues>
@@ -158,14 +153,6 @@
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonIncluirSalaComercialActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButtonBuscaSalaComercial">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Buscar"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscaSalaComercialActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonEditarSalaComercial">
@@ -187,6 +174,7 @@
             <Component class="javax.swing.JTextField" name="jTextFieldBusca">
               <Events>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuscaKeyTyped"/>
+                <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuscaKeyReleased"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonDetalhesSalaComercial">
@@ -282,12 +270,10 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanelSalaComercial" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jPanelImovel" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                              <Component id="jPanelImovel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="68" max="32767" attributes="0"/>
                           </Group>
+                          <Component id="jPanelSalaComercial" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -403,6 +389,7 @@
                             </Property>
                           </Properties>
                           <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldValorCondominioSalaComercialFocusLost"/>
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldValorCondominioSalaComercialKeyTyped"/>
                           </Events>
                         </Component>
@@ -571,6 +558,7 @@
                             </Property>
                           </Properties>
                           <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldValorImovelFocusLost"/>
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldValorImovelKeyTyped"/>
                           </Events>
                         </Component>
@@ -615,6 +603,7 @@
                             </Property>
                           </Properties>
                           <Events>
+                            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jTextFieldAreaTotalImovelFocusLost"/>
                             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldAreaTotalImovelKeyTyped"/>
                           </Events>
                         </Component>

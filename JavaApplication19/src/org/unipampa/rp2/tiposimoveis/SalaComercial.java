@@ -198,7 +198,7 @@ public class SalaComercial extends Imovel implements Cloneable{
         String writeFile = super.getCod()+";"+super.getNumero()+";"+super.getAreaTotal()+";"+
                 super.getValor()+";"+super.getLogradouro()+";"+super.getBairro()+";"+
                 super.getCidade()+";"+super.getDescricao()+";"+getNroBanheiros()+";"+
-                getAndar()+";"+getNroSala()+";"+getValorCondominio()+";"+getNomeEdificio()+";\n";
+                getAndar()+";"+getNroSala()+";"+getNomeEdificio()+";"+getValorCondominio()+";\n";
         
         return writeFile;
     }
