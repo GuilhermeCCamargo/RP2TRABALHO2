@@ -5,8 +5,11 @@
  */
 package org.unipampa.rp2.frames;
 
+import java.io.IOException;
 import org.unipampa.rp2.tiposimoveis.Tipo;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import org.unipampa.rp2.listaimoveis.Lista;
@@ -37,6 +40,12 @@ public class FrameCasa extends javax.swing.JFrame {
         }
 
         this.listaCasa = listaCasa;
+
+        try {
+            this.listaCasa.startCodigo();
+        } catch (IOException ex) {
+
+        }
 
         jTabbedPaneCasa.setEnabledAt(1, false);
         jTabbedPaneCasa.setEnabledAt(0, true);
@@ -537,7 +546,23 @@ public class FrameCasa extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldNVGActionPerformed
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
-        if (!isEditar) {
+
+        if (jTextFieldCidade.getText().equals("")
+                || jTextFieldNumero.getText().equals("")
+                || jTextFieldValor.getText().equals("")
+                || jTextFieldLogradouro.getText().equals("")
+                || jTextFieldAC.getText().equals("")
+                || jTextFieldNQ.getText().equals("")
+                || jTextFieldNVG.getText().equals("")
+                || jTextFieldAnoC.getText().equals("")
+                || jTextFieldCidade.getText().equals("")
+                || jTextFieldBairro.getText().equals("")
+                || jTextFieldDescricao.getText().equals("")) {
+
+            JOptionPane.showMessageDialog(null, "Por Favor informe todos os campos!");
+
+        } else if (!isEditar) {
+
             Casa casa = new Casa(Integer.parseInt(jTextFieldNumero.getText().trim()),
                     Double.parseDouble(jTextFieldValor.getText().trim()),
                     jTextFieldLogradouro.getText().trim(),
@@ -557,6 +582,10 @@ public class FrameCasa extends javax.swing.JFrame {
                 jTabbedPaneCasa.setSelectedIndex(0);
                 if (listaCasa.escreverArquivo()) {
                     JOptionPane.showMessageDialog(this, "Salvo com sucesso");
+                    try {
+                        listaCasa.gravarUltimoCod(casa.getCod());
+                    } catch (Exception e) {
+                    }
                 } else {
                     JOptionPane.showMessageDialog(this, "Erro ao salvar");
                 }
@@ -600,7 +629,6 @@ public class FrameCasa extends javax.swing.JFrame {
             }
 
         }
-
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jTextFieldCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCodigoActionPerformed
@@ -632,7 +660,7 @@ public class FrameCasa extends javax.swing.JFrame {
     private void jButtonBuscarCasaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarCasaActionPerformed
         // TODO add your handling code here:
         if (jTextFieldCodigo.getText().trim().equals("")) {
-            listar();
+            listarCod(-1);
         } else {
             switch (jComboBoxPesquisa.getSelectedItem().toString()) {
                 case "Codigo":
@@ -684,31 +712,63 @@ public class FrameCasa extends javax.swing.JFrame {
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
         String cod = JOptionPane.showInputDialog("Insira o código da Casa que deseja editar: ");
-        if (cod == null || cod.equals("")) {
-            JOptionPane.showMessageDialog(null, "Insira um número!");
-        } else if (preencherCampos(Integer.parseInt(cod))) {
-            jTabbedPaneCasa.setSelectedIndex(1);
-            jTabbedPaneCasa.setEnabledAt(0, false);
-            jTabbedPaneCasa.setEnabledAt(1, true);
-            isEditar = true;
-            isCod = Integer.parseInt(cod);
-            ativarCampos();
-        }
+        boolean error = false;
+        if (cod == null) {
 
+        } else if (cod.trim().equals("")) {
+            JOptionPane.showMessageDialog(null, "ERRO 01 - Insira um valor");
+        } else {
+            for (int i = 0; i < cod.length(); i++) {
+                if (!(Character.isDigit(cod.charAt(i)))) {
+                    error = true;
+                    break;
+                }
+            }
+
+            if (error) {
+                JOptionPane.showMessageDialog(null, "Insira apenas Números!");
+            } else if (preencherCampos(Integer.parseInt(cod))) {
+                jTabbedPaneCasa.setSelectedIndex(1);
+                jTabbedPaneCasa.setEnabledAt(0, false);
+                jTabbedPaneCasa.setEnabledAt(1, true);
+                isEditar = true;
+                isCod = Integer.parseInt(cod);
+                ativarCampos();
+            }
+        }
 
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-        int cod = Integer.parseInt(JOptionPane.showInputDialog("Informe o código da casa a ser removida."));
-        if (listaCasa.excluir(cod)) {
-            JOptionPane.showMessageDialog(this, "Casa removida com sucesso!");
+        String cod = JOptionPane.showInputDialog("Informe o código da casa a ser removida.");
+        int codigo;
+        boolean error = false;
+        if (cod == null || cod.equals("")) {
+            JOptionPane.showMessageDialog(null, "Informe o código novamente!");
+
         } else {
-            JOptionPane.showMessageDialog(this, "Casa com o código: " + cod + " não encontrada.");
-        }
-        if (listaCasa.escreverArquivo()) {
-            JOptionPane.showMessageDialog(this, "Salvo");
-        } else {
-            JOptionPane.showMessageDialog(this, "Erro ao salvar");
+            for (int i = 0; i < cod.length(); i++) {
+                if (!(Character.isDigit(cod.charAt(i)))) {
+                    error = true;
+                    break;
+                }
+            }
+            if (error) {
+                JOptionPane.showMessageDialog(null, "Informe apenas números!");
+            } else {
+                codigo = Integer.parseInt(cod);
+                if (listaCasa.excluir(codigo)) {
+                    JOptionPane.showMessageDialog(this, "Casa removida com sucesso!");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Casa com o código: " + codigo + " não encontrada.");
+                }
+                if (listaCasa.escreverArquivo()) {
+                    JOptionPane.showMessageDialog(this, "Salvo");
+                } else {
+                    JOptionPane.showMessageDialog(this, "Erro ao salvar");
+                }
+            }
+
         }
 
 
@@ -745,14 +805,16 @@ public class FrameCasa extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonOrdenarActionPerformed
 
     private void jTextFieldCodigoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCodigoKeyTyped
-
+        if (jComboBoxPesquisa.getSelectedItem().toString().equals("Codigo")) {
+            soNumeros(evt);
+        }
     }//GEN-LAST:event_jTextFieldCodigoKeyTyped
 
     private void jTextFieldValorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldValorKeyTyped
-        if(jComboBoxPesquisa.getSelectedItem().toString().equals("Codigo")){
+        if (jComboBoxPesquisa.getSelectedItem().toString().equals("Codigo")) {
             soNumeros(evt);
         }
-        
+
     }//GEN-LAST:event_jTextFieldValorKeyTyped
 
     private void jTextFieldValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldValorActionPerformed
@@ -882,16 +944,6 @@ public class FrameCasa extends javax.swing.JFrame {
      *
      *
      */
-    public void listar() {
-        DefaultListModel listModel = new DefaultListModel();
-        List<Imovel> casa;
-        casa = listaCasa.getLista();//Atribui a lista da classe Lista a variável
-        for (Imovel imovel : casa) {
-            listModel.addElement(imovel.toString());
-        }
-
-        jListFrameCasa.setModel(listModel);
-    }
 
     /**
      * Recebe o codigo e adiciona a lista a monografia selecionada
@@ -900,14 +952,22 @@ public class FrameCasa extends javax.swing.JFrame {
      */
     public void listarCod(int cod) {
         DefaultListModel listModel = new DefaultListModel();
-        Imovel casa = listaCasa.consultar(cod);
-        if (casa == null) {
-            JOptionPane.showMessageDialog(null, "Não encontrado");
+        if (cod == -1) {
+            List<Imovel> list = listaCasa.getLista();
+            for (Imovel casa : list) {
+                listModel.addElement(casa.toString());
+            }
+            jListFrameCasa.setModel(listModel);
         } else {
-            listModel.addElement(casa.toString());
-        }
+            Imovel casa = listaCasa.consultar(cod);
+            if (casa == null) {
+                JOptionPane.showMessageDialog(null, "Não encontrado");
+            } else {
+                listModel.addElement(casa.toString());
+            }
 
-        jListFrameCasa.setModel(listModel);//Mudar a lista
+            jListFrameCasa.setModel(listModel);//Mudar a lista
+        }
     }
 
     //Necessita de refatoração após a implementação dos métodos
@@ -1039,17 +1099,17 @@ public class FrameCasa extends javax.swing.JFrame {
         char aux = evt.getKeyChar();
         int tem = 0;
         for (int i = 0; i < text.length(); i++) {
-            if(text.charAt(i) == '.'){
+            if (text.charAt(i) == '.') {
                 tem++;
                 break;
             }
         }
-        
-        if(aux =='.'){
-            if(tem != 0){
+
+        if (aux == '.') {
+            if (tem != 0) {
                 evt.consume();
             }
-        }else if(!Character.isDigit(aux)){
+        } else if (!Character.isDigit(aux)) {
             evt.consume();
         }
     }
