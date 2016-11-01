@@ -189,7 +189,7 @@ public class FrameCasa extends javax.swing.JFrame {
                     .addComponent(jButtonEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonOrdenar, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jButtonOrdenar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -209,10 +209,9 @@ public class FrameCasa extends javax.swing.JFrame {
                     .addComponent(jTextFieldBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonBuscarCasa)
                     .addComponent(jComboBoxPesquisa, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(21, 21, 21)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
                         .addComponent(jButtonIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonDetalhes)
@@ -220,9 +219,9 @@ public class FrameCasa extends javax.swing.JFrame {
                         .addComponent(jButtonEditar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonExcluir)
-                        .addGap(114, 114, 114)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonOrdenar)
-                        .addGap(18, 18, 18)
+                        .addGap(134, 134, 134)
                         .addComponent(jButtonVoltar))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(31, Short.MAX_VALUE))
@@ -232,12 +231,12 @@ public class FrameCasa extends javax.swing.JFrame {
 
         jPanelImovel.setPreferredSize(new java.awt.Dimension(360, 128));
 
-        jLabelLogradouro.setText(" Logradouro:");
+        jLabelLogradouro.setText(" Logradouro:*");
 
         jTextFieldLogradouro.setAutoscrolls(false);
         jTextFieldLogradouro.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
-        jLabelNumero.setText("Número:");
+        jLabelNumero.setText("Número:*");
         jLabelNumero.setToolTipText("");
 
         jTextFieldNumero.setDisabledTextColor(new java.awt.Color(0, 0, 0));
@@ -252,19 +251,19 @@ public class FrameCasa extends javax.swing.JFrame {
             }
         });
 
-        jLabelBairro.setText(" Bairro:");
+        jLabelBairro.setText(" Bairro:*");
 
         jTextFieldBairro.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
-        jLabelCidade.setText(" Cidade:");
+        jLabelCidade.setText(" Cidade:*");
 
         jTextFieldCidade.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
-        jLabelDescricao.setText("Descrição:");
+        jLabelDescricao.setText("Descrição:*");
 
         jTextFieldDescricao.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
-        jLabelAreaTotal.setText(" Área Total (m²):");
+        jLabelAreaTotal.setText(" Área Total (m²):*");
 
         jTextFieldAreaTotal.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldAreaTotal.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -278,7 +277,7 @@ public class FrameCasa extends javax.swing.JFrame {
             }
         });
 
-        jLabelValor.setText(" Valor (R$):");
+        jLabelValor.setText(" Valor (R$):*");
 
         jTextFieldValor.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldValor.addActionListener(new java.awt.event.ActionListener() {
@@ -293,7 +292,7 @@ public class FrameCasa extends javax.swing.JFrame {
         });
 
         jLabelTipo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTipo.setText("Tipo:");
+        jLabelTipo.setText("Tipo:*");
 
         jComboBoxTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -301,7 +300,7 @@ public class FrameCasa extends javax.swing.JFrame {
             }
         });
 
-        jLabelAC.setText("Área Construída:");
+        jLabelAC.setText("Área Construída:*");
 
         jTextFieldAC.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldAC.addActionListener(new java.awt.event.ActionListener() {
@@ -315,7 +314,7 @@ public class FrameCasa extends javax.swing.JFrame {
             }
         });
 
-        jLabelNQ.setText("Número de Quartos:");
+        jLabelNQ.setText("Número de Quartos:*");
 
         jTextFieldNQ.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldNQ.addActionListener(new java.awt.event.ActionListener() {
@@ -329,9 +328,9 @@ public class FrameCasa extends javax.swing.JFrame {
             }
         });
 
-        jLabelAnoC.setText("Ano de Construção");
+        jLabelAnoC.setText("Ano de Construção:*");
 
-        jLabelNVG.setText("Número de Vagas na Garagem:");
+        jLabelNVG.setText("Número de Vagas na Garagem:*");
 
         jTextFieldNVG.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldNVG.addActionListener(new java.awt.event.ActionListener() {
@@ -413,15 +412,15 @@ public class FrameCasa extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelImovelLayout.createSequentialGroup()
-                                        .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jComboBoxTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextFieldAC, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(jTextFieldAC, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(jPanelImovelLayout.createSequentialGroup()
-                                                .addComponent(jLabelNQ, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jTextFieldNQ))
+                                                .addComponent(jLabelNQ, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jTextFieldNQ, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
                                             .addGroup(jPanelImovelLayout.createSequentialGroup()
                                                 .addComponent(jLabelAnoC)
                                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -434,7 +433,7 @@ public class FrameCasa extends javax.swing.JFrame {
                             .addGroup(jPanelImovelLayout.createSequentialGroup()
                                 .addGap(23, 23, 23)
                                 .addComponent(jLabelAC)))
-                        .addGap(0, 21, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelImovelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButtonVoltarAdicionar)
@@ -461,7 +460,7 @@ public class FrameCasa extends javax.swing.JFrame {
                 .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabelDescricao)
                     .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanelImovelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelValor, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -494,7 +493,7 @@ public class FrameCasa extends javax.swing.JFrame {
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelImovel, javax.swing.GroupLayout.DEFAULT_SIZE, 584, Short.MAX_VALUE)
+            .addComponent(jPanelImovel, javax.swing.GroupLayout.DEFAULT_SIZE, 609, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -783,7 +782,7 @@ public class FrameCasa extends javax.swing.JFrame {
 
     private void jButtonOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrdenarActionPerformed
         String[] textMessages = {"Codigo", "Valor", "Area", "Cancelar"};
-        int x = JOptionPane.showOptionDialog(null, "Texto", "Título",
+        int x = JOptionPane.showOptionDialog(null, "Escolha uma opção para ordenar", "Ordenação",
                 JOptionPane.WHEN_IN_FOCUSED_WINDOW, JOptionPane.QUESTION_MESSAGE,
                 null, textMessages, null);
         DefaultListModel lista = new DefaultListModel();
