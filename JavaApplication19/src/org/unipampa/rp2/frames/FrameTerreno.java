@@ -5,8 +5,8 @@
  */
 package org.unipampa.rp2.frames;
 
+import java.util.ArrayList;
 import java.util.List;
-import javax.print.attribute.standard.JobKOctets;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import org.unipampa.rp2.tiposimoveis.Terreno;
@@ -28,12 +28,20 @@ public class FrameTerreno extends javax.swing.JFrame {
      */
     public FrameTerreno(Lista listaTerreno) {
         initComponents();
-        listaTerreno.lerArquivo();
+
         this.listaTerreno = listaTerreno;
         this.setLocationRelativeTo(null);
         this.setTitle("Imobiliária - Terreno");
 
+        if (listaTerreno.lerArquivo()) {
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Arquivo Não Encontrado");
+        }
         jButtonDetalhe.setEnabled(false);
+        jButtonEditar.setEnabled(false);
+        jButtonExcluir.setEnabled(false);
+
 
         jTabbedPaneGuias.setEnabledAt(1, false);
     }
@@ -58,6 +66,8 @@ public class FrameTerreno extends javax.swing.JFrame {
         jList1 = new javax.swing.JList();
         jButtonVoltar = new javax.swing.JButton();
         jButtonDetalhe = new javax.swing.JButton();
+        jComboBoxBusc = new javax.swing.JComboBox();
+        jButtonOrdenar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabelNumero = new javax.swing.JLabel();
         jTextFieldNumero = new javax.swing.JTextField();
@@ -103,13 +113,18 @@ public class FrameTerreno extends javax.swing.JFrame {
             }
         });
 
-        jButtonBuscarC.setText("Buscar Por Código");
+        jButtonBuscarC.setText("Buscar");
         jButtonBuscarC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBuscarCActionPerformed(evt);
             }
         });
 
+        jTextFieldCodBusc.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldCodBuscFocusLost(evt);
+            }
+        });
         jTextFieldCodBusc.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldCodBuscKeyTyped(evt);
@@ -137,26 +152,43 @@ public class FrameTerreno extends javax.swing.JFrame {
             }
         });
 
+        jComboBoxBusc.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Codigo", "Valor", "Bairro" }));
+        jComboBoxBusc.setAutoscrolls(true);
+        jComboBoxBusc.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxBuscItemStateChanged(evt);
+            }
+        });
+
+        jButtonOrdenar.setText("Ordenar");
+        jButtonOrdenar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonOrdenarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelCadastrarLayout = new javax.swing.GroupLayout(jPanelCadastrar);
         jPanelCadastrar.setLayout(jPanelCadastrarLayout);
         jPanelCadastrarLayout.setHorizontalGroup(
             jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonExcluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonEditar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBoxBusc, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonDetalhe, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCadastrarLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jTextFieldCodBusc, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonBuscarC)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextFieldCodBusc, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanelCadastrarLayout.createSequentialGroup()
-                        .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jButtonVoltar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonDetalhe, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonExcluir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonEditar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonIncluir, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPaneLista, javax.swing.GroupLayout.DEFAULT_SIZE, 460, Short.MAX_VALUE)))
+                        .addComponent(jButtonOrdenar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonIncluir, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPaneLista))
                 .addContainerGap())
         );
         jPanelCadastrarLayout.setVerticalGroup(
@@ -165,117 +197,98 @@ public class FrameTerreno extends javax.swing.JFrame {
                 .addGap(10, 10, 10)
                 .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonBuscarC)
-                    .addComponent(jTextFieldCodBusc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBoxBusc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCodBusc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonOrdenar)
+                    .addComponent(jButtonIncluir))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanelCadastrarLayout.createSequentialGroup()
-                        .addComponent(jButtonIncluir)
-                        .addGap(18, 18, 18)
                         .addComponent(jButtonEditar)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButtonExcluir)
-                        .addGap(27, 27, 27)
-                        .addComponent(jButtonDetalhe))
-                    .addComponent(jScrollPaneLista, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(jButtonVoltar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonDetalhe)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonVoltar))
+                    .addComponent(jScrollPaneLista, javax.swing.GroupLayout.DEFAULT_SIZE, 236, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jTabbedPaneGuias.addTab("Cadastrar", jPanelCadastrar);
+        jTabbedPaneGuias.addTab("Consultar", jPanelCadastrar);
 
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 204), 1, true));
 
-        jLabelNumero.setText("Número");
+        jLabelNumero.setText("Número:*");
 
-        jTextFieldNumero.setDisabledTextColor(new java.awt.Color(0, 0, 204));
+        jTextFieldNumero.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldNumero.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldNumeroKeyTyped(evt);
             }
         });
 
-        jLabelLog.setText("Logradouro");
+        jLabelLog.setText("Logradouro:*");
 
-        jTextFieldLog.setDisabledTextColor(new java.awt.Color(0, 0, 204));
+        jTextFieldLog.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
-        jLabelBairro.setText("Bairro");
+        jLabelBairro.setText("Bairro:*");
 
-        jTextFieldBairro.setDisabledTextColor(new java.awt.Color(0, 0, 204));
-        jTextFieldBairro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldBairroActionPerformed(evt);
-            }
-        });
+        jTextFieldBairro.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
-        jLabelCidade.setText("Cidade");
+        jLabelCidade.setText("Cidade:*");
 
-        jTextFieldCidade.setDisabledTextColor(new java.awt.Color(0, 0, 204));
-        jTextFieldCidade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCidadeActionPerformed(evt);
-            }
-        });
+        jTextFieldCidade.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
-        jLabelValor.setText("Valor");
+        jLabelValor.setText("Valor:*");
 
-        jTextFieldValor.setDisabledTextColor(new java.awt.Color(0, 0, 204));
-        jTextFieldValor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldValorActionPerformed(evt);
-            }
-        });
+        jTextFieldValor.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldValor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldValorKeyTyped(evt);
             }
         });
 
-        jLabelDesc.setText("Descrição");
+        jLabelDesc.setText("Descrição:*");
 
         jTextFieldDescricao.setToolTipText("");
-        jTextFieldDescricao.setDisabledTextColor(new java.awt.Color(0, 0, 204));
+        jTextFieldDescricao.setDisabledTextColor(new java.awt.Color(0, 0, 0));
 
-        jLabelAreaTotal.setText("Área Total");
+        jLabelAreaTotal.setText("Área Total:*");
 
-        jTextFieldAtotal.setDisabledTextColor(new java.awt.Color(0, 0, 204));
+        jTextFieldAtotal.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldAtotal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldAtotalKeyTyped(evt);
             }
         });
 
-        jLabelDimençaoF.setText("Dimenção (Frente)");
+        jLabelDimençaoF.setText("Dimenção Frente (m):*");
 
-        jTextFieldDimencaoF.setDisabledTextColor(new java.awt.Color(0, 0, 204));
-        jTextFieldDimencaoF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldDimencaoFActionPerformed(evt);
-            }
-        });
+        jTextFieldDimencaoF.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldDimencaoF.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldDimencaoFKeyTyped(evt);
             }
         });
 
-        jLabelDimencaoL.setText("Dimenção (Lado)");
+        jLabelDimencaoL.setText("Dimenção Lado (m):*");
 
-        jTextFieldDimencaoL.setDisabledTextColor(new java.awt.Color(0, 0, 204));
+        jTextFieldDimencaoL.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextFieldDimencaoL.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldDimencaoLKeyTyped(evt);
             }
         });
 
-        jButtonSalvar.setText("SALVAR");
+        jButtonSalvar.setText("Salvar");
         jButtonSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSalvarActionPerformed(evt);
             }
         });
 
-        jButtonVoltando.setText("VOLTAR");
+        jButtonVoltando.setText("Voltar");
         jButtonVoltando.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonVoltandoActionPerformed(evt);
@@ -290,55 +303,51 @@ public class FrameTerreno extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabelNumero)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabelBairro)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(63, 63, 63)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelLog)
-                                    .addComponent(jLabelCidade))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldCidade)
-                                    .addComponent(jTextFieldLog)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabelAreaTotal)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jTextFieldAtotal, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabelDimençaoF)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jTextFieldDimencaoF, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(129, 129, 129))
+                        .addComponent(jButtonVoltando)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonSalvar)
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabelAreaTotal)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldAtotal))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabelDimençaoF)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jTextFieldDimencaoF, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabelNumero)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabelBairro)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldBairro))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabelValor)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextFieldValor)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabelDimencaoL)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextFieldDimencaoL, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabelValor)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(66, 66, 66)
-                                .addComponent(jLabelDesc)
-                                .addGap(18, 18, 18)
-                                .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonSalvar, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonVoltando, javax.swing.GroupLayout.Alignment.TRAILING))
+                                .addComponent(jTextFieldDimencaoL, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelCidade)
+                                        .addComponent(jLabelLog))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jTextFieldLog, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+                                        .addComponent(jTextFieldCidade)))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabelDesc)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                                    .addComponent(jTextFieldDescricao, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(34, 34, 34))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -365,26 +374,22 @@ public class FrameTerreno extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelAreaTotal)
-                    .addComponent(jTextFieldAtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldAtotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabelDimencaoL)
+                        .addComponent(jTextFieldDimencaoL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDimençaoF)
                     .addComponent(jTextFieldDimencaoF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelDimencaoL)
-                            .addComponent(jTextFieldDimencaoL, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButtonSalvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButtonVoltando)))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addGap(60, 60, 60)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonVoltando)
+                    .addComponent(jButtonSalvar))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
 
-        jTabbedPaneGuias.addTab("Incluir", jPanel1);
+        jTabbedPaneGuias.addTab("Dados", jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -406,7 +411,7 @@ public class FrameTerreno extends javax.swing.JFrame {
         jTabbedPaneGuias.setEnabledAt(0, false);
         ativarCampos();
         limparCampos();
-        isEdit= false;
+        isEdit = false;
     }//GEN-LAST:event_jButtonIncluirActionPerformed
 
     private void jButtonEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarActionPerformed
@@ -414,21 +419,33 @@ public class FrameTerreno extends javax.swing.JFrame {
         jButtonSalvar.setEnabled(true);
         isEdit = true;
         mudarAbas(0, 1);
-        int cod = Integer.parseInt(jList1.getSelectedValue().toString());
+        int cod = getCod(jList1.getSelectedValue().toString());
+        //Pega o codigo selecionado. Na lista.
+        this.codEdit = cod; //Variavel de classe para saber o código a ser editado.
         preencherCampos(cod);
         ativarCampos();
-        this.codEdit = cod;
 
     }//GEN-LAST:event_jButtonEditarActionPerformed
 
     private void jButtonBuscarCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarCActionPerformed
         // TODO add your handling code here:
+        String indice = jComboBoxBusc.getSelectedItem().toString();
         if (jTextFieldCodBusc.getText().trim().equals("")) {
             listar();
         } else {
-            busca(Integer.parseInt(jTextFieldCodBusc.getText().trim()));
-        }
 
+            switch (indice) {
+                case "Codigo":
+                    listarCodigo(Integer.parseInt(jTextFieldCodBusc.getText().trim()));
+                    break;
+                case "Valor":
+                    listarValor(Double.parseDouble(jTextFieldCodBusc.getText().trim()));
+                    break;
+                case "Bairro":
+                    listarBairro(jTextFieldCodBusc.getText().trim());
+                    break;
+            }
+        }
     }//GEN-LAST:event_jButtonBuscarCActionPerformed
 
     private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
@@ -437,22 +454,10 @@ public class FrameTerreno extends javax.swing.JFrame {
         this.dispose();// fechar
     }//GEN-LAST:event_jButtonVoltarActionPerformed
 
-    private void jTextFieldCidadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCidadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCidadeActionPerformed
-
-    private void jTextFieldValorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldValorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldValorActionPerformed
-
-    private void jTextFieldDimencaoFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldDimencaoFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldDimencaoFActionPerformed
-
     private void jButtonVoltandoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltandoActionPerformed
         // TODO add your handling code here:
         jTabbedPaneGuias.setSelectedIndex(0);
-        jTabbedPaneGuias.setEnabledAt(0, true);
+        jTabbedPaneGuias.setEnabledAt(0, true);//index abas. 
         jTabbedPaneGuias.setEnabledAt(1, false);
     }//GEN-LAST:event_jButtonVoltandoActionPerformed
 
@@ -487,19 +492,19 @@ public class FrameTerreno extends javax.swing.JFrame {
                     jTextFieldDescricao.getText(), jTextFieldLog.getText(), Double.parseDouble(jTextFieldAtotal.getText()),
                     jTextFieldBairro.getText(), Double.parseDouble(jTextFieldDimencaoF.getText()), Double.parseDouble(jTextFieldDimencaoL.getText()));
 
-            if(listaTerreno.editar(codEdit, t)){
+            if (listaTerreno.editar(codEdit, t)) {
                 JOptionPane.showMessageDialog(null, "Editado com sucesso");
-                if(listaTerreno.escreverArquivo()){
+                if (listaTerreno.escreverArquivo()) {
                     JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
-                } else{
-                    JOptionPane.showMessageDialog(null, "Não salvo com sucesso! ERROR");
+                } else {
+                    JOptionPane.showMessageDialog(null, "Não salvo ! ERROR");
                 }
-                
+
             }
             limparCampos();
             listar();
         }
-        
+
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jTextFieldNumeroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldNumeroKeyTyped
@@ -529,15 +534,22 @@ public class FrameTerreno extends javax.swing.JFrame {
 
     private void jTextFieldCodBuscKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCodBuscKeyTyped
         // TODO add your handling code here:
-        soNumeros(evt, false);
+        switch(jComboBoxBusc.getSelectedItem().toString()){
+            case "Codigo":
+                soNumeros(evt, false);
+                break;
+            case "Valor":
+                soNumeros(evt, isDouble(jTextFieldCodBusc));
+                break;
+        }
     }//GEN-LAST:event_jTextFieldCodBuscKeyTyped
 
     private void jButtonDetalheActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDetalheActionPerformed
         // TODO add your handling code here:
-        jTabbedPaneGuias.setSelectedIndex(1);
+        jTabbedPaneGuias.setSelectedIndex(1);// selecionar a aba.
         jTabbedPaneGuias.setEnabledAt(0, false);
         jTabbedPaneGuias.setEnabledAt(1, true);
-        preencherCampos(Integer.parseInt(jList1.getSelectedValue().toString()));
+        preencherCampos(getCod(jList1.getSelectedValue().toString()));
         desativarCampos();
     }//GEN-LAST:event_jButtonDetalheActionPerformed
 
@@ -545,32 +557,102 @@ public class FrameTerreno extends javax.swing.JFrame {
         // TODO add your handling code here:
         if (jList1.isSelectionEmpty()) {
             jButtonDetalhe.setEnabled(false);
+            jButtonEditar.setEnabled(false);
+            jButtonExcluir.setEnabled(false);
         } else {
             jButtonDetalhe.setEnabled(true);
+            jButtonEditar.setEnabled(true);
+            jButtonExcluir.setEnabled(true);
         }
     }//GEN-LAST:event_jList1ValueChanged
 
-    private void jTextFieldBairroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldBairroActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBairroActionPerformed
-
     private void jButtonExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirActionPerformed
-        int cod = Integer.parseInt(jList1.getSelectedValue().toString());
+        int cod = getCod(jList1.getSelectedValue().toString());
         if (listaTerreno.excluir(cod)) {
             JOptionPane.showMessageDialog(this, "Excluido com sucesso.");
-            if(listaTerreno.escreverArquivo()){
-                JOptionPane.showMessageDialog(null, "Mudanças feitas com sucesso!");
-            }else {
+            if (listaTerreno.escreverArquivo()) {
+                JOptionPane.showMessageDialog(null, "Alterações e exclusão Bem Sucedida!");
+            } else {
                 JOptionPane.showMessageDialog(null, "Não foi alterado ERROR!");
             }
-            
+
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao excluir.");
         }
-        
+
     }//GEN-LAST:event_jButtonExcluirActionPerformed
+
+    private void jButtonOrdenarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrdenarActionPerformed
+        int escolha = Integer.valueOf(JOptionPane.showInputDialog("Selecione Uma Opção:\n 1- Por Código\n 2- Por Valor\n 3- Por Área Total\n 4- Voltar"));
+        switch (escolha) {
+            case 1:
+                listaTerreno.ordenarCodigo();
+                DefaultListModel modelo = new DefaultListModel();
+                List<Imovel> modelo1 = listaTerreno.getLista();
+                for (Imovel imovel : modelo1) {
+                    modelo.addElement(imovel.toString());
+                }
+                jList1.setModel(modelo);
+                break;
+            case 2:
+                listaTerreno.ordenarValor();
+                DefaultListModel modeloV = new DefaultListModel();
+                List<Imovel> modelo2 = listaTerreno.getLista();
+                for (Imovel imovel : modelo2) {
+                    modeloV.addElement(imovel.toString());
+                }
+                jList1.setModel(modeloV);
+                break;
+            case 3:
+                listaTerreno.ordenarArea();
+                DefaultListModel modeloA = new DefaultListModel();
+                List<Imovel> modelo3 = listaTerreno.getLista();
+                for (Imovel imovel : modelo3) {
+                    modeloA.addElement(imovel.toString());
+                }
+                jList1.setModel(modeloA);
+                break;
+            case 4:
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Favor , Digitar um Número Válido");
+
+        }
+    }//GEN-LAST:event_jButtonOrdenarActionPerformed
+
+    private void jTextFieldCodBuscFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCodBuscFocusLost
+        // TODO add your handling code here:
+        if(jTextFieldCodBusc.getText().trim().equals(".")){
+            jTextFieldCodBusc.setText("");
+        }
+    }//GEN-LAST:event_jTextFieldCodBuscFocusLost
+
+    private void jComboBoxBuscItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxBuscItemStateChanged
+        // TODO add your handling code here:
+        jTextFieldCodBusc.setText("");
+    }//GEN-LAST:event_jComboBoxBuscItemStateChanged
 //Preencher pra quando eu quiser ver detalhes.
 
+    /**
+     * Método para retirar o código do toString da classe sala comercial
+     *
+     * @param cod - String que veio do toString da classe
+     * @return - retorna um inteiro com o código
+     */
+    private int getCod(String cod) {
+        int end = 0;
+        for (int i = 8; i < cod.length(); i++) {
+            if (cod.charAt(i) == '-') {
+                end = i - 1;
+                break;
+            }
+        }
+
+        cod = cod.substring(8, end);
+        return Integer.parseInt(cod);
+    }
+
+    
     private void preencherCampos(int cod) {
         Terreno imovel = (Terreno) listaTerreno.consultar(cod);
         jTextFieldCidade.setText(imovel.getCidade());
@@ -618,8 +700,9 @@ public class FrameTerreno extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Imóvel não encontrado");
         } else {
             modelo.addElement(modelo1.toString());
-            jList1.setModel(modelo);
         }
+        jList1.setModel(modelo);
+
     }
 
     /**
@@ -726,9 +809,11 @@ public class FrameTerreno extends javax.swing.JFrame {
     private javax.swing.JButton jButtonEditar;
     private javax.swing.JButton jButtonExcluir;
     private javax.swing.JButton jButtonIncluir;
+    private javax.swing.JButton jButtonOrdenar;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JButton jButtonVoltando;
     private javax.swing.JButton jButtonVoltar;
+    private javax.swing.JComboBox jComboBoxBusc;
     private javax.swing.JLabel jLabelAreaTotal;
     private javax.swing.JLabel jLabelBairro;
     private javax.swing.JLabel jLabelCidade;
@@ -754,4 +839,77 @@ public class FrameTerreno extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldNumero;
     private javax.swing.JTextField jTextFieldValor;
     // End of variables declaration//GEN-END:variables
+public void listarCodigo(int cod) {
+        DefaultListModel listModel = new DefaultListModel();
+        List<Imovel> terrenoc;
+        terrenoc = listaTerreno.getLista();//Atribui a lista da classe Lista a variável
+        if (cod == -1) {
+            //Percorre a lista e insere os resultados em listModel(Lista padrão)
+            for (Imovel home : terrenoc) {
+                listModel.addElement(home.toString());
+
+            }
+        } else {
+
+            Imovel novo = listaTerreno.consultar(cod);
+            if (novo != null) {
+                listModel.addElement(novo.toString());
+            }
+
+        }
+
+        jList1.setModel(listModel);
+    }
+
+    public void listarValor(double valor) {
+        DefaultListModel listModel = new DefaultListModel();
+        List<Imovel> terrenoValor = listaTerreno.pesquisaValor(valor);
+        if (terrenoValor == null) {
+            for (Imovel home : terrenoValor) {
+                listModel.addElement(home);
+
+            }
+            jList1.setModel(listModel);
+        } else {
+
+            if (terrenoValor != null) {
+                for (Imovel home : terrenoValor) {
+                    listModel.addElement(home);
+
+                }
+                jList1.setModel(listModel);
+            } else {
+
+                jList1.setModel(listModel);
+
+            }
+
+        }
+
+    }
+
+    private void listarBairro(String bairro) {
+        DefaultListModel listModel = new DefaultListModel();
+        List<Imovel> terreno;
+        List<Imovel> terrenoBairro = new ArrayList();
+        terreno = listaTerreno.getLista();
+        if (bairro.equals("")) {
+            for (Imovel terrenoB : terreno) {
+                listModel.addElement(terrenoB);
+
+            }
+            jList1.setModel(listModel);
+        } else {
+            terreno = listaTerreno.pesquisaBairro(bairro);
+            if (terreno != null) {
+                for (Imovel terrenoB : terreno) {
+                    
+                    listModel.addElement(terrenoB);
+                }
+                jList1.setModel(listModel);
+            } else {
+                jList1.setModel(listModel);
+            }
+        }
+    }
 }

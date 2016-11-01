@@ -20,7 +20,7 @@ public class Inicial extends javax.swing.JFrame {
     private Lista ListaApartamento = new Lista("Apartamentos");
     private Lista listaCasa = new Lista("Casas");
     private Lista listaTerreno = new Lista("Terrenos");
-    private Lista listaChacara = new Lista ("Chacaras");
+    private Lista listaChacara = new Lista ("Chácaras");
     /**
      * Creates new form Inicial
      */
@@ -51,11 +51,12 @@ public class Inicial extends javax.swing.JFrame {
         jButtonCasa = new javax.swing.JButton();
         jButtonTerreno = new javax.swing.JButton();
         jButtonChacara = new javax.swing.JButton();
+        jLabelImagem = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabelImovel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabelImovel.setText("Imóveis");
+        jLabelImovel.setText("Imobiliária - RP II");
 
         jButtonSalaComercial.setText("Sala Comercial");
         jButtonSalaComercial.addActionListener(new java.awt.event.ActionListener() {
@@ -92,31 +93,39 @@ public class Inicial extends javax.swing.JFrame {
             }
         });
 
+        jLabelImagem.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/edu/unipampa/rp2/imgens/ico_busca.jpg"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabelImovel)
+                .addGap(135, 135, 135))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(166, 166, 166)
-                        .addComponent(jLabelImovel))
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabelImagem))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
+                        .addGap(42, 42, 42)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonSalaComercial, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                            .addComponent(jButtonSalaComercial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonApartamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonCasa, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jButtonTerreno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(49, Short.MAX_VALUE))
+                            .addComponent(jButtonChacara, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(59, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(22, 22, 22)
                 .addComponent(jLabelImovel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelImagem)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonSalaComercial)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonApartamento)
@@ -126,7 +135,7 @@ public class Inicial extends javax.swing.JFrame {
                 .addComponent(jButtonTerreno)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonChacara)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -205,6 +214,7 @@ public class Inicial extends javax.swing.JFrame {
     private javax.swing.JButton jButtonChacara;
     private javax.swing.JButton jButtonSalaComercial;
     private javax.swing.JButton jButtonTerreno;
+    private javax.swing.JLabel jLabelImagem;
     private javax.swing.JLabel jLabelImovel;
     // End of variables declaration//GEN-END:variables
 }

@@ -126,10 +126,8 @@ public class Terreno extends Imovel{
     
     //</editor-fold>
     
+    @Override
     public String toString(){
-        
-       
-        return String.valueOf(getCod());
-        
+        return "Código: "+getCod()+" - "+"Nome da cidade: "+getCidade();
     }
 }

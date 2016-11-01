@@ -23,33 +23,40 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              <Component id="jLabelImovel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="135" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
-                      <Component id="jLabelImovel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
+                      <Component id="jLabelImagem" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButtonSalaComercial" pref="299" max="32767" attributes="0"/>
+                          <Component id="jButtonSalaComercial" max="32767" attributes="0"/>
                           <Component id="jButtonApartamento" max="32767" attributes="0"/>
                           <Component id="jButtonCasa" max="32767" attributes="0"/>
                           <Component id="jButtonTerreno" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jButtonChacara" max="32767" attributes="0"/>
+                          <Component id="jButtonChacara" min="-2" pref="299" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="49" max="32767" attributes="0"/>
+              <EmptySpace pref="59" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
               <Component id="jLabelImovel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jLabelImagem" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButtonSalaComercial" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jButtonApartamento" min="-2" max="-2" attributes="0"/>
@@ -59,7 +66,7 @@
               <Component id="jButtonTerreno" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jButtonChacara" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="73" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -70,7 +77,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Im&#xf3;veis"/>
+        <Property name="text" type="java.lang.String" value="Imobili&#xe1;ria - RP II"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonSalaComercial">
@@ -112,6 +119,13 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonChacaraActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelImagem">
+      <Properties>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/br/edu/unipampa/rp2/imgens/ico_busca.jpg"/>
+        </Property>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>
