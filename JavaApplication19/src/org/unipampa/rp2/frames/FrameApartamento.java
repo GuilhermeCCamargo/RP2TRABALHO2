@@ -666,7 +666,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
                                JOptionPane.showMessageDialog(null, "Não encontrado.");
                             }
                             else{
-                            for (Imovel imovel3 : imovelI) {
+                            for (Imovel imovel3 : listapesquisabairro) {
                                 modelListx.addElement(imovel3.toString());
                             }
                             jListListaApartamento.setModel(modelListx);
@@ -681,7 +681,7 @@ public class FrameApartamento extends javax.swing.JFrame  {
                                 JOptionPane.showMessageDialog(null, "Não encontrado.");
                             }
                             else{
-                            for (Imovel imovel3 : imovelT) {
+                            for (Imovel imovel3 : listapesquisavalor) {
                                 modelList5.addElement(imovel3.toString());
                             }
                             jListListaApartamento.setModel(modelList5);
