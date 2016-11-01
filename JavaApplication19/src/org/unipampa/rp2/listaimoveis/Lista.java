@@ -438,7 +438,7 @@ public class Lista implements ListaImoveis {
                     }
                 }
 
-                Apartamento apartamento = new Apartamento(cidade, bairro, logradouro, numero,
+                Apartamento apartamento = new Apartamento(cod,cidade, bairro, logradouro, numero,
                         valor, nomeEdificio, andar, nroApartamento,
                         anoConstrucao, nroQuartos, vgsGaragem, valorCondominio, descricao, areaTotal);
 

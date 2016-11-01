@@ -978,7 +978,6 @@ public class FrameCasa extends javax.swing.JFrame {
         }
     }
 
-    //Necessita de refatoração após a implementação dos métodos
     public void listarValor(double valor) {
         DefaultListModel listModel = new DefaultListModel();
         List<Imovel> casa = listaCasa.pesquisaValor(valor);

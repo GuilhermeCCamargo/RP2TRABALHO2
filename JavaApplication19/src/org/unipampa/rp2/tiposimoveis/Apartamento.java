@@ -82,6 +82,28 @@ public class Apartamento extends Imovel{
         this.descricao = descricao;
         this.areaTotal = areaTotal;
     }
+    
+    public Apartamento(int cod,String cidade, String bairro ,String logradouro, int numero,  
+            double valor, String nomeEdificio, int andar, int nroApartamento, 
+            int anoConstrucao, int nroQuartos, int vgsGaragem, double valorCondominio, String descricao , double areaTotal) {
+    
+        super(cod, numero, valor, cidade);
+        if(numero < 0 || andar < 0 || valor < 0 || anoConstrucao < 0 || nroQuartos < 0 || vgsGaragem < 0 || valorCondominio < 0){
+            throw new InvalidParameterException("Forneça números válidos");
+        }
+        
+        this.nomeEdificio = nomeEdificio;
+        this.andar = andar;
+        this.nroApartamento = nroApartamento;
+        this.nroQuartos = nroQuartos;
+        this.vgsGaragem = vgsGaragem; 
+        this.anoConstrucao = anoConstrucao;
+        this.valorCondominio = valorCondominio;
+        this.logradouro = logradouro;
+        this.bairro = bairro;
+        this.descricao = descricao;
+        this.areaTotal = areaTotal;
+    }
 
    
    
