@@ -676,12 +676,7 @@ public class FrameApartamento2 extends javax.swing.JFrame {
             if (listaApartamento.editar(isCod, p)) {
                 jTabbedPaneCasa.setEnabledAt(1, false);
                 jTabbedPaneCasa.setEnabledAt(0, true);
-                jTabbedPaneCasa.setSelectedIndex(0);
-                try {
-                    listaApartamento.gravarUltimoCod(isCod);
-                } catch (IOException ex) {
-                    Logger.getLogger(FrameApartamento2.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                jTabbedPaneCasa.setSelectedIndex(0);           
                 listaApartamento.escreverArquivo();
             } else {
                 JOptionPane.showMessageDialog(null, "Erro ao Editar");
