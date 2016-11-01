@@ -39,6 +39,7 @@ public class Lista implements ListaImoveis {
     private final String tipo;
 
     //</editor-fold>
+
     //<editor-fold defaultstate="collapsed" desc="Construtor">
     /**
      * Construtor que pega qual o tipo para criar um arquivo a partir do mesmo
@@ -50,7 +51,7 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc="Implementados">
+
     //<editor-fold defaultstate="collapsed" desc="Listas(Incluir, Editar, Excluir e Consultar)">
     /**
      * Método para que se possa cadastrar um imóvel
@@ -125,7 +126,9 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
+
     //<editor-fold defaultstate="collapsed" desc="Manipulação de Arquivos(Escrever e Ler)">
+   
     //<editor-fold defaultstate="collapsed" desc="Arquivos padrões">
     /**
      * Método para escrever dentro de um documento no formato .csv
@@ -366,6 +369,7 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Método para a leitura de um Apartamento">
     private void lerApartamento() throws FileNotFoundException, IOException {
         int cod = 0, numero = 0, nroQuartos = 0, vgsGaragem = 0, nroApartamento = 0, andar = 0, anoConstrucao = 0;
@@ -452,6 +456,7 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Método para a leitura de uma sala comercial">
     /**
      * Método privado para a leitura de arquivos .csv do tipo sala comercial
@@ -498,6 +503,7 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Método para ler Chácaras">
     private void lerChacara() throws FileNotFoundException, IOException {
         int cod = 0, ano = 0, numero = 0, nroQuartos = 0;
@@ -583,6 +589,7 @@ public class Lista implements ListaImoveis {
 
     //</editor-fold>
     //</editor-fold>
+    
     //<editor-fold defaultstate="collapsed" desc="Ordenações">
     @Override
     public List<Imovel> ordenarCodigo() {
@@ -638,8 +645,9 @@ public class Lista implements ListaImoveis {
     }
 
     //</editor-fold>
+    
     //</editor-fold>
-    //<editor-fold defaultstate="collapsed" desc="Não implementados">
+
     @Override
     public List<Imovel> pesquisaValor(double valor) {
         List<Imovel> listaValor = new ArrayList();
@@ -663,7 +671,6 @@ public class Lista implements ListaImoveis {
         return listaBairro;
     }
 
-    //</editor-fold>
     //<editor-fold defaultstate="collapsed" desc="GetLista(Implementado)">
     /**
      * Método para retornar a lista de imóveis
