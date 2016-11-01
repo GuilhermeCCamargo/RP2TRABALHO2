@@ -121,7 +121,7 @@ public class Chacara extends Imovel implements Cloneable{
     /**
      * @param areaConstruida the areaConstruida to set
      */
-    public void setAreaConstruida(float areaConstruida) {
+    public void setAreaConstruida(double areaConstruida) {
         this.areaConstruida = areaConstruida;
     }
 

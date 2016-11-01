@@ -38,7 +38,7 @@ public class FrameChacara extends javax.swing.JFrame {
         this.listaChacara.lerArquivo();
         jTabbedPaneChacara.setEnabledAt(1, false);
         jTabbedPaneChacara.setEnabledAt(2, false);
-
+        listar();
     }
 
     /**
@@ -968,6 +968,7 @@ public class FrameChacara extends javax.swing.JFrame {
             jTabbedPaneChacara.setEnabledAt(1, false);
             jTabbedPaneChacara.setEnabledAt(0, true);
             jTabbedPaneChacara.setSelectedIndex(0);
+            listar();
         }
 
 
@@ -978,6 +979,7 @@ public class FrameChacara extends javax.swing.JFrame {
         jTabbedPaneChacara.setSelectedIndex(0);
         jTabbedPaneChacara.setEnabledAt(1, false);
         jTabbedPaneChacara.setEnabledAt(0, true);
+        listar();
         limpar();
     }//GEN-LAST:event_jButtonVoltarChacaraActionPerformed
 
@@ -1019,7 +1021,7 @@ public class FrameChacara extends javax.swing.JFrame {
 
             try {
                 Chacara objeto = a.clone();
-                objeto.setAreaConstruida(TOP_ALIGNMENT);
+                objeto.setAreaConstruida(areaConstruida);
                 objeto.setDistanciaCidade(distanciaCidade);
                 objeto.setAno(ano);
                 objeto.setNumero(numero);
@@ -1033,6 +1035,10 @@ public class FrameChacara extends javax.swing.JFrame {
                 if (listaChacara.editar(cod, objeto)) {
                     JOptionPane.showMessageDialog(null, "Imóvel editado com sucesso.");
                     listaChacara.escreverArquivo();
+                    jTabbedPaneChacara.setSelectedIndex(0);
+                    jTabbedPaneChacara.setEnabledAt(0, true);
+                    jTabbedPaneChacara.setEnabledAt(2, false);
+                    listar();
                     limparEdit();
                 } else {
                     JOptionPane.showMessageDialog(null, "Objeto não pode ser editado.");

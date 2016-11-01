@@ -51,6 +51,8 @@ public class FrameApartamento2 extends javax.swing.JFrame {
 
         jTabbedPaneCasa.setEnabledAt(1, false);
         jTabbedPaneCasa.setEnabledAt(0, true);
+        
+        listarCod(-1);
 
     }
 
@@ -678,6 +680,7 @@ public class FrameApartamento2 extends javax.swing.JFrame {
                 jTabbedPaneCasa.setEnabledAt(0, true);
                 jTabbedPaneCasa.setSelectedIndex(0);           
                 listaApartamento.escreverArquivo();
+                listarCod(-1);
             } else {
                 JOptionPane.showMessageDialog(null, "Erro ao Editar");
             }
@@ -694,6 +697,7 @@ public class FrameApartamento2 extends javax.swing.JFrame {
                 jTabbedPaneCasa.setEnabledAt(1, false);
                 jTabbedPaneCasa.setEnabledAt(0, true);
                 jTabbedPaneCasa.setSelectedIndex(0);
+                listarCod(-1);
                 try {
                     this.listaApartamento.gravarUltimoCod(p.getCod());
                 } catch (IOException ex) {

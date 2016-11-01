@@ -52,6 +52,8 @@ public class FrameCasa extends javax.swing.JFrame {
         for (Tipo t : Tipo.values()) {
             jComboBoxTipo.addItem(t.getTipo());
         }
+        
+        listarCod(-1);
 
     }
 
@@ -582,6 +584,7 @@ public class FrameCasa extends javax.swing.JFrame {
                 jTabbedPaneCasa.setEnabledAt(1, false);
                 jTabbedPaneCasa.setEnabledAt(0, true);
                 jTabbedPaneCasa.setSelectedIndex(0);
+                listarCod(-1);
                 if (listaCasa.escreverArquivo()) {
                     JOptionPane.showMessageDialog(this, "Salvo com sucesso");
                     try {
@@ -618,6 +621,7 @@ public class FrameCasa extends javax.swing.JFrame {
                     jTabbedPaneCasa.setEnabledAt(1, false);
                     jTabbedPaneCasa.setEnabledAt(0, true);
                     jTabbedPaneCasa.setSelectedIndex(0);
+                    listarCod(-1);
                     isEditar = false;
                     if (listaCasa.escreverArquivo()) {
                         JOptionPane.showMessageDialog(this, "Salvo com sucesso");
