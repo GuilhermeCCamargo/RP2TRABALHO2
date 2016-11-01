@@ -80,32 +80,33 @@ public class FrameChacara extends javax.swing.JFrame {
             return true;
         }
     }
-    public void desativarCampos(){
+
+    public void desativarCampos() {
         jTextFieldBairroEdit.setEnabled(false);
-            jTextFieldAnoEdit.setEnabled(false);
-            jTextFieldAreaEdit.setEnabled(false);
-            jTextFieldCidadeEdit.setEnabled(false);
-            jTextFieldDistanciaEdit.setEnabled(false);
-            jTextFieldQuartosEdit.setEnabled(false);
-            jTextFieldLogradouroEdit.setEnabled(false);
-            jTextFieldNumeroEdit.setEnabled(false);
-            jTextFieldValorEdit.setEnabled(false);
-            jTextFieldDescEdit.setEnabled(false);
-            jTextFieldAreaTotalEdit.setEnabled(false);
+        jTextFieldAnoEdit.setEnabled(false);
+        jTextFieldAreaEdit.setEnabled(false);
+        jTextFieldCidadeEdit.setEnabled(false);
+        jTextFieldDistanciaEdit.setEnabled(false);
+        jTextFieldQuartosEdit.setEnabled(false);
+        jTextFieldLogradouroEdit.setEnabled(false);
+        jTextFieldNumeroEdit.setEnabled(false);
+        jTextFieldValorEdit.setEnabled(false);
+        jTextFieldDescEdit.setEnabled(false);
+        jTextFieldAreaTotalEdit.setEnabled(false);
     }
-    
-    public void ativarCampos(){
+
+    public void ativarCampos() {
         jTextFieldBairroEdit.setEnabled(true);
-            jTextFieldAnoEdit.setEnabled(true);
-            jTextFieldAreaEdit.setEnabled(true);
-            jTextFieldCidadeEdit.setEnabled(true);
-            jTextFieldDistanciaEdit.setEnabled(true);
-            jTextFieldQuartosEdit.setEnabled(true);
-            jTextFieldLogradouroEdit.setEnabled(true);
-            jTextFieldNumeroEdit.setEnabled(true);
-            jTextFieldValorEdit.setEnabled(true);
-            jTextFieldDescEdit.setEnabled(true);
-            jTextFieldAreaTotalEdit.setEnabled(true);
+        jTextFieldAnoEdit.setEnabled(true);
+        jTextFieldAreaEdit.setEnabled(true);
+        jTextFieldCidadeEdit.setEnabled(true);
+        jTextFieldDistanciaEdit.setEnabled(true);
+        jTextFieldQuartosEdit.setEnabled(true);
+        jTextFieldLogradouroEdit.setEnabled(true);
+        jTextFieldNumeroEdit.setEnabled(true);
+        jTextFieldValorEdit.setEnabled(true);
+        jTextFieldDescEdit.setEnabled(true);
+        jTextFieldAreaTotalEdit.setEnabled(true);
     }
 
     /**
@@ -128,7 +129,7 @@ public class FrameChacara extends javax.swing.JFrame {
     }
 
     /**
-     * Método usado para limpar todos os campos, tanto após uma inclusão quanto
+     * Métodos usado para limpar todos os campos, tanto após uma inclusão quanto
      * após uma edição.
      */
     private void limpar() {
@@ -143,6 +144,21 @@ public class FrameChacara extends javax.swing.JFrame {
         jTextFieldBairro.setText("");
         jTextFieldCidade.setText("");
         jTextFieldDesc.setText("");
+        jTextFieldAreaTotal.setText("");
+    }
+    private void limparEdit(){
+        jTextFieldLogradouroEdit.setText("");
+        jTextFieldAnoEdit.setText("");
+        jTextFieldAreaEdit.setText("");
+        jTextFieldCampo.setText("");
+        jTextFieldDistanciaEdit.setText("");
+        jTextFieldNumeroEdit.setText("");
+        jTextFieldQuartosEdit.setText("");
+        jTextFieldValorEdit.setText("");
+        jTextFieldBairroEdit.setText("");
+        jTextFieldCidadeEdit.setText("");
+        jTextFieldDescEdit.setText("");
+        jTextFieldAreaTotalEdit.setText("");
     }
 
     /**
@@ -166,6 +182,7 @@ public class FrameChacara extends javax.swing.JFrame {
         jButtonExcluirChacara = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButtonIncluir = new javax.swing.JButton();
+        jButtonVoltar = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -221,11 +238,6 @@ public class FrameChacara extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextFieldCampo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCampoActionPerformed(evt);
-            }
-        });
         jTextFieldCampo.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldCampoKeyTyped(evt);
@@ -283,6 +295,13 @@ public class FrameChacara extends javax.swing.JFrame {
             }
         });
 
+        jButtonVoltar.setText("Voltar");
+        jButtonVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVoltarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -294,19 +313,21 @@ public class FrameChacara extends javax.swing.JFrame {
                         .addComponent(jComboBoxOpcoes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(39, 39, 39))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonBotaoPesq2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonExcluirChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonEditarChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButtonBotaoPesq2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonExcluirChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonEditarChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jTextFieldCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonPesqConfirm))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(4, 4, 4))
         );
         jPanel1Layout.setVerticalGroup(
@@ -322,14 +343,16 @@ public class FrameChacara extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButtonBotaoPesq2)
-                        .addGap(42, 42, 42)
+                        .addGap(18, 18, 18)
                         .addComponent(jButtonEditarChacara)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
                         .addComponent(jButtonExcluirChacara)
-                        .addGap(39, 39, 39)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton1)
-                        .addGap(43, 43, 43)
-                        .addComponent(jButtonIncluir)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonIncluir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonVoltar)))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
 
@@ -457,18 +480,16 @@ public class FrameChacara extends javax.swing.JFrame {
                         .addGap(58, 58, 58)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel1)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextFieldArea, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                                .addComponent(jTextFieldValor, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldDistancia, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jTextFieldArea, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                            .addComponent(jTextFieldValor)
+                            .addComponent(jTextFieldDistancia)
                             .addComponent(jTextFieldAno, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldDesc, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
                             .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextFieldBairro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 208, Short.MAX_VALUE)
-                                .addComponent(jTextFieldLogradouro, javax.swing.GroupLayout.Alignment.LEADING))
+                            .addComponent(jTextFieldBairro, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                            .addComponent(jTextFieldLogradouro)
                             .addComponent(jTextFieldAreaTotal))))
                 .addContainerGap(71, Short.MAX_VALUE))
         );
@@ -791,13 +812,16 @@ public class FrameChacara extends javax.swing.JFrame {
             }
         }
         if (!error) {
-            preencherCampos(Integer.parseInt(cod));
-            this.cod = Integer.parseInt(cod);
-            jTabbedPane1.setEnabledAt(0, false);
-            jTabbedPane1.setEnabledAt(2, true);
-            jTabbedPane1.setSelectedIndex(2);
-            jButtonSave1.setVisible(true);
-            jTabbedPane1.setSelectedIndex(2);
+            if (preencherCampos(Integer.parseInt(cod))) {
+                this.cod = Integer.parseInt(cod);
+                jTabbedPane1.setEnabledAt(0, false);
+                jTabbedPane1.setEnabledAt(2, true);
+                jTabbedPane1.setSelectedIndex(2);
+                jButtonSave1.setVisible(true);
+                jTabbedPane1.setSelectedIndex(2);
+            }else{
+                JOptionPane.showMessageDialog(null, "Não encontrado");
+            }
         }
 
     }//GEN-LAST:event_jButtonEditarChacaraActionPerformed
@@ -989,7 +1013,7 @@ public class FrameChacara extends javax.swing.JFrame {
             descricao = jTextFieldDescEdit.getText().trim();
             logradouro = jTextFieldLogradouroEdit.getText().trim();
             valor = Double.parseDouble(jTextFieldValorEdit.getText().trim());
-            double areaTotal=Double.parseDouble(jTextFieldAreaTotalEdit.getText().trim());
+            double areaTotal = Double.parseDouble(jTextFieldAreaTotalEdit.getText().trim());
             Chacara a = (Chacara) listaChacara.consultar(cod);
 
             try {
@@ -1008,10 +1032,10 @@ public class FrameChacara extends javax.swing.JFrame {
                 if (listaChacara.editar(cod, objeto)) {
                     JOptionPane.showMessageDialog(null, "Imóvel editado com sucesso.");
                     listaChacara.escreverArquivo();
-                    limpar();
+                    limparEdit();
                 } else {
                     JOptionPane.showMessageDialog(null, "Objeto não pode ser editado.");
-                    limpar();
+                    limparEdit();
 
                 }
                 //Chacara objeto = new Chacara(numero, valor, cidade, bairro, nroQuartos, areaConstruida, ano, distanciaCidade, logradouro, descricao);
@@ -1061,6 +1085,7 @@ public class FrameChacara extends javax.swing.JFrame {
         jTabbedPane1.setEnabledAt(0, true);
         jTabbedPane1.setSelectedIndex(0);
         jButtonSave1.setVisible(true);
+        limparEdit();
     }//GEN-LAST:event_jButtonVoltardetaActionPerformed
 
     private void jComboBoxOpcoesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxOpcoesItemStateChanged
@@ -1137,9 +1162,11 @@ public class FrameChacara extends javax.swing.JFrame {
         soNumeros(evt);
     }//GEN-LAST:event_jTextFieldNumeroEditKeyTyped
 
-    private void jTextFieldCampoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCampoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCampoActionPerformed
+    private void jButtonVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarActionPerformed
+        Inicial voltar = new Inicial();
+        voltar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButtonVoltarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1186,6 +1213,7 @@ public class FrameChacara extends javax.swing.JFrame {
     private javax.swing.JButton jButtonPesqConfirm;
     private javax.swing.JButton jButtonSave;
     private javax.swing.JButton jButtonSave1;
+    private javax.swing.JButton jButtonVoltar;
     private javax.swing.JButton jButtonVoltardeta;
     private javax.swing.JComboBox<String> jComboBoxOpcoes;
     private javax.swing.JLabel jLabel1;

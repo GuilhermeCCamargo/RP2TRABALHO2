@@ -57,14 +57,17 @@
                               <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jButtonBotaoPesq2" max="32767" attributes="0"/>
-                                  <Component id="jButtonIncluir" max="32767" attributes="0"/>
-                                  <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButtonExcluirChacara" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButtonEditarChacara" alignment="0" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="jButtonBotaoPesq2" max="32767" attributes="0"/>
+                                      <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jButtonExcluirChacara" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jButtonEditarChacara" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jButtonIncluir" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                                  <Component id="jButtonVoltar" min="-2" pref="167" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="39" max="32767" attributes="0"/>
+                              <EmptySpace pref="17" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -73,7 +76,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonPesqConfirm" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane1" min="-2" pref="345" max="-2" attributes="0"/>
+                          <Component id="jScrollPane1" min="-2" pref="363" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                   </Group>
@@ -93,14 +96,16 @@
                           <Component id="jScrollPane1" min="-2" pref="280" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jButtonBotaoPesq2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonEditarChacara" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonExcluirChacara" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonIncluir" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButtonVoltar" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="70" max="32767" attributes="0"/>
@@ -111,7 +116,6 @@
           <SubComponents>
             <Component class="javax.swing.JTextField" name="jTextFieldCampo">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCampoActionPerformed"/>
                 <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldCampoKeyTyped"/>
               </Events>
             </Component>
@@ -199,6 +203,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonIncluirActionPerformed"/>
               </Events>
             </Component>
+            <Component class="javax.swing.JButton" name="jButtonVoltar">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Voltar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVoltarActionPerformed"/>
+              </Events>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="jPanel2">
@@ -238,20 +250,16 @@
                               <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jTextFieldArea" alignment="0" pref="98" max="32767" attributes="0"/>
-                                      <Component id="jTextFieldValor" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jTextFieldDistancia" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jTextFieldArea" alignment="0" pref="294" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldValor" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldDistancia" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTextFieldAno" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
                                   <Component id="jTextFieldQuartos" min="-2" pref="57" max="-2" attributes="0"/>
                                   <Component id="jTextFieldDesc" alignment="0" pref="294" max="32767" attributes="0"/>
                                   <Component id="jTextFieldNumero" min="-2" pref="53" max="-2" attributes="0"/>
                                   <Component id="jTextFieldCidade" alignment="0" min="-2" pref="140" max="-2" attributes="0"/>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="jTextFieldBairro" alignment="0" pref="208" max="32767" attributes="0"/>
-                                      <Component id="jTextFieldLogradouro" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
+                                  <Component id="jTextFieldBairro" alignment="0" pref="294" max="32767" attributes="0"/>
+                                  <Component id="jTextFieldLogradouro" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTextFieldAreaTotal" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>

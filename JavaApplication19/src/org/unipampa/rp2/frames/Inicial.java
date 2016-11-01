@@ -20,7 +20,7 @@ public class Inicial extends javax.swing.JFrame {
     private Lista ListaApartamento = new Lista("Apartamentos");
     private Lista listaCasa = new Lista("Casas");
     private Lista listaTerreno = new Lista("Terrenos");
-    private Lista listaChacara = new Lista ("Chácaras");
+    private Lista listaChacara = new Lista ("Chacaras");
     /**
      * Creates new form Inicial
      */
