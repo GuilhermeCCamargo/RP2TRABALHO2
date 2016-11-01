@@ -5,8 +5,11 @@
  */
 package org.unipampa.rp2.frames;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import org.unipampa.rp2.tiposimoveis.Terreno;
@@ -503,11 +506,15 @@ public class FrameTerreno extends javax.swing.JFrame {
             listar();
             JOptionPane.showMessageDialog(null, "Cadastrado com sucesso");
 
-            if (listaTerreno.escreverArquivo()) {
-                JOptionPane.showMessageDialog(null, "ESCRITO COM SUCESSO");
-            } else {
-                JOptionPane.showMessageDialog(null, "Erro Ao Salvar");
+            if (!listaTerreno.escreverArquivo()) {
+                JOptionPane.showMessageDialog(null, "ERRO 08 - Não foi possível salvar em arquivo");
             }
+            try {
+                listaTerreno.gravarUltimoCod(t.getCod());
+            } catch (IOException ex) {
+                Logger.getLogger(FrameSalaComercial.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                    
         } else {
             try{
                 Terreno terreno;
