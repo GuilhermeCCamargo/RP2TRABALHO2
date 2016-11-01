@@ -44,6 +44,8 @@ public class FrameTerreno extends javax.swing.JFrame {
 
 
         jTabbedPaneGuias.setEnabledAt(1, false);
+        
+        listar();
     }
 
     /**
@@ -243,6 +245,11 @@ public class FrameTerreno extends javax.swing.JFrame {
         jLabelValor.setText("Valor:*");
 
         jTextFieldValor.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldValor.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldValorFocusLost(evt);
+            }
+        });
         jTextFieldValor.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldValorKeyTyped(evt);
@@ -257,6 +264,11 @@ public class FrameTerreno extends javax.swing.JFrame {
         jLabelAreaTotal.setText("Área Total:*");
 
         jTextFieldAtotal.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldAtotal.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldAtotalFocusLost(evt);
+            }
+        });
         jTextFieldAtotal.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldAtotalKeyTyped(evt);
@@ -266,6 +278,11 @@ public class FrameTerreno extends javax.swing.JFrame {
         jLabelDimençaoF.setText("Dimenção Frente (m):*");
 
         jTextFieldDimencaoF.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldDimencaoF.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldDimencaoFFocusLost(evt);
+            }
+        });
         jTextFieldDimencaoF.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldDimencaoFKeyTyped(evt);
@@ -275,6 +292,11 @@ public class FrameTerreno extends javax.swing.JFrame {
         jLabelDimencaoL.setText("Dimenção Lado (m):*");
 
         jTextFieldDimencaoL.setDisabledTextColor(new java.awt.Color(0, 0, 0));
+        jTextFieldDimencaoL.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jTextFieldDimencaoLFocusLost(evt);
+            }
+        });
         jTextFieldDimencaoL.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextFieldDimencaoLKeyTyped(evt);
@@ -487,22 +509,33 @@ public class FrameTerreno extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Erro Ao Salvar");
             }
         } else {
-            Terreno t = new Terreno(Integer.parseInt(jTextFieldNumero.getText()),
-                    Double.parseDouble(jTextFieldValor.getText()), jTextFieldCidade.getText(),
-                    jTextFieldDescricao.getText(), jTextFieldLog.getText(), Double.parseDouble(jTextFieldAtotal.getText()),
-                    jTextFieldBairro.getText(), Double.parseDouble(jTextFieldDimencaoF.getText()), Double.parseDouble(jTextFieldDimencaoL.getText()));
-
-            if (listaTerreno.editar(codEdit, t)) {
-                JOptionPane.showMessageDialog(null, "Editado com sucesso");
-                if (listaTerreno.escreverArquivo()) {
-                    JOptionPane.showMessageDialog(null, "Salvo com sucesso!");
-                } else {
-                    JOptionPane.showMessageDialog(null, "Não salvo ! ERROR");
+            try{
+                Terreno terreno;
+                terreno = (Terreno) listaTerreno.consultar(codEdit);
+                Terreno newTerreno = terreno.clone();
+                
+                newTerreno.setNumero(Integer.parseInt(jTextFieldNumero.getText()));
+                newTerreno.setValor(Double.parseDouble(jTextFieldValor.getText()));
+                newTerreno.setCidade(jTextFieldCidade.getText());
+                newTerreno.setDescricao(jTextFieldDescricao.getText());
+                newTerreno.setLogradouro(jTextFieldLog.getText());
+                newTerreno.setAreaTotal(Double.parseDouble(jTextFieldAtotal.getText()));
+                newTerreno.setBairro(jTextFieldBairro.getText());
+                newTerreno.setDimensaoFrente(Double.parseDouble(jTextFieldDimencaoF.getText()));
+                newTerreno.setDimensaoLado(Double.parseDouble(jTextFieldDimencaoL.getText()));
+                
+                if (listaTerreno.editar(codEdit, newTerreno)) {
+                    JOptionPane.showMessageDialog(null, "Editado com sucesso");
+                    if (!listaTerreno.escreverArquivo()) {
+                        JOptionPane.showMessageDialog(null, "ERRO 07 - Ocorrreu um erro durante a escrita do arquivo.");
+                    }
                 }
-
+                limparCampos();
+                listar();    
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "ERRO 06 - Ocorreu um erro durante a edição");
             }
-            limparCampos();
-            listar();
+            
         }
 
     }//GEN-LAST:event_jButtonSalvarActionPerformed
@@ -622,7 +655,7 @@ public class FrameTerreno extends javax.swing.JFrame {
 
     private void jTextFieldCodBuscFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCodBuscFocusLost
         // TODO add your handling code here:
-        if(jTextFieldCodBusc.getText().trim().equals(".")){
+        if(jTextFieldCodBusc.getText().trim().equals(".") && jComboBoxBusc.getSelectedItem().toString().equals("Valor")){
             jTextFieldCodBusc.setText("");
         }
     }//GEN-LAST:event_jTextFieldCodBuscFocusLost
@@ -631,6 +664,34 @@ public class FrameTerreno extends javax.swing.JFrame {
         // TODO add your handling code here:
         jTextFieldCodBusc.setText("");
     }//GEN-LAST:event_jComboBoxBuscItemStateChanged
+
+    private void jTextFieldValorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldValorFocusLost
+        // TODO add your handling code here:
+        if(jTextFieldValor.getText().trim().equals(".")){
+            jTextFieldValor.setText("");
+        }
+    }//GEN-LAST:event_jTextFieldValorFocusLost
+
+    private void jTextFieldAtotalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAtotalFocusLost
+        // TODO add your handling code here:
+        if(jTextFieldAtotal.getText().trim().equals(".")){
+            jTextFieldAtotal.setText("");
+        }
+    }//GEN-LAST:event_jTextFieldAtotalFocusLost
+
+    private void jTextFieldDimencaoLFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDimencaoLFocusLost
+        // TODO add your handling code here:
+        if(jTextFieldDimencaoL.getText().trim().equals(".")){
+            jTextFieldDimencaoL.setText("");
+        }
+    }//GEN-LAST:event_jTextFieldDimencaoLFocusLost
+
+    private void jTextFieldDimencaoFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDimencaoFFocusLost
+        // TODO add your handling code here:
+        if(jTextFieldDimencaoF.getText().trim().equals(".")){
+            jTextFieldDimencaoF.setText("");
+        }
+    }//GEN-LAST:event_jTextFieldDimencaoFFocusLost
 //Preencher pra quando eu quiser ver detalhes.
 
     /**

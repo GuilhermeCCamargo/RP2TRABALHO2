@@ -9,7 +9,7 @@ package org.unipampa.rp2.tiposimoveis;
  *
  * @author yuryalencar
  */
-public class Terreno extends Imovel{
+public class Terreno extends Imovel implements Cloneable{
     
     //<editor-fold defaultstate="collapsed" desc="Atributos">
     
@@ -125,6 +125,11 @@ public class Terreno extends Imovel{
     }
     
     //</editor-fold>
+    
+    @Override
+    public Terreno clone() throws CloneNotSupportedException{
+        return (Terreno) super.clone();
+    }
     
     @Override
     public String toString(){
