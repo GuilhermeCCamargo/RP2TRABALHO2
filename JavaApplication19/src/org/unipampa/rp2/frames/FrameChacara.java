@@ -36,8 +36,8 @@ public class FrameChacara extends javax.swing.JFrame {
         this.setTitle("Imobiliária - Chacára");
         this.listaChacara = listaChacara;
         this.listaChacara.lerArquivo();
-        jTabbedPane1.setEnabledAt(1, false);
-        jTabbedPane1.setEnabledAt(2, false);
+        jTabbedPaneChacara.setEnabledAt(1, false);
+        jTabbedPaneChacara.setEnabledAt(2, false);
 
     }
 
@@ -125,7 +125,7 @@ public class FrameChacara extends javax.swing.JFrame {
             listChacara.addElement(imovel.toString());
         }
 
-        jListChacaraLista.setModel(listChacara);
+        jListChacara.setModel(listChacara);
     }
 
     /**
@@ -136,7 +136,7 @@ public class FrameChacara extends javax.swing.JFrame {
         jTextFieldLogradouro.setText("");
         jTextFieldAno.setText("");
         jTextFieldArea.setText("");
-        jTextFieldCampo.setText("");
+        jTextFieldCampoBusca.setText("");
         jTextFieldDistancia.setText("");
         jTextFieldNumero.setText("");
         jTextFieldQuartos.setText("");
@@ -150,7 +150,7 @@ public class FrameChacara extends javax.swing.JFrame {
         jTextFieldLogradouroEdit.setText("");
         jTextFieldAnoEdit.setText("");
         jTextFieldAreaEdit.setText("");
-        jTextFieldCampo.setText("");
+        jTextFieldCampoBusca.setText("");
         jTextFieldDistanciaEdit.setText("");
         jTextFieldNumeroEdit.setText("");
         jTextFieldQuartosEdit.setText("");
@@ -170,31 +170,31 @@ public class FrameChacara extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
-        jTextFieldCampo = new javax.swing.JTextField();
-        jComboBoxOpcoes = new javax.swing.JComboBox<>();
-        jButtonPesqConfirm = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jListChacaraLista = new javax.swing.JList<>();
-        jButtonBotaoPesq2 = new javax.swing.JButton();
+        jTabbedPaneChacara = new javax.swing.JTabbedPane();
+        jPanelConsultar = new javax.swing.JPanel();
+        jTextFieldCampoBusca = new javax.swing.JTextField();
+        jComboBoxBusca = new javax.swing.JComboBox<>();
+        jButtonBuscar = new javax.swing.JButton();
+        jScrollPaneChacara = new javax.swing.JScrollPane();
+        jListChacara = new javax.swing.JList<>();
+        jButtonDetalhesChacara = new javax.swing.JButton();
         jButtonEditarChacara = new javax.swing.JButton();
         jButtonExcluirChacara = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButtonIncluir = new javax.swing.JButton();
+        jButtonOrdenarChacara = new javax.swing.JButton();
+        jButtonIncluirChacara = new javax.swing.JButton();
         jButtonVoltar = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
+        jPanelCadastrar = new javax.swing.JPanel();
+        jLabelCadastroChacara = new javax.swing.JLabel();
+        jLabelDistanciaCidadeChacara = new javax.swing.JLabel();
+        jLabelValorChacara = new javax.swing.JLabel();
+        jLabelAreaConstruidaChacara = new javax.swing.JLabel();
+        jLabelAnoConstrucaoChacara = new javax.swing.JLabel();
+        jLabelNroQuartosChacara = new javax.swing.JLabel();
+        jLabelLogradouroChacara = new javax.swing.JLabel();
+        jLabelNroChacara = new javax.swing.JLabel();
+        jLabelCidadeChacara = new javax.swing.JLabel();
+        jLabelBairroChacara = new javax.swing.JLabel();
+        jLabelDescricaoChacara = new javax.swing.JLabel();
         jTextFieldDistancia = new javax.swing.JTextField();
         jTextFieldValor = new javax.swing.JTextField();
         jTextFieldArea = new javax.swing.JTextField();
@@ -205,12 +205,12 @@ public class FrameChacara extends javax.swing.JFrame {
         jTextFieldCidade = new javax.swing.JTextField();
         jTextFieldBairro = new javax.swing.JTextField();
         jTextFieldDesc = new javax.swing.JTextField();
-        jButtonSave = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabelAraTotal = new javax.swing.JLabel();
+        jButtonSalvarChacara = new javax.swing.JButton();
+        jButtonVoltarChacara = new javax.swing.JButton();
+        jLabelAraTotalChacara = new javax.swing.JLabel();
         jTextFieldAreaTotal = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel13 = new javax.swing.JLabel();
+        jPanelDetalhesEEditar = new javax.swing.JPanel();
+        jLabelDetalhesEditarChacara = new javax.swing.JLabel();
         jTextFieldDistanciaEdit = new javax.swing.JTextField();
         jTextFieldValorEdit = new javax.swing.JTextField();
         jTextFieldAreaEdit = new javax.swing.JTextField();
@@ -221,77 +221,77 @@ public class FrameChacara extends javax.swing.JFrame {
         jTextFieldCidadeEdit = new javax.swing.JTextField();
         jTextFieldBairroEdit = new javax.swing.JTextField();
         jTextFieldDescEdit = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jButtonSave1 = new javax.swing.JButton();
-        jButtonVoltardeta = new javax.swing.JButton();
-        jLabelAreaTotalEdit = new javax.swing.JLabel();
+        jLabelDistanciaCidadeEditarChacara = new javax.swing.JLabel();
+        jLabelValorEditarChacara = new javax.swing.JLabel();
+        jLabelAreaConstruidaEditarChacara = new javax.swing.JLabel();
+        jLabelAnoConstrucaoEditarChacara = new javax.swing.JLabel();
+        jLabelNroQuartosEditarChacara = new javax.swing.JLabel();
+        jLabelLogradouroEditarChacara = new javax.swing.JLabel();
+        jLabelNroEditarChacara = new javax.swing.JLabel();
+        jLabelCidadeEditarChacara = new javax.swing.JLabel();
+        jLabelBairroEditarChacara = new javax.swing.JLabel();
+        jLabelDescricaoEditarChacara = new javax.swing.JLabel();
+        jButtonSalvarEditarChacara = new javax.swing.JButton();
+        jButtonVoltarEditarChacara = new javax.swing.JButton();
+        jLabelAreaTotalEditarChacara = new javax.swing.JLabel();
         jTextFieldAreaTotalEdit = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextFieldCampo.addKeyListener(new java.awt.event.KeyAdapter() {
+        jTextFieldCampoBusca.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldCampoKeyTyped(evt);
+                jTextFieldCampoBuscaKeyTyped(evt);
             }
         });
 
-        jComboBoxOpcoes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigo", "Valor", "Bairro" }));
-        jComboBoxOpcoes.addItemListener(new java.awt.event.ItemListener() {
+        jComboBoxBusca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Codigo", "Valor", "Bairro" }));
+        jComboBoxBusca.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                jComboBoxOpcoesItemStateChanged(evt);
+                jComboBoxBuscaItemStateChanged(evt);
             }
         });
 
-        jButtonPesqConfirm.setText("BUSCAR");
-        jButtonPesqConfirm.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPesqConfirmActionPerformed(evt);
+                jButtonBuscarActionPerformed(evt);
             }
         });
 
-        jScrollPane1.setViewportView(jListChacaraLista);
+        jScrollPaneChacara.setViewportView(jListChacara);
 
-        jButtonBotaoPesq2.setText("CONSULTAR DETALHES");
-        jButtonBotaoPesq2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDetalhesChacara.setText("Detalhes");
+        jButtonDetalhesChacara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBotaoPesq2ActionPerformed(evt);
+                jButtonDetalhesChacaraActionPerformed(evt);
             }
         });
 
-        jButtonEditarChacara.setText("EDITAR CHACARA");
+        jButtonEditarChacara.setText("Editar");
         jButtonEditarChacara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonEditarChacaraActionPerformed(evt);
             }
         });
 
-        jButtonExcluirChacara.setText("EXCLUIR CHACARA");
+        jButtonExcluirChacara.setText("Excluir");
         jButtonExcluirChacara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonExcluirChacaraActionPerformed(evt);
             }
         });
 
-        jButton1.setText("ORDENAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonOrdenarChacara.setText("Ordenar");
+        jButtonOrdenarChacara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonOrdenarChacaraActionPerformed(evt);
             }
         });
 
-        jButtonIncluir.setText("Incluir Chacara");
-        jButtonIncluir.addActionListener(new java.awt.event.ActionListener() {
+        jButtonIncluirChacara.setText("Incluir");
+        jButtonIncluirChacara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonIncluirActionPerformed(evt);
+                jButtonIncluirChacaraActionPerformed(evt);
             }
         });
 
@@ -302,83 +302,80 @@ public class FrameChacara extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelConsultarLayout = new javax.swing.GroupLayout(jPanelConsultar);
+        jPanelConsultar.setLayout(jPanelConsultarLayout);
+        jPanelConsultarLayout.setHorizontalGroup(
+            jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelConsultarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jComboBoxOpcoes, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(39, 39, 39))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButtonBotaoPesq2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonExcluirChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonEditarChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonIncluir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jButtonVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jTextFieldCampo, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelConsultarLayout.createSequentialGroup()
+                        .addComponent(jComboBoxBusca, 0, 204, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTextFieldCampoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonPesqConfirm))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(4, 4, 4))
+                        .addComponent(jButtonBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelConsultarLayout.createSequentialGroup()
+                        .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonDetalhesChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonOrdenarChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonExcluirChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonEditarChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonIncluirChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonVoltar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPaneChacara)))
+                .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxOpcoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextFieldCampo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonPesqConfirm))
-                .addGap(44, 44, 44)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButtonBotaoPesq2)
+        jPanelConsultarLayout.setVerticalGroup(
+            jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelConsultarLayout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCampoBusca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonBuscar))
+                .addGap(27, 27, 27)
+                .addGroup(jPanelConsultarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelConsultarLayout.createSequentialGroup()
+                        .addComponent(jButtonIncluirChacara)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonEditarChacara)
                         .addGap(18, 18, 18)
                         .addComponent(jButtonExcluirChacara)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButtonDetalhesChacara)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButtonIncluir)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonVoltar)))
-                .addContainerGap(70, Short.MAX_VALUE))
+                        .addComponent(jButtonOrdenarChacara)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                        .addComponent(jButtonVoltar))
+                    .addComponent(jScrollPaneChacara))
+                .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Consultar", jPanel1);
+        jTabbedPaneChacara.addTab("Consultar", jPanelConsultar);
 
-        jLabel1.setText("CADASTRO DE CHACÁRA");
+        jLabelCadastroChacara.setText("CADASTRO DE CHÁCARA");
 
-        jLabel2.setText("Distância da cidade (em KM)");
+        jLabelDistanciaCidadeChacara.setText("Distância da cidade (em KM):*");
 
-        jLabel3.setText("Valor da chácara (R$)");
+        jLabelValorChacara.setText("Valor da chácara (R$):*");
 
-        jLabel4.setText("Área Construida (m²)");
+        jLabelAreaConstruidaChacara.setText("Área Construida (m²):*");
 
-        jLabel5.setText("Ano de Construção");
+        jLabelAnoConstrucaoChacara.setText("Ano de Construção:*");
 
-        jLabel6.setText("Nº de Quartos");
+        jLabelNroQuartosChacara.setText("Nº de Quartos:");
 
-        jLabel7.setText("Logradouro");
+        jLabelLogradouroChacara.setText("Logradouro:*");
 
-        jLabel8.setText("Número");
+        jLabelNroChacara.setText("Número:*");
 
-        jLabel9.setText("Cidade");
+        jLabelCidadeChacara.setText("Cidade:*");
 
-        jLabel10.setText("Bairro");
+        jLabelBairroChacara.setText("Bairro:*");
 
-        jLabel11.setText("Descrição");
+        jLabelDescricaoChacara.setText("Descrição:*");
 
         jTextFieldDistancia.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -437,49 +434,49 @@ public class FrameChacara extends javax.swing.JFrame {
             }
         });
 
-        jButtonSave.setText("SALVAR CADASTRO");
-        jButtonSave.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSalvarChacara.setText("Salvar");
+        jButtonSalvarChacara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSaveActionPerformed(evt);
+                jButtonSalvarChacaraActionPerformed(evt);
             }
         });
 
-        jButton2.setText("VOLTAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVoltarChacara.setText("Voltar");
+        jButtonVoltarChacara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButtonVoltarChacaraActionPerformed(evt);
             }
         });
 
-        jLabelAraTotal.setText("Area Total");
+        jLabelAraTotalChacara.setText("Área Total:*");
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelCadastrarLayout = new javax.swing.GroupLayout(jPanelCadastrar);
+        jPanelCadastrar.setLayout(jPanelCadastrarLayout);
+        jPanelCadastrarLayout.setHorizontalGroup(
+            jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCadastrarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(138, 138, 138)
-                        .addComponent(jButtonSave))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabelAraTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(58, 58, 58)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                        .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelDistanciaCidadeChacara)
+                                    .addComponent(jLabelValorChacara)
+                                    .addComponent(jLabelAreaConstruidaChacara)
+                                    .addComponent(jLabelAnoConstrucaoChacara)
+                                    .addComponent(jLabelLogradouroChacara)
+                                    .addComponent(jLabelNroChacara)
+                                    .addComponent(jLabelCidadeChacara)
+                                    .addComponent(jLabelBairroChacara)
+                                    .addComponent(jLabelDescricaoChacara)
+                                    .addComponent(jLabelNroQuartosChacara))
+                                .addGap(58, 58, 58))
+                            .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                                .addComponent(jLabelAraTotalChacara, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(180, 180, 180)))
+                        .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabelCadastroChacara)
                             .addComponent(jTextFieldArea, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
                             .addComponent(jTextFieldValor)
                             .addComponent(jTextFieldDistancia)
@@ -490,70 +487,74 @@ public class FrameChacara extends javax.swing.JFrame {
                             .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldBairro, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
                             .addComponent(jTextFieldLogradouro)
-                            .addComponent(jTextFieldAreaTotal))))
-                .addContainerGap(71, Short.MAX_VALUE))
+                            .addComponent(jTextFieldAreaTotal)))
+                    .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                        .addComponent(jButtonVoltarChacara)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButtonSalvarChacara)))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        jPanelCadastrarLayout.setVerticalGroup(
+            jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCadastrarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(jLabelCadastroChacara)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDistanciaCidadeChacara)
                     .addComponent(jTextFieldDistancia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelValorChacara)
                     .addComponent(jTextFieldValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelAreaConstruidaChacara)
                     .addComponent(jTextFieldArea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(jPanelCadastrarLayout.createSequentialGroup()
                         .addComponent(jTextFieldAno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTextFieldQuartos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jLabel5)
+                    .addGroup(jPanelCadastrarLayout.createSequentialGroup()
+                        .addComponent(jLabelAnoConstrucaoChacara)
                         .addGap(12, 12, 12)
-                        .addComponent(jLabel6)))
+                        .addComponent(jLabelNroQuartosChacara)))
                 .addGap(10, 10, 10)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelLogradouroChacara)
                     .addComponent(jTextFieldLogradouro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldNumero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabelNroChacara))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel9)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelCidadeChacara)
                     .addComponent(jTextFieldCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelBairroChacara)
                     .addComponent(jTextFieldBairro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel11)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelDescricaoChacara)
                     .addComponent(jTextFieldDesc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelAraTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelAraTotalChacara, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextFieldAreaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSave)
-                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addGroup(jPanelCadastrarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSalvarChacara)
+                    .addComponent(jButtonVoltarChacara))
                 .addGap(32, 32, 32))
         );
 
-        jTabbedPane1.addTab("Cadastrar", jPanel2);
+        jTabbedPaneChacara.addTab("Cadastrar", jPanelCadastrar);
 
-        jLabel13.setText("DETALHES DA CHÁCARA");
+        jLabelDetalhesEditarChacara.setText("DETALHES/EDITAR CHÁCARA");
 
         jTextFieldDistanciaEdit.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
@@ -606,184 +607,184 @@ public class FrameChacara extends javax.swing.JFrame {
             }
         });
 
-        jLabel14.setText("Distância da cidade (em KM)");
+        jLabelDistanciaCidadeEditarChacara.setText("Distância da cidade (em KM):*");
 
-        jLabel15.setText("Valor da Chacára (R$)");
+        jLabelValorEditarChacara.setText("Valor da Chacára (R$):*");
 
-        jLabel16.setText("Área Construida (m²)");
+        jLabelAreaConstruidaEditarChacara.setText("Área Construida (m²):*");
 
-        jLabel17.setText("Ano de Construção");
+        jLabelAnoConstrucaoEditarChacara.setText("Ano de Construção:*");
 
-        jLabel18.setText("Nº de Quartos");
+        jLabelNroQuartosEditarChacara.setText("Nº de Quartos:*");
 
-        jLabel19.setText("Logradouro");
+        jLabelLogradouroEditarChacara.setText("Logradouro:*");
 
-        jLabel20.setText("Número");
+        jLabelNroEditarChacara.setText("Número:*");
 
-        jLabel21.setText("Cidade");
+        jLabelCidadeEditarChacara.setText("Cidade:*");
 
-        jLabel22.setText("Bairro");
+        jLabelBairroEditarChacara.setText("Bairro:*");
 
-        jLabel23.setText("Descrição");
+        jLabelDescricaoEditarChacara.setText("Descrição:*");
 
-        jButtonSave1.setText("SALVAR EDIÇÃO");
-        jButtonSave1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonSalvarEditarChacara.setText("Salvar");
+        jButtonSalvarEditarChacara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSave1ActionPerformed(evt);
+                jButtonSalvarEditarChacaraActionPerformed(evt);
             }
         });
 
-        jButtonVoltardeta.setText("VOLTAR");
-        jButtonVoltardeta.addActionListener(new java.awt.event.ActionListener() {
+        jButtonVoltarEditarChacara.setText("Voltar");
+        jButtonVoltarEditarChacara.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVoltardetaActionPerformed(evt);
+                jButtonVoltarEditarChacaraActionPerformed(evt);
             }
         });
 
-        jLabelAreaTotalEdit.setText("Area Total");
+        jLabelAreaTotalEditarChacara.setText("Área Total:*");
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelDetalhesEEditarLayout = new javax.swing.GroupLayout(jPanelDetalhesEEditar);
+        jPanelDetalhesEEditar.setLayout(jPanelDetalhesEEditarLayout);
+        jPanelDetalhesEEditarLayout.setHorizontalGroup(
+            jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDetalhesEEditarLayout.createSequentialGroup()
+                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelDetalhesEEditarLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel14)
-                            .addComponent(jLabel15)
-                            .addComponent(jLabel16)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel18)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel20)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel22)
-                            .addComponent(jLabel23)
-                            .addComponent(jButtonVoltardeta))
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelDistanciaCidadeEditarChacara)
+                            .addComponent(jLabelValorEditarChacara)
+                            .addComponent(jLabelAreaConstruidaEditarChacara)
+                            .addComponent(jLabelAnoConstrucaoEditarChacara)
+                            .addComponent(jLabelNroQuartosEditarChacara)
+                            .addComponent(jLabelLogradouroEditarChacara)
+                            .addComponent(jLabelNroEditarChacara)
+                            .addComponent(jLabelCidadeEditarChacara)
+                            .addComponent(jLabelBairroEditarChacara)
+                            .addComponent(jLabelDescricaoEditarChacara)
+                            .addComponent(jButtonVoltarEditarChacara))
+                        .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelDetalhesEEditarLayout.createSequentialGroup()
                                 .addGap(22, 22, 22)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jTextFieldLogradouroEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextFieldCidadeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jTextFieldAreaEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
                                         .addComponent(jTextFieldValorEdit, javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jTextFieldDistanciaEdit, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jTextFieldQuartosEdit, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
                                         .addComponent(jTextFieldAnoEdit, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addComponent(jTextFieldNumeroEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDetalhesEEditarLayout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jTextFieldDescEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
                                         .addComponent(jTextFieldBairroEdit, javax.swing.GroupLayout.DEFAULT_SIZE, 202, Short.MAX_VALUE)
                                         .addComponent(jTextFieldAreaTotalEdit))
-                                    .addComponent(jButtonSave1, javax.swing.GroupLayout.Alignment.TRAILING)))))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                                    .addComponent(jButtonSalvarEditarChacara, javax.swing.GroupLayout.Alignment.TRAILING)))))
+                    .addGroup(jPanelDetalhesEEditarLayout.createSequentialGroup()
                         .addGap(213, 213, 213)
-                        .addComponent(jLabel13))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jLabelDetalhesEditarChacara))
+                    .addGroup(jPanelDetalhesEEditarLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabelAreaTotalEdit, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(199, Short.MAX_VALUE))
+                        .addComponent(jLabelAreaTotalEditarChacara, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(191, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
+        jPanelDetalhesEEditarLayout.setVerticalGroup(
+            jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelDetalhesEEditarLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel13)
+                .addComponent(jLabelDetalhesEditarChacara)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldDistanciaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
+                    .addComponent(jLabelDistanciaCidadeEditarChacara))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldValorEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel15))
+                    .addComponent(jLabelValorEditarChacara))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldAreaEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
+                    .addComponent(jLabelAreaConstruidaEditarChacara))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldAnoEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel17))
+                    .addComponent(jLabelAnoConstrucaoEditarChacara))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldQuartosEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel18))
+                    .addComponent(jLabelNroQuartosEditarChacara))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldLogradouroEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel19))
+                    .addComponent(jLabelLogradouroEditarChacara))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldNumeroEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel20))
+                    .addComponent(jLabelNroEditarChacara))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldCidadeEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21))
+                    .addComponent(jLabelCidadeEditarChacara))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldBairroEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel22))
+                    .addComponent(jLabelBairroEditarChacara))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextFieldDescEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel23))
+                    .addComponent(jLabelDescricaoEditarChacara))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelAreaTotalEdit)
+                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelAreaTotalEditarChacara)
                     .addComponent(jTextFieldAreaTotalEdit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonSave1)
-                    .addComponent(jButtonVoltardeta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
+                .addGroup(jPanelDetalhesEEditarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonSalvarEditarChacara)
+                    .addComponent(jButtonVoltarEditarChacara))
                 .addGap(41, 41, 41))
         );
 
-        jTabbedPane1.addTab("Detalhes", jPanel3);
+        jTabbedPaneChacara.addTab("Detalhes/Editar", jPanelDetalhesEEditar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
+            .addComponent(jTabbedPaneChacara)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addComponent(jTabbedPaneChacara, javax.swing.GroupLayout.Alignment.TRAILING)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonPesqConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPesqConfirmActionPerformed
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
         // TODO add your handling code here:
-        String indice = jComboBoxOpcoes.getSelectedItem().toString();
+        String indice = jComboBoxBusca.getSelectedItem().toString();
         switch (indice) {
             case "Codigo":
-                if (jTextFieldCampo.getText().trim().equals("")) {
+                if (jTextFieldCampoBusca.getText().trim().equals("")) {
                     listarCodigo(-1);
                 } else {
-                    listarCodigo(Integer.parseInt(jTextFieldCampo.getText().trim()));
+                    listarCodigo(Integer.parseInt(jTextFieldCampoBusca.getText().trim()));
                 }
                 break;
             case "Valor":
-                if (jTextFieldCampo.getText().trim().equals("")) {
+                if (jTextFieldCampoBusca.getText().trim().equals("")) {
                     listarValor(-1);
                 } else {
-                    listarValor(Double.parseDouble(jTextFieldCampo.getText().trim()));
+                    listarValor(Double.parseDouble(jTextFieldCampoBusca.getText().trim()));
                 }
                 break;
             case "Bairro":
-                listarBairro(jTextFieldCampo.getText().trim());
+                listarBairro(jTextFieldCampoBusca.getText().trim());
                 break;
         }
 
@@ -792,7 +793,7 @@ public class FrameChacara extends javax.swing.JFrame {
         } else {
             listarCodigo(Integer.parseInt(jTextFieldCampo.getText().trim()));
         }*/
-    }//GEN-LAST:event_jButtonPesqConfirmActionPerformed
+    }//GEN-LAST:event_jButtonBuscarActionPerformed
 
     private void jButtonEditarChacaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEditarChacaraActionPerformed
         String cod = JOptionPane.showInputDialog("Informe o código");
@@ -814,11 +815,11 @@ public class FrameChacara extends javax.swing.JFrame {
         if (!error) {
             if (preencherCampos(Integer.parseInt(cod))) {
                 this.cod = Integer.parseInt(cod);
-                jTabbedPane1.setEnabledAt(0, false);
-                jTabbedPane1.setEnabledAt(2, true);
-                jTabbedPane1.setSelectedIndex(2);
-                jButtonSave1.setVisible(true);
-                jTabbedPane1.setSelectedIndex(2);
+                jTabbedPaneChacara.setEnabledAt(0, false);
+                jTabbedPaneChacara.setEnabledAt(2, true);
+                jTabbedPaneChacara.setSelectedIndex(2);
+                jButtonSalvarEditarChacara.setVisible(true);
+                jTabbedPaneChacara.setSelectedIndex(2);
             }else{
                 JOptionPane.showMessageDialog(null, "Não encontrado");
             }
@@ -826,7 +827,7 @@ public class FrameChacara extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonEditarChacaraActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonOrdenarChacaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOrdenarChacaraActionPerformed
         // TODO add your handling code here:
         String[] textMessages = {"Código", "Valor", "Área", "Cancelar"};
         int x = JOptionPane.showOptionDialog(null, "Escolha uma opção", "Ordenação",
@@ -855,14 +856,14 @@ public class FrameChacara extends javax.swing.JFrame {
                 lista.addElement(imovel.toString());
             }
         }
-        jListChacaraLista.setModel(lista);
-    }//GEN-LAST:event_jButton1ActionPerformed
+        jListChacara.setModel(lista);
+    }//GEN-LAST:event_jButtonOrdenarChacaraActionPerformed
 
     private void jTextFieldLogradouroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLogradouroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldLogradouroActionPerformed
 
-    private void jButtonBotaoPesq2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBotaoPesq2ActionPerformed
+    private void jButtonDetalhesChacaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDetalhesChacaraActionPerformed
         String cod = JOptionPane.showInputDialog("Informe o código");
         boolean error = false;
         if (cod == null) {
@@ -881,14 +882,14 @@ public class FrameChacara extends javax.swing.JFrame {
         }
         if (!error) {
             if (preencherCampos(Integer.parseInt(cod))) {
-                jTabbedPane1.setEnabledAt(0, false);
-                jTabbedPane1.setEnabledAt(2, true);
-                jTabbedPane1.setSelectedIndex(2);
-                jButtonSave1.setVisible(false);
+                jTabbedPaneChacara.setEnabledAt(0, false);
+                jTabbedPaneChacara.setEnabledAt(2, true);
+                jTabbedPaneChacara.setSelectedIndex(2);
+                jButtonSalvarEditarChacara.setVisible(false);
             }
 
         }
-    }//GEN-LAST:event_jButtonBotaoPesq2ActionPerformed
+    }//GEN-LAST:event_jButtonDetalhesChacaraActionPerformed
 
     private void jButtonExcluirChacaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonExcluirChacaraActionPerformed
         // TODO add your handling code here:
@@ -928,7 +929,7 @@ public class FrameChacara extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonExcluirChacaraActionPerformed
 
-    private void jButtonSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSaveActionPerformed
+    private void jButtonSalvarChacaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarChacaraActionPerformed
 
         if (jTextFieldNumero.getText().equals("")
                 || jTextFieldValor.getText().equals("")
@@ -964,23 +965,23 @@ public class FrameChacara extends javax.swing.JFrame {
                 listaChacara.escreverArquivo();
             }
             limpar();
-            jTabbedPane1.setEnabledAt(1, false);
-            jTabbedPane1.setEnabledAt(0, true);
-            jTabbedPane1.setSelectedIndex(0);
+            jTabbedPaneChacara.setEnabledAt(1, false);
+            jTabbedPaneChacara.setEnabledAt(0, true);
+            jTabbedPaneChacara.setSelectedIndex(0);
         }
 
 
-    }//GEN-LAST:event_jButtonSaveActionPerformed
+    }//GEN-LAST:event_jButtonSalvarChacaraActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButtonVoltarChacaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarChacaraActionPerformed
         // TODO add your handling code here:
-        jTabbedPane1.setSelectedIndex(0);
-        jTabbedPane1.setEnabledAt(1, false);
-        jTabbedPane1.setEnabledAt(0, true);
+        jTabbedPaneChacara.setSelectedIndex(0);
+        jTabbedPaneChacara.setEnabledAt(1, false);
+        jTabbedPaneChacara.setEnabledAt(0, true);
         limpar();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButtonVoltarChacaraActionPerformed
 
-    private void jButtonSave1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSave1ActionPerformed
+    private void jButtonSalvarEditarChacaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarEditarChacaraActionPerformed
         if (jTextFieldNumeroEdit.getText().equals("")
                 || jTextFieldValorEdit.getText().equals("")
                 || jTextFieldBairroEdit.getText().equals("")
@@ -1048,7 +1049,7 @@ public class FrameChacara extends javax.swing.JFrame {
 
         }
         cod = -1;
-    }//GEN-LAST:event_jButtonSave1ActionPerformed
+    }//GEN-LAST:event_jButtonSalvarEditarChacaraActionPerformed
 
     private void jTextFieldDistanciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldDistanciaKeyTyped
         soDouble(evt, jTextFieldDistancia.getText());
@@ -1074,33 +1075,33 @@ public class FrameChacara extends javax.swing.JFrame {
         soNumeros(evt);
     }//GEN-LAST:event_jTextFieldNumeroKeyTyped
 
-    private void jButtonIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirActionPerformed
-        jTabbedPane1.setEnabledAt(1, true);
-        jTabbedPane1.setEnabledAt(0, false);
-        jTabbedPane1.setSelectedIndex(1);
-    }//GEN-LAST:event_jButtonIncluirActionPerformed
+    private void jButtonIncluirChacaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonIncluirChacaraActionPerformed
+        jTabbedPaneChacara.setEnabledAt(1, true);
+        jTabbedPaneChacara.setEnabledAt(0, false);
+        jTabbedPaneChacara.setSelectedIndex(1);
+    }//GEN-LAST:event_jButtonIncluirChacaraActionPerformed
 
-    private void jButtonVoltardetaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltardetaActionPerformed
-        jTabbedPane1.setEnabledAt(2, false);
-        jTabbedPane1.setEnabledAt(0, true);
-        jTabbedPane1.setSelectedIndex(0);
-        jButtonSave1.setVisible(true);
+    private void jButtonVoltarEditarChacaraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVoltarEditarChacaraActionPerformed
+        jTabbedPaneChacara.setEnabledAt(2, false);
+        jTabbedPaneChacara.setEnabledAt(0, true);
+        jTabbedPaneChacara.setSelectedIndex(0);
+        jButtonSalvarEditarChacara.setVisible(true);
         limparEdit();
-    }//GEN-LAST:event_jButtonVoltardetaActionPerformed
+    }//GEN-LAST:event_jButtonVoltarEditarChacaraActionPerformed
 
-    private void jComboBoxOpcoesItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxOpcoesItemStateChanged
-        jTextFieldCampo.setText("");
-    }//GEN-LAST:event_jComboBoxOpcoesItemStateChanged
+    private void jComboBoxBuscaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxBuscaItemStateChanged
+        jTextFieldCampoBusca.setText("");
+    }//GEN-LAST:event_jComboBoxBuscaItemStateChanged
 
-    private void jTextFieldCampoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCampoKeyTyped
-        if (jTextFieldCampo.getText().equals(".")) {
-            jTextFieldCampo.setText("");
-        } else if (jComboBoxOpcoes.getSelectedItem().toString().equals("Codigo")) {
+    private void jTextFieldCampoBuscaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCampoBuscaKeyTyped
+        if (jTextFieldCampoBusca.getText().equals(".")) {
+            jTextFieldCampoBusca.setText("");
+        } else if (jComboBoxBusca.getSelectedItem().toString().equals("Codigo")) {
             soNumeros(evt);
-        } else if (jComboBoxOpcoes.getSelectedItem().toString().equals("Valor")) {
-            soDouble(evt, jTextFieldCampo.getText());
+        } else if (jComboBoxBusca.getSelectedItem().toString().equals("Valor")) {
+            soDouble(evt, jTextFieldCampoBusca.getText());
         }
-    }//GEN-LAST:event_jTextFieldCampoKeyTyped
+    }//GEN-LAST:event_jTextFieldCampoBuscaKeyTyped
 
     private void jTextFieldDistanciaFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDistanciaFocusLost
         if (jTextFieldDistancia.getText().equals(".")) {
@@ -1204,48 +1205,48 @@ public class FrameChacara extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButtonBotaoPesq2;
+    private javax.swing.JButton jButtonBuscar;
+    private javax.swing.JButton jButtonDetalhesChacara;
     private javax.swing.JButton jButtonEditarChacara;
     private javax.swing.JButton jButtonExcluirChacara;
-    private javax.swing.JButton jButtonIncluir;
-    private javax.swing.JButton jButtonPesqConfirm;
-    private javax.swing.JButton jButtonSave;
-    private javax.swing.JButton jButtonSave1;
+    private javax.swing.JButton jButtonIncluirChacara;
+    private javax.swing.JButton jButtonOrdenarChacara;
+    private javax.swing.JButton jButtonSalvarChacara;
+    private javax.swing.JButton jButtonSalvarEditarChacara;
     private javax.swing.JButton jButtonVoltar;
-    private javax.swing.JButton jButtonVoltardeta;
-    private javax.swing.JComboBox<String> jComboBoxOpcoes;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelAraTotal;
-    private javax.swing.JLabel jLabelAreaTotalEdit;
-    private javax.swing.JList<String> jListChacaraLista;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton jButtonVoltarChacara;
+    private javax.swing.JButton jButtonVoltarEditarChacara;
+    private javax.swing.JComboBox<String> jComboBoxBusca;
+    private javax.swing.JLabel jLabelAnoConstrucaoChacara;
+    private javax.swing.JLabel jLabelAnoConstrucaoEditarChacara;
+    private javax.swing.JLabel jLabelAraTotalChacara;
+    private javax.swing.JLabel jLabelAreaConstruidaChacara;
+    private javax.swing.JLabel jLabelAreaConstruidaEditarChacara;
+    private javax.swing.JLabel jLabelAreaTotalEditarChacara;
+    private javax.swing.JLabel jLabelBairroChacara;
+    private javax.swing.JLabel jLabelBairroEditarChacara;
+    private javax.swing.JLabel jLabelCadastroChacara;
+    private javax.swing.JLabel jLabelCidadeChacara;
+    private javax.swing.JLabel jLabelCidadeEditarChacara;
+    private javax.swing.JLabel jLabelDescricaoChacara;
+    private javax.swing.JLabel jLabelDescricaoEditarChacara;
+    private javax.swing.JLabel jLabelDetalhesEditarChacara;
+    private javax.swing.JLabel jLabelDistanciaCidadeChacara;
+    private javax.swing.JLabel jLabelDistanciaCidadeEditarChacara;
+    private javax.swing.JLabel jLabelLogradouroChacara;
+    private javax.swing.JLabel jLabelLogradouroEditarChacara;
+    private javax.swing.JLabel jLabelNroChacara;
+    private javax.swing.JLabel jLabelNroEditarChacara;
+    private javax.swing.JLabel jLabelNroQuartosChacara;
+    private javax.swing.JLabel jLabelNroQuartosEditarChacara;
+    private javax.swing.JLabel jLabelValorChacara;
+    private javax.swing.JLabel jLabelValorEditarChacara;
+    private javax.swing.JList<String> jListChacara;
+    private javax.swing.JPanel jPanelCadastrar;
+    private javax.swing.JPanel jPanelConsultar;
+    private javax.swing.JPanel jPanelDetalhesEEditar;
+    private javax.swing.JScrollPane jScrollPaneChacara;
+    private javax.swing.JTabbedPane jTabbedPaneChacara;
     private javax.swing.JTextField jTextFieldAno;
     private javax.swing.JTextField jTextFieldAnoEdit;
     private javax.swing.JTextField jTextFieldArea;
@@ -1254,7 +1255,7 @@ public class FrameChacara extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldAreaTotalEdit;
     private javax.swing.JTextField jTextFieldBairro;
     private javax.swing.JTextField jTextFieldBairroEdit;
-    private javax.swing.JTextField jTextFieldCampo;
+    private javax.swing.JTextField jTextFieldCampoBusca;
     private javax.swing.JTextField jTextFieldCidade;
     private javax.swing.JTextField jTextFieldCidadeEdit;
     private javax.swing.JTextField jTextFieldDesc;
@@ -1279,7 +1280,7 @@ public class FrameChacara extends javax.swing.JFrame {
         for (Imovel imovel1 : imovel) {
             modelList.addElement(imovel1.toString());
         }
-        jListChacaraLista.setModel(modelList);
+        jListChacara.setModel(modelList);
     }
 
     private void listarCodigo(int cod) {
@@ -1292,7 +1293,7 @@ public class FrameChacara extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Imóvel não encontrado!");
         } else {
             listModel.addElement(xa.toString());
-            jListChacaraLista.setModel(listModel);
+            jListChacara.setModel(listModel);
         }
 
     }
@@ -1314,7 +1315,7 @@ public class FrameChacara extends javax.swing.JFrame {
             for (Imovel imovel : aux) {
                 listModel.addElement(imovel.toString());
             }
-            jListChacaraLista.setModel(listModel);
+            jListChacara.setModel(listModel);
         }
 
     }
@@ -1336,7 +1337,7 @@ public class FrameChacara extends javax.swing.JFrame {
             for (Imovel imovel : chac) {
                 listModel.addElement(imovel.toString());
             }
-            jListChacaraLista.setModel(listModel);
+            jListChacara.setModel(listModel);
         }
 
     }

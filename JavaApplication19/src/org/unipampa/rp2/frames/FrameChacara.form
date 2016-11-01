@@ -23,21 +23,21 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jTabbedPaneChacara" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jTabbedPane1" alignment="1" max="32767" attributes="0"/>
+          <Component id="jTabbedPaneChacara" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+    <Container class="javax.swing.JTabbedPane" name="jTabbedPaneChacara">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
       <SubComponents>
-        <Container class="javax.swing.JPanel" name="jPanel1">
+        <Container class="javax.swing.JPanel" name="jPanelConsultar">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Consultar">
@@ -53,73 +53,67 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jComboBoxOpcoes" max="32767" attributes="0"/>
-                              <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="jButtonBotaoPesq2" max="32767" attributes="0"/>
-                                      <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jButtonExcluirChacara" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jButtonEditarChacara" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="jButtonIncluir" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                                  <Component id="jButtonVoltar" min="-2" pref="167" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace pref="17" max="32767" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jTextFieldCampo" min="-2" pref="278" max="-2" attributes="0"/>
+                              <Component id="jComboBoxBusca" pref="204" max="32767" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jTextFieldCampoBusca" min="-2" pref="278" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButtonPesqConfirm" min="-2" max="-2" attributes="0"/>
+                              <Component id="jButtonBuscar" min="-2" pref="107" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane1" min="-2" pref="363" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jButtonDetalhesChacara" max="32767" attributes="0"/>
+                                  <Component id="jButtonOrdenarChacara" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonExcluirChacara" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonEditarChacara" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonIncluirChacara" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="jButtonVoltar" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jScrollPaneChacara" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jComboBoxOpcoes" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldCampo" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonPesqConfirm" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jComboBoxBusca" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldCampoBusca" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jScrollPane1" min="-2" pref="280" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="jButtonBotaoPesq2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButtonIncluirChacara" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="jButtonEditarChacara" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jButtonExcluirChacara" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="jButtonDetalhesChacara" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jButtonIncluir" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButtonOrdenarChacara" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace pref="122" max="32767" attributes="0"/>
                               <Component id="jButtonVoltar" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Component id="jScrollPaneChacara" max="32767" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="70" max="32767" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JTextField" name="jTextFieldCampo">
+            <Component class="javax.swing.JTextField" name="jTextFieldCampoBusca">
               <Events>
-                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldCampoKeyTyped"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldCampoBuscaKeyTyped"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="jComboBoxOpcoes">
+            <Component class="javax.swing.JComboBox" name="jComboBoxBusca">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="3">
@@ -130,28 +124,28 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxOpcoesItemStateChanged"/>
+                <EventHandler event="itemStateChanged" listener="java.awt.event.ItemListener" parameters="java.awt.event.ItemEvent" handler="jComboBoxBuscaItemStateChanged"/>
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonPesqConfirm">
+            <Component class="javax.swing.JButton" name="jButtonBuscar">
               <Properties>
-                <Property name="text" type="java.lang.String" value="BUSCAR"/>
+                <Property name="text" type="java.lang.String" value="Buscar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPesqConfirmActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBuscarActionPerformed"/>
               </Events>
             </Component>
-            <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+            <Container class="javax.swing.JScrollPane" name="jScrollPaneChacara">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
               </AuxValues>
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JList" name="jListChacaraLista">
+                <Component class="javax.swing.JList" name="jListChacara">
                   <Properties>
                     <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                       <StringArray count="0"/>
@@ -163,17 +157,17 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButtonBotaoPesq2">
+            <Component class="javax.swing.JButton" name="jButtonDetalhesChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CONSULTAR DETALHES"/>
+                <Property name="text" type="java.lang.String" value="Detalhes"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBotaoPesq2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonDetalhesChacaraActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonEditarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="EDITAR CHACARA"/>
+                <Property name="text" type="java.lang.String" value="Editar"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEditarChacaraActionPerformed"/>
@@ -181,26 +175,26 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButtonExcluirChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="EXCLUIR CHACARA"/>
+                <Property name="text" type="java.lang.String" value="Excluir"/>
               </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonExcluirChacaraActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="jButtonOrdenarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="ORDENAR"/>
+                <Property name="text" type="java.lang.String" value="Ordenar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonOrdenarChacaraActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonIncluir">
+            <Component class="javax.swing.JButton" name="jButtonIncluirChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Incluir Chacara"/>
+                <Property name="text" type="java.lang.String" value="Incluir"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonIncluirActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonIncluirChacaraActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonVoltar">
@@ -213,7 +207,7 @@
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel2">
+        <Container class="javax.swing.JPanel" name="jPanelCadastrar">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
               <JTabbedPaneConstraints tabName="Cadastrar">
@@ -227,29 +221,31 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
-                              <Component id="jButtonSave" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabelAraTotal" alignment="0" min="-2" pref="55" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabelDistanciaCidadeChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelValorChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelAreaConstruidaChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelAnoConstrucaoChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelLogradouroChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelNroChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelCidadeChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelBairroChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelDescricaoChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jLabelNroQuartosChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Component id="jLabelAraTotalChacara" max="32767" attributes="0"/>
+                                      <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
-                              <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelCadastroChacara" min="-2" max="-2" attributes="0"/>
                                   <Component id="jTextFieldArea" alignment="0" pref="294" max="32767" attributes="0"/>
                                   <Component id="jTextFieldValor" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jTextFieldDistancia" alignment="0" max="32767" attributes="0"/>
@@ -263,8 +259,13 @@
                                   <Component id="jTextFieldAreaTotal" alignment="0" max="32767" attributes="0"/>
                               </Group>
                           </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="jButtonVoltarChacara" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
+                              <Component id="jButtonSalvarChacara" min="-2" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace pref="71" max="32767" attributes="0"/>
+                      <EmptySpace pref="63" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -272,20 +273,20 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelCadastroChacara" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDistanciaCidadeChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldDistancia" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelValorChacara" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldValor" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAreaConstruidaChacara" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldArea" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -296,45 +297,45 @@
                               <Component id="jTextFieldQuartos" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelAnoConstrucaoChacara" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelNroQuartosChacara" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelLogradouroChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldLogradouro" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jTextFieldNumero" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelNroChacara" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCidadeChacara" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldCidade" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelBairroChacara" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldBairro" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDescricaoChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldDesc" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelAraTotal" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
+                          <Component id="jLabelAraTotalChacara" alignment="3" min="-2" pref="22" max="-2" attributes="0"/>
                           <Component id="jTextFieldAreaTotal" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="40" max="32767" attributes="0"/>
+                      <EmptySpace pref="46" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonSave" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonSalvarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonVoltarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
@@ -342,59 +343,59 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel1">
+            <Component class="javax.swing.JLabel" name="jLabelCadastroChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="CADASTRO DE CHAC&#xc1;RA"/>
+                <Property name="text" type="java.lang.String" value="CADASTRO DE CH&#xc1;CARA"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel2">
+            <Component class="javax.swing.JLabel" name="jLabelDistanciaCidadeChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Dist&#xe2;ncia da cidade (em KM)"/>
+                <Property name="text" type="java.lang.String" value="Dist&#xe2;ncia da cidade (em KM):*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel3">
+            <Component class="javax.swing.JLabel" name="jLabelValorChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Valor da ch&#xe1;cara (R$)"/>
+                <Property name="text" type="java.lang.String" value="Valor da ch&#xe1;cara (R$):*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel4">
+            <Component class="javax.swing.JLabel" name="jLabelAreaConstruidaChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#xc1;rea Construida (m&#xb2;)"/>
+                <Property name="text" type="java.lang.String" value="&#xc1;rea Construida (m&#xb2;):*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel5">
+            <Component class="javax.swing.JLabel" name="jLabelAnoConstrucaoChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ano de Constru&#xe7;&#xe3;o"/>
+                <Property name="text" type="java.lang.String" value="Ano de Constru&#xe7;&#xe3;o:*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel6">
+            <Component class="javax.swing.JLabel" name="jLabelNroQuartosChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="N&#xba; de Quartos"/>
+                <Property name="text" type="java.lang.String" value="N&#xba; de Quartos:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel7">
+            <Component class="javax.swing.JLabel" name="jLabelLogradouroChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Logradouro"/>
+                <Property name="text" type="java.lang.String" value="Logradouro:*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel8">
+            <Component class="javax.swing.JLabel" name="jLabelNroChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="N&#xfa;mero"/>
+                <Property name="text" type="java.lang.String" value="N&#xfa;mero:*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel9">
+            <Component class="javax.swing.JLabel" name="jLabelCidadeChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cidade"/>
+                <Property name="text" type="java.lang.String" value="Cidade:*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel10">
+            <Component class="javax.swing.JLabel" name="jLabelBairroChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Bairro"/>
+                <Property name="text" type="java.lang.String" value="Bairro:*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel11">
+            <Component class="javax.swing.JLabel" name="jLabelDescricaoChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
+                <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o:*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldDistancia">
@@ -441,36 +442,36 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldDesc">
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonSave">
+            <Component class="javax.swing.JButton" name="jButtonSalvarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="SALVAR CADASTRO"/>
+                <Property name="text" type="java.lang.String" value="Salvar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSaveActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSalvarChacaraActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="jButtonVoltarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="VOLTAR"/>
+                <Property name="text" type="java.lang.String" value="Voltar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVoltarChacaraActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelAraTotal">
+            <Component class="javax.swing.JLabel" name="jLabelAraTotalChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Area Total"/>
+                <Property name="text" type="java.lang.String" value="&#xc1;rea Total:*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAreaTotal">
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel3">
+        <Container class="javax.swing.JPanel" name="jPanelDetalhesEEditar">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Detalhes">
-                <Property name="tabTitle" type="java.lang.String" value="Detalhes"/>
+              <JTabbedPaneConstraints tabName="Detalhes/Editar">
+                <Property name="tabTitle" type="java.lang.String" value="Detalhes/Editar"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
@@ -483,17 +484,17 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel16" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel22" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jButtonVoltardeta" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelDistanciaCidadeEditarChacara" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelValorEditarChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAreaConstruidaEditarChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelAnoConstrucaoEditarChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNroQuartosEditarChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelLogradouroEditarChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelNroEditarChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelCidadeEditarChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelBairroEditarChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabelDescricaoEditarChacara" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jButtonVoltarEditarChacara" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
@@ -521,21 +522,21 @@
                                               <Component id="jTextFieldBairroEdit" pref="202" max="32767" attributes="0"/>
                                               <Component id="jTextFieldAreaTotalEdit" alignment="0" max="32767" attributes="0"/>
                                           </Group>
-                                          <Component id="jButtonSave1" alignment="1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="jButtonSalvarEditarChacara" alignment="1" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="213" max="-2" attributes="0"/>
-                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelDetalhesEditarChacara" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabelAreaTotalEdit" min="-2" pref="55" max="-2" attributes="0"/>
+                              <Component id="jLabelAreaTotalEditarChacara" min="-2" pref="111" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="199" max="32767" attributes="0"/>
+                      <EmptySpace pref="191" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -543,66 +544,66 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelDetalhesEditarChacara" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextFieldDistanciaEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel14" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDistanciaCidadeEditarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextFieldValorEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelValorEditarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextFieldAreaEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAreaConstruidaEditarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextFieldAnoEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAnoConstrucaoEditarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextFieldQuartosEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelNroQuartosEditarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextFieldLogradouroEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel19" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelLogradouroEditarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextFieldNumeroEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelNroEditarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextFieldCidadeEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel21" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelCidadeEditarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextFieldBairroEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel22" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelBairroEditarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jTextFieldDescEdit" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel23" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelDescricaoEditarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelAreaTotalEdit" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelAreaTotalEditarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jTextFieldAreaTotalEdit" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="55" max="32767" attributes="0"/>
+                      <EmptySpace pref="64" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonSave1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonVoltardeta" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonSalvarEditarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButtonVoltarEditarChacara" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                   </Group>
@@ -610,9 +611,9 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel13">
+            <Component class="javax.swing.JLabel" name="jLabelDetalhesEditarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="DETALHES DA CH&#xc1;CARA"/>
+                <Property name="text" type="java.lang.String" value="DETALHES/EDITAR CH&#xc1;CARA"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldDistanciaEdit">
@@ -656,75 +657,75 @@
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldDescEdit">
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel14">
+            <Component class="javax.swing.JLabel" name="jLabelDistanciaCidadeEditarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Dist&#xe2;ncia da cidade (em KM)"/>
+                <Property name="text" type="java.lang.String" value="Dist&#xe2;ncia da cidade (em KM):*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel15">
+            <Component class="javax.swing.JLabel" name="jLabelValorEditarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Valor da Chac&#xe1;ra (R$)"/>
+                <Property name="text" type="java.lang.String" value="Valor da Chac&#xe1;ra (R$):*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel16">
+            <Component class="javax.swing.JLabel" name="jLabelAreaConstruidaEditarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#xc1;rea Construida (m&#xb2;)"/>
+                <Property name="text" type="java.lang.String" value="&#xc1;rea Construida (m&#xb2;):*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel17">
+            <Component class="javax.swing.JLabel" name="jLabelAnoConstrucaoEditarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Ano de Constru&#xe7;&#xe3;o"/>
+                <Property name="text" type="java.lang.String" value="Ano de Constru&#xe7;&#xe3;o:*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel18">
+            <Component class="javax.swing.JLabel" name="jLabelNroQuartosEditarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="N&#xba; de Quartos"/>
+                <Property name="text" type="java.lang.String" value="N&#xba; de Quartos:*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel19">
+            <Component class="javax.swing.JLabel" name="jLabelLogradouroEditarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Logradouro"/>
+                <Property name="text" type="java.lang.String" value="Logradouro:*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel20">
+            <Component class="javax.swing.JLabel" name="jLabelNroEditarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="N&#xfa;mero"/>
+                <Property name="text" type="java.lang.String" value="N&#xfa;mero:*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel21">
+            <Component class="javax.swing.JLabel" name="jLabelCidadeEditarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cidade"/>
+                <Property name="text" type="java.lang.String" value="Cidade:*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel22">
+            <Component class="javax.swing.JLabel" name="jLabelBairroEditarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Bairro"/>
+                <Property name="text" type="java.lang.String" value="Bairro:*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabel23">
+            <Component class="javax.swing.JLabel" name="jLabelDescricaoEditarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o"/>
+                <Property name="text" type="java.lang.String" value="Descri&#xe7;&#xe3;o:*"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButtonSave1">
+            <Component class="javax.swing.JButton" name="jButtonSalvarEditarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="SALVAR EDI&#xc7;&#xc3;O"/>
-              </Properties>
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSave1ActionPerformed"/>
-              </Events>
-            </Component>
-            <Component class="javax.swing.JButton" name="jButtonVoltardeta">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="VOLTAR"/>
+                <Property name="text" type="java.lang.String" value="Salvar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVoltardetaActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSalvarEditarChacaraActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="jLabelAreaTotalEdit">
+            <Component class="javax.swing.JButton" name="jButtonVoltarEditarChacara">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Area Total"/>
+                <Property name="text" type="java.lang.String" value="Voltar"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVoltarEditarChacaraActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="jLabelAreaTotalEditarChacara">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#xc1;rea Total:*"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextFieldAreaTotalEdit">
