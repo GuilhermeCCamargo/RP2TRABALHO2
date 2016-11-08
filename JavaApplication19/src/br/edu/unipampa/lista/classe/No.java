@@ -10,10 +10,12 @@ package br.edu.unipampa.lista.classe;
  * @author yuryalencar
  */
 public class No<T> {
-    private T prox;
-    private T ant;
+    private T info;
+    private No prox;
+    private No ant;
 
-    public No(T prox, T ant){
+    public No(T info, No prox, No ant){
+        this.info = info;
         this.prox = prox;
         this.ant = ant;
     }
@@ -21,28 +23,42 @@ public class No<T> {
     /**
      * @return the prox
      */
-    public T getProx() {
+    public No getProx() {
         return prox;
     }
 
     /**
      * @return the ant
      */
-    public T getAnt() {
+    public No getAnt() {
         return ant;
     }
 
     /**
      * @param prox the prox to set
      */
-    public void setProx(T prox) {
+    public void setProx(No prox) {
         this.prox = prox;
     }
 
     /**
      * @param ant the ant to set
      */
-    public void setAnt(T ant) {
+    public void setAnt(No ant) {
         this.ant = ant;
+    }
+
+    /**
+     * @return the info
+     */
+    public T getInfo() {
+        return info;
+    }
+
+    /**
+     * @param info the info to set
+     */
+    public void setInfo(T info) {
+        this.info = info;
     }
 }

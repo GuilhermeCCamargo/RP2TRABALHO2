@@ -9,6 +9,6 @@ package br.edu.unipampa.lista.classe;
  *
  * @author yuryalencar
  */
-public class RPList {
+public class RPList<E> {
     
 }
