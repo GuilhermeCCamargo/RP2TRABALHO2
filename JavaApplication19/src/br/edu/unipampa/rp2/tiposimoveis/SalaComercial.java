@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.unipampa.rp2.tiposimoveis;
+package br.edu.unipampa.rp2.tiposimoveis;
 
 //<editor-fold defaultstate="collapsed" desc="Importações">
 

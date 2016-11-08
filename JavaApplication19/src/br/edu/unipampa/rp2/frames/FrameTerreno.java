@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.unipampa.rp2.frames;
+package br.edu.unipampa.rp2.frames;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -12,9 +12,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import org.unipampa.rp2.tiposimoveis.Terreno;
-import org.unipampa.rp2.listaimoveis.Lista;
-import org.unipampa.rp2.tiposimoveis.Imovel;
+import br.edu.unipampa.rp2.tiposimoveis.Terreno;
+import br.edu.unipampa.rp2.listaimoveis.Lista;
+import br.edu.unipampa.rp2.tiposimoveis.Imovel;
 
 /**
  *

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.unipampa.rp2.frames;
+package br.edu.unipampa.rp2.frames;
 
 import java.io.IOException;
 import java.util.List;
@@ -11,16 +11,16 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
-import org.unipampa.rp2.listaimoveis.Lista;
-import org.unipampa.rp2.tiposimoveis.Apartamento;
-import org.unipampa.rp2.tiposimoveis.Imovel;
-import org.unipampa.rp2.tiposimoveis.Tipo;
+import br.edu.unipampa.rp2.listaimoveis.Lista;
+import br.edu.unipampa.rp2.tiposimoveis.Apartamento;
+import br.edu.unipampa.rp2.tiposimoveis.Imovel;
+import br.edu.unipampa.rp2.tiposimoveis.Tipo;
 
 /**
  *
  * @author vitao375
  */
-public class FrameApartamento2 extends javax.swing.JFrame {
+public class FrameApartamento extends javax.swing.JFrame {
 
     private Lista listaApartamento;
     private boolean isEditar;
@@ -31,7 +31,7 @@ public class FrameApartamento2 extends javax.swing.JFrame {
      *
      * @param listaApartamento
      */
-    public FrameApartamento2(Lista listaApartamento) {
+    public FrameApartamento(Lista listaApartamento) {
         initComponents();
         this.setLocationRelativeTo(null);
 
@@ -701,7 +701,7 @@ public class FrameApartamento2 extends javax.swing.JFrame {
                 try {
                     this.listaApartamento.gravarUltimoCod(p.getCod());
                 } catch (IOException ex) {
-                    Logger.getLogger(FrameApartamento2.class.getName()).log(Level.SEVERE, null, ex);
+                    Logger.getLogger(FrameApartamento.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 listaApartamento.escreverArquivo();
             } else {
@@ -779,20 +779,21 @@ public class FrameApartamento2 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrameApartamento2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameApartamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrameApartamento2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameApartamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrameApartamento2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameApartamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrameApartamento2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameApartamento.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrameApartamento2(null).setVisible(true);
+                new FrameApartamento(null).setVisible(true);
             }
         });
     }

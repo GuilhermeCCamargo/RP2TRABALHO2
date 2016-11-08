@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.unipampa.rp2.listaimoveis;
+package br.edu.unipampa.rp2.listaimoveis;
 
 //<editor-fold defaultstate="collapsed" desc="Importações">
 
-import org.unipampa.rp2.tiposimoveis.Imovel;
+import br.edu.unipampa.rp2.tiposimoveis.Imovel;
 import java.util.List;
 
 //</editor-fold>

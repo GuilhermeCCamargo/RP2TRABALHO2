@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.unipampa.rp2.aplicacao;
+package br.edu.unipampa.rp2.aplicacao;
 
 //<editor-fold defaultstate="collapsed" desc="Importações">
 
-import org.unipampa.rp2.frames.Inicial;
+import br.edu.unipampa.rp2.frames.Inicial;
 
 //</editor-fold>
 

@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.unipampa.rp2.frames;
+package br.edu.unipampa.rp2.frames;
 
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.unipampa.rp2.listaimoveis.Lista;
+import br.edu.unipampa.rp2.listaimoveis.Lista;
 
 /**
  *
@@ -110,8 +110,7 @@ public class Inicial extends javax.swing.JFrame {
                         .addComponent(jButtonChacara, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(85, 85, 85)
-                        .addComponent(jLabelImovel)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabelImovel))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabelImagem)
@@ -149,7 +148,7 @@ public class Inicial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalaComercialActionPerformed
 
     private void jButtonApartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApartamentoActionPerformed
-        FrameApartamento2 open = new FrameApartamento2(this.ListaApartamento);
+        FrameApartamento open = new FrameApartamento(this.ListaApartamento);
         open.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButtonApartamentoActionPerformed

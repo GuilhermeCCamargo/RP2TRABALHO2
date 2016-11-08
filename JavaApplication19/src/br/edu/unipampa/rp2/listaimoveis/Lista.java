@@ -3,12 +3,12 @@
  * To change this template inputFile, choose Tools | Templates
  * and open the template in the editor.
  */
-package org.unipampa.rp2.listaimoveis;
+package br.edu.unipampa.rp2.listaimoveis;
 
 //<editor-fold defaultstate="collapsed" desc="Importações">
 import java.util.ArrayList;
 import java.util.List;
-import org.unipampa.rp2.tiposimoveis.Imovel;
+import br.edu.unipampa.rp2.tiposimoveis.Imovel;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.FileReader;
@@ -18,12 +18,12 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.unipampa.rp2.tiposimoveis.Apartamento;
-import org.unipampa.rp2.tiposimoveis.Casa;
-import org.unipampa.rp2.tiposimoveis.SalaComercial;
-import org.unipampa.rp2.tiposimoveis.Tipo;
-import org.unipampa.rp2.tiposimoveis.Terreno;
-import org.unipampa.rp2.tiposimoveis.Chacara;
+import br.edu.unipampa.rp2.tiposimoveis.Apartamento;
+import br.edu.unipampa.rp2.tiposimoveis.Casa;
+import br.edu.unipampa.rp2.tiposimoveis.SalaComercial;
+import br.edu.unipampa.rp2.tiposimoveis.Tipo;
+import br.edu.unipampa.rp2.tiposimoveis.Terreno;
+import br.edu.unipampa.rp2.tiposimoveis.Chacara;
 
 //</editor-fold>
 /**
