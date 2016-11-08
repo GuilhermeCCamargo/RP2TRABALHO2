@@ -10,10 +10,17 @@ package br.edu.unipampa.lista.classe;
  * @author yuryalencar
  */
 public class No<T> {
+    
     private T info;
     private No prox;
     private No ant;
 
+    /**
+     * Construtor para a criação de um nó.
+     * @param info - informação do nó.
+     * @param prox - Ponteiro para o próximo nó.
+     * @param ant - ponteiro para o nó anterior.
+     */
     public No(T info, No prox, No ant){
         this.info = info;
         this.prox = prox;
