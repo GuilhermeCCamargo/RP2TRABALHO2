@@ -9,34 +9,71 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
-
 /**
  *
  * @author vitor
  */
-public class RPListVitor implements List{
-    
+public class RPListVitor implements List {
+
     No inicio;
-    
-    public RPListVitor(No inicio){
-        this.inicio=inicio;
+
+    public RPListVitor(No inicio) {
+        this.inicio = inicio;
     }
-    
+
     @Override
     public Object remove(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        No aux = inicio;
+        int cont = 0;
+        while (aux != inicio) {
+            if (cont == index) {
+                No ant = aux.getAnt();
+                No prox = aux.getProx();
+                ant.setProx(prox);
+                prox.setAnt(ant);
+                return aux.getInfo();
+            }
+            aux = aux.getProx();
+        }
+        cont++;
+        return null;
     }
+
     @Override
-    public void add(int index, Object element) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void add(int index, Object element) throws IndexOutOfBoundsException{
+        No aux = inicio;
+        int cont = 0; 
+        No ant = null;
+        
+        while (aux != inicio) {
+            if (cont == index) {
+                ant = aux.getAnt();
+                No add = new No(element, aux, ant);
+                ant.setProx(add);
+                aux.setAnt(add);
+            }
+            cont++;
+        }
+        if(ant==null){
+            throw new IndexOutOfBoundsException();
+        }
     }
+
     @Override
     public Object get(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        No aux = inicio;
+        int cont = 0;
+        while (aux != inicio) {
+            if (cont == index) {
+                return aux.getInfo();
+            }
+            cont++;
+        }
+        return null;
     }
-    
+
     //<editor-fold defaultstate="collapsed" desc="Não Implementados">
-        @Override
+    @Override
     public int size() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -111,8 +148,6 @@ public class RPListVitor implements List{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
-
     @Override
     public int indexOf(Object o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -138,11 +173,5 @@ public class RPListVitor implements List{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 //</editor-fold>
-    
-    
 
-    
-    
-    
 }
-
