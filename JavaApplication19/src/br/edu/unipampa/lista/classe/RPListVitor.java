@@ -17,7 +17,7 @@ import java.util.ListIterator;
 public class RPListVitor implements List {
 
     private No inicio;
-
+    //teste
     public RPListVitor(No inicio) {
         this.inicio = inicio;
     }
