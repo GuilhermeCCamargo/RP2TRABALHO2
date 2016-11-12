@@ -15,10 +15,13 @@ import java.util.ListIterator;
  * @author vitor
  */
 public class RPListVitor implements List {
-/**
- * Falta adicionar para ver se a lista está vazia
- */
+
+    /**
+     * Falta adicionar para ver se a lista está vazia
+     */
     private No inicio;
+    private int size = 0;
+
     public RPListVitor(No inicio) {
         this.inicio = inicio;
     }
@@ -27,18 +30,19 @@ public class RPListVitor implements List {
     public Object remove(int index) {
         No aux = this.inicio;
         int cont = 0;
-        while (aux != this.inicio && cont != 0) {
-            if (cont == index) {
-                No ant = aux.getAnt();
-                No prox = aux.getProx();
-                ant.setProx(prox);
-                prox.setAnt(ant);
-                return aux.getInfo();
+        if (index < size) {
+            for (int x = 0; x <= index; x++) {
+                aux = aux.getProx();
             }
-            aux = aux.getProx();
+            No ant = aux.getAnt();
+            No prox = aux.getProx();
+            ant.setProx(prox);
+            prox.setAnt(ant);
+            size--;
+            return aux;
+        } else {
+            return null;
         }
-        cont++;
-        return null;
     }
 
     @Override
@@ -46,30 +50,28 @@ public class RPListVitor implements List {
         No aux = this.inicio;
         int cont = 0;
         No ant = null;
-
-        while (aux != this.inicio && cont!=0) {
-            if (cont == index) {
-                ant = aux.getAnt();
-                No add = new No(element, aux, ant);
-                ant.setProx(add);
-                aux.setAnt(add);
+        if (index < size) {
+            for (int i = 0; i < index; i++) {
+                aux = aux.getProx();
             }
-            cont++;
+            ant = aux.getAnt();
+            No add = new No(element, aux, ant);
+            ant.setProx(add);
+            aux.setAnt(add);
+            size++;
         }
-        if (ant == null) {
-            throw new IndexOutOfBoundsException();
-        }
+        
     }
 
     @Override
     public Object get(int index) {
         No aux = this.inicio;
         int cont = 0;
-        while (aux != this.inicio && cont!=0) {
-            if (cont == index) {
-                return aux.getInfo();
+        if (index < size) {
+            for (int i = 0; i < index; i++) {
+                aux = aux.getProx();
             }
-            cont++;
+            return aux.getInfo();
         }
         return null;
     }
@@ -175,9 +177,8 @@ public class RPListVitor implements List {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 //</editor-fold>
-    
-    //<editor-fold defaultstate="collapsed" desc="get e set">
 
+    //<editor-fold defaultstate="collapsed" desc="get e set">
     /**
      * @return the inicio
      */
