@@ -9,13 +9,14 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+
 /**
  *
  * @author vitor
  */
 public class RPListVitor implements List {
 
-    No inicio;
+    private No inicio;
 
     public RPListVitor(No inicio) {
         this.inicio = inicio;
@@ -23,9 +24,9 @@ public class RPListVitor implements List {
 
     @Override
     public Object remove(int index) {
-        No aux = inicio;
+        No aux = getInicio();
         int cont = 0;
-        while (aux != inicio) {
+        while (aux != getInicio()) {
             if (cont == index) {
                 No ant = aux.getAnt();
                 No prox = aux.getProx();
@@ -40,12 +41,12 @@ public class RPListVitor implements List {
     }
 
     @Override
-    public void add(int index, Object element) throws IndexOutOfBoundsException{
-        No aux = inicio;
-        int cont = 0; 
+    public void add(int index, Object element) throws IndexOutOfBoundsException {
+        No aux = getInicio();
+        int cont = 0;
         No ant = null;
-        
-        while (aux != inicio) {
+
+        while (aux != getInicio()) {
             if (cont == index) {
                 ant = aux.getAnt();
                 No add = new No(element, aux, ant);
@@ -54,16 +55,16 @@ public class RPListVitor implements List {
             }
             cont++;
         }
-        if(ant==null){
+        if (ant == null) {
             throw new IndexOutOfBoundsException();
         }
     }
 
     @Override
     public Object get(int index) {
-        No aux = inicio;
+        No aux = getInicio();
         int cont = 0;
-        while (aux != inicio) {
+        while (aux != getInicio()) {
             if (cont == index) {
                 return aux.getInfo();
             }
@@ -173,5 +174,22 @@ public class RPListVitor implements List {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="get e set">
 
+    /**
+     * @return the inicio
+     */
+    public No getInicio() {
+        return inicio;
+    }
+
+    /**
+     * @param inicio the inicio to set
+     */
+    public void setInicio(No inicio) {
+        this.inicio = inicio;
+    }
+
+//</editor-fold>
 }
