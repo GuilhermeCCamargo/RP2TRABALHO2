@@ -15,18 +15,19 @@ import java.util.ListIterator;
  * @author vitor
  */
 public class RPListVitor implements List {
-
+/**
+ * Falta adicionar para ver se a lista está vazia
+ */
     private No inicio;
-    //teste
     public RPListVitor(No inicio) {
         this.inicio = inicio;
     }
 
     @Override
     public Object remove(int index) {
-        No aux = getInicio();
+        No aux = this.inicio;
         int cont = 0;
-        while (aux != getInicio()) {
+        while (aux != this.inicio && cont != 0) {
             if (cont == index) {
                 No ant = aux.getAnt();
                 No prox = aux.getProx();
@@ -42,11 +43,11 @@ public class RPListVitor implements List {
 
     @Override
     public void add(int index, Object element) throws IndexOutOfBoundsException {
-        No aux = getInicio();
+        No aux = this.inicio;
         int cont = 0;
         No ant = null;
 
-        while (aux != getInicio()) {
+        while (aux != this.inicio && cont!=0) {
             if (cont == index) {
                 ant = aux.getAnt();
                 No add = new No(element, aux, ant);
@@ -62,9 +63,9 @@ public class RPListVitor implements List {
 
     @Override
     public Object get(int index) {
-        No aux = getInicio();
+        No aux = this.inicio;
         int cont = 0;
-        while (aux != getInicio()) {
+        while (aux != this.inicio && cont!=0) {
             if (cont == index) {
                 return aux.getInfo();
             }
