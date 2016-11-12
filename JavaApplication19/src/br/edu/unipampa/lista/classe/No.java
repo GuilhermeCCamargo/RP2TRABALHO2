@@ -8,6 +8,7 @@ package br.edu.unipampa.lista.classe;
 /**
  *
  * @author yuryalencar
+ * @param <T>
  */
 public class No<T> {
     
