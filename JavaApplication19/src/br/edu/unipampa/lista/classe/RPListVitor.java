@@ -14,24 +14,32 @@ import java.util.ListIterator;
  *
  * @author vitor
  */
-public class RPListVitor implements List {
+public class RPListVitor<G extends Object> implements List {
 
     /**
      * Falta adicionar para ver se a lista está vazia
      */
-    private No inicio;
-    private int size = 0;
+    private No<G> inicio;
+    private int size;
 
-    public RPListVitor(No inicio) {
-        this.inicio = inicio;
+    public RPListVitor() {
+        inicio = new No(null, null, null);
+        size = 0;
     }
 
     @Override
-    public Object remove(int index) {
+    public G remove(int index) {
         No aux = this.inicio;
         int cont = 0;
-        if (index < size) {
-            for (int x = 0; x <= index; x++) {
+        if (size == 0) {
+            throw new UnsupportedOperationException("Lista vazia");
+        } else if (size == 1) {
+            inicio = null;
+            size--;
+            return (G) aux.getInfo();
+        } else if (index < size && index >= 0) {
+            int y = 0;
+            for (int x = 0; x < index; x++) {
                 aux = aux.getProx();
             }
             No ant = aux.getAnt();
@@ -39,41 +47,72 @@ public class RPListVitor implements List {
             ant.setProx(prox);
             prox.setAnt(ant);
             size--;
-            return aux;
+            return (G) aux.getInfo();
+
         } else {
-            return null;
+            throw new IndexOutOfBoundsException("Indice inválido!");
         }
+
     }
 
     @Override
-    public void add(int index, Object element) throws IndexOutOfBoundsException {
+    public void add(int index, Object element) {
+
         No aux = this.inicio;
         int cont = 0;
-        No ant = null;
-        if (index < size) {
+        try {
+            G info = (G) aux.getInfo();
+        } catch (Exception e) {
+            throw new ClassCastException("Dado inválido!");
+        }
+        G elemento = (G) element;
+        if (element == null) {
+            throw new NullPointerException("Elemento Nulo!");
+        } else if (index == 0 && inicio.getInfo() == null) {
+
+            inicio.setInfo(elemento);
+            inicio.setAnt(inicio);
+            inicio.setProx(inicio);
+            size++;
+        } else if (index == size) {
             for (int i = 0; i < index; i++) {
                 aux = aux.getProx();
             }
+            No add = new No(elemento, inicio, aux);
+            aux.setProx(add);
+            inicio.setAnt(add);
+            size++;
+        } else if (index < size || index >= 0) {
+            for (int i = 0; i < index; i++) {
+                aux = aux.getProx();
+            }
+
+            No ant = null;
             ant = aux.getAnt();
-            No add = new No(element, aux, ant);
+            No add = new No(elemento, aux, ant);
             ant.setProx(add);
             aux.setAnt(add);
             size++;
+
+        } else {
+            throw new IndexOutOfBoundsException("Indice inválido!");
         }
-        
+
     }
 
     @Override
-    public Object get(int index) {
+    public G get(int index) {
         No aux = this.inicio;
         int cont = 0;
-        if (index < size) {
+        if (index <= size || index >= 0) {
             for (int i = 0; i < index; i++) {
                 aux = aux.getProx();
             }
-            return aux.getInfo();
+            return (G) aux.getInfo();
+        } else {
+            throw new IndexOutOfBoundsException("Indice inválido!");
         }
-        return null;
+
     }
 
     //<editor-fold defaultstate="collapsed" desc="Não Implementados">
