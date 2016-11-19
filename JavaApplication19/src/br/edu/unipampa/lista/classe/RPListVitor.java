@@ -14,30 +14,29 @@ import java.util.ListIterator;
  *
  * @author vitor
  */
-public class RPListVitor<G extends Object> implements List {
+public class RPListVitor<E> implements List {
 
     /**
      * Falta adicionar para ver se a lista está vazia
      */
-    private No<G> inicio;
-    private int size;
+    private No<E> inicio;
+    private int tamanho;
 
     public RPListVitor() {
-        inicio = new No(null, null, null);
-        size = 0;
+        inicio = null;
+        tamanho = 0;
     }
 
     @Override
-    public G remove(int index) {
+    public E remove(int index) {
         No aux = this.inicio;
-        int cont = 0;
-        if (size == 0) {
+        if (tamanho == 0) {
             throw new UnsupportedOperationException("Lista vazia");
-        } else if (size == 1) {
+        } else if (tamanho == 1) {
             inicio = null;
-            size--;
-            return (G) aux.getInfo();
-        } else if (index < size && index >= 0) {
+            tamanho--;
+            return (E) aux.getInfo();
+        } else if (index < tamanho && index >= 0) {
             int y = 0;
             for (int x = 0; x < index; x++) {
                 aux = aux.getProx();
@@ -46,8 +45,8 @@ public class RPListVitor<G extends Object> implements List {
             No prox = aux.getProx();
             ant.setProx(prox);
             prox.setAnt(ant);
-            size--;
-            return (G) aux.getInfo();
+            tamanho--;
+            return (E) aux.getInfo();
 
         } else {
             throw new IndexOutOfBoundsException("Indice inválido!");
@@ -59,30 +58,27 @@ public class RPListVitor<G extends Object> implements List {
     public void add(int index, Object element) {
 
         No aux = this.inicio;
-        int cont = 0;
-        try {
-            G info = (G) aux.getInfo();
-        } catch (Exception e) {
-            throw new ClassCastException("Dado inválido!");
-        }
-        G elemento = (G) element;
+        E elemento = (E) element;//Cast 
         if (element == null) {
+            
             throw new NullPointerException("Elemento Nulo!");
-        } else if (index == 0 && inicio.getInfo() == null) {
+            
+        } else if (index == 0 && inicio== null) {
 
-            inicio.setInfo(elemento);
-            inicio.setAnt(inicio);
+            No first = new No(element);
+            inicio=first;
             inicio.setProx(inicio);
-            size++;
-        } else if (index == size) {
+            inicio.setAnt(inicio);
+            tamanho++;
+        } else if (index == tamanho) {
             for (int i = 0; i < index; i++) {
                 aux = aux.getProx();
             }
             No add = new No(elemento, inicio, aux);
             aux.setProx(add);
             inicio.setAnt(add);
-            size++;
-        } else if (index < size || index >= 0) {
+            tamanho++;
+        } else if (index < tamanho || index >= 0) {
             for (int i = 0; i < index; i++) {
                 aux = aux.getProx();
             }
@@ -92,7 +88,7 @@ public class RPListVitor<G extends Object> implements List {
             No add = new No(elemento, aux, ant);
             ant.setProx(add);
             aux.setAnt(add);
-            size++;
+            tamanho++;
 
         } else {
             throw new IndexOutOfBoundsException("Indice inválido!");
@@ -101,14 +97,14 @@ public class RPListVitor<G extends Object> implements List {
     }
 
     @Override
-    public G get(int index) {
+    public E get(int index) {
         No aux = this.inicio;
         int cont = 0;
-        if (index <= size || index >= 0) {
+        if (index <= tamanho || index >= 0) {
             for (int i = 0; i < index; i++) {
                 aux = aux.getProx();
             }
-            return (G) aux.getInfo();
+            return (E) aux.getInfo();
         } else {
             throw new IndexOutOfBoundsException("Indice inválido!");
         }
@@ -153,7 +149,39 @@ public class RPListVitor<G extends Object> implements List {
 
     @Override
     public boolean remove(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        No<E> aux;
+        
+        if(o == null){
+            throw new NullPointerException("Objeto nulo");
+        }
+        
+        if(!isEmpty()){
+            if(this.inicio.getInfo().equals((E) o)){
+                if(!this.inicio.getProx().equals(this.inicio)){
+                    this.inicio.getAnt().setProx(this.inicio.getProx());
+                    this.inicio.getProx().setAnt(this.inicio.getAnt());
+                    this.inicio = this.inicio.getProx();
+                    this.tamanho--;
+                    return true;
+                } else {
+                    this.inicio = null;
+                    this.tamanho--;
+                    return true;
+                }
+            }
+            
+            aux = this.inicio.getProx();
+            while(aux != this.inicio){
+                if(aux.getInfo().equals((E) o)){
+                    aux.getAnt().setProx(aux.getProx());
+                    aux.getProx().setAnt(aux.getAnt());
+                    this.tamanho--;
+                    return true;
+                }
+                aux = aux.getProx();
+            }
+        }
+        return false;
     }
 
     @Override
