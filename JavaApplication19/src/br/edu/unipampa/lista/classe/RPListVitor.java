@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
+import java.util.NoSuchElementException;
 
 /**
  *
@@ -99,7 +100,6 @@ public class RPListVitor<E> implements List {
     @Override
     public E get(int index) {
         No aux = this.inicio;
-        int cont = 0;
         if (index <= tamanho || index >= 0) {
             for (int i = 0; i < index; i++) {
                 aux = aux.getProx();
@@ -110,7 +110,53 @@ public class RPListVitor<E> implements List {
         }
 
     }
-
+    
+    @Override
+    public boolean contains(Object o) {
+        if(inicio==null || o==null){
+            throw new NullPointerException("Lista ou objeto nulo!");
+        }
+        No aux = inicio;
+        while(aux!=inicio){
+            if(aux.getInfo().equals(o)){
+                return true;
+            }
+            aux=aux.getProx();
+        }
+        return false;
+        
+    }
+    
+    public E getFirst(){
+        if(inicio==null){
+            throw new NoSuchElementException("Lista vazia");
+        }
+        return (E) inicio.getInfo();
+    }
+    
+    public void addFirst(Object o){
+        if(inicio==null){
+            inicio = new No((E)o);
+            inicio.setProx(inicio);
+            inicio.setAnt(inicio);
+        }
+        No add = new No(o, inicio, inicio.getAnt());
+        inicio.getAnt().setProx(add);
+        inicio.setAnt(add);
+        inicio = add;
+    }
+    
+    public E removeFirst(){
+        if(inicio==null){
+            throw new NoSuchElementException("Lista vazia!");
+        }
+        No aux = inicio;
+        inicio = inicio.getProx();
+        inicio.setAnt(aux.getAnt());
+        return (E)aux.getInfo();
+    }
+    
+    
     //<editor-fold defaultstate="collapsed" desc="Não Implementados">
     @Override
     public int size() {
@@ -122,10 +168,7 @@ public class RPListVitor<E> implements List {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public boolean contains(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
 
     @Override
     public Iterator iterator() {
