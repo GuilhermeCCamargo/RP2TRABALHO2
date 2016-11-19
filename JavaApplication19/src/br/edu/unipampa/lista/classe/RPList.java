@@ -130,7 +130,47 @@ public class RPList<E> implements List, Serializable{
 
     @Override
     public boolean remove(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        No<E> aux;
+        
+        if(o == null){
+            throw new NullPointerException("Objeto nulo");
+        }
+        
+        if(!isEmpty()){
+            if(this.inicio.getInfo().equals((E) o)){
+                if(!this.inicio.getProx().equals(this.inicio)){
+                    this.inicio.getAnt().setProx(this.inicio.getProx());
+                    this.inicio.getProx().setAnt(this.inicio.getAnt());
+                    this.inicio = this.inicio.getProx();
+                    this.tamanho--;
+                    return true;
+                } else {
+                    this.inicio = null;
+                    this.tamanho--;
+                    return true;
+                }
+            }
+            
+            aux = this.inicio.getProx();
+            while(aux != this.inicio){
+                if(aux.getInfo().equals((E) o)){
+                    aux.getAnt().setProx(aux.getProx());
+                    aux.getProx().setAnt(aux.getAnt());
+                    this.tamanho--;
+                    return true;
+                }
+                aux = aux.getProx();
+            }
+        }
+        return false;
+    }
+
+    public E getLast(){
+        if(isEmpty()){
+            throw new NoSuchElementException("Lista vazia");
+        } else {
+            return (E) this.inicio.getAnt().getInfo();
+        }
     }
 
     @Override
