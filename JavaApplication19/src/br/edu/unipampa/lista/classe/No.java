@@ -84,6 +84,6 @@ public class No<T> implements Serializable {
     
     @Override
     public String toString(){
-        return this.info.toString();
+        return this.getInfo().toString();
     }
 }

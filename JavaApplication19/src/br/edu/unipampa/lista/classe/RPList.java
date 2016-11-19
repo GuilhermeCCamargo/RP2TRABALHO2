@@ -205,7 +205,7 @@ public class RPList<E> implements List, Serializable{
     
     @Override
     public String toString(){
-        return "Size: "+this.tamanho;
+        return "size: "+this.tamanho;
     }
     
 }
