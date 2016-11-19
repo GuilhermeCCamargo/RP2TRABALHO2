@@ -33,7 +33,7 @@ public class RPListTest {
         boolean result = instance.isEmpty();
         assertEquals(expResult, result);
     
-        instance.add("Yury");
+        instance.add("Teste");
         expResult = false;
         result = instance.isEmpty();
         assertEquals(expResult, result);
@@ -47,18 +47,18 @@ public class RPListTest {
     public void testRemoveLast() {
         System.out.println("removeLast");
         RPList<String> instance = new RPList();
-        instance.add("MacumbaLoka");
-        String expResult = "MacumbaLoka";
+        instance.add("Teste");
+        String expResult = "Teste";
         String result = instance.removeLast();
         assertEquals(expResult, result);
 
-        instance.add("MacumbaLoka");
-        instance.add("YuryDoidao");
-        expResult = "YuryDoidao";
+        instance.add("Teste");
+        instance.add("Teste1");
+        expResult = "Teste1";
         result = instance.removeLast();
         assertEquals(expResult, result);
 
-        expResult = "MacumbaLoka";
+        expResult = "Teste";
         result = instance.removeLast();
         assertEquals(expResult, result);
     }
@@ -70,25 +70,25 @@ public class RPListTest {
     public void testIndexOf() {
         System.out.println("indexOf");
         RPList<String> instance = new RPList();
-        instance.add("Yury Alencar");
-        instance.add("Yury Alencar Lima");
-        instance.add("Yury");
-        instance.add("João");
+        instance.add("Teste");
+        instance.add("Teste1");
+        instance.add("Teste2");
+        instance.add("Teste3");
         
         int expResult = 0;
-        int result = instance.indexOf("Yury Alencar");
+        int result = instance.indexOf("Teste");
         assertEquals(expResult, result);        
     
         expResult = 1;
-        result = instance.indexOf("Yury Alencar Lima");
+        result = instance.indexOf("Teste1");
         assertEquals(expResult, result);        
     
         expResult = 2;
-        result = instance.indexOf("Yury");
+        result = instance.indexOf("Teste2");
         assertEquals(expResult, result);        
     
         expResult = 3;
-        result = instance.indexOf("João");
+        result = instance.indexOf("Teste3");
         assertEquals(expResult, result);        
     }
 
@@ -96,15 +96,23 @@ public class RPListTest {
      * Test of size method, of class RPList.
      */
     @Test
-    @Ignore
     public void testSize() {
         System.out.println("size");
-        RPList instance = new RPList();
+        RPList<String> instance = new RPList();
         int expResult = 0;
         int result = instance.size();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
+        instance.add("Teste");
+        expResult = 1;
+        result = instance.size();
+        assertEquals(expResult, result);
+        
+        instance.add("Teste1");
+        expResult = 2;
+        result = instance.size();
+        assertEquals(expResult, result);
+    
     }
 
     /**
