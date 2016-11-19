@@ -5,12 +5,14 @@
  */
 package br.edu.unipampa.lista.classe;
 
+import java.io.Serializable;
+
 /**
  *
  * @author yuryalencar
  * @param <T>
  */
-public class No<T> {
+public class No<T> implements Serializable {
     
     private T info;
     private No prox;
@@ -26,6 +28,16 @@ public class No<T> {
         this.info = info;
         this.prox = prox;
         this.ant = ant;
+    }
+    
+    /**
+     * Construtor para a criação de um nó.
+     * @param info - informação do nó.
+     */
+    public No(T info){
+        this.info = info;
+        this.prox = null;
+        this.ant = null;
     }
     
     /**
@@ -68,5 +80,10 @@ public class No<T> {
      */
     public void setInfo(T info) {
         this.info = info;
+    }
+    
+    @Override
+    public String toString(){
+        return this.info.toString();
     }
 }

@@ -5,6 +5,7 @@
  */
 package br.edu.unipampa.lista.classe;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -15,8 +16,10 @@ import java.util.NoSuchElementException;
  *
  * @author yuryalencar
  */
-public class RPList<E> implements List{
-    No<E> inicio;
+public class RPList<E> implements List, Serializable{
+    
+    private No<E> inicio;
+    private int tamanho = 0;
     
     @Override
     public boolean isEmpty(){
@@ -35,9 +38,11 @@ public class RPList<E> implements List{
         No end = inicio.getAnt();
         if(inicio.getAnt().equals(inicio)){
             inicio = null;
+            tamanho --;
         } else {
             inicio.setAnt(end.getAnt());
             end.getAnt().setProx(inicio);
+            tamanho --;
         }
         
         return (E) end.getInfo();
@@ -46,22 +51,22 @@ public class RPList<E> implements List{
     @Override
     public int indexOf(Object o) {
         
-        /*if(o instanceof E){
-            
-        } else*/ if(o == null){
+        if(o == null){
             throw new NullPointerException("Objeto informado é nulo");
+        } else if(isEmpty()) {
+            throw new NullPointerException("Lista vazia");
         } else {
             int cont = 0;
 
-            if(inicio.equals(o)){
+            if(inicio.getInfo().equals(o)){
                 return cont;
             }
 
-            if(!(inicio.getAnt().equals(inicio))){
+            if(!(inicio.getAnt().getInfo().equals(inicio))){
                 No aux = inicio.getProx();
                 cont++;
                 while(aux != inicio){
-                    if(aux.equals(o)){
+                    if(aux.getInfo().equals(o)){
                         return cont;
                     }
                     aux = aux.getProx();
@@ -75,7 +80,7 @@ public class RPList<E> implements List{
 
     @Override
     public int size() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return this.tamanho;
     }
 
     @Override
@@ -100,7 +105,27 @@ public class RPList<E> implements List{
 
     @Override
     public boolean add(Object e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        No<E> no;
+        if(e == null){
+            throw new NullPointerException("Objeto nulo");
+        }
+        
+        if(this.tamanho == 0){
+            this.inicio = new No(e);
+            inicio.setProx(inicio);
+            inicio.setAnt(inicio);
+            tamanho ++;
+            return true;
+        }
+        
+        no = new No(e);
+        this.inicio.getAnt().setProx(no);
+        no.setAnt(this.inicio.getAnt());
+        no.setProx(this.inicio);
+        this.inicio.setAnt(no);
+        tamanho ++;
+        
+        return true;
     }
 
     @Override
@@ -178,5 +203,9 @@ public class RPList<E> implements List{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
+    @Override
+    public String toString(){
+        return "Size: "+this.tamanho;
+    }
     
 }
