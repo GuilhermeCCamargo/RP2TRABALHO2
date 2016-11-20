@@ -14,6 +14,7 @@ import java.util.NoSuchElementException;
 /**
  *
  * @author vitor
+ * @param <E> variavel generica
  */
 public class RPListVitor<E> implements List {
 
@@ -61,13 +62,13 @@ public class RPListVitor<E> implements List {
         No aux = this.inicio;
         E elemento = (E) element;//Cast 
         if (element == null) {
-            
+
             throw new NullPointerException("Elemento Nulo!");
-            
-        } else if (index == 0 && inicio== null) {
+
+        } else if (index == 0 && inicio == null) {
 
             No first = new No(element);
-            inicio=first;
+            inicio = first;
             inicio.setProx(inicio);
             inicio.setAnt(inicio);
             tamanho++;
@@ -110,33 +111,33 @@ public class RPListVitor<E> implements List {
         }
 
     }
-    
+
     @Override
     public boolean contains(Object o) {
-        if(inicio==null || o==null){
+        if (inicio == null || o == null) {
             throw new NullPointerException("Lista ou objeto nulo!");
         }
         No aux = inicio;
-        while(aux!=inicio){
-            if(aux.getInfo().equals(o)){
+        while (aux != inicio) {
+            if (aux.getInfo().equals(o)) {
                 return true;
             }
-            aux=aux.getProx();
+            aux = aux.getProx();
         }
         return false;
-        
+
     }
-    
-    public E getFirst(){
-        if(inicio==null){
+
+    public E getFirst() {
+        if (inicio == null) {
             throw new NoSuchElementException("Lista vazia");
         }
         return (E) inicio.getInfo();
     }
-    
-    public void addFirst(Object o){
-        if(inicio==null){
-            inicio = new No((E)o);
+
+    public void addFirst(Object o) {
+        if (inicio == null) {
+            inicio = new No((E) o);
             inicio.setProx(inicio);
             inicio.setAnt(inicio);
         }
@@ -145,18 +146,56 @@ public class RPListVitor<E> implements List {
         inicio.setAnt(add);
         inicio = add;
     }
-    
-    public E removeFirst(){
-        if(inicio==null){
+
+    public E removeFirst() {
+        if (inicio == null) {
             throw new NoSuchElementException("Lista vazia!");
         }
         No aux = inicio;
         inicio = inicio.getProx();
         inicio.setAnt(aux.getAnt());
-        return (E)aux.getInfo();
+        return (E) aux.getInfo();
     }
-    
-    
+
+    //<editor-fold defaultstate="collapsed" desc="remover Seu">
+    @Override
+    public boolean remove(Object o) {
+        No<E> aux;
+
+        if (o == null) {
+            throw new NullPointerException("Objeto nulo");
+        }
+
+        if (!isEmpty()) {
+            if (this.inicio.getInfo().equals((E) o)) {
+                if (!this.inicio.getProx().equals(this.inicio)) {
+                    this.inicio.getAnt().setProx(this.inicio.getProx());
+                    this.inicio.getProx().setAnt(this.inicio.getAnt());
+                    this.inicio = this.inicio.getProx();
+                    this.tamanho--;
+                    return true;
+                } else {
+                    this.inicio = null;
+                    this.tamanho--;
+                    return true;
+                }
+            }
+
+            aux = this.inicio.getProx();
+            while (aux != this.inicio) {
+                if (aux.getInfo().equals((E) o)) {
+                    aux.getAnt().setProx(aux.getProx());
+                    aux.getProx().setAnt(aux.getAnt());
+                    this.tamanho--;
+                    return true;
+                }
+                aux = aux.getProx();
+            }
+        }
+        return false;
+    }
+//</editor-fold>
+
     //<editor-fold defaultstate="collapsed" desc="Não Implementados">
     @Override
     public int size() {
@@ -167,8 +206,6 @@ public class RPListVitor<E> implements List {
     public boolean isEmpty() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    
 
     @Override
     public Iterator iterator() {
@@ -188,43 +225,6 @@ public class RPListVitor<E> implements List {
     @Override
     public boolean add(Object e) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean remove(Object o) {
-        No<E> aux;
-        
-        if(o == null){
-            throw new NullPointerException("Objeto nulo");
-        }
-        
-        if(!isEmpty()){
-            if(this.inicio.getInfo().equals((E) o)){
-                if(!this.inicio.getProx().equals(this.inicio)){
-                    this.inicio.getAnt().setProx(this.inicio.getProx());
-                    this.inicio.getProx().setAnt(this.inicio.getAnt());
-                    this.inicio = this.inicio.getProx();
-                    this.tamanho--;
-                    return true;
-                } else {
-                    this.inicio = null;
-                    this.tamanho--;
-                    return true;
-                }
-            }
-            
-            aux = this.inicio.getProx();
-            while(aux != this.inicio){
-                if(aux.getInfo().equals((E) o)){
-                    aux.getAnt().setProx(aux.getProx());
-                    aux.getProx().setAnt(aux.getAnt());
-                    this.tamanho--;
-                    return true;
-                }
-                aux = aux.getProx();
-            }
-        }
-        return false;
     }
 
     @Override
