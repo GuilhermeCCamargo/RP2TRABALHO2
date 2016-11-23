@@ -7,6 +7,7 @@ package br.edu.unipampa.rp2.tiposimoveis;
 
 //<editor-fold defaultstate="collapsed" desc="Importações">
 
+import java.io.Serializable;
 import java.security.InvalidParameterException;
 
 //</editor-fold>
@@ -15,7 +16,7 @@ import java.security.InvalidParameterException;
  *
  * @author yuryalencar
  */
-public abstract class Imovel {
+public abstract class Imovel  implements Serializable{
     
     //<editor-fold defaultstate="collapsed" desc="Atributos">
     

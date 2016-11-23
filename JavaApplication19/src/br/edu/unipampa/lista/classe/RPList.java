@@ -310,6 +310,24 @@ public class RPList<E> implements List<E>, Serializable, Iterator{
         return "size: "+this.tamanho;
     }
     
+    @Override
+    public Iterator iterator() {
+        indic = 0;
+        return this;
+    }
+
+    @Override
+    public boolean hasNext() {
+        return indic < tamanho;
+    }
+
+    @Override
+    public E next() {
+        E a = get(indic);
+        indic++;
+        return a;
+    }
+
     //<editor-fold defaultstate="collapsed" desc="Unsupported">
     
     
@@ -374,29 +392,5 @@ public class RPList<E> implements List<E>, Serializable, Iterator{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     //</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="foreach">
-    @Override
-    public Iterator iterator() {
-        indic = 0;
-        return this;
-    }
-
-    @Override
-    public boolean hasNext() {
-        if (indic < tamanho) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    @Override
-    public E next() {
-        E a = get(indic);
-        indic++;
-        return a;
-    }
-//</editor-fold>
     
 }

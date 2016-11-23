@@ -6,6 +6,7 @@
 package br.edu.unipampa.rp2.listaimoveis;
 
 //<editor-fold defaultstate="collapsed" desc="Importações">
+import br.edu.unipampa.lista.classe.RPList;
 import java.util.ArrayList;
 import java.util.List;
 import br.edu.unipampa.rp2.tiposimoveis.Imovel;
@@ -14,16 +15,13 @@ import java.io.FileWriter;
 import java.io.FileReader;
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import br.edu.unipampa.rp2.tiposimoveis.Apartamento;
-import br.edu.unipampa.rp2.tiposimoveis.Casa;
-import br.edu.unipampa.rp2.tiposimoveis.SalaComercial;
-import br.edu.unipampa.rp2.tiposimoveis.Tipo;
-import br.edu.unipampa.rp2.tiposimoveis.Terreno;
-import br.edu.unipampa.rp2.tiposimoveis.Chacara;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 //</editor-fold>
 /**
@@ -35,7 +33,7 @@ import br.edu.unipampa.rp2.tiposimoveis.Chacara;
 public class Lista implements ListaImoveis {
 
     //<editor-fold defaultstate="collapsed" desc="Atributos">
-    private List<Imovel> lista = new ArrayList();
+    private List<Imovel> lista = new RPList();
     private final String tipo;
 
     //</editor-fold>
@@ -139,16 +137,11 @@ public class Lista implements ListaImoveis {
     @Override
     public boolean escreverArquivo() {
         try {
-            BufferedWriter bw = new BufferedWriter(new FileWriter(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
-
-            for (Imovel imovel : lista) {
-                bw.write(imovel.writeFile());
-            }
-
-            bw.close();
-
+            ObjectOutputStream bOs = new ObjectOutputStream(new FileOutputStream(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".bin"));
+            bOs.writeObject(this.lista);
+            bOs.close();
             return true;
-        } catch (IOException ex) {
+        } catch (Exception ex) {
             Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
             return false;
         }
@@ -163,389 +156,21 @@ public class Lista implements ListaImoveis {
      */
     @Override
     public boolean lerArquivo() {
-        File file = new File(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv");
+        File file = new File(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".bin");
 
         if (file.exists()) {
-            switch (this.tipo) {
-                case "SalasComerciais":
-                    try {
-                        lerSalasComerciais();
-                        return true;
-                    } catch (Exception ex) {
-                        Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    break;
-                case "Apartamentos": {
-                    try {
-                        lerApartamento();
-                        return true;
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
-                break;
-                case "Casas":
-                    try {
-                        lerCasas();
-                        return true;
-                    } catch (Exception ex) {
-                        Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    break;
-                case "Terrenos":
-                    try {
-                        lerTerreno();
-                        return true;
-                    } catch (Exception ex) {
-                        Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    break;
-                case "Chacaras":
-                    try {
-                        lerChacara();
-                    } catch (IOException ex) {
-                        Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                    break;
-                default:
-                    return false;
+            try {
+                ObjectInputStream bIs = new ObjectInputStream(new FileInputStream(file));
+                this.lista = (List<Imovel>)bIs.readObject();
+                bIs.close();
+                return true;
+            } catch (Exception ex) {
+                Logger.getLogger(Lista.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
             }
         }
         return false;
     }
-
-    //<editor-fold defaultstate="collapsed" desc="Método para leitura de um Terreno">
-    private void lerTerreno() throws FileNotFoundException, IOException {
-        int cod = 0, numero = 0;
-        double areaTotal = 0, valor = 0, dimensaoFrente = 0, dimensaoLado = 0;
-        String logradouro = "", bairro = "", cidade = "", descricao = "", linha = "";
-        int aux = 0;
-        String convercao = "";
-
-        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
-
-        do {
-            linha = br.readLine();
-
-            if (linha != null) {
-                for (int i = 0; i < linha.length(); i++) {
-                    if (linha.charAt(i) == ';') {
-
-                        //<editor-fold defaultstate="collapsed" desc="Switch Terreno">
-                        switch (aux) {
-                            case 0:
-                                cod = Integer.parseInt(convercao);
-                                break;
-                            case 1:
-                                numero = Integer.parseInt(convercao);
-                                break;
-                            case 2:
-                                areaTotal = Double.parseDouble(convercao);
-                                break;
-                            case 3:
-                                valor = Double.parseDouble(convercao);
-                                break;
-                            case 4:
-                                logradouro = convercao;
-                                break;
-                            case 5:
-                                bairro = convercao;
-                                break;
-                            case 6:
-                                cidade = convercao;
-                                break;
-                            case 7:
-                                descricao = convercao;
-                                break;
-                            case 8:
-                                dimensaoFrente = Double.parseDouble(convercao);
-                                break;
-                            case 9:
-                                dimensaoLado = Double.parseDouble(convercao);
-                                break;
-
-                        }
-                        //</editor-fold>
-
-                        convercao = "";
-                        aux++;
-                    } else {
-                        convercao += linha.charAt(i);
-                    }
-                }
-
-                Terreno terreno = new Terreno(cod, numero, valor, cidade, descricao,
-                        logradouro, areaTotal, bairro, dimensaoFrente, dimensaoLado);
-
-                aux = 0;
-                this.lista.add(terreno);
-            }
-
-        } while (linha != null);
-
-        br.close();
-    }
-//</editor-fold>
-
-    //<editor-fold defaultstate="collapsed" desc="Método para leitura de uma Casa">
-    private void lerCasas() throws FileNotFoundException, IOException {
-        String linha, logradouro = "", bairro = "", cidade = "", descricao = "";
-        int cod = 0, numero = 0, NQuartos = 0, NVagasGaragem = 0, anoConstrucao = 0;
-        double areaTotal = 0, valor = 0, areaConstruida = 0;
-        Tipo tipo = null;
-        String convercao = "";
-        int aux = 0;
-
-        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
-
-        do {
-            linha = br.readLine();
-
-            if (linha != null) {
-                for (int i = 0; i < linha.length(); i++) {
-                    if (linha.charAt(i) == ';') {
-
-                        //<editor-fold defaultstate="collapsed" desc="Switch Casa">
-                        switch (aux) {
-                            case 0:
-                                cod = Integer.parseInt(convercao);
-                                break;
-                            case 1:
-                                numero = Integer.parseInt(convercao);
-                                break;
-                            case 2:
-                                areaTotal = Double.parseDouble(convercao);
-                                break;
-                            case 3:
-                                valor = Double.parseDouble(convercao);
-                                break;
-                            case 4:
-                                logradouro = convercao;
-                                break;
-                            case 5:
-                                bairro = convercao;
-                                break;
-                            case 6:
-                                cidade = convercao;
-                                break;
-                            case 7:
-                                descricao = convercao;
-                                break;
-                            case 8:
-                                tipo = Tipo.verificarTipo(convercao);
-                                break;
-                            case 9:
-                                areaConstruida = Double.parseDouble(convercao);
-                                break;
-                            case 10:
-                                NQuartos = Integer.parseInt(convercao);
-                                break;
-                            case 11:
-                                NVagasGaragem = Integer.parseInt(convercao);
-                                break;
-                            case 12:
-                                anoConstrucao = Integer.parseInt(convercao);
-                                break;
-                        }
-                        //</editor-fold>
-
-                        convercao = "";
-                        aux++;
-                    } else {
-                        convercao += linha.charAt(i);
-                    }
-                }
-
-                Casa casa = new Casa(cod, numero, areaTotal, valor, logradouro, bairro, cidade,
-                        descricao, tipo, areaConstruida, NQuartos, NVagasGaragem, anoConstrucao);
-
-                aux = 0;
-                this.lista.add(casa);
-            }
-
-        } while (linha != null);
-
-        br.close();
-    }
-
-    //</editor-fold>
-    
-    //<editor-fold defaultstate="collapsed" desc="Método para a leitura de um Apartamento">
-    private void lerApartamento() throws FileNotFoundException, IOException {
-        int cod = 0, numero = 0, nroQuartos = 0, vgsGaragem = 0, nroApartamento = 0, andar = 0, anoConstrucao = 0;
-        double areaTotal = 0, valor = 0, valorCondominio = 0;
-        String logradouro = "", bairro = "", cidade = "", descricao = "", linha = "", nomeEdificio = "";
-        int aux = 0;
-        String conversao = "";
-
-        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
-
-        do {
-            linha = br.readLine();
-
-            if (linha != null) {
-                for (int i = 0; i < linha.length(); i++) {
-                    if (linha.charAt(i) == ';') {
-
-                        //<editor-fold defaultstate="collapsed" desc="Switch Terreno">
-                        switch (aux) {
-                            case 0:
-                                cod = Integer.parseInt(conversao);
-                                break;
-                            case 1:
-                                numero = Integer.parseInt(conversao);
-                                break;
-                            case 2:
-                                areaTotal = Double.parseDouble(conversao);
-                                break;
-                            case 3:
-                                valor = Double.parseDouble(conversao);
-                                break;
-                            case 4:
-                                logradouro = conversao;
-                                break;
-                            case 5:
-                                bairro = conversao;
-                                break;
-                            case 6:
-                                cidade = conversao;
-                                break;
-                            case 7:
-                                descricao = conversao;
-                                break;
-                            case 8:
-                                nomeEdificio = conversao;
-                                break;
-                            case 9:
-                                anoConstrucao = Integer.parseInt(conversao);
-                                break;
-                            case 10:
-                                nroApartamento = Integer.parseInt(conversao);
-                                break;
-                            case 11:
-                                nroQuartos = Integer.parseInt(conversao);
-                                break;
-                            case 12:
-                                andar = Integer.parseInt(conversao);
-                                break;
-                            case 13:
-                                valorCondominio = Double.parseDouble(conversao);
-                                break;
-
-                        }
-                        //</editor-fold>
-
-                        conversao = "";
-                        aux++;
-                    } else {
-                        conversao += linha.charAt(i);
-                    }
-                }
-
-                Apartamento apartamento = new Apartamento(cod,cidade, bairro, logradouro, numero,
-                        valor, nomeEdificio, andar, nroApartamento,
-                        anoConstrucao, nroQuartos, vgsGaragem, valorCondominio, descricao, areaTotal);
-
-                aux = 0;
-                this.lista.add(apartamento);
-            }
-
-        } while (linha != null);
-
-        br.close();
-    }
-
-    //</editor-fold>
-    
-    //<editor-fold defaultstate="collapsed" desc="Método para a leitura de uma sala comercial">
-    /**
-     * Método privado para a leitura de arquivos .csv do tipo sala comercial
-     *
-     * @throws FileNotFoundException
-     * @throws IOException
-     */
-    private void lerSalasComerciais() throws FileNotFoundException, IOException {
-        String line, logradouro = "", nomeEdificio = "", descricao = "", bairro = "", cidade = "", convert = "";
-        String[] dados = null;
-        int cod = 0, numero = 0, andar = 0, nroSala = 0, nroBanheiros = 0, aux = 0;
-        double valor = 0, areaTotal = 0, valorCondominio = 0;
-
-        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
-
-        line = br.readLine();
-
-        while (line != null) {
-
-            dados = line.split(";");
-            cod = Integer.parseInt(dados[0]);
-            numero = Integer.parseInt(dados[1]);
-            areaTotal = Double.parseDouble(dados[2]);
-            valor = Double.parseDouble(dados[3]);
-            logradouro = dados[4];
-            bairro = dados[5];
-            cidade = dados[6];
-            descricao = dados[7];
-            nroBanheiros = Integer.parseInt(dados[8]);
-            andar = Integer.parseInt(dados[9]);
-            nroSala = Integer.parseInt(dados[10]);
-            nomeEdificio = dados[11];
-            valorCondominio = Double.parseDouble(dados[12]);
-
-            SalaComercial sala = new SalaComercial(cod, numero, areaTotal, valor, logradouro,
-                    bairro, cidade, descricao, nroBanheiros, andar, nroSala, valorCondominio, nomeEdificio);
-
-            this.lista.add(sala);
-
-            line = br.readLine();
-        }
-
-        br.close();
-    }
-
-    //</editor-fold>
-    
-    //<editor-fold defaultstate="collapsed" desc="Método para ler Chácaras">
-    private void lerChacara() throws FileNotFoundException, IOException {
-        int cod = 0, ano = 0, numero = 0, nroQuartos = 0;
-        double valor = 0, areaTotal = 0, areaConstruida = 0, distanciaCidade = 0;
-        String cidade = " ", bairro = " ", logradouro = " ", descricao = " ", dados;
-        int aux = 0;
-        String[] line;
-
-        BufferedReader br = new BufferedReader(new FileReader(System.getProperty("user.dir") + System.getProperty("file.separator") + this.tipo + ".csv"));
-
-        dados = br.readLine();
-        List<Imovel>listaAux= new ArrayList();
-        while (dados != null) {
-
-            line = dados.split(";");
-
-            cod = Integer.parseInt(line[0]);
-            numero = Integer.parseInt(line[1]);
-            areaTotal = Double.parseDouble(line[2]);
-            valor = Double.parseDouble(line[3]);
-            logradouro = line[4];
-            bairro = line[5];
-            cidade = line[6];
-            descricao = line[7];
-            nroQuartos = Integer.parseInt(line[8]);
-            areaConstruida = Double.parseDouble(line[9]);
-            ano = Integer.parseInt(line[10]);
-            distanciaCidade = Double.parseDouble(line[11]);
-
-            Chacara chacara = new Chacara(cod, numero, valor, cidade, bairro, nroQuartos, areaTotal, areaConstruida, ano, distanciaCidade, logradouro, descricao);
-
-            listaAux.add(chacara);
-
-            dados = br.readLine();
-
-        }
-        lista = listaAux;
-        
-
-        br.close();
-    }
-//</editor-fold>
 
     //<editor-fold defaultstate="collapsed" desc="Arquivos Extras (Gerenciamento do Código)">
     /**
