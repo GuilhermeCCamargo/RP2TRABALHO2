@@ -23,7 +23,7 @@ public class RPList<E> implements List, Serializable{
     
     @Override
     public boolean isEmpty(){
-        return inicio == null;
+        return tamanho == 0;
     }
     
     /**
@@ -65,7 +65,7 @@ public class RPList<E> implements List, Serializable{
             if(!(inicio.getAnt().getInfo().equals(inicio))){
                 No aux = inicio.getProx();
                 cont++;
-                while(aux != inicio){
+                while(!aux.equals(inicio)){
                     if(aux.getInfo().equals(o)){
                         return cont;
                     }
@@ -81,26 +81,6 @@ public class RPList<E> implements List, Serializable{
     @Override
     public int size() {
         return this.tamanho;
-    }
-
-    @Override
-    public boolean contains(Object o) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Iterator iterator() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object[] toArray() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object[] toArray(Object[] a) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -152,7 +132,7 @@ public class RPList<E> implements List, Serializable{
             }
             
             aux = this.inicio.getProx();
-            while(aux != this.inicio){
+            while(!aux.equals(this.inicio)){
                 if(aux.getInfo().equals((E) o)){
                     aux.getAnt().setProx(aux.getProx());
                     aux.getProx().setAnt(aux.getAnt());
@@ -171,6 +151,191 @@ public class RPList<E> implements List, Serializable{
         } else {
             return (E) this.inicio.getAnt().getInfo();
         }
+    }
+    
+    @Override
+    public E get(int index) {
+        No aux = this.inicio;
+        if (index < tamanho && index > -1 && tamanho != 0) {
+            for (int i = 0; i < index; i++) {
+                aux = aux.getProx();
+            }
+            return (E) aux.getInfo();
+        } else {
+            throw new IndexOutOfBoundsException("Indice inválido!");
+        }
+
+    }
+
+    @Override
+    public Object set(int index, Object element) {
+        if(index < 0 || index > size() || tamanho == 0){
+            throw new IndexOutOfBoundsException("Index inválido");
+        }
+        
+        if(element == null){
+            throw new NullPointerException("Elemento nulo");
+        }
+        
+        E previous;
+        No aux = this.inicio;
+        
+        for (int i = 0; i < index; i++) {
+            aux = aux.getProx();
+        }
+        
+        previous = (E) aux.getInfo();
+        aux.setInfo((E) element);
+        
+        return previous;
+    }
+
+    @Override
+    public E remove(int index) {
+        No aux = this.inicio;
+        if (tamanho == 0) {
+            throw new UnsupportedOperationException("Lista vazia");
+        } else if (tamanho == 1 && index == 0) {
+            inicio = null;
+            tamanho--;
+            return (E) aux.getInfo();
+        } else if (index < tamanho && index > -1) {
+            for (int i = 0; i < index; i++) {
+                aux = aux.getProx();
+            }
+            No ant = aux.getAnt();
+            No prox = aux.getProx();
+            ant.setProx(prox);
+            prox.setAnt(ant);
+            tamanho--;
+            return (E) aux.getInfo();
+
+        } else {
+            throw new IndexOutOfBoundsException("Indice inválido!");
+        }
+
+    }
+
+    @Override
+    public boolean contains(Object o) {
+        if(inicio == null || o == null){
+            throw new NullPointerException("Lista ou objeto nulo!");
+        }
+        
+        if(inicio.getInfo().equals((E)o)){
+            return true;
+        }
+        
+        No aux = inicio.getProx();
+        
+        while(!aux.equals(inicio)){
+            if(aux.getInfo().equals((E)o)){
+                return true;
+            }
+            
+            aux = aux.getProx();
+        }
+        
+        return false;
+    }
+    
+    public E getFirst(){
+        if(inicio==null){
+            throw new NoSuchElementException("Lista vazia");
+        }
+        return (E) inicio.getInfo();
+    }
+    
+    public void addFirst(Object o){
+        if(inicio==null){
+            inicio = new No((E)o);
+            inicio.setProx(inicio);
+            inicio.setAnt(inicio);
+        }
+        No add = new No((E)o, inicio, inicio.getAnt());
+        inicio.getAnt().setProx(add);
+        inicio.setAnt(add);
+        inicio = add;
+    }
+    
+    public E removeFirst(){
+        if(inicio==null){
+            throw new NoSuchElementException("Lista vazia!");
+        }
+        No aux = inicio;
+        inicio = inicio.getProx();
+        inicio.setAnt(aux.getAnt());
+        return (E)aux.getInfo();
+    }
+    
+    @Override
+    public void add(int index, Object element) {
+
+        No aux = this.inicio;
+        E elemento = (E) element; 
+        if (element == null) {
+            
+            throw new NullPointerException("Elemento Nulo!");
+            
+        } else if (index == 0 && tamanho == 0) {
+
+            No first = new No(element);
+            inicio=first;
+            inicio.setProx(inicio);
+            inicio.setAnt(inicio);
+            tamanho++;
+        } else if (index == tamanho) {
+            No add = new No(elemento, inicio, inicio.getAnt());
+            inicio.getAnt().setProx(add);
+            inicio.setAnt(add);
+            tamanho++;
+        } else if (index < tamanho || index > -1) {
+            for (int i = 0; i < index; i++) {
+                aux = aux.getProx();
+            }
+
+            No add = new No(elemento, aux, aux.getAnt());
+            aux.getAnt().setProx(add);
+            aux.setAnt(add);
+            tamanho++;
+        } else {
+            throw new IndexOutOfBoundsException("Indice inválido!");
+        }
+
+    }
+    
+    @Override
+    public String toString(){
+        return "size: "+this.tamanho;
+    }
+    
+    //<editor-fold defaultstate="collapsed" desc="Unsupported">
+    
+    @Override
+    public Iterator iterator() {
+        Iterator a = new Iterator() {
+            @Override
+            public boolean hasNext() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+
+            @Override
+            public Object next() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
+        
+        return a;
+    }
+
+    @Override
+    public Object[] toArray() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public Object[] toArray(Object[] a) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
@@ -204,26 +369,6 @@ public class RPList<E> implements List, Serializable{
     }
 
     @Override
-    public Object get(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object set(int index, Object element) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public void add(int index, Object element) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public Object remove(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
     public int lastIndexOf(Object o) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
@@ -242,10 +387,6 @@ public class RPList<E> implements List, Serializable{
     public List subList(int fromIndex, int toIndex) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    @Override
-    public String toString(){
-        return "size: "+this.tamanho;
-    }
+    //</editor-fold>
     
 }
