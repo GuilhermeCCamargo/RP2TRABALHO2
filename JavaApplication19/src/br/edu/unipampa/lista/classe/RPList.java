@@ -16,10 +16,11 @@ import java.util.NoSuchElementException;
  *
  * @author yuryalencar
  */
-public class RPList<E> implements List, Serializable{
+public class RPList<E> implements List<E>, Serializable, Iterator{
     
     private No<E> inicio;
     private int tamanho = 0;
+    private int indic=0;
     
     @Override
     public boolean isEmpty(){
@@ -311,22 +312,7 @@ public class RPList<E> implements List, Serializable{
     
     //<editor-fold defaultstate="collapsed" desc="Unsupported">
     
-    @Override
-    public Iterator iterator() {
-        Iterator a = new Iterator() {
-            @Override
-            public boolean hasNext() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public Object next() {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        };
-        
-        return a;
-    }
+    
 
     @Override
     public Object[] toArray() {
@@ -388,5 +374,29 @@ public class RPList<E> implements List, Serializable{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     //</editor-fold>
+
+    //<editor-fold defaultstate="collapsed" desc="foreach">
+    @Override
+    public Iterator iterator() {
+        indic = 0;
+        return this;
+    }
+
+    @Override
+    public boolean hasNext() {
+        if (indic < tamanho) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public E next() {
+        E a = get(indic);
+        indic++;
+        return a;
+    }
+//</editor-fold>
     
 }
