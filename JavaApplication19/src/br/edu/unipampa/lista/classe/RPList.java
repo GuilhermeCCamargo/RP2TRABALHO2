@@ -323,7 +323,7 @@ public class RPList<E> implements List<E>, Serializable, Iterator{
 
     @Override
     public E next() {
-        E a = get(indic);
+        E a = get(indic++);
         indic++;
         return a;
     }
