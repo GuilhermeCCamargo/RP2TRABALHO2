@@ -8,8 +8,6 @@ package br.edu.unipampa.rp2.frames;
 import java.io.IOException;
 import br.edu.unipampa.rp2.tiposimoveis.Tipo;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import br.edu.unipampa.rp2.listaimoveis.Lista;

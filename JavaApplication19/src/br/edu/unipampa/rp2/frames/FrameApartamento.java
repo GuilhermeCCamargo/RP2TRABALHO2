@@ -14,7 +14,6 @@ import javax.swing.JOptionPane;
 import br.edu.unipampa.rp2.listaimoveis.Lista;
 import br.edu.unipampa.rp2.tiposimoveis.Apartamento;
 import br.edu.unipampa.rp2.tiposimoveis.Imovel;
-import br.edu.unipampa.rp2.tiposimoveis.Tipo;
 
 /**
  *
