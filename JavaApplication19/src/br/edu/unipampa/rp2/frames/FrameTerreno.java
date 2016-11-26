@@ -45,9 +45,8 @@ public class FrameTerreno extends javax.swing.JFrame {
         jButtonEditar.setEnabled(false);
         jButtonExcluir.setEnabled(false);
 
-
         jTabbedPaneGuias.setEnabledAt(1, false);
-        
+
         listar();
     }
 
@@ -514,13 +513,13 @@ public class FrameTerreno extends javax.swing.JFrame {
             } catch (IOException ex) {
                 Logger.getLogger(FrameSalaComercial.class.getName()).log(Level.SEVERE, null, ex);
             }
-                    
+
         } else {
-            try{
+            try {
                 Terreno terreno;
                 terreno = (Terreno) listaTerreno.consultar(codEdit);
                 Terreno newTerreno = terreno.clone();
-                
+
                 newTerreno.setNumero(Integer.parseInt(jTextFieldNumero.getText()));
                 newTerreno.setValor(Double.parseDouble(jTextFieldValor.getText()));
                 newTerreno.setCidade(jTextFieldCidade.getText());
@@ -530,7 +529,7 @@ public class FrameTerreno extends javax.swing.JFrame {
                 newTerreno.setBairro(jTextFieldBairro.getText());
                 newTerreno.setDimensaoFrente(Double.parseDouble(jTextFieldDimencaoF.getText()));
                 newTerreno.setDimensaoLado(Double.parseDouble(jTextFieldDimencaoL.getText()));
-                
+
                 if (listaTerreno.editar(codEdit, newTerreno)) {
                     JOptionPane.showMessageDialog(null, "Editado com sucesso");
                     if (!listaTerreno.escreverArquivo()) {
@@ -538,11 +537,11 @@ public class FrameTerreno extends javax.swing.JFrame {
                     }
                 }
                 limparCampos();
-                listar();    
-            }catch(Exception e){
+                listar();
+            } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, "ERRO 06 - Ocorreu um erro durante a edição");
             }
-            
+
         }
 
     }//GEN-LAST:event_jButtonSalvarActionPerformed
@@ -574,7 +573,7 @@ public class FrameTerreno extends javax.swing.JFrame {
 
     private void jTextFieldCodBuscKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldCodBuscKeyTyped
         // TODO add your handling code here:
-        switch(jComboBoxBusc.getSelectedItem().toString()){
+        switch (jComboBoxBusc.getSelectedItem().toString()) {
             case "Codigo":
                 soNumeros(evt, false);
                 break;
@@ -662,7 +661,7 @@ public class FrameTerreno extends javax.swing.JFrame {
 
     private void jTextFieldCodBuscFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldCodBuscFocusLost
         // TODO add your handling code here:
-        if(jTextFieldCodBusc.getText().trim().equals(".") && jComboBoxBusc.getSelectedItem().toString().equals("Valor")){
+        if (jTextFieldCodBusc.getText().trim().equals(".") && jComboBoxBusc.getSelectedItem().toString().equals("Valor")) {
             jTextFieldCodBusc.setText("");
         }
     }//GEN-LAST:event_jTextFieldCodBuscFocusLost
@@ -674,28 +673,28 @@ public class FrameTerreno extends javax.swing.JFrame {
 
     private void jTextFieldValorFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldValorFocusLost
         // TODO add your handling code here:
-        if(jTextFieldValor.getText().trim().equals(".")){
+        if (jTextFieldValor.getText().trim().equals(".")) {
             jTextFieldValor.setText("");
         }
     }//GEN-LAST:event_jTextFieldValorFocusLost
 
     private void jTextFieldAtotalFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldAtotalFocusLost
         // TODO add your handling code here:
-        if(jTextFieldAtotal.getText().trim().equals(".")){
+        if (jTextFieldAtotal.getText().trim().equals(".")) {
             jTextFieldAtotal.setText("");
         }
     }//GEN-LAST:event_jTextFieldAtotalFocusLost
 
     private void jTextFieldDimencaoLFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDimencaoLFocusLost
         // TODO add your handling code here:
-        if(jTextFieldDimencaoL.getText().trim().equals(".")){
+        if (jTextFieldDimencaoL.getText().trim().equals(".")) {
             jTextFieldDimencaoL.setText("");
         }
     }//GEN-LAST:event_jTextFieldDimencaoLFocusLost
 
     private void jTextFieldDimencaoFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jTextFieldDimencaoFFocusLost
         // TODO add your handling code here:
-        if(jTextFieldDimencaoF.getText().trim().equals(".")){
+        if (jTextFieldDimencaoF.getText().trim().equals(".")) {
             jTextFieldDimencaoF.setText("");
         }
     }//GEN-LAST:event_jTextFieldDimencaoFFocusLost
@@ -720,7 +719,6 @@ public class FrameTerreno extends javax.swing.JFrame {
         return Integer.parseInt(cod);
     }
 
-    
     private void preencherCampos(int cod) {
         Terreno imovel = (Terreno) listaTerreno.consultar(cod);
         jTextFieldCidade.setText(imovel.getCidade());
@@ -932,52 +930,37 @@ public void listarCodigo(int cod) {
     public void listarValor(double valor) {
         DefaultListModel listModel = new DefaultListModel();
         List<Imovel> terrenoValor = listaTerreno.pesquisaValor(valor);
-        if (terrenoValor == null) {
+        if (!terrenoValor.isEmpty()) {
             for (Imovel home : terrenoValor) {
                 listModel.addElement(home);
 
             }
-            jList1.setModel(listModel);
         } else {
-
-            if (terrenoValor != null) {
-                for (Imovel home : terrenoValor) {
-                    listModel.addElement(home);
-
-                }
-                jList1.setModel(listModel);
-            } else {
-
-                jList1.setModel(listModel);
-
+            for (Imovel imovel : terrenoValor) {
+                listModel.addElement(imovel);
             }
-
         }
+        jList1.setModel(listModel);
 
     }
 
     private void listarBairro(String bairro) {
         DefaultListModel listModel = new DefaultListModel();
         List<Imovel> terreno;
-        List<Imovel> terrenoBairro = new ArrayList();
         terreno = listaTerreno.getLista();
         if (bairro.equals("")) {
             for (Imovel terrenoB : terreno) {
                 listModel.addElement(terrenoB);
-
             }
-            jList1.setModel(listModel);
         } else {
             terreno = listaTerreno.pesquisaBairro(bairro);
             if (terreno != null) {
                 for (Imovel terrenoB : terreno) {
-                    
                     listModel.addElement(terrenoB);
                 }
-                jList1.setModel(listModel);
-            } else {
-                jList1.setModel(listModel);
             }
         }
+        jList1.setModel(listModel);
+
     }
 }

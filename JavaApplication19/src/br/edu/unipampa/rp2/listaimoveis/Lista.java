@@ -275,9 +275,9 @@ public class Lista implements ListaImoveis {
 
     @Override
     public List<Imovel> pesquisaValor(double valor) {
-        List<Imovel> listaValor = new ArrayList();
+        List<Imovel> listaValor = new RPList();
         for (Imovel imovel : this.lista) {
-            if(imovel.getValor() <=  valor){
+            if(imovel.getValor() >=  valor){
                 listaValor.add(imovel);
             }
         }
@@ -287,7 +287,7 @@ public class Lista implements ListaImoveis {
     @Override
     public List<Imovel> pesquisaBairro(String bairro) {
 
-        List<Imovel> listaBairro = new ArrayList();
+        List<Imovel> listaBairro = new RPList();
         for (Imovel imovel : this.lista) {
             if(imovel.getBairro().trim().toLowerCase().contains(bairro.toLowerCase().trim())){
                 listaBairro.add(imovel);

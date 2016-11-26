@@ -15,6 +15,7 @@ import java.util.NoSuchElementException;
 /**
  *
  * @author yuryalencar
+ * @param <E>
  */
 public class RPList<E> implements List<E>, Serializable, Iterator{
     
