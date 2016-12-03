@@ -35,11 +35,7 @@ public class FrameApartamento extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
 
         this.setTitle("Imobiliária - Apartamento");
-        if (listaApartamento.lerArquivo()) {
-        } else {
-            JOptionPane.showMessageDialog(null, "Arquivo não encontrado!");
-        }
-
+        listaApartamento.lerArquivo();
         this.listaApartamento = listaApartamento;
         
         try {

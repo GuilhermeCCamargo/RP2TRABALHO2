@@ -608,15 +608,14 @@ public class FrameTerreno extends javax.swing.JFrame {
         int cod = getCod(jList1.getSelectedValue().toString());
         if (listaTerreno.excluir(cod)) {
             JOptionPane.showMessageDialog(this, "Excluido com sucesso.");
-            if (listaTerreno.escreverArquivo()) {
-                JOptionPane.showMessageDialog(null, "Alterações e exclusão Bem Sucedida!");
-            } else {
-                JOptionPane.showMessageDialog(null, "Não foi alterado ERROR!");
+            if (!listaTerreno.escreverArquivo()) {
+                JOptionPane.showMessageDialog(null, "Não foi alterado o documento de armazenamento ERROR!");
             }
 
         } else {
             JOptionPane.showMessageDialog(this, "Erro ao excluir.");
         }
+        listar();
 
     }//GEN-LAST:event_jButtonExcluirActionPerformed
 
