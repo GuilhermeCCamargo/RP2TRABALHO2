@@ -170,8 +170,8 @@ public class RPList<E> implements List<E>, Serializable, Iterator{
     }
 
     @Override
-    public Object set(int index, Object element) {
-        if(index < 0 || index > size() || tamanho == 0){
+    public E set(int index, E element) {
+        if(index < 0 || index >= size()){
             throw new IndexOutOfBoundsException("Index inválido");
         }
         
@@ -253,11 +253,12 @@ public class RPList<E> implements List<E>, Serializable, Iterator{
             inicio = new No((E)o);
             inicio.setProx(inicio);
             inicio.setAnt(inicio);
+        } else {
+            No add = new No((E)o, inicio, inicio.getAnt());
+            inicio.getAnt().setProx(add);
+            inicio.setAnt(add);
+            inicio = add;
         }
-        No add = new No((E)o, inicio, inicio.getAnt());
-        inicio.getAnt().setProx(add);
-        inicio.setAnt(add);
-        inicio = add;
     }
     
     public E removeFirst(){
